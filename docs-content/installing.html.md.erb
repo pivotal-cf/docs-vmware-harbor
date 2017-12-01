@@ -1,20 +1,20 @@
 ---
-title: Installing and Configuring the Harbor Integration for PKS
+title: Installing and Configuring VMware Harbor Registry
 owner: Partners
 ---
 
-This topic describes how to install and configure the the Harbor integration for Pivotal Cloud Foundry (PCF). After you install and configure the Harbor integration, you must provide the Harbor CA certificate to Ops Manager so that Pivotal Container Service (PKS) clusters can push and pull images to and from Harbor.
+This topic describes how to install and configure the VMware Harbor Registry. After you install and configure Harbor, you must provide the Harbor CA certificate to Ops Manager so that Pivotal Container Service (PKS) clusters can push and pull images to and from Harbor.
 
-- [Install and Configure the Harbor Integration for PCF](#install)
+- [Install and Configure VMware Harbor Registry](#install)
 - [Provide the Harbor CA Certificate to Ops Manager](#cacert)
 
-##<a id='install'></a> Install and Configure the Harbor Integration for PCF
+##<a id='install'></a> Install and Configure VMware Harbor Registry
 
 1. Download the file for the Harbor tile from [Pivotal Network](https://network.pivotal.io/).
 
 1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file. 
 
-1. Under the **Import a Product** button, click **+** next to the version number of the Harbor Integration for PKS. 
+1. Under the **Import a Product** button, click **+** next to the version number of VMware Harbor Registry. 
 This adds the tile to your staging area.
 
 1. Click the newly added **Harbor** tile. 
@@ -68,7 +68,7 @@ This adds the tile to your staging area.
 
 2. Click **Stemcell**.
 
-    If the version of the Harbor integration that you are installing requires a more recent version of the BOSH stemcell than is currently deployed in Ops Manager, perform the following steps:
+    If the version of the Harbor tile that you are installing requires a more recent version of the BOSH stemcell than is currently deployed in Ops Manager, perform the following steps:
    
     1. Download the new version of the stemcell from [Pivotal Network](https://network.pivotal.io/).
     2. Click **Import Stemcell** to import the new version.
