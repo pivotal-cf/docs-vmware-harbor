@@ -43,7 +43,7 @@ This adds the tile to your staging area.
 
     You can use either a custom certificate or an automatically generated certificate.
  
-    - To use a custom signed certificate from a third-party Certificate Authority (CA), paste the contents of the certificate and key files into the text boxes. The certificate CN or SAN must match the DNS resolvable domain name that you used when you specified the host name for Harbor. 
+    - To use a custom signed certificate from a third-party Certificate Authority (CA), paste the contents of the certificate and key files into the text boxes. The certificate CN or SAN must match the DNS resolvable domain name that you used when you specified the host name for Harbor. Certificates must be in PEM-encoded format.
     - To use a certificate that Ops Manager generates automatically, perform the following steps:
       1. Click **Change** then click **Generate RSA Certificate**. 
       2. Enter a domain name wildcard in the **Generate RSA Certificate** text box, for use as the certificate SAN. The domain name wildcard must match  the DNS resolvable domain name that you used when you specified the host name for Harbor.
