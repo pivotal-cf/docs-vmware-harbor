@@ -6,7 +6,7 @@ owner: Partners
 This topic describes how to install and configure the VMware Harbor Registry. After you install and configure Harbor, you must provide the Harbor CA certificate to Ops Manager so that Pivotal Container Service (PKS) clusters can push and pull images to and from Harbor.
 
 - [Install and Configure VMware Harbor Registry](#install)
-- [Provide the Harbor CA Certificate to Ops Manager](#cacert)
+- [Integration with Pivotal Container Service (PKS)](#cacert)
 
 ##<a id='install'></a> Install and Configure VMware Harbor Registry
 
@@ -81,9 +81,9 @@ When the deployment finishes, you find information about the Harbor instance in 
 - Select the **Credentials** tab to see the credentials for the Clair and Harbor databases, the password for the Harbor admin account, and  credentials for SSH access to the Harbor VM.  
 - Select the **Logs** tab to generate and download log bundles.
 
-##<a id='cacert'></a> Provide the Harbor CA Certificate to PCF Ops Manager
+##<a id='cacert'></a> Integration with Pivotal Container Service (PKS)
 
-In order for PKS clusters to pull images from and push images to Harbor, PKS must authenticate connections to Harbor. Consequently, you must provide the Harbor CA certificate to PCF Ops Manager.
+In order for Pivotal Container Service (PKS) clusters to pull images from and push images to Harbor, PKS must authenticate connections to Harbor. Consequently, you must provide the Harbor CA certificate to PCF Ops Manager.
 
 1. Obtain the Harbor CA certificate file.
 
