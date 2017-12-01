@@ -1,28 +1,101 @@
 ---
-title: Installing and Configuring the Harbor Tile for PKS
+title: Installing and Configuring the Harbor Integration for PKS
 owner: Partners
 ---
 
-This topic describes how to install and configure the Harbor Tile for PKS.
+This topic describes how to install and configure the the Harbor integration for Pivotal Cloud Foundry (PCF). After you install and configure the Harbor integration, you must provide the Harbor CA certificate to Ops Manager so that Pivotal Container Service (PKS) clusters can push and pull images to and from Harbor.
 
-##<a id='install'></a> Install and Configure the Harbor Tile for PKS
+- [Install and Configure the Harbor Integration for PCF](#install)
+- [Provide the Harbor CA Certificate to Ops Manager](#cacert)
 
-1. Download the product file from Pivotal Network.
+##<a id='install'></a> Install and Configure the Harbor Integration for PCF
+
+1. Download the file for the Harbor tile from [Pivotal Network](https://network.pivotal.io/).
 
 1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file. 
 
-1. Under the **Import a Product** button, click **+** next to the version number of Harbor Tile for PKS. 
+1. Under the **Import a Product** button, click **+** next to the version number of the Harbor Integration for PKS. 
 This adds the tile to your staging area.
 
-1. Click the newly added **Harbor Tile for PKS** tile.
+1. Click the newly added **Harbor** tile. 
 
-1. **This portion of the procedure should tell the users how to configure the newly added tile by
-walking them through the sections. Which fields should they fill out? What are the different
-checkboxes? Include relevant screenshots here.** 
+1. Click **Assign AZs and Networks**. 
+
+2. Select the network on which to deploy Harbor and click **Save**. 
+
+    It is recommended to use the PKS control network, and not the network on which PKS deploys services.
+
+2. Click **Harbor Configurations**.
+   
+    3. Enter a host name to use for the Harbor host. The host name must include a domain and must be resolvable by DNS.
+
+    4. Set **HTTP Protocol** to **HTTPS**. 
+
+        Harbor does not support connections over HTTP.
+
+    5. Set a password for the Harbor admin account. 
+
+        You cannot change the admin password in PCF Ops Manager after you set it. You use the Harbor interface to make subsequent changes to the password after deployment.
+
+    1. Click **Save**.
+
+2. Click **Certficate**.
+
+    You can use either a custom certificate or an automatically generated certificate.
+ 
+    - To use a custom signed certificate from a third-party Certificate Authority (CA), paste the contents of the certificate and key files into the text boxes. The certificate CN or SAN must match the DNS resolvable domain name that you used when you specified the host name for Harbor. 
+    - To use a certificate that Ops Manager generates automatically, perform the following steps:
+      1. Click **Change** then click **Generate RSA Certificate**. 
+      2. Enter a domain name wildcard in the **Generate RSA Certificate** text box, for use as the certificate SAN. The domain name wildcard must match  the DNS resolvable domain name that you used when you specified the host name for Harbor.
+
+    For example, if you set the Harbor host name to `harbor.mycompany.com`, the SAN in a custom certificate or the domain name wildcard that you enter in the **Generate RSA Certificate** text box must be `*.mycompany.com`. 
 
 1. Click **Save**.
 
-1. Return to the Ops Manager Installation Dashboard and click **Apply changes** to install Harbor Tile for PKS tile.
+2. Click **Clair Settings**, optionally check the **Install Clair** check box to enable vulnerability scanning of images, and click **Save**.
 
-**If needed, include additional configuration information below. For example, maybe there are
-configuration options not required for installation but which could be useful for certain users.**
+5. Click **Notary Settings**, optionally check the **Install Notary** check box to enable content trust with Docker Notary, and click **Save**.
+ 
+6. Click **Resource Config**.
+
+    You can optionally change the configuration of the Harbor application from the default. For example, for deployments that will manage large numbers of Docker images, increase the storage capacity and select a VM type that has greater CPU capacity and  more RAM.
+ 
+    - **Instances**: Do not change this value. PCF only supports one Harbor instance.
+    - **Persistent Disk Type**: Optionally increase or decrease the storage capacity of the Harbor disk. 
+    - **VM Type**: Optionally select a VM type that more or less CPU capacity and RAM.
+
+1. Click **Save**.
+
+2. Click **Stemcell**.
+
+    If the version of the Harbor integration that you are installing requires a more recent version of the BOSH stemcell than is currently deployed in Ops Manager, perform the following steps:
+   
+    1. Download the new version of the stemcell from [Pivotal Network](https://network.pivotal.io/).
+    2. Click **Import Stemcell** to import the new version.
+
+1. Return to the Ops Manager Installation Dashboard and click **Apply changes** to install the Harbor for PCF tile.
+
+When the deployment finishes, you find information about the Harbor instance in the **Harbor** tile in Ops Manager. 
+
+- Select the **Status** tab to see the IP address of the Harbor host and status information.
+- Select the **Credentials** tab to see the credentials for the Clair and Harbor databases, the password for the Harbor admin account, and  credentials for SSH access to the Harbor VM.  
+- Select the **Logs** tab to generate and download log bundles.
+
+##<a id='cacert'></a> Provide the Harbor CA Certificate to PCF Ops Manager
+
+In order for PKS clusters to pull images from and push images to Harbor, PKS must authenticate connections to Harbor. Consequently, you must provide the Harbor CA certificate to PCF Ops Manager.
+
+1. Obtain the Harbor CA certificate file.
+
+ - If you used a third party CA to sign the Harbor certificate, obtain the CA certificate from your third-party CA.
+ - If you used an automatically generated certificate for Harbor, perform the following steps:
+
+        1. Navigate to the PCF Ops Manager Installation Dashboard.
+        2. Click your user name in the PCF Ops Manager banner and select **Settings**.
+        2. Click **Advanced**.
+        3. Click **Download Root CA Cert**.
+2. In the PCF Ops Manager Installation Dashboard, click the **Ops Manager Director** tile.
+2. Click **Security**.
+3. Open the CA certificate file in a text editor.
+4. Copy the content of the CA certificate file and paste it into the **Trusted Certificates** text box.
+4. Click **Save**.
