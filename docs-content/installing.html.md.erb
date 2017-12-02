@@ -5,50 +5,42 @@ owner: Partners
 
 This topic describes how to install and configure the VMware Harbor Registry. After you install and configure Harbor, you must provide the Harbor CA certificate to Ops Manager so that Pivotal Container Service (PKS) clusters can push and pull images to and from Harbor.
 
-- [Install and Configure VMware Harbor Registry](#install)
-- [Integration with Pivotal Container Service (PKS)](#cacert)
-
-##<a id='install'></a> Install and Configure VMware Harbor Registry
+##<a id='install'></a> Install VMware Harbor Registry
 
 1. Download the file for the Harbor tile from [Pivotal Network](https://network.pivotal.io/).
 
 1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file. 
 
-1. Under the **Import a Product** button, click **+** next to the version number of VMware Harbor Registry. 
-This adds the tile to your staging area.
+1. Below the **Import a Product** button, click the **+** button next to the VMware Harbor Registry version number to add the tile to your staging area.
 
-1. Click the newly added **Harbor** tile. 
+1. Click the **Harbor** tile. 
 
 1. Click **Assign AZs and Networks**. 
 
-2. Select the network on which to deploy Harbor and click **Save**. 
+2. Select the network on which to deploy Harbor and click **Save**.
+    <p class="note"><strong>Note</strong>: Harbor recommends selecting the PKS control network and not the network on which PKS deploys services.</p>
 
-    It is recommended to use the PKS control network, and not the network on which PKS deploys services.
+##<a id='configure'></a> Configure VMware Harbor Registry
 
-2. Click **Harbor Configurations**.
-   
-    3. Enter a host name to use for the Harbor host. The host name must include a domain and must be resolvable by DNS.
+1. Click **Harbor Configurations**.
 
-    4. Set **HTTP Protocol** to **HTTPS**. 
+1. Enter a hostname to use for the Harbor host. The hostname must include a domain and must be resolvable by DNS.
 
-        Harbor does not support connections over HTTP.
+1. Set **HTTP Protocol** to **HTTPS**. Harbor does not support connections over HTTP.
 
-    5. Set a password for the Harbor admin account. 
+1. Set a password for the Harbor admin account. You cannot change the admin password in PCF Ops Manager after you set it. You use the Harbor interface to make subsequent changes to the password after deployment.
 
-        You cannot change the admin password in PCF Ops Manager after you set it. You use the Harbor interface to make subsequent changes to the password after deployment.
+1. Click **Save**.
 
-    1. Click **Save**.
-
-2. Click **Certficate**.
-
-    You can use either a custom certificate or an automatically generated certificate.
- 
-    - To use a custom signed certificate from a third-party Certificate Authority (CA), paste the contents of the certificate and key files into the text boxes. The certificate CN or SAN must match the DNS resolvable domain name that you used when you specified the host name for Harbor. Certificates must be in PEM-encoded format.
-    - To use a certificate that Ops Manager generates automatically, perform the following steps:
-      1. Click **Change** then click **Generate RSA Certificate**. 
-      2. Enter a domain name wildcard in the **Generate RSA Certificate** text box, for use as the certificate SAN. The domain name wildcard must match  the DNS resolvable domain name that you used when you specified the host name for Harbor.
-
-    For example, if you set the Harbor host name to `harbor.mycompany.com`, the SAN in a custom certificate or the domain name wildcard that you enter in the **Generate RSA Certificate** text box must be `*.mycompany.com`. 
+1. Click **Certificate**. You can use either a custom certificate or an automatically generated certificate.
+  - To use a custom signed certificate from a third-party Certificate Authority (CA), perform the following steps:
+      1. Paste the contents of the certificate file into the certificate field. Certificates must be in PEM-encoded format. The certificate CN or SAN must match the DNS-resolvable domain name that you used when you specified the hostname for Harbor.
+      1. Paste the contents of the key file into the key field.<br><br>
+  - To use a certificate that Ops Manager generates automatically, perform the following steps:
+     1. Click **Change**.
+     1. Click **Generate RSA Certificate**.
+     1. Enter a domain name wildcard in the **Generate RSA Certificate** field. The domain name wildcard must match the DNS resolvable domain name that you used when you specified the hostname for Harbor.<br><br>
+     For example, if you set the Harbor hostname to `harbor.mycompany.com`, enter `*.mycompany.com` in the **Generate RSA Certificate** field. 
 
 1. Click **Save**.
 

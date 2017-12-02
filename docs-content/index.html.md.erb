@@ -9,23 +9,26 @@ The VMware Harbor Registry tile is currently in beta and is intended for evaluat
 Do not use this product in a PKS production environment.
 </p>
 
-VMware Harbor Registry is an enterprise-class registry server that stores and distributes container images. Harbor allows you to store and manage images for use with Pivotal Container Service (PKS).   
+VMware Harbor Registry is an enterprise-class registry server that stores and distributes container images.
+Harbor allows you to store and manage images for use with Pivotal Container Service (PKS).
 
-## <a id='overview'></a>Overview
+## <a id="overview"></a>Overview
 
-Harbor extends the open source Docker Distribution by adding the functionalities usually required by an enterprise, such as security, identity and management. As an enterprise private registry, Harbor offers enhanced performance and security. Having a registry that is deployed alongside the PKS environment improves image transfer efficiency.
+Harbor extends the open source Docker Distribution by adding the functionalities usually required by an enterprise, such as security, identity and management.
+As an enterprise private registry, Harbor offers enhanced performance and security.
+Having a registry that is deployed alongside the PKS environment improves image transfer efficiency.
 
-## <a id='features'></a>Key Features
+## <a id="features"></a>Key Features
 
 Harbor includes the following key features:
 
-* **Role based access control**: Users and repositories are organized into projects. Users can have different permissions for the images in different projects.
-* **Policy based image replication**: Images can be replicated (synchronized) between multiple registry instances, with auto-retry on errors. Great for load balancing, high availability, multi-datacenter, hybrid and multi-cloud scenarios.
+* **Role-Based Access Control**: Users and repositories are organized into projects. Users can have different permissions for the images in different projects.
+* **Policy-Based Image Replication**: Images can be synchronized between multiple registry instances with auto-retry on errors. This feature is ideal for load balancing, high availability, multi-datacenter, hybrid, and multi-cloud scenarios.
 * **Vulnerability Scanning**: Harbor uses [Clair](https://github.com/coreos/clair) to scan images regularly and warn users of vulnerabilities.
-* **LDAP/AD support**: Harbor integrates with existing enterprise LDAP/AD for user authentication and management.
-* **Image deletion & garbage collection**: Images can be deleted and their space can be recycled. 
+* **LDAP/Active Directory (AD) Support**: Harbor integrates with an existing enterprise LDAP/AD configuration for user authentication and management.
+* **Image Deletion and Garbage Collection**: Images can be deleted and their space can be recycled. 
 * **Notary**: Image authenticity can be ensured by using Docker Notary. 
-* **Graphical user portal**: Users can easily browse, search repositories, and manage projects.
+* **Graphical User Portal**: Users can easily browse, search repositories, and manage projects.
 * **Auditing**: All the operations to the repositories are tracked.
 * **RESTful API**: RESTful APIs for most administrative operations, easy to integrate with external systems. 
 
@@ -73,14 +76,13 @@ There are no special requirements for deploying VMware Harbor Registry.
 ## <a id="limitations"></a>Limitations
 
 * You can only configure the authentication source once. You cannot change between UAA, LDAP, or local authentication after the initial deployment.
-* Support for LDAP direct is experimental in version 0.8.
+* Support for LDAP Direct is experimental in version 0.8.
 * You cannot upgrade the Harbor tile. 
 
 ## <a id="feedback"></a>Feedback
 
-If you have a feature request, questions, or information about a bug, please email
-[Pivotal Cloud Foundry Feedback](mailto:pivotal-cf-feedback@pivotal.io) list or send an email to harbor at vmware.com.
+If you have a feature request, questions, or information about a bug, please contact [Pivotal Cloud Foundry Feedback](mailto:pivotal-cf-feedback@pivotal.io) or send an email to [Harbor](mailto:harbor@vmware.com).
 
-## <a id='license'></a>License
+## <a id="license"></a>License
 
 Harbor is available under the [Apache 2 license](https://github.com/vmware/harbor/blob/master/LICENSE).
