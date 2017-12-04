@@ -22,7 +22,7 @@ This topic describes how to install and configure the VMware Harbor Registry. Af
 
 ##<a id='configure'></a> Configure VMware Harbor Registry
 
-1. Click **Harbor Configurations**.
+1. In the Harbor tile, click **Harbor Configurations**.
 
 1. Enter a hostname to use for the Harbor host. The hostname must include a domain and must be resolvable by DNS.
 
@@ -32,7 +32,7 @@ This topic describes how to install and configure the VMware Harbor Registry. Af
 
 1. Click **Save**.
 
-1. Click **Certificate**. You can use either a custom certificate or an automatically generated certificate.
+1. Click **Certificate**. You can use either a custom signed certificate or an automatically generated certificate.
   - To use a custom signed certificate from a third-party Certificate Authority (CA), perform the following steps:
       1. Paste the contents of the certificate file into the certificate field. Certificates must be in PEM-encoded format. The certificate CN or SAN must match the DNS-resolvable domain name that you used when you specified the hostname for Harbor.
       1. Paste the contents of the key file into the key field.<br><br>
@@ -44,28 +44,32 @@ This topic describes how to install and configure the VMware Harbor Registry. Af
 
 1. Click **Save**.
 
-2. Click **Clair Settings**, optionally check the **Install Clair** check box to enable vulnerability scanning of images, and click **Save**.
+1. **(Optional)** To enable image vulnerability scanning, click **Clair Settings**. Select **Install Clair** and click **Save**.
 
-5. Click **Notary Settings**, optionally check the **Install Notary** check box to enable content trust with Docker Notary, and click **Save**.
- 
-6. Click **Resource Config**.
+1. **(Optional)** To enable content trust with Docker Notary, click **Notary Settings**.
+Select **Install Notary** and click **Save**.
 
-    You can optionally change the configuration of the Harbor application from the default. For example, for deployments that will manage large numbers of Docker images, increase the storage capacity and select a VM type that has greater CPU capacity and  more RAM.
- 
-    - **Instances**: Do not change this value. PCF only supports one Harbor instance.
-    - **Persistent Disk Type**: Optionally increase or decrease the storage capacity of the Harbor disk. 
-    - **VM Type**: Optionally select a VM type that more or less CPU capacity and RAM.
+1. **(Optional)** Click **Resource Config**.<br><br>
+To change the configuration of the Harbor tile, edit the following properties:
+    - **Instances**: Do not change this value. PCF supports one Harbor instance only.
+    - **Persistent Disk Type**: Increase or decrease the storage capacity of the Harbor disk. 
+    - **VM Type**: Select a VM type with more or less CPU capacity and RAM.
+
+    For example, if your deployment manages a large number of Docker images, increase the storage capacity and select a VM type that has greater CPU capacity and more RAM.
 
 1. Click **Save**.
 
-2. Click **Stemcell**.
-
-    If the version of the Harbor tile that you are installing requires a more recent version of the BOSH stemcell than is currently deployed in Ops Manager, perform the following steps:
+1. Click **Stemcell**.<br><br>
+    If the version of the Harbor tile that you are installing requires a more recent stemcell version than is currently deployed in Ops Manager, perform the following steps:
    
     1. Download the new version of the stemcell from [Pivotal Network](https://network.pivotal.io/).
     2. Click **Import Stemcell** to import the new version.
 
-1. Return to the Ops Manager Installation Dashboard and click **Apply changes** to install the Harbor for PCF tile.
+1. Return to the Ops Manager Installation Dashboard.
+
+1. Click **Apply Changes** to install the Harbor for PCF tile.
+
+### <a id='post-deploy'></a>View VMware Harbor Registry Information
 
 When the deployment finishes, you find information about the Harbor instance in the **Harbor** tile in Ops Manager. 
 
@@ -75,19 +79,20 @@ When the deployment finishes, you find information about the Harbor instance in 
 
 ##<a id='cacert'></a> Integration with Pivotal Container Service (PKS)
 
-In order for Pivotal Container Service (PKS) clusters to pull images from and push images to Harbor, PKS must authenticate connections to Harbor. Consequently, you must provide the Harbor CA certificate to PCF Ops Manager.
+In order for Pivotal Container Service (PKS) clusters to pull images from and push images to Harbor, PKS must authenticate connections to Harbor.
+Consequently, you must provide the Harbor CA certificate to Ops Manager.
 
 1. Obtain the Harbor CA certificate file.
 
- - If you used a third party CA to sign the Harbor certificate, obtain the CA certificate from your third-party CA.
- - If you used an automatically generated certificate for Harbor, perform the following steps:
+  - If you used a third party CA to sign the Harbor certificate, obtain the CA certificate from your third-party CA.
+  - If you used an automatically generated certificate for Harbor, perform the following steps:
+     1. Navigate to the Ops Manager Installation Dashboard.
+     2. Click your username in the Ops Manager banner and select **Settings**.
+     2. Click **Advanced**.
+     3. Click **Download Root CA Cert**.
 
-        1. Navigate to the PCF Ops Manager Installation Dashboard.
-        2. Click your user name in the PCF Ops Manager banner and select **Settings**.
-        2. Click **Advanced**.
-        3. Click **Download Root CA Cert**.
-2. In the PCF Ops Manager Installation Dashboard, click the **Ops Manager Director** tile.
-2. Click **Security**.
-3. Open the CA certificate file in a text editor.
-4. Copy the content of the CA certificate file and paste it into the **Trusted Certificates** text box.
-4. Click **Save**.
+1. From the Ops Manager Installation Dashboard, click the **Ops Manager Director** tile.
+1. Click **Security**.
+1. Open the CA certificate file in a text editor.
+1. Copy and paste the contents of the CA certificate file into the **Trusted Certificates** field.
+1. Click **Save**.
