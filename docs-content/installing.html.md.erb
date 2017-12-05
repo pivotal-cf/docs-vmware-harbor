@@ -3,7 +3,9 @@ title: Installing and Configuring VMware Harbor Registry
 owner: Partners
 ---
 
-This topic describes how to install and configure the VMware Harbor Registry. After you install and configure Harbor, you must provide the Harbor CA certificate to Ops Manager so that Pivotal Container Service (PKS) clusters can push and pull images to and from Harbor.
+This topic describes how to install and configure the VMware Harbor Registry.
+After you install and configure Harbor,
+you must provide the Harbor CA certificate to Ops Manager so that Pivotal Container Service (PKS) clusters can push and pull images to and from Harbor.
 
 ##<a id='install'></a> Install VMware Harbor Registry
 
@@ -18,33 +20,44 @@ This topic describes how to install and configure the VMware Harbor Registry. Af
 1. Click **Assign AZs and Networks**. 
 
 2. Select the network on which to deploy Harbor and click **Save**.
-    <p class="note"><strong>Note</strong>: Harbor recommends selecting the PKS control network and not the network on which PKS deploys services.</p>
+    <p class="note"><strong>Note</strong>: Harbor recommends selecting the PKS control network
+       and not the network on which PKS deploys services.</p>
 
 ##<a id='configure'></a> Configure VMware Harbor Registry
 
 1. In the Harbor tile, click **Harbor Configurations**.
 
-1. Enter a hostname to use for the Harbor host. The hostname must include a domain and must be resolvable by DNS.
+1. Enter a hostname to use for the Harbor host.
+   The hostname must include a domain and must be resolvable by DNS.
 
 1. Set **HTTP Protocol** to **HTTPS**. Harbor does not support connections over HTTP.
 
-1. Set a password for the Harbor admin account. You cannot change the admin password in PCF Ops Manager after you set it. You use the Harbor interface to make subsequent changes to the password after deployment.
+1. Set a password for the Harbor admin account.
+   You cannot change the admin password in Ops Manager after you set it.
+   You use the Harbor interface to make subsequent changes to the password after deployment.
 
 1. Click **Save**.
 
 1. Click **Certificate**. You can use either a custom signed certificate or an automatically generated certificate.
   - To use a custom signed certificate from a third-party Certificate Authority (CA), perform the following steps:
-      1. Paste the contents of the certificate file into the certificate field. Certificates must be in PEM-encoded format. The certificate CN or SAN must match the DNS-resolvable domain name that you used when you specified the hostname for Harbor.
+      1. Paste the contents of the certificate file into the certificate field.
+         Certificates must be in PEM-encoded format.
+         The certificate CN or SAN must match the DNS-resolvable domain name
+         that you used when you specified the hostname for Harbor.
       1. Paste the contents of the key file into the key field.<br><br>
   - To use a certificate that Ops Manager generates automatically, perform the following steps:
      1. Click **Change**.
      1. Click **Generate RSA Certificate**.
-     1. Enter a domain name wildcard in the **Generate RSA Certificate** field. The domain name wildcard must match the DNS resolvable domain name that you used when you specified the hostname for Harbor.<br><br>
-     For example, if you set the Harbor hostname to `harbor.mycompany.com`, enter `*.mycompany.com` in the **Generate RSA Certificate** field. 
+     1. Enter a domain name wildcard in the **Generate RSA Certificate** field.
+        The domain name wildcard must match the DNS resolvable domain name
+        that you used when you specified the hostname for Harbor.<br><br>
+     For example, if you set the Harbor hostname to `harbor.mycompany.com`,
+     enter `*.mycompany.com` in the **Generate RSA Certificate** field. 
 
 1. Click **Save**.
 
-1. **(Optional)** To enable image vulnerability scanning, click **Clair Settings**. Select **Install Clair** and click **Save**.
+1. **(Optional)** To enable image vulnerability scanning, click **Clair Settings**.
+     Select **Install Clair** and click **Save**.
 
 1. **(Optional)** To enable content trust with Docker Notary, click **Notary Settings**.
 Select **Install Notary** and click **Save**.
@@ -55,12 +68,14 @@ To change the configuration of the Harbor tile, edit the following properties:
     - **Persistent Disk Type**: Increase or decrease the storage capacity of the Harbor disk. 
     - **VM Type**: Select a VM type with more or less CPU capacity and RAM.
 
-    For example, if your deployment manages a large number of Docker images, increase the storage capacity and select a VM type that has greater CPU capacity and more RAM.
+    For example, if your deployment manages a large number of Docker images,
+    increase the storage capacity and select a VM type that has greater CPU capacity and more RAM.
 
 1. Click **Save**.
 
 1. Click **Stemcell**.<br><br>
-    If the version of the Harbor tile that you are installing requires a more recent stemcell version than is currently deployed in Ops Manager, perform the following steps:
+    If the version of the Harbor tile that you are installing requires a more recent stemcell version
+    than is currently deployed in Ops Manager, perform the following steps:
    
     1. Download the new version of the stemcell from [Pivotal Network](https://network.pivotal.io/).
     2. Click **Import Stemcell** to import the new version.
@@ -74,18 +89,19 @@ To change the configuration of the Harbor tile, edit the following properties:
 When the deployment finishes, you find information about the Harbor instance in the **Harbor** tile in Ops Manager. 
 
 - Select the **Status** tab to see the IP address of the Harbor host and status information.
-- Select the **Credentials** tab to see the credentials for the Clair and Harbor databases, the password for the Harbor admin account, and  credentials for SSH access to the Harbor VM.  
+- Select the **Credentials** tab to see the credentials for the Clair and Harbor databases,
+  the password for the Harbor admin account, and  credentials for SSH access to the Harbor VM.  
 - Select the **Logs** tab to generate and download log bundles.
 
 ##<a id='cacert'></a> Integration with Pivotal Container Service (PKS)
 
-In order for Pivotal Container Service (PKS) clusters to pull images from and push images to Harbor, PKS must authenticate connections to Harbor.
+For Pivotal Container Service (PKS) clusters to pull images from and push images to Harbor,
+PKS must authenticate connections to Harbor.
 Consequently, you must provide the Harbor CA certificate to Ops Manager.
 
 1. Obtain the Harbor CA certificate file.
-
-  - If you used a third party CA to sign the Harbor certificate, obtain the CA certificate from your third-party CA.
-  - If you used an automatically generated certificate for Harbor, perform the following steps:
+    - If you used a third party CA to sign the Harbor certificate, obtain the CA certificate from your third-party CA.
+    - If you used an automatically generated certificate for Harbor, perform the following steps:
      1. Navigate to the Ops Manager Installation Dashboard.
      2. Click your username in the Ops Manager banner and select **Settings**.
      2. Click **Advanced**.

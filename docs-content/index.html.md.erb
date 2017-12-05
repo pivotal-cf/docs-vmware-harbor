@@ -14,7 +14,8 @@ Harbor allows you to store and manage images for use with Pivotal Container Serv
 
 ## <a id="overview"></a>Overview
 
-Harbor extends the open source Docker Distribution by adding the functionalities usually required by an enterprise, such as security, identity and management.
+Harbor extends the open source Docker Distribution by adding the functionalities usually required by an enterprise,
+such as security, identity, and management.
 As an enterprise private registry, Harbor offers enhanced performance and security.
 Deploying a registry alongside the PKS environment improves image transfer efficiency.
 
@@ -22,11 +23,14 @@ Deploying a registry alongside the PKS environment improves image transfer effic
 
 Harbor includes the following key features:
 
-* **Role-Based Access Control**: Users and repositories are organized into projects. Users can have different permissions for the images in different projects.
-* **Policy-Based Image Replication**: Images can be synchronized between multiple registry instances with auto-retry on errors, offering support for load balancing, high availability, multi-datacenter, hybrid, and multi-cloud scenarios.
-* **Vulnerability Scanning**: Harbor uses [Clair](https://github.com/coreos/clair) to scan images regularly and warn users of vulnerabilities.
+* **Role-Based Access Control**: Users and repositories are organized into projects.
+    Users can have different permissions for the images in different projects.
+* **Policy-Based Image Replication**: Images can be synchronized between multiple registry instances with auto-retry on errors,
+     offering support for load balancing, high availability, multi-datacenter, hybrid, and multi-cloud scenarios.
+* **Vulnerability Scanning**: Harbor uses [Clair](https://github.com/coreos/clair) to scan images regularly
+    and warn users of vulnerabilities.
 * **LDAP/Active Directory (AD) Support**: Harbor integrates with an existing enterprise LDAP/AD configuration for user authentication and management.
-* **Image Deletion and Garbage Collection**: Images can be deleted and their space can be recycled. 
+* **Image Deletion and Garbage Collection**: Images can be deleted, and their space can be recycled. 
 * **Notary**: Image authenticity can be ensured by using Docker Notary. 
 * **Graphical User Portal**: Users can easily browse, search repositories, and manage projects.
 * **Auditing**: All the operations to the repositories are tracked.
@@ -75,13 +79,15 @@ There are no special requirements for deploying VMware Harbor Registry.
 
 ## <a id="limitations"></a>Limitations
 
-* You can only configure the authentication source once. You cannot change between UAA, LDAP, or local authentication after the initial deployment.
+* You can only configure the authentication source once.
+  You cannot change between UAA, LDAP, or local authentication after the initial deployment.
 * Support for LDAP Direct is experimental in version 0.8.
 * You cannot upgrade the Harbor tile. 
 
 ## <a id="feedback"></a>Feedback
 
-If you have a feature request, questions, or information about a bug, please contact [Pivotal Cloud Foundry Feedback](mailto:pivotal-cf-feedback@pivotal.io) or send an email to [Harbor](mailto:harbor@vmware.com).
+If you have a feature request, questions, or information about a bug, please contact [Pivotal Cloud Foundry Feedback](mailto:pivotal-cf-feedback@pivotal.io)
+or send an email to [Harbor](mailto:harbor@vmware.com).
 
 ## <a id="license"></a>License
 
