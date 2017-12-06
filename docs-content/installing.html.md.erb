@@ -20,8 +20,6 @@ you must provide the Harbor CA certificate to Ops Manager so that Pivotal Contai
 1. Click **Assign AZs and Networks**. 
 
 2. Select the network on which to deploy Harbor and click **Save**.
-    <p class="note"><strong>Note</strong>: Harbor recommends selecting the PKS control network
-       and not the network on which PKS deploys services.</p>
 
 ##<a id='configure'></a> Configure VMware Harbor Registry
 
@@ -29,8 +27,6 @@ you must provide the Harbor CA certificate to Ops Manager so that Pivotal Contai
 
 1. Enter a hostname to use for the Harbor host.
    The hostname must include a domain and must be resolvable by DNS.
-
-1. Set **HTTP Protocol** to **HTTPS**. Harbor does not support connections over HTTP.
 
 1. Set a password for the Harbor admin account.
    You cannot change the admin password in Ops Manager after you set it.
