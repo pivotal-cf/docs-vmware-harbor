@@ -1,0 +1,30 @@
+---
+title: Integrating VMware Harbor Registry with PKS
+owner: Partners
+---
+
+This topic describes how to integrate VMware Harbor Registry with Pivotal Container Service (PKS).
+After you install and configure Harbor, you must provide the Harbor CA certificate to Ops Manager so that PKS clusters can push and pull images to and from Harbor.
+
+##<a id='ca-cert'></a> Provide the Harbor CA Certificate to Ops Manager
+
+For Pivotal Container Service (PKS) clusters to pull images from and push images to Harbor,
+PKS must authenticate connections to Harbor.
+Consequently, you must provide the Harbor CA certificate to Ops Manager.
+
+1. Obtain the Harbor CA certificate file.
+
+    If you used a third party CA to sign the Harbor certificate, obtain the CA certificate from your third-party CA.
+    
+    If you used an automatically generated certificate for Harbor, perform the following steps:
+
+     1. Navigate to the Ops Manager Installation Dashboard.
+     2. Click your username in the Ops Manager banner and select **Settings**.
+     2. Click **Advanced**.
+     3. Click **Download Root CA Cert**.
+
+2. From the Ops Manager Installation Dashboard, click the **Ops Manager Director** tile.
+1. Click **Security**.
+1. Open the CA certificate file in a text editor.
+1. Copy and paste the contents of the CA certificate file into the **Trusted Certificates** field.
+1. Click **Save**.
