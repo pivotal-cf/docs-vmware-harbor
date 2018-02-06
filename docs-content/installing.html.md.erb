@@ -22,10 +22,52 @@ After you install and configure Harbor, you must provide the Harbor CA certifica
 
 ##<a id='configure'></a> Configure VMware Harbor Registry
 
+This section describes Harbor configuration settings. 
+
+###<a id='configure_az_networks'></a> Step 1: AZ and Network Assignments Page
+
+1. Click **Assign AZs and Networks**. 
+
+1. For **Network**, select the network on which to deploy Harbor.
+
+1. Click **Save**.
+
+###<a id='configure_general'></a> Step 2: General Page
+
 1. In the Harbor tile, click **General**.
 
-1. Enter a hostname to use for the Harbor host.
+1. Enter a **Hostname** (FDQN, not IP) to use for the Harbor host.
    The hostname must include a domain and must be able to resolve to the IP of the Harbor instance VM by the DNS server.
+
+1. Click **Save**.
+
+###<a id='configure_certificate'></a> Step 3: Certificate Page
+
+You can use either a custom signed certificate or an automatically generated certificate.
+
+1. Click **Certificate**. 
+
+1. Do either of the following:
+  - To use a certificate that Ops Manager generates automatically, perform the following steps:
+     1. Click **Change**.
+     1. Click **Generate RSA Certificate**.
+     1. Enter a domain name wildcard in the **Generate RSA Certificate** field.
+        The domain name wildcard must match the DNS resolvable domain name
+        that you used when you specified the hostname for Harbor. For example, if you set the Harbor hostname to `harbor.mycompany.com`,
+        enter `*.mycompany.com` in the **Generate RSA Certificate** field. 
+     1. Click **Generate**.
+  - To use a custom signed certificate from a third-party Certificate Authority (CA), perform the following steps:
+      1. Paste the contents of the certificate file into the **Certificate Authority (CA)** field.
+         Certificates must be in PEM-encoded format.
+         The certificate CN or SAN must match the DNS-resolvable domain name
+         that you used when you specified the hostname for Harbor.
+      1. Paste the contents of the key file into the key field.<br><br>          
+
+1. Click **Save**.
+
+###<a id='configure_credentials'></a> Step 4: Credentials Page
+
+1. Click **Credentials**. 
 
 1. Set a password for the Harbor admin account.
    You cannot change the admin password in Ops Manager after you set it.
@@ -33,32 +75,72 @@ After you install and configure Harbor, you must provide the Harbor CA certifica
 
 1. Click **Save**.
 
-1. Click **Certificate**. You can use either a custom signed certificate or an automatically generated certificate.
-  - To use a custom signed certificate from a third-party Certificate Authority (CA), perform the following steps:
-      1. Paste the contents of the certificate file into the certificate field.
-         Certificates must be in PEM-encoded format.
-         The certificate CN or SAN must match the DNS-resolvable domain name
-         that you used when you specified the hostname for Harbor.
-      1. Paste the contents of the key file into the key field.<br><br>
-  - To use a certificate that Ops Manager generates automatically, perform the following steps:
-     1. Click **Change**.
-     1. Click **Generate RSA Certificate**.
-     1. Enter a domain name wildcard in the **Generate RSA Certificate** field.
-        The domain name wildcard must match the DNS resolvable domain name
-        that you used when you specified the hostname for Harbor.<br><br>
-     For example, if you set the Harbor hostname to `harbor.mycompany.com`,
-     enter `*.mycompany.com` in the **Generate RSA Certificate** field. 
+###<a id='configure_authentication'></a> Step 5: Authentication Page
+
+1. Click **Authentication**. 
+
+1. Choose the Authentication Mode.
+   - **Internal** - Harbor internal user management authentication
+   - **LDAP** - LDAP authentication
+   - **UAA in Pivotal Container Service** - User Account and Authentication with PKS
+   - **UAA in Pivotal Application Service** - User Account and Authentication with PAS
 
 1. Click **Save**.
 
-1. **(Optional)** To enable image vulnerability scanning, click **Clair Settings**.
-     Select **Install Clair** and click **Save**.
+###<a id='configure_storage'></a> Step 6: Container Registry Storage Page
 
-1. **(Optional)** To enable content trust with Docker Notary, click **Notary Settings**.
-Select **Install Notary** and click **Save**.
+You can locate the Harbor Container Registry's file storage on your local file system or AWS S3.
 
-1. **(Optional)** Click **Resource Config**.<br><br>
-To change the configuration of the Harbor tile, edit the following properties:
+1. Click **Container Registry Storage**. 
+
+1. Select to change the location:
+   - **Local File System**
+   - **AWS S3**
+
+1. Click **Save**.
+
+###<a id='configure_clair'></a> Step 7: Clair Settings Page
+
+Harbor uses Clair (by default) for image vulnerability scanning.
+
+1. Click **Clair Settings**. 
+
+1. To enable image vulnerability scanning, select **Install Clair**.
+
+1. Click **Save**.
+
+###<a id='configure_notary'></a> Step 8: Notary Settings Page
+
+Harbor uses Docker Notary (by default) for content trust.
+
+1. Click **Notary Settings**.
+
+1. Select **Install Notary**.
+
+1. Click **Save**.
+
+###<a id='configure_errands'></a> Step 9: Errands Page
+
+Errands are scripts that run at designated points during an installation. 
+
+1. Click **Errands**. 
+
+1. For **Post-deploy Errands**, select a **smoke-testing** errand:
+   - **On**
+   - **Off**
+   - **When Changed** (default)
+
+1. For **Pre-delete Errands**, select a **deregister Harbor UAA client** errand:
+   - **On**
+   - **Off** (default)
+
+1. Click **Save**.
+
+###<a id='configure_resource_config'></a> Step 10: Resource Config Page
+
+1. Click **Resource Config**.
+
+1. To change the configuration of the Harbor tile, edit the following properties:
     - **Instances**: Do not change this value. PCF supports one Harbor instance only.
     - **Persistent Disk Type**: Increase or decrease the storage capacity of the Harbor disk. 
     - **VM Type**: Select a VM type with more or less CPU capacity and RAM.
@@ -68,18 +150,22 @@ To change the configuration of the Harbor tile, edit the following properties:
 
 1. Click **Save**.
 
-1. Click **Stemcell**.<br><br>
-    If the version of the Harbor tile that you are installing requires a more recent stemcell version
-    than is currently deployed in Ops Manager, perform the following steps:
-   
-    1. Download the new version of the stemcell from [Pivotal Network](https://network.pivotal.io/).
-    2. Click **Import Stemcell** to import the new version.
+###<a id='configure_stemcell'></a> Step 11: Stemcell Page
+
+If the version of the Harbor tile that you are installing requires a more recent stemcell version
+than is currently deployed in Ops Manager, perform the following steps:
+
+1. Download the new version of the stemcell from [Pivotal Network](https://network.pivotal.io/).
+
+1. Click **Stemcell**.
+
+1. Click **Import Stemcell**, navigate to the new stemcell, and click **Open** to import the new version.
 
 1. Return to the Ops Manager Installation Dashboard.
 
 1. Click **Apply Changes** to install the Harbor for PKS tile.
 
-### <a id='post-deploy'></a>View VMware Harbor Registry Information
+## <a id='post-deploy'></a>View VMware Harbor Registry Information
 
 When the deployment finishes, you find information about the Harbor instance in the **Harbor** tile in Ops Manager. 
 
