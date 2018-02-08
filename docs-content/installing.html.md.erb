@@ -18,13 +18,15 @@ After you install and configure Harbor, you must provide the Harbor CA certifica
 
 1. Click **Assign AZs and Networks**. 
 
-2. Select the network on which to deploy Harbor and click **Save**.
+1. Select the **Network** on which to deploy Harbor.
+
+1. Click **Save**.
 
 ##<a id='configure'></a> Configure VMware Harbor Registry
 
-This section describes Harbor configuration settings. 
+This section describes Harbor configuration settings. If you make changes, be sure to click **Save**.
 
-###<a id='configure_az_networks'></a> Step 1: AZ and Network Assignments Page
+###<a id='configure_az_networks'></a> AZ and Network Assignments Page
 
 1. Click **Assign AZs and Networks**. 
 
@@ -32,16 +34,16 @@ This section describes Harbor configuration settings.
 
 1. Click **Save**.
 
-###<a id='configure_general'></a> Step 2: General Page
+###<a id='configure_general'></a> General Page
 
-1. In the Harbor tile, click **General**.
+1. Click **General**.
 
 1. Enter a **Hostname** (FDQN, not IP) to use for the Harbor host.
    The hostname must include a domain and must be able to resolve to the IP of the Harbor instance VM by the DNS server.
 
 1. Click **Save**.
 
-###<a id='configure_certificate'></a> Step 3: Certificate Page
+###<a id='configure_certificate'></a> Certificate Page
 
 You can use either a custom signed certificate or an automatically generated certificate.
 
@@ -65,7 +67,7 @@ You can use either a custom signed certificate or an automatically generated cer
 
 1. Click **Save**.
 
-###<a id='configure_credentials'></a> Step 4: Credentials Page
+###<a id='configure_credentials'></a> Credentials Page
 
 1. Click **Credentials**. 
 
@@ -75,31 +77,31 @@ You can use either a custom signed certificate or an automatically generated cer
 
 1. Click **Save**.
 
-###<a id='configure_authentication'></a> Step 5: Authentication Page
+###<a id='configure_authentication'></a> Authentication Page
 
 1. Click **Authentication**. 
 
 1. Choose the Authentication Mode.
-   - **Internal** - Harbor internal user management authentication
+   - **Internal** (default) - Harbor internal user management authentication
    - **LDAP** - LDAP authentication
    - **UAA in Pivotal Container Service** - User Account and Authentication with PKS
    - **UAA in Pivotal Application Service** - User Account and Authentication with PAS
 
 1. Click **Save**.
 
-###<a id='configure_storage'></a> Step 6: Container Registry Storage Page
+###<a id='configure_storage'></a> Container Registry Storage Page
 
 You can locate the Harbor Container Registry's file storage on your local file system or AWS S3.
 
 1. Click **Container Registry Storage**. 
 
 1. Select to change the location:
-   - **Local File System**
+   - **Local File System** (default)
    - **AWS S3**
 
 1. Click **Save**.
 
-###<a id='configure_clair'></a> Step 7: Clair Settings Page
+###<a id='configure_clair'></a> Clair Settings Page
 
 Harbor uses Clair (by default) for image vulnerability scanning.
 
@@ -109,7 +111,7 @@ Harbor uses Clair (by default) for image vulnerability scanning.
 
 1. Click **Save**.
 
-###<a id='configure_notary'></a> Step 8: Notary Settings Page
+###<a id='configure_notary'></a> Notary Settings Page
 
 Harbor uses Docker Notary (by default) for content trust.
 
@@ -119,7 +121,7 @@ Harbor uses Docker Notary (by default) for content trust.
 
 1. Click **Save**.
 
-###<a id='configure_errands'></a> Step 9: Errands Page
+###<a id='configure_errands'></a> Errands Page
 
 Errands are scripts that run at designated points during an installation. 
 
@@ -136,7 +138,7 @@ Errands are scripts that run at designated points during an installation.
 
 1. Click **Save**.
 
-###<a id='configure_resource_config'></a> Step 10: Resource Config Page
+###<a id='configure_resource_config'></a> Resource Config Page
 
 1. Click **Resource Config**.
 
@@ -150,7 +152,7 @@ Errands are scripts that run at designated points during an installation.
 
 1. Click **Save**.
 
-###<a id='configure_stemcell'></a> Step 11: Stemcell Page
+###<a id='configure_stemcell'></a> Stemcell Page
 
 If the version of the Harbor tile that you are installing requires a more recent stemcell version
 than is currently deployed in Ops Manager, perform the following steps:
