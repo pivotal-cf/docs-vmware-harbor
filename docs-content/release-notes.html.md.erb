@@ -3,9 +3,26 @@ title: Release Notes for VMware Harbor Registry
 owner: Partners
 ---
 
-##<a id='v1.4.0'></a> v1.4.0
+##<a id='v1.4.1'></a> v1.4.1
 
 **Release Date:** February 8, 2018
+
+Fixed issues in this release:
+
+* [#4244](https://github.com/vmware/harbor/issues/4214) Harbor Tile deployment fails when the network name in Ops Manager Director contains upper case characters.
+
+
+Known issues in this release:
+
+* [#4214](https://github.com/vmware/harbor/issues/4214) Deleting multiple tags that point to the same image may return a 500 error.
+* [#4217](https://github.com/vmware/harbor/issues/4217) When using UAA, cannot onboard users with the same email address. Email addresses must be unique.
+* Users may experience unexpected behaviour with some versions of the Firefox browser when accesing the Harbor UI. Suggest use of Google Chrome for best results.
+
+
+
+##<a id='v1.4.0'></a> v1.4.0
+
+**Release Date:** February 7, 2018
 
 Features included in this release:
 
@@ -19,7 +36,7 @@ Known issues in this release:
 
 * [#4214](https://github.com/vmware/harbor/issues/4214) Deleting multiple tags that point to the same image may return a 500 error.
 * [#4217](https://github.com/vmware/harbor/issues/4217) When using UAA, cannot onboard users with the same email address. Email addresses must be unique.
-* Issues with some versions of the Firefox browser. Use Google Chrome for best results.
+* Users may experience unexpected behaviour with some versions of the Firefox browser when accesing the Harbor UI. Suggest use of Google Chrome for best results.
 
 ##<a id='v1.3.1'></a> v1.3.1
 
