@@ -16,6 +16,7 @@ Known issues in this release:
 * [#4214](https://github.com/vmware/harbor/issues/4214) Deleting multiple tags that point to the same image may return a 500 error.
 * [#4217](https://github.com/vmware/harbor/issues/4217) When using UAA, cannot onboard users with the same email address. Email addresses must be unique.
 * Users may experience unexpected behavior with some versions of the Firefox browser when accessing the Harbor UI. Suggest use of Google Chrome for best results.
+* Harbor uses default internal networks (default docker IPs) that may overlap with customer production networks and cause issues, such as preventing communication with the registry from outside of the VM.  
 
 ##<a id='v1.4.0'></a> v1.4.0
 
