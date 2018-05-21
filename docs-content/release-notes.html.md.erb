@@ -3,6 +3,26 @@ title: Release Notes for VMware Harbor Registry
 owner: Partners
 ---
 
+##<a id='v1.4.2'></a> v1.4.2
+
+**Release Date:** May 21, 2018
+
+General Availability release to be used with PKS 1.x & PAS 2.x.
+
+Features in this release:
+* Allow configuring the HTTP proxy for Clair in the Harbor Tile
+* Allow configuring 'v4auth' and 'secure' for S3 compatible registry storage in the Harbor Tile
+* Support GCS as the docker registry storage in the Harbor Tile
+* Support upgrade from Harbor Tile 1.4.1 to 1.4.2.
+* Encryption: No changes to encryption with this release
+
+Fixed issues in this release:
+
+* Harbor Tile status shows failure after Harbor VM is rebooted manually or by vSphere HA
+* Harbor service sometimes cannot start after clicking 'Apply changes' in Ops Mgr
+* Clair or Notary cannot be turned off in Harbor Tile
+* PKS UAA user with admin rights does not have privilege
+
 ##<a id='v1.4.1'></a> v1.4.1
 
 **Release Date:** February 8, 2018
