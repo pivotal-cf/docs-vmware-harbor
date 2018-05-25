@@ -7,12 +7,12 @@ owner: Partners
 
 **Release Date:** May 21, 2018
 
-General Availability release to be used with PKS 1.x & PAS 2.x.
+General Availability release to be used with PKS 1.x and PAS 2.x.
 
 Features in this release:
 
 * Allow configuring the HTTP proxy for Clair in the Harbor Tile
-* Allow configuring 'v4auth' and 'secure' for S3 compatible registry storage in the Harbor Tile
+* Allow configuring **v4auth** and **secure** for S3-compatible registry storage in the Harbor Tile
 * Support GCS as the docker registry storage in the Harbor Tile
 * Support upgrade from Harbor Tile 1.4.1 to 1.4.2.
 * Encryption: No changes to encryption with this release
@@ -20,7 +20,7 @@ Features in this release:
 Fixed issues in this release:
 
 * Harbor Tile status shows failure after Harbor VM is rebooted manually or by vSphere HA
-* Harbor service sometimes cannot start after clicking 'Apply changes' in Ops Mgr
+* Harbor service sometimes cannot start after clicking **Apply changes** in Ops Manager
 * Clair or Notary cannot be turned off in Harbor Tile
 * PKS UAA user with admin rights does not have privilege
 
@@ -30,14 +30,14 @@ Fixed issues in this release:
 
 Fixed issues in this release:
 
-* [#4244](https://github.com/vmware/harbor/issues/4214) Harbor Tile deployment fails when the network name in Ops Manager Director contains upper case characters.
+* [#4244](https://github.com/vmware/harbor/issues/4214) Harbor Tile deployment fails when the network name in Ops Manager Director contains upper-case characters.
 
 Known issues in this release:
 
 * [#4214](https://github.com/vmware/harbor/issues/4214) Deleting multiple tags that point to the same image may return a 500 error.
 * [#4217](https://github.com/vmware/harbor/issues/4217) When using UAA, cannot onboard users with the same email address. Email addresses must be unique.
 * Users may experience unexpected behavior with some versions of the Firefox browser when accessing the Harbor UI. Suggest use of Google Chrome for best results.
-* Harbor uses default internal networks (default docker IPs) that may overlap with customer production networks and cause issues, such as preventing communication with the registry from outside of the VM. For more information, see this [KB article](https://discuss.pivotal.io/hc/en-us/articles/360003216533).
+* Harbor uses default internal networks (default Docker IPs) that may overlap with customer production networks and cause issues, such as preventing communication with the registry from outside of the VM. For more information, see this [KB article](https://discuss.pivotal.io/hc/en-us/articles/360003216533).
 
 ##<a id='v1.4.0'></a> v1.4.0
 
@@ -45,8 +45,8 @@ Known issues in this release:
 
 Features included in this release:
 
-* User Account and Authentication (UAA) Integration Capability with PAS and PKS
-* External S3 Storage Capability
+* User Account and Authentication (UAA) integration capability with PAS and PKS
+* External S3 storage capability
 * Replication policy rework to support wildcard, scheduled replication.
 * Support for repository-level description.
 * Batch operation on projects/repositories/users from UI.
@@ -66,7 +66,7 @@ Fixed issues in this release:
 * Fixed: [#3942](https://github.com/vmware/harbor/issues/3942) PKS/Harbor: Harbor services cannot start after Harbor VM is rebooted.
 * Fixed: [#3849](https://github.com/vmware/harbor/issues/3849) Failed to stop dockerd service when updating the Harbor tile.
 * Fixed: [#3823](https://github.com/vmware/harbor/issues/3823) Harbor tile should support user-provided certificate signed with other than Ops Manager root CA.
-* Fixed: [#3814](https://github.com/vmware/harbor/issues/3814) Add `Verify LDAP Certificate` option in Harbor Tile UI.
+* Fixed: [#3814](https://github.com/vmware/harbor/issues/3814) Add **Verify LDAP Certificate** option in Harbor Tile UI.
 
 
 ##<a id='v1.3.0'></a> v1.3.0
