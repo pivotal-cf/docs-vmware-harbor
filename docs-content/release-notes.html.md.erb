@@ -3,73 +3,68 @@ title: Release Notes for VMware Harbor Registry Integration with PKS
 owner: Partners
 ---
 
-##<a id='v1.5.2'></a> v1.5.2
+## <a id='v1.5.2'></a> v1.5.2
 
 **Release Date:** July 23, 2018
 
-Minor release to fix issues in 1.5.x.
+Minor release to fix issues in v1.5.x.
 
 Fixes in this release:
-
- 
 * Continuous traffic towards security-tracker.debian.org from Clair
-* Harbor upgrade from 1.4.2 to 1.5.1 failing
+* Harbor upgrade from v1.4.2 to v1.5.1 failing
 * Email settings tab in Harbor UI is reset to defaults after a resurrection 
 
 
-##<a id='v1.5.1'></a> v1.5.1
+## <a id='v1.5.1'></a> v1.5.1
 
 **Release Date:** June 28, 2018
 
-General Availability release to be used with PKS 1.1.x and PAS 2.1.x.
+General Availability release to be used with PKS v1.1.x and PAS v2.1.x.
 
 Features in this release:
+* Harbor Tile v1.5.1 includes the Harbor v1.5.1 GA release build.
+* Harbor Tile v1.5.1 is fully compatible with PKS v1.1.0 (but not PKS v1.0.x).
 
-* Harbor Tile 1.5.1 includes the Harbor 1.5.1 GA release build.
-* Harbor Tile 1.5.1 is fully compatible with PKS 1.1.0 (but not PKS 1.0.x).
 
-##<a id='v1.4.2'></a> v1.4.2
+## <a id='v1.4.2'></a> v1.4.2
 
 **Release Date:** May 21, 2018
 
-General Availability release to be used with PKS 1.x and PAS 2.x.
+General Availability release to be used with PKS v1.x and PAS v2.x.
 
 Features in this release:
-
 * Allow configuring the HTTP proxy for Clair in the Harbor Tile
 * Allow configuring **v4auth** and **secure** for S3-compatible registry storage in the Harbor Tile
 * Support GCS as the docker registry storage in the Harbor Tile
-* Support upgrade from Harbor Tile 1.4.1 to 1.4.2.
+* Support upgrade from Harbor Tile v1.4.1 to v1.4.2.
 * Encryption: No changes to encryption with this release
 
 Fixed issues in this release:
-
 * Harbor Tile status shows failure after Harbor VM is rebooted manually or by vSphere HA
 * Harbor service sometimes cannot start after clicking **Apply changes** in Ops Manager
 * Clair or Notary cannot be turned off in Harbor Tile
 * PKS UAA user with admin rights does not have privilege
 
-##<a id='v1.4.1'></a> v1.4.1
+
+## <a id='v1.4.1'></a> v1.4.1
 
 **Release Date:** February 8, 2018
 
 Fixed issues in this release:
-
 * [#4244](https://github.com/vmware/harbor/issues/4214) Harbor Tile deployment fails when the network name in Ops Manager Director contains upper-case characters.
 
 Known issues in this release:
-
 * [#4214](https://github.com/vmware/harbor/issues/4214) Deleting multiple tags that point to the same image may return a 500 error.
 * [#4217](https://github.com/vmware/harbor/issues/4217) When using UAA, cannot onboard users with the same email address. Email addresses must be unique.
 * Users may experience unexpected behavior with some versions of the Firefox browser when accessing the Harbor UI. Suggest use of Google Chrome for best results.
 * Harbor uses default internal networks (default Docker IPs) that may overlap with customer production networks and cause issues, such as preventing communication with the registry from outside of the VM. For more information, see this [KB article](https://discuss.pivotal.io/hc/en-us/articles/360003216533).
 
-##<a id='v1.4.0'></a> v1.4.0
+
+## <a id='v1.4.0'></a> v1.4.0
 
 **Release Date:** February 7, 2018
 
 Features included in this release:
-
 * User Account and Authentication (UAA) integration capability with PAS and PKS
 * External S3 storage capability
 * Replication policy rework to support wildcard, scheduled replication.
@@ -77,29 +72,27 @@ Features included in this release:
 * Batch operation on projects/repositories/users from UI.
 
 Known issues in this release:
-
 * [#4214](https://github.com/vmware/harbor/issues/4214) Deleting multiple tags that point to the same image may return a 500 error.
 * [#4217](https://github.com/vmware/harbor/issues/4217) When using UAA, cannot onboard users with the same email address. Email addresses must be unique.
 * Users may experience unexpected behaviour with some versions of the Firefox browser when accesing the Harbor UI. Suggest use of Google Chrome for best results.
 
-##<a id='v1.3.1'></a> v1.3.1
+
+## <a id='v1.3.1'></a> v1.3.1
 
 **Release Date:** January 16, 2018
 
 Fixed issues in this release:
-
 * Fixed: [#3942](https://github.com/vmware/harbor/issues/3942) PKS/Harbor: Harbor services cannot start after Harbor VM is rebooted.
 * Fixed: [#3849](https://github.com/vmware/harbor/issues/3849) Failed to stop dockerd service when updating the Harbor tile.
 * Fixed: [#3823](https://github.com/vmware/harbor/issues/3823) Harbor tile should support user-provided certificate signed with other than Ops Manager root CA.
 * Fixed: [#3814](https://github.com/vmware/harbor/issues/3814) Add **Verify LDAP Certificate** option in Harbor Tile UI.
 
 
-##<a id='v1.3.0'></a> v1.3.0
+## <a id='v1.3.0'></a> v1.3.0
 
 **Release Date:** December 21, 2017
 
 Features included in this release:
-
 * Initial release of the VMware Harbor Registry.
 * Adds a Harbor tile to Ops Manager.
 
