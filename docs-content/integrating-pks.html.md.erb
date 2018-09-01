@@ -24,22 +24,25 @@ Before you install and configure Harbor, and before creating a PKS cluster, you 
 1. Copy and paste the contents of the CA certificate file into the **Trusted Certificates** field.
 1. Click **Save**.
 
-##<a id='ip-add'></a> Step 3: Obtain Harbor IP address (NSX-T).
+##<a id='ip-add'></a> Step 3: Obtain Harbor IP Address (NSX-T)
 
-If you are integrating Harbor with PKS in an NSX-T environment, the IP address for Habor given by OpsManager will not be accessible. In other words, navigating to <https://harbor_host_address:443> will not launch the Harbor UI. In this case you will need to create a DNAT rule in the T0-Router that maps the Harbor IP to a routable IP in your virtual network.
+If you integrate Harbor with PKS in an NSX-T environment, the IP address for Harbor provided by Ops Manager is inaccessible, so you cannot access the  Harbor UI from `https://harbor_host_address:443`. 
 
-To to this, in the NSX Manager, select **Routing > NAT > T0-Router** and click **ADD**.
+To access the Harbor UI, you must create a DNAT rule in the T0-Router that maps the Harbor IP address to a routable IP address in your virtual network.
 
-Configure the NAT rule as follows:
+Follow the steps below to create this DNAT rule.
 
-    Priority `1024`
-    Action `DNAT`
-    Protocol `Any Protocol`
-    Destination IP `<external IP your FQDN resolves to>`
-    Translated IP: `<IP of the Harbor VM>`
-    Status: `Enabled`
-    Firewall Bypass: `Enabled` (edited)
+1. In the NSX Manager, select **Routing > NAT > T0-Router**.
+1. Click **ADD**.
+1. Configure the NAT rule as follows:
+    * **Priority**: `1024`
+    * **Action**: `DNAT`
+    * **Protocol**: `Any Protocol`
+    * **Destination IP**: The external IP address that your FQDN resolves to
+    * **Translated IP**: The IP address of the Harbor VM
+    * **Status**: `Enabled`
+    * **Firewall Bypass**: `Enabled`
+  
+    <img src="harbor-dnat.png" alt="NSX-T NAT Rule for Harbor" width="425">
 
-<img src="harbor-dnat.png" alt="NSX-T NAT Rule for Harbor" width="425">
-
-Note that the IP address that the FQDN resolves to must be in the range of the NSX-T `external-ip-pool` (**Inventory > Groups > IP Pools**). Otherwise you will have to pick an IP address from that CIDR but outside of the specified range in use for `external-ip-pool`.
+<p class='note'><strong>Note</strong>: The IP address that the FQDN resolves to should be in the range of the NSX-T <code>external-ip-pool</code> (<strong>Inventory > Groups > IP Pools</strong>). If the IP address is not in this range, you must assign an IP address from the CIDR that is outside of the specified range in use for <code>external-ip-pool</code>.</p>
