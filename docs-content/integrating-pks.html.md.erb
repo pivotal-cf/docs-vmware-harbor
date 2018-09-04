@@ -26,7 +26,7 @@ Before you install and configure Harbor, and before creating a PKS cluster, you 
 
 ##<a id='ip-add'></a> Step 3: Obtain Harbor IP Address (NSX-T)
 
-If you integrate Harbor with PKS in an NSX-T environment, the IP address for Harbor provided by Ops Manager is inaccessible, so you cannot access the  Harbor UI from `https://harbor_host_address:443`. 
+If you integrate Harbor with PKS in an NSX-T environment, the IP address for Harbor provided by Ops Manager is inaccessible, and you cannot access the  Harbor UI from `https://harbor_host_address:443`. 
 
 To access the Harbor UI, you must create a DNAT rule in the T0-Router that maps the Harbor IP address to a routable IP address in your virtual network.
 
@@ -45,4 +45,4 @@ Follow the steps below to create this DNAT rule.
   
     <img src="harbor-dnat.png" alt="NSX-T NAT Rule for Harbor" width="425">
 
-<p class='note'><strong>Note</strong>: The IP address that the FQDN resolves to should be in the range of the NSX-T <code>external-ip-pool</code> (<strong>Inventory > Groups > IP Pools</strong>). If the IP address is not in this range, you must assign an IP address from the CIDR that is outside of the specified range in use for <code>external-ip-pool</code>.</p>
+<p class='note'><strong>Note</strong>: The IP address that your FQDN resolves to should be in the range of the NSX-T <code>external-ip-pool</code> (<strong>Inventory > Groups > IP Pools</strong>). If the IP address is not in this range, you must assign an IP address from the CIDR that is outside of the specified range in use for <code>external-ip-pool</code>.</p>
