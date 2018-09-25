@@ -26,10 +26,10 @@ Fixes in this release:
 Minor release to fix issues in v1.5.x.
 
 Fixes in this release:
+
 * Continuous traffic towards security-tracker.debian.org from Clair
 * Harbor upgrade from v1.4.2 to v1.5.1 failing
 * Email settings tab in Harbor UI is reset to defaults after a resurrection 
-
 
 ## <a id='v1.5.1'></a> v1.5.1
 
@@ -38,9 +38,9 @@ Fixes in this release:
 General Availability release to be used with PKS v1.1.x and PAS v2.1.x.
 
 Features in this release:
+
 * Harbor Tile v1.5.1 includes the Harbor v1.5.1 GA release build.
 * Harbor Tile v1.5.1 is fully compatible with PKS v1.1.0 (but not PKS v1.0.x).
-
 
 ## <a id='v1.4.2'></a> v1.4.2
 
@@ -49,6 +49,7 @@ Features in this release:
 General Availability release to be used with PKS v1.x and PAS v2.x.
 
 Features in this release:
+
 * Allow configuring the HTTP proxy for Clair in the Harbor Tile
 * Allow configuring **v4auth** and **secure** for S3-compatible registry storage in the Harbor Tile
 * Support GCS as the docker registry storage in the Harbor Tile
@@ -56,6 +57,7 @@ Features in this release:
 * Encryption: No changes to encryption with this release
 
 Fixed issues in this release:
+
 * Harbor Tile status shows failure after Harbor VM is rebooted manually or by vSphere HA
 * Harbor service sometimes cannot start after clicking **Apply changes** in Ops Manager
 * Clair or Notary cannot be turned off in Harbor Tile
@@ -67,9 +69,11 @@ Fixed issues in this release:
 **Release Date:** February 8, 2018
 
 Fixed issues in this release:
+
 * [#4244](https://github.com/vmware/harbor/issues/4214) Harbor Tile deployment fails when the network name in Ops Manager Director contains upper-case characters.
 
 Known issues in this release:
+
 * [#4214](https://github.com/vmware/harbor/issues/4214) Deleting multiple tags that point to the same image may return a 500 error.
 * [#4217](https://github.com/vmware/harbor/issues/4217) When using UAA, cannot onboard users with the same email address. Email addresses must be unique.
 * Users may experience unexpected behavior with some versions of the Firefox browser when accessing the Harbor UI. Suggest use of Google Chrome for best results.
@@ -81,6 +85,7 @@ Known issues in this release:
 **Release Date:** February 7, 2018
 
 Features included in this release:
+
 * User Account and Authentication (UAA) integration capability with PAS and PKS
 * External S3 storage capability
 * Replication policy rework to support wildcard, scheduled replication.
@@ -88,48 +93,27 @@ Features included in this release:
 * Batch operation on projects/repositories/users from UI.
 
 Known issues in this release:
+
 * [#4214](https://github.com/vmware/harbor/issues/4214) Deleting multiple tags that point to the same image may return a 500 error.
 * [#4217](https://github.com/vmware/harbor/issues/4217) When using UAA, cannot onboard users with the same email address. Email addresses must be unique.
 * Users may experience unexpected behaviour with some versions of the Firefox browser when accesing the Harbor UI. Suggest use of Google Chrome for best results.
-
 
 ## <a id='v1.3.1'></a> v1.3.1
 
 **Release Date:** January 16, 2018
 
 Fixed issues in this release:
+
 * Fixed: [#3942](https://github.com/vmware/harbor/issues/3942) PKS/Harbor: Harbor services cannot start after Harbor VM is rebooted.
 * Fixed: [#3849](https://github.com/vmware/harbor/issues/3849) Failed to stop dockerd service when updating the Harbor tile.
 * Fixed: [#3823](https://github.com/vmware/harbor/issues/3823) Harbor tile should support user-provided certificate signed with other than Ops Manager root CA.
 * Fixed: [#3814](https://github.com/vmware/harbor/issues/3814) Add **Verify LDAP Certificate** option in Harbor Tile UI.
-
 
 ## <a id='v1.3.0'></a> v1.3.0
 
 **Release Date:** December 21, 2017
 
 Features included in this release:
+
 * Initial release of the VMware Harbor Registry.
 * Adds a Harbor tile to Ops Manager.
-
-<!--
-**Release Date:** RELEASE-DATE (Ex. August 1, 2017)
-
-Features included in this release:
-
-* Feature one.
-* Feature two.
-* Feature three.
-
-Fixed issues in this release:
-
-* Fixed issue one.
-* Fixed issue two.
-* Fixed issue three.
-
-Known issues in this release:
-
-* Issue one.
-* Issue two.
-* Issue three.
--->
