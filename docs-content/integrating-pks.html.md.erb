@@ -43,6 +43,6 @@ Follow the steps below to create this DNAT rule.
     * **Status**: `Enabled`
     * **Firewall Bypass**: `Enabled`
   
-    <img src="harbor-dnat.png" alt="NSX-T NAT Rule for Harbor" width="425">
+    <img src="images/harbor-dnat.png" alt="NSX-T NAT Rule for Harbor" width="425">
 
 <p class='note'><strong>Note</strong>: The IP address that your FQDN resolves to should be in the range of the NSX-T <code>external-ip-pool</code> (<strong>Inventory > Groups > IP Pools</strong>). If the IP address is not in this range, you must assign an IP address from the CIDR that is outside of the specified range in use for <code>external-ip-pool</code>.</p>
