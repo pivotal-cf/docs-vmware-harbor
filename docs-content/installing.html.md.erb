@@ -44,8 +44,9 @@ This section describes Harbor configuration settings. If you make changes, be su
 1. Click **General**.
 
 1. Enter a **Hostname** (FDQN, not IP) to access the Harbor adminstration UI and registry service, for example: `harbor.mycompany.com`.
-   The hostname must include a domain and must be able to resolve to the IP of the Harbor instance VM by the DNS server.
-   This DNS entry must be resolvable by your PKS management infrastructure and you can create the DNS entry after Harbor has been deployed by BOSH so that you can identify the IP Address that was selected.
+   The hostname must include a domain and must be able to resolve to the IP of the Harbor instance VM by an external DNS server. 
+   
+   Kubernetes worker nodes are able to resolve the Harbor FQDN via the local BOSH DNS server. So that Docker clients external to Kubernetes worker nodes can resolve the Harbor FQDN, you must provide a Harbor FQDN that is resolvable by an external DNS server. When Harbor is successfully deployed, you will need to update the Harbor external DNS record with IP address of the Harbor VM.
 
 1. To use the default container network settings, choose the option **Keep the default container network settings**. 
 
@@ -73,7 +74,7 @@ This section describes Harbor configuration settings. If you make changes, be su
 
 ###<a id='configure_certificate'></a> SSL Certificate Key Configuration
 
-At the **Certificate** page you configure the SSL certificate and private key for Harbor. You can generate the certificate and private key or provide a custom signed certificate and private key.
+At the **Certificate** page you configure the SSL certificate and private key for Harbor. You can generate the certificate and private key or provide a custom signed certificate and private key. You also need to provide the CA cert which is used to sign the Harbor certificate. The domain name used to generate RSA certificate in the Harbor Tile can be different than the domain name used to generate the RSA certificate in the PKS or PAS tile.
 
 1. Click **Certificate**. 
 
@@ -92,7 +93,7 @@ At the **Certificate** page you configure the SSL certificate and private key fo
          that you used when you specified the hostname for Harbor.
       1. Paste the contents of the corresponding key (PEM) into the **Private Key PEM** field.<br><br>          
 
-1. Enter the **Certificate Authority (CA)** for the server certificate.
+1. Enter the **Certificate Authority (CA)** for the server certificate, which is used to sign the Harbor certificate.
    If you are using self-signed certificate, paste the corresponding CA here.
    Leave this field empty if you are using the root CA of Ops Manager.
 
@@ -270,6 +271,22 @@ than is currently deployed in Ops Manager, do the following:
 When the deployment finishes, you find information about the Harbor instance in the **Harbor** tile in Ops Manager. 
 
 - Select the **Status** tab to see the IP address of the Harbor host and status information.
-- Select the **Credentials** tab to see the credentials for the Clair and Harbor databases,
+- Select the **Credentials** tab to see the credentials for the Clair and Harbor databases.
   the password for the Harbor admin account, and  credentials for SSH access to the Harbor VM.  
 - Select the **Logs** tab to generate and download log bundles.
+
+## <a id='use'></a>Getting Started
+
+Before you can start using Harbor, you will need to perform a few final tasks. 
+
+1. Update the DNS entry for the Habor hostname with the IP address of the Habor VM assigned by BOSH. 
+   Get the IP assigned to Harbor by clicking the Harbor Tile and selecting the Status tab.
+
+	<img src="harbor-ip.png" alt="Get Harbor IP" width="425">
+
+2. Obtain the Habor CA certificate and provide it to Ops Manager.
+   If you are using PKS, see [Integrating VMware Harbor Registry with PKS](https://docs.pivotal.io/partners/vmware-harbor/integrating-pks.html).
+   If you are using PAS, see **Integrating VMware Harbor Registry with PAS** in the Harbor documentation table of contents.
+
+3. If you are using Harbor with PKS with NSX-T in NAT mode, you will need to create a DNAT rule for Harbor.
+   See [Integrating VMware Harbor Registry with PKS](https://docs.pivotal.io/partners/vmware-harbor/integrating-pks.html).

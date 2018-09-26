@@ -4,29 +4,56 @@ owner: Partners
 ---
 
 This topic describes how to integrate VMware Harbor Registry with Pivotal Container Service (PKS).
-Before you install and configure Harbor, and before creating a PKS cluster, you must provide the Harbor CA certificate to Ops Manager so that PKS clusters can use authenticated connections to push and pull images to and from Harbor.
 
-##<a id='obtain'></a> Step 1: Obtain the Harbor CA Certificate File
+##<a id='provide-harbor-cert'></a>Provide the Harbor CA Certificate to Ops Manager
 
-* If you used a third-party CA to sign the Harbor certificate, obtain the CA certificate from your third-party CA.
-    
-* If you used an automatically generated certificate for Harbor, do the following:
-     1. Navigate to the Ops Manager Installation Dashboard.
-     2. Click your username in the Ops Manager banner and select **Settings**.
-     2. Click **Advanced**.
-     3. Click **Download Root CA Cert**.
+For Pivotal Container Service (PKS) clusters to pull images from and push images to Harbor, PKS must authenticate connections to Harbor. Consequently, you must provide the Harbor CA certificate to Ops Manager before you can use Harbor with PKS.
 
-##<a id='ca-cert'></a> Step 2: Provide the Harbor CA Certificate to Ops Manager
+###<a id='get-harbor-cert'></a>Obtain the Harbor CA Certificate file
 
-1. From the Ops Manager Installation Dashboard, click the **BOSH Director** tile.
+If you used a third-party CA to sign the Harbor certificate, obtain the CA certificate from your third-party CA. Otherwise, if you used an automatically generated certificate for Harbor, complete these steps:
+
+1. Navigate to the Ops Manager **Installation Dashboard**.
+
+1. Click your username in the Ops Manager banner and select **Settings**.
+
+	<img src="opsmgr-01.png" alt="Ops Manager Settings" width="425">
+
+1. Select the **Advanced** tab and click **Download Root CA Cert**.
+
+	<img src="opsmgr-02.png" alt="Ops Manager Advanced" width="425">
+
+###<a id='load-harbor-cert'></a>Trust the Harbor CA Certificate file
+
+Once you have obtained the Harbor CA Certificate file, complete these steps:
+
+1. Return to the Ops Manager **Installation Dashboard**. 
+
+1. Select the **BOSH Director** tile.
+
 1. Click **Security**.
+
+	<img src="opsmgr-03.png" alt="BOSH Director Security" width="425">
+
 1. Open the CA certificate file in a text editor.
+
+	<img src="opsmgr-04.png" alt="CA Cert" width="425">
+
 1. Copy and paste the contents of the CA certificate file into the **Trusted Certificates** field.
+
+	<img src="opsmgr-05.png" alt="Trusted Cert" width="425">
+
 1. Click **Save**.
+
+	<img src="opsmgr-06.png" alt="Save" width="425">
+
+1. Return to the **Installation Dashboard** and click **Apply Changes**.
+
+By adding the CA certificate that was used to sign the Harbor certificate to the Bosh Director Security configuration, all Kubernetes clusters deployed by PKS will be able to automatically trust the Harbor registry.
 
 ##<a id='ip-add'></a> Step 3: Obtain Harbor IP Address (NSX-T)
 
-If you integrate Harbor with PKS in an NSX-T environment, the IP address for Harbor provided by Ops Manager is inaccessible, and you cannot access the  Harbor UI from `https://harbor_host_address:443`. 
+If you integrate Harbor with PKS in a NAT'ed NSX-T environment, the IP address for Harbor provided by Ops Manager is inaccessible, and you cannot access the  Harbor UI from `https://harbor_host_address:443`. 
 
 To access the Harbor UI, you must create a DNAT rule in the T0-Router that maps the Harbor IP address to a routable IP address in your virtual network.
 
