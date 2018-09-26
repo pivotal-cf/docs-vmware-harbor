@@ -18,13 +18,17 @@ Deploying a registry alongside the PKS environment improves image transfer effic
 
 Harbor includes the following key features:
 
+* **Replicate projects**: Harbor supports images replication to replicate repositories from one Harbor instance to another.
+* **Manage role by LDAP group**: Harbor administrators can import an LDAP/AD group to Harbor and assign project roles to it.
+* **Manage Labels**: Harbor provides labels to isolate image resources globally or at the project level.
+* **Manage Helm Charts**: Harbor provides management of Helm charts isolated by projects and controlled by RBAC.
 * **Integrated UAA Authentication**: Harbor can share UAA authentication with PAS and PKS.
 * **Role-Based Access Control**: Users and repositories are organized into projects.
     Users can have different permissions for the images in different projects.
 * **Policy-Based Image Replication**: Images can be synchronized between multiple registry instances with auto-retry on errors, offering support for load balancing, high availability, multi-datacenter, hybrid, and multi-cloud scenarios.
 * **Vulnerability Scanning**: Harbor uses [Clair](https://github.com/coreos/clair) to scan images regularly
     and warn users of vulnerabilities.
-* **LDAP/Active Directory (AD) Support**: Harbor integrates with an existing enterprise LDAP/AD configuration for user authentication and management.
+* **LDAP/Active Directory (AD) Support**: Harbor integrates with enterprise LDAP/AD systems for user authentication and management.
 * **Image Deletion and Garbage Collection**: Images can be deleted and their space can be recycled. 
 * **Notary**: Image authenticity can be ensured by using Docker Notary. 
 * **Graphical User Portal**: Users can easily browse, search repositories, and manage projects.
@@ -32,8 +36,6 @@ Harbor includes the following key features:
 * **RESTful API**: RESTful APIs for most administrative operations, easy to integrate with external systems. 
 
 ## <a id="snapshot"></a>Versions and Compatibility
-
-The following tables provide version and compatibility information for VMware Harbor Registry.
 
 The following tables provide version and compatibility information for VMware Harbor Registry.
 
@@ -54,7 +56,7 @@ The following tables provide version and compatibility information for VMware Ha
     </tr>
     <tr>
         <td>Compatible Ops Manager version(s)</td>
-        <td>v2.2.x and v2.3.x</td>
+        <td>v2.2.x</td>
     </tr>
     <tr>
         <td>Compatible Pivotal Container Service (PKS) version(s)</td>
