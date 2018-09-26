@@ -3,55 +3,82 @@ title: Installing and Configuring VMware Harbor Registry
 owner: Partners
 ---
 
-This topic describes how to install and configure the VMware Harbor Registry.
-After you install and configure Harbor, you must provide the Harbor CA certificate to Ops Manager.
+This topic describes how to install and configure VMware Harbor Registry using Pivotal Ops Manager for use with Pivotal Container Service (PKS) and Pivotal Application Service (PAS). After you install and configure Harbor, you must provide the Harbor CA certificate to Ops Manager.
+
+<p class="note"><strong>Note</strong>: This documentation supports the Harbor v1.6 release.</p>
 
 ##<a id='install'></a> Install VMware Harbor Registry
 
-1. Download the file for the Harbor tile from [Pivotal Network](https://network.pivotal.io/).
+1. Download the Harbor tile from [Pivotal Network](https://network.pivotal.io/).
 
 1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file. 
 
 1. Below the **Import a Product** button, click the **+** button next to the VMware Harbor Registry version number to add the tile to your staging area.
 
-1. Click the **Harbor** tile. 
-
-1. Click **Assign AZs and Networks**. 
-
-1. Select the **Network** on which to deploy Harbor.
-
-1. Click **Save**.
+1. Click the **Harbor** tile to begin the configuration process. 
 
 ##<a id='configure'></a> Configure VMware Harbor Registry
 
 This section describes Harbor configuration settings. If you make changes, be sure to click **Save**.
 
-###<a id='configure_az_networks'></a> AZ and Network Assignments Page
+###<a id='configure_az_networks'></a> Configure AZ and Network Assignments
 
 1. Click **Assign AZs and Networks**. 
 
+1. Select the availability zone (AZ) to **place singleton jobs in**.
+   VMware Harbor is a singleton job and will be placed on this network.
+
+1. Select the AZ where to **balance other jobs in**.
+   For PKS, this will be the same AZ as the singleton.
+
 1. For **Network**, select the network on which to deploy Harbor.
+   For PKS, this will be the management network where you deploy control plane components (Ops Manager, BOSH Director, PKS).
 
 1. Click **Save**.
 
-###<a id='configure_general'></a> General Page
+   <img src="aasign-azs-networks.png" alt="Assign AZs and Networks for Harbor" width="425">
+
+###<a id='configure_general'></a> Configure General Settings
 
 1. Click **General**.
 
-1. Enter a **Hostname** (FDQN, not IP) to use for the Harbor host.
-   The hostname must include a domain and must be able to resolve to the IP of the Harbor instance VM by the DNS server.
+1. Enter a **Hostname** (FDQN, not IP) to access the Harbor administration UI and registry service, for example: `harbor.mycompany.com`.
+   The hostname must include a domain and must be able to resolve to the IP of the Harbor instance VM by an external DNS server. 
+   
+   Kubernetes worker nodes are able to resolve the Harbor FQDN via the local BOSH DNS server. So that Docker clients external to Kubernetes worker nodes can resolve the Harbor FQDN, you must provide a Harbor FQDN that is resolvable by an external DNS server. When Harbor is successfully deployed, you will need to update the Harbor external DNS record with IP address of the Harbor VM.
+
+1. To use the default container network settings, choose the option **Keep the default container network settings**. 
+
+1. To customize the container network settings, choose the option **Specify customized container network settings** 
+   You must specify at least one address pool base and size. The address pool is used when a Docker container starts. The Docker daemon (dockerd) will allocate an IP address to this container; the IP address that is assigned is selected from the address pool.
+
+   Enter the **Address pool1 base**, for example, `172.80.0.0/16`.
+
+   Enter the **Address pool1 size**, for example, `24`. 
+
+   Enter the **Address pool2 base** (optional).
+
+   Enter the **Address pool2 size** (optional). 
+
+   Enter the **Address pool3 base** (optional).
+
+   Enter the **Address pool3 size** (optional). 
 
 1. Click **Save**.
 
-###<a id='configure_certificate'></a> Certificate Page
+   <img src="config-general-settings-default.png" alt="Configure General Settings for Harbor: Default" width="425">
 
-You can use either a custom signed certificate or an automatically generated certificate.
+   <img src="config-general-settings-custom.png" alt="Configure General Settings for Harbor: Custom" width="425">
+
+
+###<a id='configure_certificate'></a> SSL Certificate Key Configuration
+
+At the **Certificate** page you configure the SSL certificate and private key for Harbor. You can generate the certificate and private key or provide a custom signed certificate and private key. You also need to provide the CA cert which is used to sign the Harbor certificate. The domain name used to generate RSA certificate in the Harbor Tile can be different than the domain name used to generate the RSA certificate in the PKS or PAS tile.
 
 1. Click **Certificate**. 
 
 1. Do either of the following:
   - To use a certificate that Ops Manager generates automatically, do the following:
-     1. Click **Change**.
      1. Click **Generate RSA Certificate**.
      1. Enter a domain name wildcard in the **Generate RSA Certificate** field.
         The domain name wildcard must match the DNS resolvable domain name
@@ -65,85 +92,134 @@ You can use either a custom signed certificate or an automatically generated cer
          that you used when you specified the hostname for Harbor.
       1. Paste the contents of the corresponding key (PEM) into the **Private Key PEM** field.<br><br>          
 
+1. Enter the **Certificate Authority (CA)** for the server certificate, which is used to sign the Harbor certificate.
+   If you are using self-signed certificate, paste the corresponding CA here.
+   Leave this field empty if you are using the root CA of Ops Manager.
+
 1. Click **Save**.
 
-###<a id='configure_credentials'></a> Credentials Page
+   <img src="generate-rsa-cert.png" alt="Generate RSA Certificate for Harbor" width="425">
+
+   <img src="cert-config.png" alt="Configure SSL certificate and private key for Harbor" width="425">
+
+###<a id='configure_credentials'></a> Configure Harbor Credentials
 
 1. Click **Credentials**. 
 
-1. Set a password for the Harbor admin account.
+1. Set a password for the Harbor system administrator account.
    You cannot change the admin password in Ops Manager after you set it.
    You use the Harbor interface to make subsequent changes to the password after deployment.
 
 1. Click **Save**.
 
-###<a id='configure_authentication'></a> Authentication Page
+###<a id='configure_authentication'></a> Configure Harbor Authentication Mode
+
+At the **Authentication** page in Ops Manager you choose the authentication mode. You use the Harbor web console to configure detailed settings for the chosen authentication mode.
 
 1. Click **Authentication**. 
 
 1. Choose the Authentication Mode.
-   - **Internal** (default) - Harbor internal user management authentication
+   - **Internal** (default) - Harbor user credentials are stored in a local database
    - **LDAP** - LDAP authentication
    - **UAA in Pivotal Container Service** - User Account and Authentication with PKS
    - **UAA in Pivotal Application Service** - User Account and Authentication with PAS
 
 1. Click **Save**.
 
-###<a id='configure_storage'></a> Container Registry Storage Page
+###<a id='configure_storage'></a> Container Registry Storage Configuration
 
-You can locate the Harbor Container Registry's file storage on your local file system or AWS S3.
+At the **Container Registry Storage** page you specify the type of file storage to use for storing container images.
 
 1. Click **Container Registry Storage**. 
 
-1. Select to change the location:
+1. Choose the desired storage for container images:
    - **Local File System** (default)
+   - **Remote NFS Server**
    - **AWS S3**
+   - **Google Cloud Storage**
+
+   For NFS storage, provide the NFS Server Address in the form `nfs_server_ip:/path/to/export_directory`, for example: `192.0.2.0:/harbor/registry/export`. Note that the UID for the owner of the export directory on the NFS Server must be 10000:10000. 10000 is the the user/group ID used by Harbor Registry container.
+
+	<img src="nfs.png" alt="NFS Server configuration for Harbor" width="425">
+
+   For AWS storage, provide the following values:
+   - **Access Key**
+   - **Secret Key**
+   - **Region** (required) - AWS region where the S3 bucket is located
+   - **Endpoint URL of your S3-compatible file store**
+   - **Bucket Name** (required) - Name defined for the bucket when it was created
+   - **Root Directory in the Bucket**
+   - **Chunk Size** (required) - Default is 5242880 (5MB)
+
+   In addition, the following options are available for AWS storage:
+   - **Enable v4auth** - Access to the bucket is authenticated (default); deselect for anonymous access.
+   - **Secure Mode** - By default access to the S3 bucket is secure; deselect to access the bucket in insecure mode.
+
+	<img src="aws.png" alt="AWS S3 configuration for Harbor" width="425">
+
+   For Google Cloud Storage, provide the following values:
+   - **Bucket Name** - Name defined for the bucket when it was created
+   - **Root Directory in the Bucket** (optional)
+   - **Chunk Size** - Default is 5242880 (5MB)
+   - **Key File** - Service account key (you can only get this when you first create the storage bucket)
+
+	<img src="google.png" alt="Google Cloud Storage configuration for Harbor" width="425">
 
 1. Click **Save**.
 
-###<a id='configure_clair'></a> Clair Settings Page
+###<a id='configure_clair'></a> Clair Configuration Settings
 
-Harbor uses Clair (by default) for image vulnerability scanning.
+Clair is an open source project for the static analysis of vulnerabilities in Docker and appc containers. Harbor provides the ability to install and use Clair for vulnerability scanning of container images. Clair can be configured to update its CVE (Common Vulnerabilities and Exposures database) from internet by setting the **Updater Interval**. In an intranet network environment, configure a proxy to access the internet.
 
 1. Click **Clair Settings**. 
 
-1. To enable image vulnerability scanning, select **Install Clair**.
+1. To enable container image vulnerability scanning, select **Install Clair**. To not install Clair, deselect this option.
+
+1. (Optional) In the **HTTP Proxy** field, enter the http_proxy environment variable for Clair service, for example: `http://your.proxy.com:3128`.
+
+1. (Optional) In the **HTTPS Proxy field, enter the https_proxy environment variable for the Clair service, for example: for example: `https://your.proxy.com:3128`
+
+1. In the **No Proxy** field, provide the no_proxy environment variable for the Clair service. This field is required if Clair is installed, and the values are populated for you (`127.0.0.1,localhost,ui`). These endpoints will not be proxied. 
+
+1. In the **Updater interval (Hours)** field, specify when Clair will update its CVE database for the registered sources.
+   When the updater interval expires, Clair will update the CVE. If the updater interval is set to `0` (default), it will not update the CVE.
 
 1. Click **Save**.
 
-###<a id='configure_notary'></a> Notary Settings Page
+###<a id='configure_notary'></a> Notary Settings
 
-Harbor uses Docker Notary (by default) for content trust.
+Harbor provides Docker Notary for content trust.
 
 1. Click **Notary Settings**.
 
-1. Select **Install Notary**.
+1. By default **Install Notary** is selected. Deselect to not install Notary.
 
 1. Click **Save**.
 
-###<a id='configure_errands'></a> Errands Page
+###<a id='configure_errands'></a> Errands
 
 Errands are scripts that run at designated points during an installation. 
 
 1. Click **Errands**. 
 
-1. For **Post-deploy Errands**, select a **smoke-testing** errand:
-   - **On**
+1. For **Post-deploy Errands**, select the **smoke-testing** errand:
+   - **On** (default)
    - **Off**
-   - **When Changed** (default)
 
-1. For **Pre-delete Errands**, select a **deregister Harbor UAA client** errand:
+1. For **Pre-delete Errands**, select the **deregister Harbor UAA client** errand:
    - **On**
    - **Off** (default)
 
 1. Click **Save**.
 
-###<a id='configure_resource_config'></a> Resource Config Page
+###<a id='configure_resource_config'></a> Resource Configuration Settings
+
+At the **Resource Config** page you can configure the Harbor, including disk size and VM type. Note that Harbor is a singleton (you cannot run multiple instances). For most deployments the default resource configuration settings are suitable.
 
 1. Click **Resource Config**.
 
 1. To change the configuration of the Harbor tile, edit the following properties:
-    - **Instances**: Do not change this value. PCF supports one Harbor instance only.
+    - **Instances**: This value cannot be changed. PCF supports one Harbor instance only.
     - **Persistent Disk Type**: Increase or decrease the storage capacity of the Harbor disk. 
     - **VM Type**: Select a VM type with more or less CPU capacity and RAM.
 
@@ -152,26 +228,67 @@ Errands are scripts that run at designated points during an installation.
 
 1. Click **Save**.
 
-###<a id='configure_stemcell'></a> Stemcell Page
+###<a id='configure_stemcell'></a> Stemcell Configuration
 
 If the version of the Harbor tile that you are installing requires a more recent stemcell version
 than is currently deployed in Ops Manager, do the following:
 
-1. Download the new version of the stemcell from [Pivotal Network](https://network.pivotal.io/).
+1. Return to the **Installation Dashboard** page in Ops Manager.
 
-1. Click **Stemcell**.
+1. In the Harbor tile, click the **Missing stemcell** link. 
 
-1. Click **Import Stemcell**, navigate to the new stemcell, and click **Open** to import the new version.
+	<img src="missing-stemcell.png" alt="Missing stemcell for Harbor" width="425">
 
-1. Return to the Ops Manager Installation Dashboard.
+1. At the **Stemcell Library** page, copy the name and version of the required stemcell for Harbor.
 
-1. Click **Apply Changes** to install the Harbor for PKS tile.
+	<img src="required-stemcell.png" alt="Required stemcell for Harbor" width="425">
+
+1. Log in to the [Pivotal Network](https://network.pivotal.io/).
+
+1. Search for **Stemcells for PCF (Ubuntu Xenial)**.
+
+1. Download the required Harbor stemcell for your platform to the Ops Manager host.
+   For example, if you are using vSphere, download bosh-stemcell-97.17-vsphere-esxi-ubuntu-xenial-go_agent. 
+
+1. At the **Installation Dashboard** in Ops Manager, click the **Missing stemcell** link in the Harbor tile.
+
+1. Click **Import Stemcell**, navigate to the stemcell you downloaded, and click **Open** to import the stemcell.
+
+	<img src="import-stemcell.png" alt="Import required stemcell for Harbor" width="425">
+
+1. When prompted, apply the imported stemcell to the Harbor product.
+
+##<a id='deploy'></a> Deploy VMware Harbor Registry
+
+1. Return to the Ops Manager **Installation Dashboard**.
+
+1. Click **Apply Changes** to deploy Harbor.
+
+	<img src="deploy-harbor.png" alt="Deploy Harbor" width="425">
 
 ## <a id='post-deploy'></a>View VMware Harbor Registry Information
 
-When the deployment finishes, you find information about the Harbor instance in the **Harbor** tile in Ops Manager. 
+When the deployment finishes, you can find information about the Harbor instance in the **Harbor** tile in Ops Manager. 
 
-- Select the **Status** tab to see the IP address of the Harbor host and status information.
-- Select the **Credentials** tab to see the credentials for the Clair and Harbor databases,
-  the password for the Harbor admin account, and  credentials for SSH access to the Harbor VM.  
-- Select the **Logs** tab to generate and download log bundles.
+- Select the **Status** tab to get the IP address of the Harbor host and status information about the Harbor VM.
+- Select the **Credentials** tab to get Harbor credentials, including the Harbor admin account for SSH access to the VM and the Clair database credentials.
+- Select the **Logs** tab to generate and download Harbor log bundles.
+
+## <a id='use'></a>Getting Started
+
+Before you can start using Harbor, you will need to perform a few final tasks. 
+
+1. Update the DNS entry for the Harbor hostname with the IP address of the Harbor VM assigned by BOSH. 
+   Get the IP assigned to Harbor by clicking the Harbor Tile and selecting the Status tab.
+
+	<img src="harbor-ip.png" alt="Get Harbor IP" width="425">
+
+2. Obtain the Harbor CA certificate and provide it to Ops Manager.
+   If you are using PKS, see [Integrating VMware Harbor Registry with PKS](https://docs.pivotal.io/partners/vmware-harbor/integrating-pks.html).
+   If you are using PAS, see **Integrating VMware Harbor Registry with PAS** in the Harbor documentation table of contents.
+
+3. If you are using Harbor with PKS with NSX-T in NAT mode, you will need to create a DNAT rule for Harbor.
+   See [Integrating VMware Harbor Registry with PKS](https://docs.pivotal.io/partners/vmware-harbor/integrating-pks.html).
+
+4. For instructions on how to pull images from Harbor, refer to the [Harbor User Guide](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#pull-image-from-harbor-in-kubernetes). 
+
