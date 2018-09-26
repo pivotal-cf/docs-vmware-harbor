@@ -36,7 +36,7 @@ This section describes Harbor configuration settings. If you make changes, be su
 
 1. Click **Save**.
 
-   <img src="aasign-azs-networks.png" alt="Assign AZs and Networks for Harbor" width="425">
+   <img src="images/aasign-azs-networks.png" alt="Assign AZs and Networks for Harbor" width="425">
 
 ###<a id='configure_general'></a> Configure General Settings
 
@@ -66,9 +66,9 @@ This section describes Harbor configuration settings. If you make changes, be su
 
 1. Click **Save**.
 
-   <img src="config-general-settings-default.png" alt="Configure General Settings for Harbor: Default" width="425">
+   <img src="images/config-general-settings-default.png" alt="Configure General Settings for Harbor: Default" width="425">
 
-   <img src="config-general-settings-custom.png" alt="Configure General Settings for Harbor: Custom" width="425">
+   <img src="images/config-general-settings-custom.png" alt="Configure General Settings for Harbor: Custom" width="425">
 
 
 ###<a id='configure_certificate'></a> SSL Certificate Key Configuration
@@ -98,11 +98,11 @@ At the **Certificate** page you configure the SSL certificate and private key fo
 
 1. Click **Save**.
 
-   <img src="generate-rsa-cert.png" alt="Generate RSA Certificate for Harbor" width="425">
+   <img src="images/generate-rsa-cert.png" alt="Generate RSA Certificate for Harbor" width="425">
 
-   <img src="cert-config.png" alt="Configure SSL certificate and private key for Harbor" width="425">
+   <img src="images/cert-config.png" alt="Configure SSL certificate and private key for Harbor" width="425">
 
-###<a id='configure_credentials'></a> Configure Harbor Credentials
+###<a id='images/configure_credentials'></a> Configure Harbor Credentials
 
 1. Click **Credentials**. 
 
@@ -140,7 +140,7 @@ At the **Container Registry Storage** page you specify the type of file storage 
 
    For NFS storage, provide the NFS Server Address in the form `nfs_server_ip:/path/to/export_directory`, for example: `192.0.2.0:/harbor/registry/export`. Note that the UID for the owner of the export directory on the NFS Server must be 10000:10000. 10000 is the the user/group ID used by Harbor Registry container.
 
-	<img src="nfs.png" alt="NFS Server configuration for Harbor" width="425">
+	<img src="images/nfs.png" alt="NFS Server configuration for Harbor" width="425">
 
    For AWS storage, provide the following values:
    - **Access Key**
@@ -155,7 +155,7 @@ At the **Container Registry Storage** page you specify the type of file storage 
    - **Enable v4auth** - Access to the bucket is authenticated (default); deselect for anonymous access.
    - **Secure Mode** - By default access to the S3 bucket is secure; deselect to access the bucket in insecure mode.
 
-	<img src="aws.png" alt="AWS S3 configuration for Harbor" width="425">
+	<img src="images/aws.png" alt="AWS S3 configuration for Harbor" width="425">
 
    For Google Cloud Storage, provide the following values:
    - **Bucket Name** - Name defined for the bucket when it was created
@@ -163,7 +163,7 @@ At the **Container Registry Storage** page you specify the type of file storage 
    - **Chunk Size** - Default is 5242880 (5MB)
    - **Key File** - Service account key (you can only get this when you first create the storage bucket)
 
-	<img src="google.png" alt="Google Cloud Storage configuration for Harbor" width="425">
+	<img src="images/google.png" alt="Google Cloud Storage configuration for Harbor" width="425">
 
 1. Click **Save**.
 
@@ -237,11 +237,11 @@ than is currently deployed in Ops Manager, do the following:
 
 1. In the Harbor tile, click the **Missing stemcell** link. 
 
-	<img src="missing-stemcell.png" alt="Missing stemcell for Harbor" width="425">
+	<img src="images/missing-stemcell.png" alt="Missing stemcell for Harbor" width="425">
 
 1. At the **Stemcell Library** page, copy the name and version of the required stemcell for Harbor.
 
-	<img src="required-stemcell.png" alt="Required stemcell for Harbor" width="425">
+	<img src="images/required-stemcell.png" alt="Required stemcell for Harbor" width="425">
 
 1. Log in to the [Pivotal Network](https://network.pivotal.io/).
 
@@ -254,7 +254,7 @@ than is currently deployed in Ops Manager, do the following:
 
 1. Click **Import Stemcell**, navigate to the stemcell you downloaded, and click **Open** to import the stemcell.
 
-	<img src="import-stemcell.png" alt="Import required stemcell for Harbor" width="425">
+	<img src="images/import-stemcell.png" alt="Import required stemcell for Harbor" width="425">
 
 1. When prompted, apply the imported stemcell to the Harbor product.
 
@@ -264,7 +264,7 @@ than is currently deployed in Ops Manager, do the following:
 
 1. Click **Apply Changes** to deploy Harbor.
 
-	<img src="deploy-harbor.png" alt="Deploy Harbor" width="425">
+	<img src="images/deploy-harbor.png" alt="Deploy Harbor" width="425">
 
 ## <a id='post-deploy'></a>View VMware Harbor Registry Information
 
@@ -281,7 +281,7 @@ Before you can start using Harbor, you will need to perform a few final tasks.
 1. Update the DNS entry for the Harbor hostname with the IP address of the Harbor VM assigned by BOSH. 
    Get the IP assigned to Harbor by clicking the Harbor Tile and selecting the Status tab.
 
-	<img src="harbor-ip.png" alt="Get Harbor IP" width="425">
+	<img src="images/harbor-ip.png" alt="Get Harbor IP" width="425">
 
 2. Obtain the Harbor CA certificate and provide it to Ops Manager.
    If you are using PKS, see [Integrating VMware Harbor Registry with PKS](https://docs.pivotal.io/partners/vmware-harbor/integrating-pks.html).
