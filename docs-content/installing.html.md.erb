@@ -36,39 +36,41 @@ This section describes Harbor configuration settings. If you make changes, be su
 
 1. Click **Save**.
 
-   <img src="images/aasign-azs-networks.png" alt="Assign AZs and Networks for Harbor" width="425">
+     <img src="images/aasign-azs-networks.png" alt="Assign AZs and Networks for Harbor" width="425">
 
 ###<a id='configure_general'></a> Configure General Settings
 
 1. Click **General**.
 
 1. Enter a **Hostname** (FDQN, not IP) to access the Harbor administration UI and registry service, for example: `harbor.mycompany.com`.
-   The hostname must include a domain and must be able to resolve to the IP of the Harbor instance VM by an external DNS server. 
-   
-   Kubernetes worker nodes are able to resolve the Harbor FQDN via the local BOSH DNS server. So that Docker clients external to Kubernetes worker nodes can resolve the Harbor FQDN, you must provide a Harbor FQDN that is resolvable by an external DNS server. When Harbor is successfully deployed, you will need to update the Harbor external DNS record with IP address of the Harbor VM.
+  <br><br>
+  The hostname must include a domain and must be able to resolve to the IP of the Harbor instance VM by an external DNS server. 
+  <br><br>
+  Kubernetes worker nodes are able to resolve the Harbor FQDN via the local BOSH DNS server. So that Docker clients external to Kubernetes worker nodes can resolve the Harbor FQDN, you must provide a Harbor FQDN that is resolvable by an external DNS server. When Harbor is successfully deployed, you will need to update the Harbor external DNS record with IP address of the Harbor VM.
 
 1. To use the default container network settings, choose the option **Keep the default container network settings**. 
 
-1. To customize the container network settings, choose the option **Specify customized container network settings** 
-   You must specify at least one address pool base and size. The address pool is used when a Docker container starts. The Docker daemon (dockerd) will allocate an IP address to this container; the IP address that is assigned is selected from the address pool.
+1. To customize the container network settings, choose the option **Specify customized container network settings**.
+  <br><br> 
+  You must specify at least one address pool base and size. The address pool is used when a Docker container starts. The Docker daemon (dockerd) will allocate an IP address to this container; the IP address that is assigned is selected from the address pool.
 
-   Enter the **Address pool1 base**, for example, `172.80.0.0/16`.
+1. Enter the **Address pool1 base**, for example, `172.80.0.0/16`.
 
-   Enter the **Address pool1 size**, for example, `24`. 
+1. Enter the **Address pool1 size**, for example, `24`. 
 
-   Enter the **Address pool2 base** (optional).
+1. Enter the **Address pool2 base** (optional).
 
-   Enter the **Address pool2 size** (optional). 
+1. Enter the **Address pool2 size** (optional). 
 
-   Enter the **Address pool3 base** (optional).
+1. Enter the **Address pool3 base** (optional).
 
-   Enter the **Address pool3 size** (optional). 
+1. Enter the **Address pool3 size** (optional). 
 
 1. Click **Save**.
 
-   <img src="images/config-general-settings-default.png" alt="Configure General Settings for Harbor: Default" width="425">
+     <img src="images/config-general-settings-default.png" alt="Configure General Settings for Harbor: Default" width="425">
 
-   <img src="images/config-general-settings-custom.png" alt="Configure General Settings for Harbor: Custom" width="425">
+     <img src="images/config-general-settings-custom.png" alt="Configure General Settings for Harbor: Custom" width="425">
 
 
 ###<a id='configure_certificate'></a> SSL Certificate Key Configuration
@@ -98,9 +100,9 @@ At the **Certificate** page you configure the SSL certificate and private key fo
 
 1. Click **Save**.
 
-   <img src="images/generate-rsa-cert.png" alt="Generate RSA Certificate for Harbor" width="425">
+     <img src="images/generate-rsa-cert.png" alt="Generate RSA Certificate for Harbor" width="425">
 
-   <img src="images/cert-config.png" alt="Configure SSL certificate and private key for Harbor" width="425">
+     <img src="images/cert-config.png" alt="Configure SSL certificate and private key for Harbor" width="425">
 
 ###<a id='images/configure_credentials'></a> Configure Harbor Credentials
 
@@ -133,37 +135,37 @@ At the **Container Registry Storage** page you specify the type of file storage 
 1. Click **Container Registry Storage**. 
 
 1. Choose the desired storage for container images:
-   - **Local File System** (default)
-   - **Remote NFS Server**
-   - **AWS S3**
-   - **Google Cloud Storage**
-
-   For NFS storage, provide the NFS Server Address in the form `nfs_server_ip:/path/to/export_directory`, for example: `192.0.2.0:/harbor/registry/export`. Note that the UID for the owner of the export directory on the NFS Server must be 10000:10000. 10000 is the the user/group ID used by Harbor Registry container.
-
-	<img src="images/nfs.png" alt="NFS Server configuration for Harbor" width="425">
-
-   For AWS storage, provide the following values:
-   - **Access Key**
-   - **Secret Key**
-   - **Region** (required) - AWS region where the S3 bucket is located
-   - **Endpoint URL of your S3-compatible file store**
-   - **Bucket Name** (required) - Name defined for the bucket when it was created
-   - **Root Directory in the Bucket**
-   - **Chunk Size** (required) - Default is 5242880 (5MB)
-
-   In addition, the following options are available for AWS storage:
-   - **Enable v4auth** - Access to the bucket is authenticated (default); deselect for anonymous access.
-   - **Secure Mode** - By default access to the S3 bucket is secure; deselect to access the bucket in insecure mode.
-
-	<img src="images/aws.png" alt="AWS S3 configuration for Harbor" width="425">
-
-   For Google Cloud Storage, provide the following values:
-   - **Bucket Name** - Name defined for the bucket when it was created
-   - **Root Directory in the Bucket** (optional)
-   - **Chunk Size** - Default is 5242880 (5MB)
-   - **Key File** - Service account key (you can only get this when you first create the storage bucket)
-
-	<img src="images/google.png" alt="Google Cloud Storage configuration for Harbor" width="425">
+  - **Local File System** (default)
+  - **Remote NFS Server**
+  - **AWS S3**
+  - **Google Cloud Storage**
+  <br><br>
+  For NFS storage, provide the NFS Server Address in the form `nfs_server_ip:/path/to/export_directory`, for example: `192.0.2.0:/harbor/registry/export`. Note that the UID for the owner of the export directory on the NFS Server must be 10000:10000. 10000 is the the user/group ID used by Harbor Registry container.
+  <br>
+  	<img src="images/nfs.png" alt="NFS Server configuration for Harbor" width="425">
+  <br><br>
+  For AWS storage, provide the following values:
+     - **Access Key**
+     - **Secret Key**
+     - **Region** (required) - AWS region where the S3 bucket is located.
+     - **Endpoint URL of your S3-compatible file store**
+     - **Bucket Name** (required) - Name defined for the bucket when it was created.
+     - **Root Directory in the Bucket**
+     - **Chunk Size** (required) - Default is 5242880 (5MB)
+  <br><br>
+  In addition, the following options are available for AWS storage:
+    - **Enable v4auth** - Access to the bucket is authenticated (default); deselect for anonymous access.
+    - **Secure Mode** - By default access to the S3 bucket is secure; deselect to access the bucket in insecure mode.
+    <br>
+  	<img src="images/aws.png" alt="AWS S3 configuration for Harbor" width="425">
+  <br><br>
+  For Google Cloud Storage, provide the following values:
+    - **Bucket Name** - Name defined for the bucket when it was created
+    - **Root Directory in the Bucket** (optional)
+    - **Chunk Size** - Default is 5242880 (5MB)
+    - **Key File** - Service account key (you can only get this when you first create the storage bucket)
+    <br>
+  	<img src="images/google.png" alt="Google Cloud Storage configuration for Harbor" width="425">
 
 1. Click **Save**.
 
