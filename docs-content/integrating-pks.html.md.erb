@@ -53,9 +53,9 @@ Once you have obtained the Harbor CA Certificate file, do the following:
 By adding the CA certificate that was used to sign the Harbor certificate to the Bosh Director Security configuration, all Kubernetes clusters deployed by PKS will be able to automatically trust the Harbor registry.
 
 
-## <a id='ip-add'></a> Step 3: Obtain Harbor IP Address (NSX-T)
+## <a id='ip-add'></a> Create DNAT Rule (NSX-T)
 
-If you integrate Harbor with PKS in a NSX-T environment that uses NAT, the IP address for Harbor provided by Ops Manager is inaccessible, and you cannot access the Harbor UI from `https://harbor_host_address:443`. 
+If you integrate Harbor with PKS in a NSX-T environment that uses NAT mode, the IP address for Harbor provided by Ops Manager is inaccessible, and you cannot access the Harbor UI from `https://harbor_host_address:443`. 
 
 To access the Harbor UI, you must create a DNAT rule in the T0-Router that maps the Harbor IP address to a routable IP address in your virtual network.
 
