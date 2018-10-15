@@ -171,7 +171,9 @@ If you deselect this checkbox, Clair is not installed.
 
 1. (Optional) In the **HTTP Proxy** field, enter the URL for the HTTP proxy for the Clair service. For example: `http://your-proxy.example.com:3128`.
 
-1. (Optional) In the **HTTPS Proxy** field, enter the URL for the HTTPS proxy for the Clair service. For example: `https://your-proxy.example.com:3128`
+1. (Optional) In the **HTTPS Proxy** field, enter the URL for the HTTPS proxy for the Clair service. For example: `https://your-proxy.example.com:3128`.
+
+<p class="note"><strong>Note:</strong> To use basic authentication with the HTTP/S proxy for Clair, include the user name and password in the proxy host URL, for example: `http://user:password@myproxy.internal.domain:8080`.</p>
 
 1. In the **No Proxy** field, specify the endpoints that will not be proxied. This field is required if Clair is installed. The default values, `127.0.0.1,localhost,ui`, are populated for you.
 
