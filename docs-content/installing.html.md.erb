@@ -128,7 +128,10 @@ At the **Container Registry Storage** page you specify the type of file storage 
   - **AWS S3**
   - **Google Cloud Storage**
   <br><br>
-  For **Remote NFS Server** storage, provide the **NFS Server Address** in the form `nfs_server_ip:/path/to/export_directory`. For example: `192.0.2.0:/harbor/registry/export`. The user/group ID (UID) for the owner of the export directory on the NFS Server must be 10000:10000, where 10000 is the the UID used by the Harbor Registry container.
+  For **Remote NFS Server** storage, provide the **NFS Server Address** in the form `nfs_server_ip:/path/to/export_directory`.
+  For example: `192.0.2.0:/harbor/registry/export`. The user/group ID (UID)
+  for the owner of the export directory on the NFS Server must be 10000:10000,
+  where 10000 is the UID used by the Harbor Registry container.
   <br>
   	<img src="images/nfs.png" alt="NFS Server configuration for Harbor" width="625">
   <br><br>
@@ -171,9 +174,12 @@ If you deselect this checkbox, Clair is not installed.
 
 1. (Optional) In the **HTTP Proxy** field, enter the URL for the HTTP proxy for the Clair service. For example: `http://your-proxy.example.com:3128`.
 
-1. (Optional) In the **HTTPS Proxy** field, enter the URL for the HTTPS proxy for the Clair service. For example: `https://your-proxy.example.com:3128`.
+1. (Optional) In the **HTTPS Proxy** field, enter the URL for the HTTPS proxy for the Clair service.
+   For example: `https://your-proxy.example.com:3128`.
 
-<p class="note"><strong>Note:</strong> To use basic authentication with the HTTP/S proxy for Clair, include the user name and password in the proxy host URL, for example: `http://user:password@myproxy.internal.domain:8080`.</p>
+    <p class="note"><strong>Note:</strong> To use basic authentication with the HTTP/S proxy for Clair,
+       include the user name and password in the proxy host URL,
+       for example: <code>http://user:password@myproxy.internal.domain:8080</code>.</p>
 
 1. In the **No Proxy** field, specify the endpoints that will not be proxied. This field is required if Clair is installed. The default values, `127.0.0.1,localhost,ui`, are populated for you.
 
