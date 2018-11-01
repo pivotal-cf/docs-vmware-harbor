@@ -221,13 +221,17 @@ At the **Resource Config** page you can configure the Harbor, including disk siz
 
 1. Click **Resource Config**.
 
-1. To change the configuration of the Harbor tile, edit the following properties:
+1. To change the configuration of the `harbor-app` VM, edit the following properties:
     - **Instances**: This value cannot be changed. PCF supports one Harbor instance only.
     - **Persistent Disk Type**: Increase or decrease the storage capacity of the Harbor disk. 
     - **VM Type**: Select a VM type with more or less CPU capacity and RAM.
     For example, if your deployment manages a large number of Docker images, increase the storage capacity and select a VM type that has greater CPU capacity and more RAM.
 
+1. To change the configuration of the `smoke-testing` VM, specify the desired **VM Type**.
+
 1. Click **Save**.
+
+  	<img src="images/harbor-resources.png" alt="Harbor Resources Configuration" width="625">
 
 ### <a id='configure_stemcell'></a> Stemcell Configuration
 
