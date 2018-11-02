@@ -217,7 +217,7 @@ Errands are scripts that run at designated points during an installation.
 
 ### <a id='configure_resource_config'></a> Resource Configuration Settings
 
-At the **Resource Config** page you can configure the Harbor, including disk size and VM type. You can run only one instance of the Harbor VM. 
+At the **Resource Config** page you configure the resource settings for the Harbor VM, including disk size and type. You can run only one instance of the Harbor VM. 
 
 For standard deployments, the default resource configuration settings are sufficient. The compute and storage capacity of the Harbor VM depends on the size of the images you are deploying to the Harbor registry. Some images are 30MB, some are 2GB. In addition, storage requirements depend on how images are built and what base images are leveraged. In general, if your Harbor instance manages a large number of images, increase the storage size and select a VM type that has greater CPU capacity and more RAM. Using a smaller size VM than the default is not common.
 
@@ -228,7 +228,7 @@ For standard deployments, the default resource configuration settings are suffic
     - **Persistent Disk Type**: Increase or decrease the storage capacity of the Harbor disk. 
     - **VM Type**: Select a VM type with more CPU capacity and RAM depending on your storage requirements.    
 
-1. To change the configuration of the `smoke-testing` VM, specify the desired **VM Type**.
+1. To change the configuration of the `smoke-testing` VM, specify the desired **VM Type**. This is an ephemeral VM deployed and used by BOSH to test the deployment of the Harbor VM. Typically the default size is sufficient, however, if you change the size of the Harbor VM from the default, you may need to adjust the size of the test VM accordingly.
 
 1. Click **Save**.
 
