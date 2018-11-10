@@ -185,7 +185,7 @@ If you deselect this checkbox, Clair is not installed.
 
 1. Append `registry` to the **No Proxy** field, for example, `127.0.0.1,localhost,ui,registry`. 
 
-    <p class="note"><strong>Note:</strong> The `registry` entry is required to avoid or workaround a known issue with the 1.6.0 Harbor tile. Without the `registry` entry in the no_proxy field, you may receive an HTTP 400 Bad Request error with the message "could not find layer" when Clair attempts to pull images from the Harbor registry.</p>
+    <p class="note"><strong>Note:</strong> The `registry` entry is required to avoid or work around a known issue with the 1.6.0 Harbor tile. Without the `registry` entry in the no_proxy field, you may receive an HTTP 400 Bad Request error with the message "could not find layer" when Clair attempts to pull images from the Harbor registry.</p>
 
 1. In the **Updater interval (Hours)** field, specify when Clair will update its CVE database for the registered sources. When the updater interval expires, Clair will update its CVE database. If the updater interval is set to `0` (default), Clair will not update its CVE database.
 
