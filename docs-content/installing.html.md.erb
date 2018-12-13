@@ -18,6 +18,7 @@ This topic describes how to install and configure VMware Harbor Registry using P
 
 1. Click the **Harbor** tile to begin the configuration process. 
 
+     <img src="images/add-harbor-tile-aws.png" alt="Add and Configure Harbor Tile" width="625">
 
 ## <a id='configure'></a> Configure VMware Harbor Registry
 
@@ -49,21 +50,21 @@ This section describes Harbor configuration settings. If you make changes, be su
 
 1. To use the default container network settings, choose the option **Keep the default container network settings**. 
 
-1. To customize the container network settings, choose the option **Specify customized container network settings**.
+1. Or, to customize the container network settings, choose the option **Specify customized container network settings**.
   <br><br> 
-  You must specify at least one address pool base and size. The address pool is used when a Docker container starts. The Docker daemon (dockerd) will allocate an IP address to this container; the IP address that is assigned is selected from the address pool.
+  If you select the customize option, you must specify at least one address pool base and size. The address pool is used when a Docker container starts. The Docker daemon (dockerd) will allocate an IP address to this container; the IP address that is assigned is selected from the address pool.
 
-1. Enter the **Address pool1 base**. For example, `172.80.0.0/16`.
+  * Enter the **Address pool1 base**. For example, `172.80.0.0/16`.
 
-1. Enter the **Address pool1 size**. For example, `24`. 
+  * Enter the **Address pool1 size**. For example, `24`. 
 
-1. (Optional) Enter the **Address pool2 base**.
+  * (Optional) Enter the **Address pool2 base**.
 
-1. (Optional) Enter the **Address pool2 size**. 
+  * (Optional) Enter the **Address pool2 size**. 
 
-1. (Optional) Enter the **Address pool3 base**.
+  * (Optional) Enter the **Address pool3 base**.
 
-1. (Optional) Enter the **Address pool3 size**. 
+  * (Optional) Enter the **Address pool3 size**. 
 
 1. Click **Save**.
 
@@ -191,7 +192,7 @@ If you deselect this checkbox, Clair is not installed.
 
 1. Click **Save**.
 
-  	<img src="images/clair.png" alt="Clair configuration for Harbor" width="625">
+  	<img src="images/clair2.png" alt="Clair configuration for Harbor" width="625">
 
 ### <a id='configure_notary'></a> Notary Settings
 
@@ -221,7 +222,7 @@ Errands are scripts that run at designated points during an installation.
 
 ### <a id='configure_resource_config'></a> Resource Configuration Settings
 
-At the **Resource Config** page you configure the resource settings for the Harbor VM, including disk size and type. You can run only one instance of the Harbor VM.
+At the **Resource Config** page you configure the resource settings for the Harbor VM, including disk size and type, as well as the load balancer (AWS and GCP environments only). You can run one instance of the Harbor VM.
 
 For standard deployments, the default resource configuration settings are sufficient. The compute and storage capacity of the Harbor VM depends on the size of the images you are deploying to the Harbor registry. Some images are 30MB, some are 2GB. In addition, storage requirements depend on how images are built and what base images are leveraged. In general, if your Harbor instance manages a large number of images, increase the storage size and select a VM type that has greater CPU capacity and more RAM. Using a smaller size VM than the default is not common.
 
@@ -235,6 +236,12 @@ For standard deployments, the default resource configuration settings are suffic
     - **VM Type**: Select a VM type with more CPU capacity and RAM depending on your storage requirements.    
 
 1. To change the configuration of the `smoke-testing` VM, specify the desired **VM Type**. This is an ephemeral VM deployed and used by BOSH to test the deployment of the Harbor VM. Typically the default size is sufficient. However, if you change the size of the Harbor VM from the default, you may need to adjust the size of the test VM accordingly.
+
+1. If you are deploying Harbor on AWS, in the **Resource Config** section, specify the name of the AWS Load Balancer that allows external access to the Harbor VM. If you are using an <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-internal-load-balancers.html?icmpid=docs_elb_console">internal load balancer</a>, do not select the **Internet Connected** option. If you are using an <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-internet-facing-load-balancers.html">Internet-facing load balancer</a>, select the **Internet Connected** option.
+
+    <img src="images/aws-elb.png" alt="AWS ELB Type" width="625">
+
+    <img src="images/aws-elb-config.png" alt="Harbor Configuration with ELB" width="625">
 
 1. Click **Save**.
 
