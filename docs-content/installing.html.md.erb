@@ -222,7 +222,7 @@ Errands are scripts that run at designated points during an installation.
 
 ### <a id='configure_resource_config'></a> Resource Configuration Settings
 
-At the **Resource Config** page you configure the resource settings for the Harbor VM, including disk size and type, as well as the load balancer (AWS and GCP environments only). You can run one instance of the Harbor VM.
+The Harbor VM runs as a single instance. At the **Resource Config** page you configure the resource settings for the Harbor VM, including disk size and type. If you are deploying Harbor on AWS or GCP, you can specify a load balancer that allows external access to the Harbor VM. 
 
 For standard deployments, the default resource configuration settings are sufficient. The compute and storage capacity of the Harbor VM depends on the size of the images you are deploying to the Harbor registry. Some images are 30MB, some are 2GB. In addition, storage requirements depend on how images are built and what base images are leveraged. In general, if your Harbor instance manages a large number of images, increase the storage size and select a VM type that has greater CPU capacity and more RAM. Using a smaller size VM than the default is not common.
 
@@ -237,11 +237,14 @@ For standard deployments, the default resource configuration settings are suffic
 
 1. To change the configuration of the `smoke-testing` VM, specify the desired **VM Type**. This is an ephemeral VM deployed and used by BOSH to test the deployment of the Harbor VM. Typically the default size is sufficient. However, if you change the size of the Harbor VM from the default, you may need to adjust the size of the test VM accordingly.
 
-1. If you are deploying Harbor on AWS, in the **Resource Config** section, specify the name of the AWS Load Balancer that allows external access to the Harbor VM. If you are using an <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-internal-load-balancers.html?icmpid=docs_elb_console">internal load balancer</a>, do not select the **Internet Connected** option. If you are using an <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-internet-facing-load-balancers.html">Internet-facing load balancer</a>, select the **Internet Connected** option.
+1. For AWS and GCP environments, specify the name of the load balancer that allows external access to the Harbor VM. If you are using an Internet-facing load balancer, select the **Internet Connected** option. 
+
+    <img src="images/aws-elb-config.png" alt="Harbor Configuration with ELB" width="625">
+
+When you create an AWS or GCP load balancer, you specify its type, either internal or external. The load balancer type dictates whether you need to check or leave unchecked the **Internet Connected** option. For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-internal-load-balancers.html?icmpid=docs_elb_console">AWS internal load balancers</a>, <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-internet-facing-load-balancers.html">AWS Internet-facing load balancers</a>, and <a href="https://cloud.google.com/load-balancing/docs/load-balancing-overview#external_versus_internal_load_balancing">GCP internal and external load balancers</a>.
 
     <img src="images/aws-elb.png" alt="AWS ELB Type" width="625">
 
-    <img src="images/aws-elb-config.png" alt="Harbor Configuration with ELB" width="625">
 
 1. Click **Save**.
 
