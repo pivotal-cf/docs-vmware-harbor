@@ -99,7 +99,7 @@ At the **Certificate** page, you configure the SSL certificate and private key f
 
 1. Click **Credentials**. 
 
-1. Set a password for the Harbor system administrator account. You cannot change the admin password in Ops Manager after you set it. You use the Harbor interface to make subsequent changes to the password after deployment.
+1. Set a password for the Harbor system administrator account. You cannot change the Harbor administrator password in Ops Manager after you set it during installation. You use the Harbor interface to make subsequent changes to the password after deployment.
 
 1. Click **Save**.
 
@@ -173,10 +173,10 @@ At the **Container Registry Storage** page you specify the type of file storage 
 1. (Optional) To enable container image vulnerability scanning, ensure **Install Clair** is selected.
 If you deselect this checkbox, Clair is not installed.
 
-1. (Optional) In the **HTTP Proxy** field, enter the URL for the HTTP proxy for the Clair service. For example: `http://your-proxy.example.com:3128`.
+1. (Optional) In the **HTTP Proxy** field, enter the URL to proxy HTTP traffic to the Clair service. For example: `http://my.proxy.com:3128`.
 
-1. (Optional) In the **HTTPS Proxy** field, enter the URL for the HTTPS proxy for the Clair service.
-   For example: `https://your-proxy.example.com:3128`.
+1. (Optional) In the **HTTPS Proxy** field, enter the URL to proxy HTTPS traffic to the Clair service.
+   For example: `http://my.proxy.com:3128`.
 
     <p class="note"><strong>Note:</strong> To use basic authentication with the HTTP/S proxy for Clair,
        include the user name and password in the proxy host URL,
@@ -188,7 +188,7 @@ If you deselect this checkbox, Clair is not installed.
 
     <p class="note"><strong>Note:</strong> The <code>registry</code> entry is required to avoid or work around a known issue with VMware Harbor Registry v1.6.0. Without the <code>registry</code> entry in the <strong>No Proxy</strong> field, you may receive an HTTP 400 Bad Request error with the message "could not find layer" when Clair attempts to pull images from the Harbor registry.</p>
 
-1. In the **Updater interval (Hours)** field, specify when Clair will update its CVE database for the registered sources. When the updater interval expires, Clair will update its CVE database. If the updater interval is set to `0` (default), Clair will not update its CVE database.
+1. In the **Updater interval (Hours)** field, specify when Clair will update its CVE database for the registered sources. When the updater interval expires, Clair will update its CVE database. If the updater interval is set to `0` (default), Clair will not update its CVE database. For example, if you set the interval to `24`, Clair will update its CVE database daily.
 
 1. Click **Save**.
 
