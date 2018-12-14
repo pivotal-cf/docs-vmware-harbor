@@ -53,18 +53,8 @@ This section describes Harbor configuration settings. If you make changes, be su
 1. Or, to customize the container network settings, choose the option **Specify customized container network settings**.
   <br><br> 
   If you select the customize option, you must specify at least one address pool base and size. The address pool is used when a Docker container starts. The Docker daemon (dockerd) will allocate an IP address to this container; the IP address that is assigned is selected from the address pool.
-
-  * Enter the **Address pool1 base**. For example, `172.80.0.0/16`.
-
-  * Enter the **Address pool1 size**. For example, `24`. 
-
-  * (Optional) Enter the **Address pool2 base**.
-
-  * (Optional) Enter the **Address pool2 size**. 
-
-  * (Optional) Enter the **Address pool3 base**.
-
-  * (Optional) Enter the **Address pool3 size**. 
+  
+  For example, if you select this option, for the **Address pool1 base** you might enter `172.80.0.0/16`, and for the **Address pool1 size** you might enter `24`. Additional entry pairs are optional.
 
 1. Click **Save**.
 
@@ -242,9 +232,9 @@ For standard deployments, the default resource configuration settings are suffic
     <img src="images/aws-elb-config.png" alt="Harbor Configuration with ELB" width="625">
 
 When you create an AWS or GCP load balancer, you specify its type, either internal or external. The load balancer type dictates whether you need to check or leave unchecked the **Internet Connected** option. For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-internal-load-balancers.html?icmpid=docs_elb_console">AWS internal load balancers</a>, <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-internet-facing-load-balancers.html">AWS Internet-facing load balancers</a>, and <a href="https://cloud.google.com/load-balancing/docs/load-balancing-overview#external_versus_internal_load_balancing">GCP internal and external load balancers</a>.
-
-    <img src="images/aws-elb.png" alt="AWS ELB Type" width="625">
-
+  <br>
+  	<img src="images/aws-elb.png" alt="AWS ELB Type" width="625">
+  <br><br>
 
 1. Click **Save**.
 
