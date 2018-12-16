@@ -3,9 +3,13 @@ title: Installing and Configuring VMware Harbor Registry
 owner: Partners
 ---
 
-This topic describes how to install and configure VMware Harbor Registry using Pivotal Ops Manager for use with Pivotal Container Service (PKS) and Pivotal Application Service (PAS). After you install and configure Harbor, you must provide the Harbor CA certificate to Ops Manager.
+This topic describes how to install and configure VMware Harbor Registry using Pivotal Ops Manager for use with Pivotal Container Service (PKS) and Pivotal Application Service (PAS). 
 
 <p class="note"><strong>Note:</strong> This documentation supports the Harbor v1.6 release.</p>
+
+## <a id='prereqs'></a> Prerequisites
+
+- [PKS is installed](https://docs.pivotal.io/runtimes/pks/1-2/installing.html). 
 
 ## <a id='install'></a> Import Harbor Tile to Ops Manager
 
@@ -16,7 +20,7 @@ This topic describes how to install and configure VMware Harbor Registry using P
 
 <img src="images/add-harbor-tile-aws.png" alt="Add and Configure Harbor Tile" width="725">
 
-<p class="note"><strong>Note:</strong> When configuring Harbor in Ops Manager, be sure to click <strong>Save</strong> to preserve your changes.</p>
+<p class="note"><strong>Note:</strong> When configuring the Harbor tile, click <strong>Save</strong> to preserve your changes.</p>
 
 ## <a id='configure_az_networks'></a> Assign AZs and Networks
 
@@ -223,16 +227,19 @@ To update the stemcell:
 When the deployment finishes, verify the deployment by checking the Harbor instance information the **Harbor** tile in Ops Manager. 
 
 - Select the **Status** tab to get the IP address of the Harbor host and status information about the Harbor VM.
-- Select the **Credentials** tab to get Harbor credentials, including the Harbor admin account for SSH access to the VM and the Clair database credentials.
+- Select the **Credentials** tab to get Harbor credentials, including the Harbor administrator account for SSH access to the VM and the Clair database credentials.
 - Select the **Logs** tab to collect Harbor log files and generate and download the Harbor log bundle.
 
 <img src="images/harbor-ip.png" alt="Get Harbor IP" width="625">
 
-## <a id='use'></a> Get Started with Harbor
+## <a id='use'></a> Next Steps
 
-Before you can start using Harbor, you must perform a few final tasks. 
+After you install and configure Harbor, you must update the DNS entry for Harbor and provide the Harbor CA certificate to Ops Manager. If you use PKS with NSX-T, define a NAT rule to the Harbor IP address.
 
-1. Update the DNS entry for the Harbor hostname with the IP address of the Harbor VM assigned by BOSH. Get the IP assigned to Harbor by clicking the Harbor Tile and selecting the **Status** tab.
-1. Obtain the Harbor CA certificate and provide it to Ops Manager. If you are using PKS, see [Integrating VMware Harbor Registry with PKS](https://docs.pivotal.io/partners/vmware-harbor/integrating-pks.html). If you are using PAS, see **Integrating VMware Harbor Registry with PAS** in the Harbor documentation table of contents.
-1. If you are using Harbor with PKS with NSX-T in NAT mode, you will need to create a DNAT rule for Harbor. See [Integrating VMware Harbor Registry with PKS](https://docs.pivotal.io/partners/vmware-harbor/integrating-pks.html).
-1. For instructions on how to pull images from Harbor, refer to the [Harbor User Guide](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#pull-image-from-harbor-in-kubernetes).
+- Update the DNS entry for the Harbor hostname with the IP address of the Harbor VM assigned by BOSH. See [Update DNS for Harbor](./integrating-pks.html#update-dns).
+- Obtain the Harbor CA certificate and provide it to Ops Manager:
+  - [PKS instructions](./integrating-pks.html#provide-harbor-cert).
+  - [PAS instructions](https://docs.pivotal.io/pivotalcf/1-12/opsguide/docker-registry.html#ops-man)
+- If you are using Harbor with PKS with NSX-T in NAT mode, you will need to create a DNAT rule for Harbor. See [Create DNAT Rule for Harbor](./integrating-pks.html#create-dnat-harbor).
+- Start Harbor and log in. See [Starting Harbor](./using.html#starting).
+- Use Harbor. See [Using Harbor](./using.html#using).
