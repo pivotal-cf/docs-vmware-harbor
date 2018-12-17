@@ -3,14 +3,28 @@ title: Integrating VMware Harbor Registry with PKS
 owner: Partners
 ---
 
-This topic describes how to integrate VMware Harbor Registry with Pivotal Container Service (PKS).
+This topic describes how to integrate Harbor Registry with PKS.
 
+## <a id='prereqs'></a> Prerequisites
 
-## <a id='provide-harbor-cert'></a>Provide the Harbor CA Certificate to Ops Manager
+- [PKS is installed](https://docs.pivotal.io/runtimes/pks/1-2/installing.html). 
+- [Harbor is installed](./installing.html).
+
+## <a id='update-dns'></a> Update DNS for Harbor
+
+After you install and configure Harbor, you must update the DNS entry for the Harbor hostname with the IP address of the Harbor VM assigned by BOSH.
+
+Get the IP assigned to Harbor by clicking the Harbor tile and selecting the **Status** tab.
+
+<img src="images/harbor-ip.png" alt="Get Harbor IP" width="725">
+
+## <a id='provide-harbor-cert'></a>Provide the Harbor CA Certificate to BOSH
 
 For Pivotal Container Service (PKS) clusters to pull images from and push images to Harbor, PKS must authenticate connections to Harbor. Consequently, you must provide the Harbor CA certificate to Ops Manager before you can use Harbor with PKS.
 
-### <a id='get-harbor-cert'></a> Obtain the Harbor CA Certificate file
+By adding the CA certificate that was used to sign the Harbor certificate to the BOSH Director Security configuration, all Kubernetes clusters deployed by PKS will be able to automatically trust the Harbor registry.
+
+### <a id='get-harbor-cert'></a> Obtain the Harbor CA Certificate
 
 If you used a third-party CA to sign the Harbor certificate, obtain the CA certificate from your third-party CA. Otherwise, if you used an automatically generated certificate for Harbor, do the following:
 
@@ -24,7 +38,7 @@ If you used a third-party CA to sign the Harbor certificate, obtain the CA certi
 
 	<img src="images/opsmgr-02.png" alt="Ops Manager Advanced" width="425">
 
-### <a id='load-harbor-cert'></a> Trust the Harbor CA Certificate file
+### <a id='load-harbor-cert'></a> Trust the Harbor CA Certificate
 
 Once you have obtained the Harbor CA Certificate file, do the following:
 
@@ -48,20 +62,19 @@ Once you have obtained the Harbor CA Certificate file, do the following:
 
 	<img src="images/opsmgr-06.png" alt="Save" width="425">
 
-1. Return to the **Installation Dashboard** and click **Apply Changes**.
+1. Return to the **Installation Dashboard** and click **Apply Changes**. BOSH is redeployed.
 
-By adding the CA certificate that was used to sign the Harbor certificate to the BOSH Director Security configuration, all Kubernetes clusters deployed by PKS will be able to automatically trust the Harbor registry.
+## <a id='create-dnat-harbor'></a> Create DNAT Rule (NSX-T)
 
+If you integrate Harbor with PKS in a NSX-T environment that uses [NAT mode](https://docs.pivotal.io/runtimes/pks/1-2/nsxt-topologies.html#topology-nat), the IP address for Harbor provided by Ops Manager is not publicly inaccessible, and you cannot access the Harbor UI from `https://harbor_host_address:443`. 
 
-## <a id='create-dnat'></a> Create DNAT Rule (NSX-T)
+To access the Harbor UI, you must create a [DNAT rule in the NSX-T Tier-0 router](https://docs.pivotal.io/runtimes/pks/1-2/nsxt-prepare-mgmt-plane.html) that maps the Harbor IP address to a routable IP address in your virtual network.
 
-If you integrate Harbor with PKS in a NSX-T environment that uses NAT mode, the IP address for Harbor provided by Ops Manager is inaccessible, and you cannot access the Harbor UI from `https://harbor_host_address:443`. 
+<p class='note'><strong>Note:</strong> The IP address that your FQDN resolves to should be in the range of the NSX-T <code>external-ip-pool</code> (<strong>Inventory > Groups > IP Pools</strong>). If the IP address is not in this range, you must assign an IP address from the CIDR that is outside of the specified range in use for <code>external-ip-pool</code>.</p>
 
-To access the Harbor UI, you must create a DNAT rule in the T0-Router that maps the Harbor IP address to a routable IP address in your virtual network.
+If you are using Harbor with PKS with NSX-T in NAT mode, create a DNAT rule for Harbor as follows:
 
-To create this DNAT rule, do the following:
-
-1. In the NSX Manager, select **Routing > NAT > T0-Router**.
+1. In the NSX Manager, select **Routing** > **NAT** > **T0-Router**.
 
 1. Click **ADD**.
 
@@ -76,4 +89,8 @@ To create this DNAT rule, do the following:
   
     <img src="images/harbor-dnat.png" alt="NSX-T NAT Rule for Harbor" width="425">
 
-<p class='note'><strong>Note:</strong> The IP address that your FQDN resolves to should be in the range of the NSX-T <code>external-ip-pool</code> (<strong>Inventory > Groups > IP Pools</strong>). If the IP address is not in this range, you must assign an IP address from the CIDR that is outside of the specified range in use for <code>external-ip-pool</code>.</p>
+## <a id='next-steps'></a> Next Steps
+
+- [Start Harbor](./using.html#starting)
+- [Use Harbor](./using.html#using)
+
