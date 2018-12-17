@@ -121,16 +121,22 @@ At the **Container Registry Storage** page you specify the type of file storage 
 
 1. Click **Save**.
 
-**Remote NFS Server** storage configuration options:
-<br>
+#### <a id='remote_nfs_config'></a> Remote NFS Server Storage Configuration Options
+
 Provide the **NFS Server Address** in the form `nfs_server_ip:/path/to/export_directory`. 
-For example: `192.0.2.0:/harbor/registry/export`. The user/group ID (UID) for the owner of the export directory on the NFS Server must be 10000:10000,
+
+For example: `192.0.2.0:/harbor/registry/export`. 
+
+The user/group ID (UID) for the owner of the export directory on the NFS Server must be 10000:10000,
 where 10000 is the UID used by the Harbor Registry container.
-    <br>
-  	<img src="images/nfs.png" alt="NFS Server configuration for Harbor" width="625">
-  <br><br>  
-**AWS S3** storage configuration options:
-<br>
+
+
+<img src="images/nfs.png" alt="NFS Server configuration for Harbor" width="625">
+
+#### <a id='aws_s3_config'></a> AWS S3 Storage Configuration Options
+
+Provide the following configuration options:
+
   - **Access Key**. The access key for your S3 bucket.
   - **Secret Key**. The secret key for your S3 bucket.
   - **Region**. The AWS region where your S3 bucket is located.
@@ -144,17 +150,22 @@ where 10000 is the UID used by the Harbor Registry container.
     Deselect this checkbox for anonymous access.
   - **Secure Mode**. Access to your S3 bucket is secure by default.
     Deselect this checkbox to disable secure mode.
-    <br>
-  	<img src="images/aws.png" alt="AWS S3 configuration for Harbor" width="625">
-  <br><br>
-**Google Cloud Storage** configuration options:
+
+
+<img src="images/aws.png" alt="AWS S3 configuration for Harbor" width="625">
+
+#### <a id='google_cloud_config'></a> Google Cloud Storage Configuration Options
+
+Provide the following configuration options:
+
    - **Bucket Name**. The name you gave your bucket when you created it.
      This field is required.
    - **Root Directory in the Bucket**. The root directory of your bucket.
    - **Chunk Size**. The default value is `5242880`, which is 5&nbsp;MB. This field is required.
    - **Key File**. The service account key for your bucket.
-    <br>
-  	<img src="images/google.png" alt="Google Cloud Storage configuration for Harbor" width="625">
+
+
+<img src="images/google.png" alt="Google Cloud Storage configuration for Harbor" width="625">
 
 ### <a id='configure_clair'></a> Clair Configuration Settings
 
@@ -220,7 +231,7 @@ For standard Harbor Registry deployments, the default size and type for the Harb
 
 If you are deploying Harbor using BOSH Director for AWS or GCP, and you are fronting the Harbor VM with a load balancer, provide its IP address in the resource settings. AWS or GCP load balancers can be internal or external. The load balancer type dictates whether you need to check or leave unchecked the **Internet Connected** option. The image below shows the load balancer "scheme" options for the AWS classic load balancer.
 
-  	<img src="images/aws-elb.png" alt="AWS ELB Type" width="625">
+<img src="images/aws-elb.png" alt="AWS ELB Type" width="625">
 
 For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-internal-load-balancers.html?icmpid=docs_elb_console">AWS internal load balancers</a>, <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-internet-facing-load-balancers.html">AWS Internet-facing load balancers</a>, and <a href="https://cloud.google.com/load-balancing/docs/load-balancing-overview#external_versus_internal_load_balancing">GCP internal and external load balancers</a>.
 
