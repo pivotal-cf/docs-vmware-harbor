@@ -3,7 +3,7 @@ title: Installing and Configuring VMware Harbor Registry
 owner: Partners
 ---
 
-This topic describes how to install and configure VMware Harbor Registry using Pivotal Ops Manager for use with Pivotal Container Service (PKS) and Pivotal Application Service (PAS). 
+This topic describes how to install and configure VMware Harbor Registry using Pivotal Ops Manager for use with [PKS](https://docs.pivotal.io/runtimes/pks/1-2/index.html) and [PAS](https://docs.pivotal.io/pivotalcf/2-3/concepts/index.html). 
 
 <p class="note"><strong>Note:</strong> This documentation supports the Harbor v1.6 release.</p>
 
@@ -14,7 +14,8 @@ This topic describes how to install and configure VMware Harbor Registry using P
 ## <a id='install'></a> Import Harbor Tile to Ops Manager
 
 1. Download the Harbor tile from [Pivotal Network](https://network.pivotal.io/).
-1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file. 
+1. Log in to the Ops Manager **Installation Dashboard**.
+1. Click **Import a Product** and upload the Harbor tile. 
 1. Below the **Import a Product** button, click the **+** button next to the VMware Harbor Registry version number to add the tile to your staging area.
 1. Click the **Harbor** tile to begin the configuration process. 
 
@@ -96,37 +97,45 @@ At the **Container Registry Storage** page you specify the type of file storage 
   - **Remote NFS Server** (see below for configuration)
   - **AWS S3** (see below)
   - **Google Cloud Storage** (see below)
-1. Click **Save**.
+1. Click **Save** if you made changes.
 
 ### Remote NFS Server Configuration
 
-Provide the **NFS Server Address** in the form `nfs_server_ip:/path/to/export_directory`. 
-For example: `192.0.2.0:/harbor/registry/export`. The user/group ID (UID) for the owner of the export directory on the NFS Server must be 10000:10000, where 10000 is the UID used by the Harbor Registry container.
+If you selected **Remote NFS Server**, provide the **NFS Server Address** in the form `nfs_server_ip:/path/to/export_directory`. 
+For example: `192.0.2.0:/harbor/registry/export`. 
+
+The user/group ID (UID) for the owner of the export directory on the NFS Server must be 10000:10000, where 10000 is the UID used by the Harbor Registry container.
 
 <img src="images/nfs.png" alt="NFS Server configuration for Harbor" width="725">
 
 ### AWS S3 Configuration
-   - **Access Key**. The access key for your S3 bucket.
-   - **Secret Key**. The secret key for your S3 bucket.
-   - **Region**. The AWS region where your S3 bucket is located.
-   - **Endpoint URL of your S3-compatible file store**. The URL of your S3-compatible filestore.
-   - **Bucket Name**. The name you gave your S3 bucket when you created it.
-   - **Root Directory in the Bucket**. The root directory of your S3 bucket. This field is optional.
-   - **Chunk Size**. The default value is `5242880`, which is 5MB.
-   - **Enable v4auth**. Access to your S3 bucket is authenticated by default.
-     Deselect this checkbox for anonymous access.
-   - **Secure Mode**. Access to your S3 bucket is secure by default.
-     Deselect this checkbox to disable secure mode.
 
-   <img src="images/aws.png" alt="AWS S3 configuration for Harbor" width="725">
+If you selected **AWS S3** for the storage, configure the following settings:
+
+- **Access Key**. The access key for your S3 bucket.
+- **Secret Key**. The secret key for your S3 bucket.
+- **Region**. The AWS region where your S3 bucket is located.
+- **Endpoint URL of your S3-compatible file store**. The URL of your S3-compatible filestore.
+- **Bucket Name**. The name you gave your S3 bucket when you created it.
+- **Root Directory in the Bucket**. The root directory of your S3 bucket. This field is optional.
+- **Chunk Size**. The default value is `5242880`, which is 5MB.
+- **Enable v4auth**. Access to your S3 bucket is authenticated by default.
+  Deselect this checkbox for anonymous access.
+- **Secure Mode**. Access to your S3 bucket is secure by default.
+  Deselect this checkbox to disable secure mode.
+
+<img src="images/aws.png" alt="AWS S3 configuration for Harbor" width="725">
 
 ### Google Cloud Storage Configuration
-   - **Bucket Name**. The name you gave your bucket when you created it.
-   - **Root Directory in the Bucket**. The root directory of your bucket. This field is optional.
-   - **Chunk Size**. The default value is `5242880`, which is 5MB.
-   - **Key File**. The service account key for your bucket.
 
-   <img src="images/google.png" alt="Google Cloud Storage configuration for Harbor" width="725">
+If you selected **Google Cloud Storage**, configure the following settings:
+
+- **Bucket Name**. The name you gave your bucket when you created it.
+- **Root Directory in the Bucket**. The root directory of your bucket. This field is optional.
+- **Chunk Size**. The default value is `5242880`, which is 5MB.
+- **Key File**. The service account key for your bucket.
+
+<img src="images/google.png" alt="Google Cloud Storage configuration for Harbor" width="725">
 
 ## <a id='configure_clair'></a> Configure Container Vulnerability Scanning Using Clair
 
@@ -240,6 +249,6 @@ After you install and configure Harbor, you must update the DNS entry for Harbor
 - Obtain the Harbor CA certificate and provide it to Ops Manager:
   - [PKS instructions](./integrating-pks.html#provide-harbor-cert).
   - [PAS instructions](https://docs.pivotal.io/pivotalcf/1-12/opsguide/docker-registry.html#ops-man)
-- If you are using Harbor with PKS with NSX-T in NAT mode, you will need to create a DNAT rule for Harbor. See [Create DNAT Rule for Harbor](./integrating-pks.html#create-dnat-harbor).
+- If you are using Harbor with PKS with NSX-T in NAT mode, you need to create a DNAT rule to access the Harbor UI. See [Create DNAT Rule for Harbor](./integrating-pks.html#create-dnat-harbor).
 - Start Harbor and log in. See [Starting Harbor](./using.html#starting).
 - Use Harbor. See [Using Harbor](./using.html#using).
