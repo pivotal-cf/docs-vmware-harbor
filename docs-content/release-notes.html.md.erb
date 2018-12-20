@@ -19,6 +19,9 @@ Fixes in this release:
 * **Email/UAA Settings** tab in the Harbor UI is reset to defaults after a resurrection event occurs in BOSH.
 * When using S3 storage in Harbor tile to point to an internal S3 object store, Harbor does not trust the issuer.
 
+Known issues in this release:
+
+* If you change the Harbor `admin` password using the Harbor web interface, subsequent attempts to "apply changes" to the Harbor tile in Ops Manager will fail. To avoid this issue, do not change the Harbor password using the Harbor web interface.
 
 ## <a id='v1.5.2'></a> v1.5.2
 
