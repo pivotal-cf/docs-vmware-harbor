@@ -75,6 +75,8 @@ To use a custom signed certificate from a third-party Certificate Authority (CA)
 1. Set a password for the Harbor system administrator account. You cannot change the Harbor administrator password in Ops Manager after you set it during installation. You use the Harbor interface to make subsequent changes to the password after deployment.
 1. Click **Save**.
 
+<p class="note"><strong>Note:</strong> There is a known issue in Harbor 1.6 related to changing the Harbor password. Refer to the Harbor release notes for details.</p>
+
 ## <a id='configure_authentication'></a> Configure Harbor Authentication Mode
 
 At the **Authentication** page in Ops Manager you choose the authentication mode. You use the Harbor web console to configure detailed settings for the chosen authentication mode. For more information, see <a href="https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#managing-authentication">Managing Authentication</a> in the Harbor User Guide documentation. 
