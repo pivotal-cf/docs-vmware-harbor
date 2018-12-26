@@ -7,29 +7,32 @@ This topic describes how to use the VMware Harbor Registry integration with Pivo
 
 ## <a id='prereqs'></a> Prerequisites
 
-- Harbor is [installed and configured](./installing.html).
-- Harbor is integrated with [PKS](./integrating-pks.html) or [PAS](https://docs.pivotal.io/pivotalcf/1-12/opsguide/docker-registry.html#ops-man).
+* You must have installed PKS. For more information, see [Installing PKS](https://docs.pivotal.io/runtimes/pks/installing.html) in the PKS documentation.
+* You must have installed Harbor. For more information, see [Installing and Configuring VMware Harbor Registry](./installing.html).
+* You must have integrated Harbor with PKS or Pivotal Application Service. For more information, see one of the following:
+  * [Integrating VMware Harbor Registry with PKS](./integrating-pks.html).
+  * [Use a CA Certificate](https://docs.pivotal.io/pivotalcf/opsguide/docker-registry.html#ops-man) in _Using Docker Registries_ in the Pivotal documentation.
 
 ## <a id='starting'></a> Starting Harbor
 
 To log in to VMware Harbor Registry, do the following:
 
-1. Using a web browser, navigate to `https://harbor_host_address:443`.
+1. In a web browser, navigate to `https://harbor_host_address:443`.
 
 1. Enter the username `admin`.
 
-1. Enter the password that you set when you configured Harbor for PKS. 
+1. Enter the password that you set when you configured Harbor for PKS.
 
-<p class='note'><strong>Note:</strong> If the Harbor UI is not accessible, make sure you have completed the integration steps, including updating DNS for Harbor, trusting the certificate, and creating a NAT rule for the Harbor UI. For more information, see <a href="./integrating-pks.html">Integrating Harbor with PKS</a>.</p>
+<p class='note'><strong>Note:</strong> If the Harbor UI is not accessible, make sure you have completed the integration steps, including updating DNS for Harbor, trusting the certificate, and creating a NAT rule for the Harbor UI. For more information, see <a href="./integrating-pks.html">Integrating VMware Harbor Registry with PKS</a>.</p>
 
 ## <a id='using'></a> Using Harbor
 
-For information about how to use Harbor, see the following sections of the [Harbor User Guide](https://github.com/vmware/harbor/blob/master/docs/user_guide.md):
+For information about how to use Harbor, see the following sections of the [Harbor User Guide](https://github.com/vmware/harbor/blob/master/docs/user_guide.md) in GitHub:
 
 - [Role Based Access Control (RBAC)](https://github.com/vmware/harbor/blob/master/docs/user_guide.md#role-based-access-controlrbac)
 - [Managing projects](https://github.com/vmware/harbor/blob/master/docs/user_guide.md#managing-projects)
 - [Managing members of a project](https://github.com/vmware/harbor/blob/master/docs/user_guide.md#managing-members-of-a-project)
 - [Searching projects and repositories](https://github.com/vmware/harbor/blob/master/docs/user_guide.md#searching-projects-and-repositories)
-- [Harbor Administration](https://github.com/vmware/harbor/blob/master/docs/user_guide.md#administrator-options)
+- [Administrator options](https://github.com/vmware/harbor/blob/master/docs/user_guide.md#administrator-options)
 - [Pulling and pushing images using Docker client](https://github.com/vmware/harbor/blob/master/docs/user_guide.md#pulling-and-pushing-images-using-docker-client)
 - [Pull image from Harbor in Kubernetes](https://github.com/vmware/harbor/blob/master/docs/user_guide.md#pull-image-from-harbor-in-kubernetes)
