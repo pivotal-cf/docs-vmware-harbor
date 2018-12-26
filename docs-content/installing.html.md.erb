@@ -3,47 +3,52 @@ title: Installing and Configuring VMware Harbor Registry
 owner: Partners
 ---
 
-This topic describes how to install and configure VMware Harbor Registry using Pivotal Ops Manager for use with Pivotal Container Service ([PKS](https://docs.pivotal.io/runtimes/pks/1-2/index.html)) and Pivotal Application Service ([PAS](https://docs.pivotal.io/pivotalcf/2-3/concepts/index.html)). 
+This topic describes how to install and configure VMware Harbor Registry using Pivotal Ops Manager
+for use with Pivotal Container Service (PKS) and Pivotal Application Service (PAS).
+
+For more information about PKS, see the [Pivotal Container Service (PKS)](https://docs.pivotal.io/runtimes/pks/index.html) documentation.
+
+For more information about PAS, see [PAS Concepts](https://docs.pivotal.io/pivotalcf/concepts/index.html) in the Pivotal documentation.
 
 <p class="note"><strong>Note:</strong> This documentation supports the Harbor v1.6 release.</p>
 
 ## <a id='prereqs'></a> Prerequisites
 
-- [PKS is installed](https://docs.pivotal.io/runtimes/pks/1-2/installing.html). 
+You must have installed PKS. For more information, see [Installing PKS](https://docs.pivotal.io/runtimes/pks/installing.html) in the PKS documentation.
 
-## <a id='install'></a> Import Harbor Tile to Ops Manager
+## <a id='install'></a> Step 1: Import Harbor Tile to Ops Manager
 
 1. Download the Harbor tile from [Pivotal Network](https://network.pivotal.io/).
 1. Log in to the Ops Manager **Installation Dashboard**.
 1. Click **Import a Product** and upload the Harbor tile. 
-1. Below the **Import a Product** button, click the **+** button next to the VMware Harbor Registry version number to add the tile to your staging area.
+1. Below the **Import a Product** button, click the **+** next to the VMware Harbor Registry version number to add the tile to your staging area.
 1. Click the **Harbor** tile to begin the configuration process. 
 
-<img src="images/add-harbor-tile-aws.png" alt="Add and Configure Harbor Tile" width="725">
+    <img src="images/add-harbor-tile-aws.png" alt="Add and Configure Harbor Tile" width="725">
 
-<p class="note"><strong>Note:</strong> When configuring the Harbor tile, click <strong>Save</strong> to preserve your changes.</p>
+    <p class="note"><strong>Note:</strong> When configuring the Harbor tile, click <strong>Save</strong> before leaving each pane to preserve your changes.</p>
 
 ## <a id='configure_az_networks'></a> Assign AZs and Networks
 
-1. In the Harbor tile, select the **Assign AZs and Networks** panel. 
-1. Select the availability zone (AZ) to **place singleton jobs in**. VMware Harbor is a singleton job and is placed on this network.
-1. Select the AZ where to **balance other jobs in**. For PKS, this is the same AZ as the singleton.
-1. For **Network**, select the network on which to deploy Harbor. For PKS, this is the management network where you deploy the Ops Manager, BOSH Director, and PKS VMs.
+1. In the Harbor tile, select **Assign AZs and Networks**.
+1. In the **Assign AZs and Networks** pane, under **Place singleton jobs in**, select the availability zone (AZ) where you want to run singleton jobs. VMware Harbor is a singleton job and is placed on this network.
+1. Under **balance other jobs in**, select the AZ where you want to balance other jobs. For PKS, this is the same AZ as the one that you selected for **Place singleton jobs in**.
+1. Under **Network**, select the network where you want to deploy Harbor. For PKS, this is the management network where you deploy the Ops Manager, BOSH Director, and PKS virtual machines (VMs).
+1. Click **Save**.
+<img src="images/assign-azs-networks.png" alt="Assign AZs and Networks for Harbor" width="725">
 
-<img src="images/aasign-azs-networks.png" alt="Assign AZs and Networks for Harbor" width="725">
+## <a id='configure_general'></a> Step 2: Configure General Settings
 
-## <a id='configure_general'></a> Configure General Settings
-
-1. In the Harbor tile, select the **General** panel.
-1. Enter a **Hostname** (FDQN, not IP) to access the Harbor administration UI and registry service. For example: `harbor.mycompany.com`. The hostname must include a domain and must be able to resolve to the IP of the Harbor instance VM by an external DNS server.
+1. In the Harbor tile, select **General**.
+1. Under **Hostname**, enter the FDQN of a host to access the Harbor administration UI and registry service. The hostname must include a domain and must be able to resolve to the IP address of the Harbor instance VM by an external DNS server.
 <br><br>
-  Kubernetes worker nodes are able to resolve the Harbor FQDN via the local BOSH DNS server. So that Docker clients external to Kubernetes worker nodes can resolve the Harbor FQDN, you must provide a Harbor FQDN that is resolvable by an external DNS server. When Harbor is successfully deployed, you will need to update the Harbor external DNS record with IP address of the Harbor VM.
-1. To use the default container network settings, choose the option **Keep the default container network settings**.
+Kubernetes worker nodes can resolve the Harbor FQDN through the local BOSH DNS server. To enable Docker clients external to Kubernetes worker nodes to resolve the Harbor FQDN, you must provide a Harbor FQDN that can be resolved by an external DNS server. When Harbor is successfully deployed, you must update the Harbor external DNS record with the IP address of the Harbor VM.
+1. To use the default container network settings, select **Keep the default container network settings**.
 <img src="images/config-general-settings-default.png" alt="Configure General Settings for Harbor: Default" width="725">
-1. To customize the container network settings, choose the option **Specify customized container network settings**.
-  <br><br> 
-  If you select the customize option, you must specify at least one address pool base and size. The address pool is used when a Docker container starts. The Docker daemon (dockerd) will allocate an IP address to this container; the IP address that is assigned is selected from the address pool.
-  <br><br>
+1. To customize the container network settings, select **Specify customized container network settings**.
+<br><br> 
+If you select **Specify customized container network settings**, you must specify at least one address pool base and size. When a Docker container starts, the Docker daemon (dockerd) selects an IP address from the address pool and allocates it to the container.
+<br><br>
   For example, if you select this option, for the **Address pool1 base** you might enter `172.80.0.0/16`, and for the **Address pool1 size** you might enter `24`. Additional entry pairs are optional.
 <img src="images/config-general-settings-custom.png" alt="Configure General Settings for Harbor: Custom" width="725">
 
