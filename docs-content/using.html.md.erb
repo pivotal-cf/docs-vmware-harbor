@@ -5,22 +5,26 @@ owner: Partners
 
 This topic describes how to use the VMware Harbor Registry integration with Pivotal Container Service (PKS).
 
+## <a id='prereqs'></a> Prerequisites
+
+- Harbor is [installed and configured](./installing.html).
+- Harbor is integrated with [PKS](./integrating-pks.html) or [PAS](https://docs.pivotal.io/pivotalcf/1-12/opsguide/docker-registry.html#ops-man).
 
 ## <a id='starting'></a> Starting Harbor
 
 To log in to VMware Harbor Registry, do the following:
 
-1. In a web browser, navigate to `https://harbor_host_address:443`.
-    <p class='note'><strong>Note:</strong> If you use PKS with NSX-T, you might need to define a NAT rule to the Harbor IP address. For more information, see <a href="./integrating-pks.html">Integrating VMware Harbor Registry with PKS</a>.</p>
+1. Using a web browser, navigate to `https://harbor_host_address:443`.
 
 1. Enter the username `admin`.
 
 1. Enter the password that you set when you configured Harbor for PKS. 
 
+<p class='note'><strong>Note:</strong> If the Harbor UI is not accessible, make sure you have completed the integration steps, including updating DNS for Harbor, trusting the certificate, and creating a NAT rule for the Harbor UI. For more information, see <a href="./integrating-pks.html">Integrating Harbor with PKS</a>.</p>
 
 ## <a id='using'></a> Using Harbor
 
-For information about how to use Harbor, see the following sections of the [Harbor User Guide](https://github.com/vmware/harbor/blob/master/docs/user_guide.md) in GitHub:
+For information about how to use Harbor, see the following sections of the [Harbor User Guide](https://github.com/vmware/harbor/blob/master/docs/user_guide.md):
 
 - [Role Based Access Control (RBAC)](https://github.com/vmware/harbor/blob/master/docs/user_guide.md#role-based-access-controlrbac)
 - [Managing projects](https://github.com/vmware/harbor/blob/master/docs/user_guide.md#managing-projects)
