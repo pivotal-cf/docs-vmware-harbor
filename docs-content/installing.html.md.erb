@@ -30,6 +30,8 @@ You must have installed PKS. For more information, see [Installing PKS](https://
 
 ## <a id='configure_az_networks'></a> Step 2: Assign AZs and Networks
 
+
+
 1. In the Harbor tile, select **Assign AZs and Networks**.
 1. In the **Assign AZs and Networks** pane, under **Place singleton jobs in**, select the availability zone (AZ) where you want to run singleton jobs. VMware Harbor is a singleton job and is placed on this network.
 1. Under **balance other jobs in**, select the AZ where you want to balance other jobs. For PKS, this is the same AZ as the one that you selected for **Place singleton jobs in**.
@@ -40,11 +42,14 @@ You must have installed PKS. For more information, see [Installing PKS](https://
 ## <a id='configure_general'></a> Step 3: Configure General Settings
 
 1. In the Harbor tile, select **General**.
+<img src="images/harbor-general-settings.png" alt="Configure General Settings for Harbor" width="725">
 1. Under **Hostname**, enter the FDQN of a host to access the Harbor administration UI and registry service. The hostname must include a domain and must be able to resolve to the IP address of the Harbor instance VM by an external DNS server.
 <br><br>
 Kubernetes worker nodes can resolve the Harbor FQDN through the local BOSH DNS server. To enable Docker clients external to Kubernetes worker nodes to resolve the Harbor FQDN, you must provide a Harbor FQDN that can be resolved by an external DNS server. When Harbor is successfully deployed, you must update the Harbor external DNS record with the IP address of the Harbor VM.
+1. Under **Static IP Address**, enter the static IP address that you want to use for the Harbor web interface.
+<br><br>
+The IP address must be within the CIDR block range. Create a DNS record that maps the Harbor FQDN to the static IP address, or to the custom load balancer if you are using one. 
 1. To use the default container network settings, select **Keep the default container network settings**.
-<img src="images/config-general-settings-default.png" alt="Configure General Settings for Harbor: Default" width="725">
 1. To customize the container network settings, select **Specify customized container network settings**.
 <br><br>
 If you select **Specify customized container network settings**, you must specify at least one address pool base and size. When a Docker container starts, the Docker daemon (dockerd) selects an IP address from the address pool and allocates it to the container.
@@ -52,13 +57,13 @@ If you select **Specify customized container network settings**, you must specif
 For example, if you select this option, for the **Address pool1 base** you might enter `172.80.0.0/16`, and for the **Address pool1 size** you might enter `24`. Additional entry pairs are optional.
 1. Click **Save**.
 
-    <img src="images/config-general-settings-custom.png" alt="Configure General Settings for Harbor: Custom" width="725">
+    <img src="images/config-general-settings-custom.png" alt="Configure Custom Settings for Harbor" width="725">
 
 ## <a id='configure_certificate'></a> Step 4: Configure SSL Certificate and Key
 
 On the **Certificate** pane, you configure the SSL certificate and private key for Harbor. You can generate the certificate and private key or provide a custom signed certificate and private key. Additionally, you must provide the Certificate Authority (CA) certificate, which is used to sign the Harbor certificate. The domain name used to generate RSA certificate in the Harbor Tile can be different than the domain name used to generate the RSA certificate in the PKS or PAS tile.
 
-### Use Generated Certificate
+### <a id='generate_cert'></a>Use Generated Certificate
 
 To use a certificate that Ops Manager generates automatically, follow the steps below.
 
@@ -71,7 +76,7 @@ To use a certificate that Ops Manager generates automatically, follow the steps 
 
 1. Click **Save**.
 
-### Use Custom Certificate
+### <a id='custom_cert'></a>Use Custom Certificate
 
 To use a custom signed certificate from a third-party CA, follow the steps below.
 
@@ -85,11 +90,21 @@ To use a custom signed certificate from a third-party CA, follow the steps below
 
 ## <a id='configure_credentials'></a> Step 5: Configure Harbor Credentials
 
+### <a id='initial-creds'></a> Configure Initial Credentials
+
 1. Select **Credentials**.
-1. Set a password for the Harbor system administrator account. You cannot change the Harbor administrator password in Ops Manager after you set it during installation. You must use the Harbor interface to make subsequent changes to the password after deployment.
+1. Enter the password for the Harbor system administrator account. The default Harbor user name is `admin`. Both the user name and password can be changed after installation using the Harbor web interface. See instructions below for doing this.
 1. Click **Save**.
 
-<p class="note"><strong>Note:</strong> A known issue related to changing the Harbor password exists in Harbor 1.6.0 related. For more information, see the <a href="release-notes.html#v1.6.0">v1.6.0 Release Notes</a>.</p>
+    <img src="images/harbor-credentials.png" alt="Configure Harbor Credentials" width="725">
+
+### <a id='update-creds'></a> Update Harbor Credentials
+
+You cannot change the Harbor administrator password in Ops Manager after you set it during installation. You must use the Harbor interface to make subsequent changes to the password after deployment.</p>
+
+1. Update the Harbor system administrator password using the Harbor web interface.
+1. In the **Credentials** tab of the Harbor tile, enter the new password in the "Admin Password to run smoke test" field.
+1. Apply changes to the Harbor tile and redeploy Harbor using Ops Manager for the updated password to take affect.
 
 ## <a id='configure_authentication'></a> Step 6: Configure Harbor Authentication Mode
 
@@ -170,11 +185,7 @@ If you deselect this checkbox, Clair is not installed.
 
     <p class="note"><strong>Note:</strong> To use basic authentication with the HTTP/S proxy for Clair, include the user name and password in the proxy host URL, for example: <code>http://user:password@myproxy.internal.domain:8080</code>.</p>
 
-1. In the **No Proxy** field, specify the endpoints that will bypass the proxy host. This field is required if Clair is installed. The default values, `127.0.0.1,localhost,ui`, are populated by default.
-
-1. Append `registry` to the **No Proxy** field. For example, `127.0.0.1,localhost,ui,registry`.
-
-    <p class="note"><strong>Note:</strong> The <code>registry</code> entry is required to avoid or work around a known issue with VMware Harbor Registry v1.6.0. Without the <code>registry</code> entry in the <strong>No Proxy</strong> field, you may receive an HTTP 400 Bad Request error with the message "could not find layer" when Clair attempts to pull images from the Harbor registry.</p>
+1. In the **No Proxy** field, specify the endpoints that will bypass the proxy host. This field is required if Clair is installed. The required values, `127.0.0.1,localhost,ui,registry`, are populated by default.
 
 1. In the **Updater interval (Hours)** field, specify when Clair will update its CVE database for the registered sources. When the updater interval expires, Clair will update its CVE database. For example, if you set the interval to `24`, Clair updates its CVE database every 24 hours. If you updater interval remains or is set to the default value `0`, Clair will not update its CVE database.
 
