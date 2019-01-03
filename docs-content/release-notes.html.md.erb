@@ -3,6 +3,22 @@ title: Release Notes for VMware Harbor Registry Integration with Pivotal Contain
 owner: Partners
 ---
 
+## <a id='v1.7.0'></a> v1.7.0
+
+**Release Date:** January 10, 2019
+
+VMware Harbor Registry v1.7.0 is a general availability release with several new features and fixes.
+
+Features in this release:
+
+* Support for [Harbor Registry Release-1.7.0](https://github.com/goharbor/harbor/wiki/Release-1.7.0)
+* Bump stemcell version to ubuntu-xenial 170.14.
+
+Fixes in this release:
+
+* You can now change the Harbor `admin` password using the Harbor web interface and then **Apply Changes** to the Harbor tile. Note that you will need to enter the new password in the "Admin Password to run smoke test" field of the **Credentials** tab in the Harbor tile.
+* The parameter `registry` does not have to be added manually to the `no_proxy` field for Clair proxy configuration; is added by default.
+
 ## <a id='v1.6.3'></a> v1.6.3
 
 **Release Date:** December 21, 2018
