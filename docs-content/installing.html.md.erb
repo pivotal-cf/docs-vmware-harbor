@@ -42,7 +42,7 @@ You must have installed PKS. For more information, see [Installing PKS](https://
 ## <a id='configure_general'></a> Step 3: Configure General Settings
 
 1. In the Harbor tile, select **General**.
-<img src="images/harbor-general-settings.png" alt="Configure General Settings for Harbor" width="725">
+<img src="images/config-general-settings-default.png" alt="Configure General Settings for Harbor" width="725">
 1. Under **Hostname**, enter the FDQN of a host to access the Harbor administration UI and registry service. The hostname must include a domain and must be able to resolve to the IP address of the Harbor instance VM by an external DNS server.
 <br><br>
 Kubernetes worker nodes can resolve the Harbor FQDN through the local BOSH DNS server. To enable Docker clients external to Kubernetes worker nodes to resolve the Harbor FQDN, you must provide a Harbor FQDN that can be resolved by an external DNS server. When Harbor is successfully deployed, you must update the Harbor external DNS record with the IP address of the Harbor VM.
