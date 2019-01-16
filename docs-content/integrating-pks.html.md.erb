@@ -18,19 +18,19 @@ To view the IP address assigned to Harbor, click the Harbor tile and select the 
 
 <img src="images/harbor-ip.png" alt="Get Harbor IP" width="725">
 
-## <a id='provide-harbor-cert'></a> Step 2: Provide the Harbor CA Certificate to BOSH
+## <a id='provide-harbor-cert'></a> Step 2: Import to BOSH the CA Certificate Used to Sign the Harbor Certificate and Key
 
-You must provide the Harbor CA certificate to Ops Manager before you can use Harbor with PKS. PKS must authenticate connections to Harbor to pull images from and push images to Harbor.
+PKS must authenticate connections to Harbor to pull images from and push images to Harbor. As such, before you can use Harbor with PKS, you must configure BOSH Director with the CA certificate that was used to sign the [Harbor certificate and private key](./installing.html#configure_certificate). By adding the CA certificate that was used to sign the Harbor certificate and key to the BOSH Director Security configuration, all Kubernetes clusters deployed by PKS can automatically trust the Harbor registry. 
 
-By adding the CA certificate that was used to sign the Harbor certificate to the BOSH Director Security configuration, all Kubernetes clusters deployed by PKS can automatically trust the Harbor registry.
+### <a id='get-harbor-cert'></a> Obtain the CA Certificate Used to Sign the Harbor Certificate and Key
 
-Follow the steps below to add the CA certificate.
+If you installed Harbor with a [custom certificate and private key](./installing.html#custom_cert):
 
-### <a id='get-harbor-cert'></a> Obtain the Harbor CA Certificate
+1. Obtain the third-party CA certificate that was used to sign the Harbor certificate and key.
 
-If you used a third-party CA to sign the Harbor certificate, obtain the CA certificate from your third-party CA.
+1. [Load the CA certificate in BOSH](./integrating-pks.html#load-harbor-cert) as described below. 
 
-If you used an automatically generated certificate for Harbor, perform the following steps to obtain the Harbor CA certificate.
+If you had Ops Manager [automatically generate the certificate and key for Harbor](./installing.html#generate_cert), download the Ops Manager Root CA Certificate as follows:
 
 1. Navigate to the Ops Manager **Installation Dashboard**.
 
@@ -44,11 +44,15 @@ If you used an automatically generated certificate for Harbor, perform the follo
 
     <img src="images/opsmgr-02.png" alt="Ops Manager Advanced" width="425">
 
-### <a id='load-harbor-cert'></a> Load the Harbor CA Certificate
+1. [Load the CA certificate in BOSH](./integrating-pks.html#load-harbor-cert) as described next. 
 
-Once you have obtained the Harbor CA Certificate file, perform the following steps to load the certificate:
+### <a id='load-harbor-cert'></a> Load the CA Certificate to BOSH Director Security Configuration 
 
-1. Return to the Ops Manager **Installation Dashboard**.
+Once you have obtained the Harbor CA Certificate file, perform the following steps to load the certificate in the BOSH Director Security configuration:
+
+1. Log in to Ops Manager.
+
+1. Navigate to the **Installation Dashboard**.
 
 1. Click the **BOSH Director** tile.
 
