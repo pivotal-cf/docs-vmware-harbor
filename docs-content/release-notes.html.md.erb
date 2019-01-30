@@ -11,31 +11,31 @@ VMware Harbor Registry v1.7.1 is a general availability release with several new
 
 Features in this release:
 
-* Support for [Harbor Registry Release-1.7.0](https://github.com/goharbor/harbor/wiki/Release-1.7.0)
+* Support for [Harbor Registry Release-1.7.0](https://github.com/goharbor/harbor/wiki/Release-1.7.0).
 * Bump stemcell version to ubuntu-xenial 170.14.
 
 Fixes in this release:
 
-* You can now change the Harbor `admin` password using the Harbor web interface. Note that you will need to enter the new password in the **Admin Password to run smoke test** field of the **Credentials** tab in the Harbor tile before reinstalling or upgrading the Harbor tile.
+* You can now change the Harbor `admin` password using the Harbor web interface. You must enter the new password in the **Admin Password to run smoke test** field of the **Credentials** pane in the Harbor tile before reinstalling or upgrading the Harbor tile.
 * The parameter `registry` is added by default and does not have to be added manually to the `no_proxy` field for Clair proxy configuration.
 
 Known issue in this release:
 
-When upgrading from Harbor 1.6.0 to 1.7.1, the upgrade procedure may fail with the following error message: `1 of 3 pre-start scripts failed. Failed Jobs: harbor.` The workaround is to log in to the Harbor VM (via BOSH) and check the Docker images. If there are any Docker images found for vmware/harbor-log, remove the images before migration. After removing the images, in Ops Manager click "Apply Changes" and retry the upgrade. This issue is addressed in Harbor v1.7.2. 
+When upgrading from Harbor v1.6.0 to v1.7.1, the upgrade procedure may fail with the following error message: `1 of 3 pre-start scripts failed. Failed Jobs: harbor.` The workaround is to log in to the Harbor VM with BOSH and check the Docker images. If there are any Docker images found for `vmware/harbor-log`, remove the images before migration. After removing the images, click **Apply Changes** in Ops Manager and retry the upgrade. This issue is addressed in Harbor v1.7.2. 
 
-For guidance on logging in to the VM using BOSH, see [Managing PKS Deployments with BOSH](https://docs.pivotal.io/runtimes/pks/1-3/manage-deployments-bosh.html).
+For guidance on logging in to the Harbor VM using BOSH, see [Managing PKS Deployments with BOSH](https://docs.pivotal.io/runtimes/pks/1-3/manage-deployments-bosh.html).
 
-Example commands to check for Docker images in vmare/harbor-log:
+See the following example commands to check for Docker images in `vmare/harbor-log`:
     
 ```
 alias docker='/var/vcap/packages/docker/bin/docker -H unix:///var/vcap/sys/run/docker/dockerd.sock'
 docker images | grep vmware/harbor-log
 ```
 
-Example command to remove any Docker images found for vmware/harbor-log:
+See the following example command to remove any Docker images found for `vmware/harbor-log`:
 
 ```    
-docker rmi <images id of vmware/harbor-log>
+docker rmi IMAGES-ID-OF-VMWARE/HARBOR-LOG
 ```
 
 ## <a id='v1.6.3'></a> v1.6.3
