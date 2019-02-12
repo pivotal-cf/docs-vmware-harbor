@@ -173,7 +173,9 @@ If you selected **Google Cloud Storage**, configure the following settings:
 
 Clair is an open-source project for the static analysis of vulnerabilities in Docker and appc containers. For more information about Clair, see the [Clair](https://github.com/coreos/clair) repository in GitHub.
 
-Harbor provides the ability to install and use Clair for vulnerability scanning of container images. Clair can be configured to update its Common Vulnerabilities and Exposures (CVE) database from the Internet by setting the **Updater Interval**. In an intranet network environment, configure a proxy to access the Internet.
+Harbor provides the ability to install and use Clair for vulnerability scanning of container images. Clair can be configured to update its Common Vulnerabilities and Exposures (CVE) databases from the Internet by setting the **Updater Interval**. In an intranet network environment, configure a proxy to access the Internet.
+
+<p class="note"><strong>Note:</strong> You must change the default **Updater interval (Hours)** field to ensure that the Clair CVE databases are kept current. See instructions below.</p>
 
 1. In the Harbor tile, select **Clair Settings**. 
 1. To enable container image vulnerability scanning, ensure **Install Clair** is selected.
@@ -187,7 +189,9 @@ If you deselect this checkbox, Clair is not installed.
 
 1. In the **No Proxy** field, specify the endpoints that will bypass the proxy host. This field is required if Clair is installed. The required values, `127.0.0.1,localhost,ui,registry`, are populated by default.
 
-1. In the **Updater interval (Hours)** field, specify when Clair will update its CVE database for the registered sources. When the updater interval expires, Clair will update its CVE database. For example, if you set the interval to `24`, Clair updates its CVE database every 24 hours. If you updater interval remains or is set to the default value `0`, Clair will not update its CVE database.
+1. In the **Updater interval (Hours)** field, specify when Clair will update its CVE databases for the registered sources. When the updater interval expires, Clair will update its CVE databases. The default updater interval is `0`, which means Clair will never update its CVE databases. If you set the updater interval to `24`, Clair updates its CVE databases every 24 hours. 
+<br><br>
+For a list of the CVE databases that Clair uses, see [Data Sources for the built-in drivers](https://github.com/coreos/clair/blob/master/Documentation/drivers-and-data-sources.md#data-sources-for-the-built-in-drivers) in the Clair documentation.
 
 1. Click **Save**.
 
