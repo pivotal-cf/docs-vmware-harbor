@@ -1,0 +1,55 @@
+---
+title: Upgrading VMware Harbor Registry
+owner: Partners
+---
+
+This topic describes how to upgrade VMware Harbor Registry tile using Ops Manager.
+
+<p class="note"><strong>Note:</strong> This documentation supports the Harbor v1.7 release.</p>
+
+## <a id='prereqs'></a> Prerequisites
+
+These instructions assume that Harbor Registry is installed and configured. See [Installing and Configuring Harbor](https://docs.pivotal.io/partners/vmware-harbor/installing.html) for more information.
+
+## <a id='upgrade'></a> Import the Harbor Tile
+
+1. Review the [Harbor Release Notes](https://docs.pivotal.io/partners/vmware-harbor/release-notes.html) and verify the supported upgrade path.
+1. Download the Harbor tile from [Pivotal Network](https://network.pivotal.io/).
+1. Log in to the Ops Manager **Installation Dashboard**.
+1. Click **Import a Product** and upload the Harbor tile.
+1. Stage the uploaded Harbor tile for upgrade by clicking the **+** icon next to the VMware Harbor Registry version number in the left panel.
+    <img src="images/harbor-upgrade-1.png" alt="Stage Harbor Tile for Upgrade" width="625">
+1. Once staged, verify that the tile version is changed to the staged version, and that the banner at the top indicates that Harbor has been successfully upgraded to the target version. 
+    <img src="images/harbor-upgrade-2.png" alt="Harbor Tile Succesfully Upgraded" width="625">
+1. If necessary, update the Harbor tile configuration settings. See [Installing and Configuring Harbor](https://docs.pivotal.io/partners/harbor/installing.html) for details.
+1. If necessary update the [stemcell version](#stemcell) used by Harbor.
+1. To complete the upgrade process, [deploy Harbor Registry](#deploy).
+
+## <a id='stemcell'></a> Import the Required Stemcell (if necessary)
+
+The Harbor tile upgrade may require a new stemcell. If so, complete the following steps to import it.
+
+1. In Ops Manager, return to the **Installation Dashboard**.
+1. In the Harbor tile, click the **Missing stemcell** link.
+	<img src="images/missing-stemcell.png" alt="Missing stemcell for Harbor" width="625">
+1. In the **Stemcell Library**. record the name and version of the required stemcell for Harbor.
+	<img src="images/required-stemcell.png" alt="Required stemcell for Harbor" width="625">
+1. Log in to [Pivotal Network](https://network.pivotal.io/).
+1. Search for **Stemcells for PCF (Ubuntu Xenial)**.
+1. Download the required Harbor stemcell for your platform to the Ops Manager host. For example, if you are using vSphere, download the BOSH stemcell for vSphere that matches the version that you recorded in a previous step.
+1. In Ops Manager, return to the **Installation Dashboard**.
+1. On the Harbor tile, click the **Missing stemcell** link.
+1. Click **Import Stemcell**, navigate to the stemcell you downloaded, and click **Open** to import the stemcell.
+	<img src="images/import-stemcell.png" alt="Import required stemcell for Harbor" width="625">
+1. When prompted, apply the imported stemcell to the Harbor product.
+
+## <a id='deploy'></a> Deploy Harbor with Upgrades
+
+To complete the Harbor upgrade, deploy the newly added Harbor tile. When an updated version of the Harbor tile is deployed, Ops Manager will create a new VM based on the required stemcell, install the Harbor software on that VM, mount the disk on it and migrate the data to the new VM.
+
+1. In Ops Manager, return to the **Installation Dashboard**.
+1. Click **REVIEW PENDING CHANGES** in Ops Manager and then click Apply Changes.
+    <img src="images/harbor-upgrade-2.png" alt="Harbor Tile Succesfully Upgraded" width="625">
+1. Review the upgrade status from the change log section in Ops Manager.
+    <img src="images/harbor-upgrade-3.png" alt="Review Pending Changes" width="625">
+1. Click **APPLY CHANGES** to deploy the updated Harbor tile.
