@@ -4,9 +4,9 @@ owner: Partners
 ---
 
 This topic describes how to install and configure VMware Harbor Registry using Pivotal Ops Manager
-for use with Pivotal Container Service (PKS) and Pivotal Application Service (PAS).
+for use with <%= vars.product_pks_full %> and Pivotal Application Service (PAS).
 
-For more information about PKS, see the [Pivotal Container Service (PKS)](https://docs.pivotal.io/runtimes/pks/index.html) documentation.
+For more information about <%= vars.product_pks_short %>, see the [<%= vars.product_pks_full %>](https://docs.pivotal.io/runtimes/pks/index.html) documentation.
 
 For more information about PAS, see [PAS Concepts](https://docs.pivotal.io/pivotalcf/concepts/index.html) in the Pivotal documentation.
 
@@ -14,7 +14,7 @@ For more information about PAS, see [PAS Concepts](https://docs.pivotal.io/pivot
 
 ## <a id='prereqs'></a> Prerequisites
 
-You must have installed PKS. For more information, see [Installing PKS](https://docs.pivotal.io/runtimes/pks/installing.html) in the PKS documentation.
+You must have installed <%= vars.product_pks_short %>. For more information, see [Installing <%= vars.product_pks_short %>](https://docs.pivotal.io/runtimes/pks/installing.html) in the <%= vars.product_pks_short %> documentation.
 
 ## <a id='install'></a> Step 1: Import Harbor Tile to Ops Manager
 
@@ -34,8 +34,8 @@ You must have installed PKS. For more information, see [Installing PKS](https://
 
 1. In the Harbor tile, select **Assign AZs and Networks**.
 1. In the **Assign AZs and Networks** pane, under **Place singleton jobs in**, select the availability zone (AZ) where you want to run singleton jobs. VMware Harbor is a singleton job and is placed on this network.
-1. Under **balance other jobs in**, select the AZ where you want to balance other jobs. For PKS, this is the same AZ as the one that you selected for **Place singleton jobs in**.
-1. Under **Network**, select the network where you want to deploy Harbor. For PKS, this is the management network where you deploy the Ops Manager, BOSH Director, and PKS virtual machines (VMs).
+1. Under **balance other jobs in**, select the AZ where you want to balance other jobs. For <%= vars.product_pks_short %>, this is the same AZ as the one that you selected for **Place singleton jobs in**.
+1. Under **Network**, select the network where you want to deploy Harbor. For <%= vars.product_pks_short %>, this is the management network where you deploy the Ops Manager, BOSH Director, and <%= vars.product_pks_short %> virtual machines (VMs).
 1. Click **Save**.
 <img src="images/assign-azs-networks.png" alt="Assign AZs and Networks for Harbor" width="725">
 
@@ -61,7 +61,7 @@ For example, if you select this option, for the **Address pool1 base** you might
 
 ## <a id='configure_certificate'></a> Step 4: Configure SSL Certificate and Key
 
-On the **Certificate** pane, you configure the SSL certificate and private key for Harbor. You can generate the certificate and private key or provide a custom signed certificate and private key. Additionally, you must provide the Certificate Authority (CA) certificate, which is used to sign the Harbor certificate. The domain name used to generate RSA certificate in the Harbor Tile can be different than the domain name used to generate the RSA certificate in the PKS or PAS tile.
+On the **Certificate** pane, you configure the SSL certificate and private key for Harbor. You can generate the certificate and private key or provide a custom signed certificate and private key. Additionally, you must provide the Certificate Authority (CA) certificate, which is used to sign the Harbor certificate. The domain name used to generate RSA certificate in the Harbor Tile can be different than the domain name used to generate the RSA certificate in the <%= vars.product_pks_tile %> or PAS tile.
 
 ### <a id='generate_cert'></a>Use Generated Certificate
 
@@ -114,7 +114,7 @@ On the **Authentication** pane in Ops Manager you select an authentication mode.
 1. Choose one of the following Authentication Modes:
    - **Internal** (default): Harbor user credentials are stored in a local database
    - **LDAP**: LDAP authentication
-   - **UAA in PKS**: User Account and Authentication with PKS
+   - **UAA in <%= vars.product_pks_short %>**: User Account and Authentication with <%= vars.product_pks_short %>
    - **UAA in Pivotal Application Service**: User Account and Authentication with PAS
 1. Click **Save**.
 
@@ -285,12 +285,12 @@ When the deployment finishes, verify the deployment by checking the Harbor insta
 
 ## <a id='use'></a> Next Steps
 
-After you install and configure Harbor, you must update the DNS entry for Harbor and provide the Harbor CA certificate to Ops Manager. If you use PKS with NSX-T, define a NAT rule to the Harbor IP address.
+After you install and configure Harbor, you must update the DNS entry for Harbor and provide the Harbor CA certificate to Ops Manager. If you use <%= vars.product_pks_short %> with NSX-T, define a NAT rule to the Harbor IP address.
 
-- Update the DNS entry for the Harbor hostname with the IP address of the Harbor VM assigned by BOSH. See [Update DNS for Harbor](./integrating-pks.html#update-dns) in _Integrating VMware Harbor Registry with PKS_.
+- Update the DNS entry for the Harbor hostname with the IP address of the Harbor VM assigned by BOSH. See [Update DNS for Harbor](./integrating-pks.html#update-dns) in _Integrating VMware Harbor Registry with <%= vars.product_pks_short %>_.
 - Obtain the Harbor CA certificate and provide it to Ops Manager:
-  - [PKS instructions](./integrating-pks.html#provide-harbor-cert)
+  - [<%= vars.product_pks_short %> instructions](./integrating-pks.html#provide-harbor-cert)
   - [PAS instructions](https://docs.pivotal.io/pivotalcf/opsguide/docker-registry.html#ops-man)
-- If you are using Harbor with PKS with NSX-T in NAT mode, you must create a DNAT rule to access the Harbor UI. See [Create DNAT Rule (NSX-T)](./integrating-pks.html#create-dnat-harbor) in _Integrating VMware Harbor Registry with PKS_.
+- If you are using Harbor with <%= vars.product_pks_short %> with NSX-T in NAT mode, you must create a DNAT rule to access the Harbor UI. See [Create DNAT Rule (NSX-T)](./integrating-pks.html#create-dnat-harbor) in _Integrating VMware Harbor Registry with <%= vars.product_pks_short %>_.
 - Start Harbor and log in. See [Starting Harbor](./using.html#starting) in _Using VMware Harbor Registry_.
 - Use Harbor. See [Using Harbor](./using.html#using) in _Using VMware Harbor Registry_.

@@ -1,5 +1,5 @@
 ---
-title: Release Notes for VMware Harbor Registry Integration with Pivotal Container Service (PKS)
+title: Release Notes for VMware Harbor Registry Integration with Enterprise PKS
 owner: Partners
 ---
 
@@ -121,7 +121,7 @@ Fixes in this release:
 
 **Release Date:** June 28, 2018
 
-General Availability release to be used with PKS v1.1.x and PAS v2.1.x.
+General Availability release to be used with PKS v1.1.x and Pivotal Application Service (PAS) v2.1.x.
 
 Features in this release:
 
@@ -133,7 +133,7 @@ Features in this release:
 
 **Release Date:** May 21, 2018
 
-General Availability release to be used with PKS v1.x and PAS v2.x.
+General Availability release to be used with <%= vars.product_pks_short %> v1.x and PAS v2.x.
 
 Features in this release:
 
@@ -148,7 +148,7 @@ Fixed issues in this release:
 * Harbor Tile status shows failure after Harbor VM is rebooted manually or by vSphere HA.
 * Harbor service sometimes cannot start after clicking **Apply changes** in Ops Manager.
 * Clair or Notary cannot be turned off in Harbor Tile.
-* PKS UAA user with admin rights does not have privilege.
+* <%= vars.product_pks_short %> UAA user with admin rights does not have privilege.
 
 
 ## <a id='v1.4.1'></a> v1.4.1
@@ -173,7 +173,7 @@ Known issues in this release:
 
 Features included in this release:
 
-* User Account and Authentication (UAA) integration capability with PAS and PKS.
+* User Account and Authentication (UAA) integration capability with PAS and <%= vars.product_pks_short %>.
 * External S3 storage capability.
 * Replication policy rework to support wildcard, scheduled replication.
 * Support for repository-level description.
@@ -191,7 +191,7 @@ Known issues in this release:
 
 Fixed issues in this release:
 
-* Fixed: [#3942](https://github.com/vmware/harbor/issues/3942) PKS/Harbor: Harbor services cannot start after Harbor VM is rebooted.
+* Fixed: [#3942](https://github.com/vmware/harbor/issues/3942) <%= vars.product_pks_short %>/Harbor: Harbor services cannot start after Harbor VM is rebooted.
 * Fixed: [#3849](https://github.com/vmware/harbor/issues/3849) Failed to stop dockerd service when updating the Harbor tile.
 * Fixed: [#3823](https://github.com/vmware/harbor/issues/3823) Harbor tile should support user-provided certificate signed with other than Ops Manager root CA.
 * Fixed: [#3814](https://github.com/vmware/harbor/issues/3814) Add **Verify LDAP Certificate** option in Harbor Tile UI.
