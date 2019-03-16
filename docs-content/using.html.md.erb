@@ -3,14 +3,14 @@ title: Using VMware Harbor Registry
 owner: Partners
 ---
 
-This topic describes how to use the VMware Harbor Registry integration with Pivotal Container Service (PKS).
+This topic describes how to use the VMware Harbor Registry integration with <%= vars.product_pks_full %>.
 
 ## <a id='prereqs'></a> Prerequisites
 
-* You must have installed PKS. For more information, see [Installing PKS](https://docs.pivotal.io/runtimes/pks/installing.html) in the PKS documentation.
+* You must have installed <%= vars.product_pks_short %>. For more information, see [Installing <%= vars.product_pks_short %>](https://docs.pivotal.io/runtimes/pks/installing.html) in the <%= vars.product_pks_short %> documentation.
 * You must have installed Harbor. For more information, see [Installing and Configuring VMware Harbor Registry](./installing.html).
-* You must have integrated Harbor with PKS or Pivotal Application Service. For more information, see one of the following:
-  * [Integrating VMware Harbor Registry with PKS](./integrating-pks.html).
+* You must have integrated Harbor with <%= vars.product_pks_short %> or Pivotal Application Service. For more information, see one of the following:
+  * [Integrating VMware Harbor Registry with <%= vars.product_pks_short %>](./integrating-pks.html).
   * [Use a CA Certificate](https://docs.pivotal.io/pivotalcf/opsguide/docker-registry.html#ops-man) in _Using Docker Registries_ in the Pivotal documentation.
 
 ## <a id='starting'></a> Starting Harbor
@@ -21,9 +21,9 @@ To log in to VMware Harbor Registry, do the following:
 
 1. Enter the username `admin`.
 
-1. Enter the password that you set when you configured Harbor for PKS.
+1. Enter the password that you set when you configured Harbor for <%= vars.product_pks_short %>.
 
-<p class='note'><strong>Note:</strong> If the Harbor UI is not accessible, make sure you have completed the integration steps, including updating DNS for Harbor, trusting the certificate, and creating a NAT rule for the Harbor UI. For more information, see <a href="./integrating-pks.html">Integrating VMware Harbor Registry with PKS</a>.</p>
+<p class='note'><strong>Note:</strong> If the Harbor UI is not accessible, make sure you have completed the integration steps, including updating DNS for Harbor, trusting the certificate, and creating a NAT rule for the Harbor UI. For more information, see <a href="./integrating-pks.html">Integrating VMware Harbor Registry with <%= vars.product_pks_short %></a>.</p>
 
 ## <a id='using'></a> Using Harbor
 
