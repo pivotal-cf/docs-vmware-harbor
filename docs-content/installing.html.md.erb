@@ -158,7 +158,7 @@ If you choose **AWS S3**, configure the following settings:
 
     <img src="images/aws.png" alt="AWS S3 configuration for Harbor" width="725">
 
-<p class="note"><strong>Note:</strong> When using Harbor with an S3-compatible object store, the object store must be configured with a TLS cipher suite supported by the Docker client. If the S3 bucket is not configured with a compatible cipher suite, when performing a `docker push` command to the Harbor Registry, you receive the following: "remote error: tls: handshake failure". The Harbor Registry redirects the connection from the Docker client to the S3-compatible object store. The TLS handshake is between the Docker client and the S3-compatible object store. To address this error, you must determine the cipher suites supported by the Docker client and S3-compatible object store, and ensure that there is at least one common cipher suite between them.</p>
+<p class="note"><strong>Note:</strong> When using Harbor with an S3-compatible object store, the object store must be configured with a TLS cipher suite supported by the Docker client. If the S3 bucket is not configured with a compatible cipher suite, when performing a <code>docker push</code> command to the Harbor Registry, you receive the following: "remote error: tls: handshake failure". The Harbor Registry redirects the connection from the Docker client to the S3-compatible object store. The TLS handshake is between the Docker client and the S3-compatible object store. To address this error, you must determine the cipher suites supported by the Docker client and S3-compatible object store, and ensure that there is at least one common cipher suite between them.</p>
 
 ### <a id='gcp'></a> Google Cloud Storage Configuration
 
