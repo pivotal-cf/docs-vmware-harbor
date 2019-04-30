@@ -3,12 +3,12 @@ title: VMware Harbor Registry
 owner: Partners
 ---
 
-VMware Harbor Registry is an enterprise-class registry server that stores and distributes container images. Harbor allows you to store and manage images for use with Pivotal Container Service (PKS).
+VMware Harbor Registry is an enterprise-class registry server that stores and distributes container images. Harbor allows you to store and manage images for use with <%= vars.product_pks_full %>.
 
 
 ## <a id="overview"></a> Overview
 
-Harbor extends the open source Docker Distribution by adding the functionalities usually required by an enterprise, such as security, identity, and management. As an enterprise private registry, Harbor offers enhanced performance and security. Deploying a registry alongside the PKS environment improves image transfer efficiency.
+Harbor extends the open source Docker Distribution by adding the functionalities usually required by an enterprise, such as security, identity, and management. As an enterprise private registry, Harbor offers enhanced performance and security. Deploying a registry alongside the <%= vars.product_pks_short %> environment improves image transfer efficiency.
 
 
 ## <a id="features"></a> Key Features
@@ -19,7 +19,7 @@ Harbor includes the following key features:
 * **Manage role by LDAP group**: Harbor administrators can import an LDAP/AD group to Harbor and assign project roles to it.
 * **Manage Labels**: Harbor provides labels to isolate image resources globally or at the project level.
 * **Manage Helm Charts**: Harbor provides management of Helm charts isolated by projects and controlled by RBAC.
-* **Integrated UAA Authentication**: Harbor can share UAA authentication with Pivotal Application Service (PAS) and PKS.
+* **Integrated UAA Authentication**: Harbor can share UAA authentication with Pivotal Application Service (PAS) and <%= vars.product_pks_short %>.
 * **Role-Based Access Control**: Users and repositories are organized into projects. Users can have different permissions for the images in different projects.
 * **Policy-Based Image Replication**: Images can be synchronized between multiple registry instances with auto-retry on errors, offering support for load balancing, high availability, multi-datacenter, hybrid, and multi-cloud scenarios.
 * **Vulnerability Scanning**: Harbor uses [Clair](https://github.com/coreos/clair) to scan images regularly and warn users of vulnerabilities.
@@ -55,7 +55,7 @@ The following table provides version and compatibility information for the lates
         <td>v2.1.x, v2.2.x, 2.3.x, and 2.4.x</td>
     </tr>
     <tr>
-        <td>Compatible PKS versions</td>
+        <td>Compatible <%= vars.product_pks_short %> versions</td>
         <td>v1.1.x, v1.2.x, and v1.3.x</td>
     </tr>
     <tr>
