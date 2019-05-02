@@ -3,6 +3,37 @@ title: Release Notes for VMware Harbor Registry Integration with Enterprise PKS
 owner: Partners
 ---
 
+## <a id='v1.7.5'></a> v1.7.5
+
+**Release Date:** May 2, 2019
+
+VMware Harbor Registry v1.7.5 is a minor release.
+
+Supported upgrade paths:
+
+* From Harbor v1.7.3 to Harbor v1.7.5
+* From Harbor v1.7.2 to Harbor v1.7.5
+* From Harbor v1.6 to Harbor v1.7.5
+* From Harbor v1.5 to Harbor v1.7.5
+
+Resolved issues:
+
+* Harbor upgrade from 1.7.2 to 1.7.4 failed with error "Failed to update database, error: pq: must be owner of relation schema_migrations"
+* Bumped up Clair to v2.0.8
+* Fixed issues in supporting Windows images.
+* Removed user-agent check-in notification handler.
+* Fixed the issue global search not working if chartmusuem is not installed.
+
+Known issues:
+
+* Cannot enter into the public projects in the global search result page without login (https://github.com/goharbor/harbor/issues/6435).
+* Image label filter should consistent with charts (https://github.com/goharbor/harbor/issues/6447).
+
+Support matrix:
+
+* Supports PKS v1.3.x, 1.4.x,
+* Supports Ops Manager v2.3, Ops Manager v2.4
+
 ## <a id='v1.7.4'></a> v1.7.4
 
 **Release Date:** March 26, 2019
