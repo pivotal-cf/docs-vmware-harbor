@@ -5,12 +5,14 @@ owner: Partners
 
 This topic describes how to integrate Harbor Registry with <%= vars.product_pks_full %>.
 
+<p class="note"><strong>Note:</strong> This documentation supports the Harbor v1.8 release.</p>
+
 ## <a id='prereqs'></a> Prerequisites
 
 * You must have installed <%= vars.product_pks_short %>. For more information, see [Installing <%= vars.product_pks_short %>](https://docs.pivotal.io/runtimes/pks/installing.html) in the <%= vars.product_pks_short %> documentation.
 * You must have installed Harbor. For more information, see [Installing and Configuring VMware Harbor Registry](./installing.html).
 
-## <a id='update-dns'></a> Step 1: Update DNS for Harbor
+## <a id='update-dns'></a> Update DNS for Harbor
 
 After you install and configure Harbor, you must update the DNS entry for the Harbor hostname with the IP address of the Harbor VM assigned by BOSH.
 
@@ -18,7 +20,7 @@ To view the IP address assigned to Harbor, click the Harbor tile and select the 
 
 <img src="images/harbor-ip.png" alt="Get Harbor IP" width="725">
 
-## <a id='provide-harbor-cert'></a> Step 2: Import the CA Certificate Used to Sign the Harbor Certificate and Key to BOSH
+## <a id='provide-harbor-cert'></a> Import the CA Certificate Used to Sign the Harbor Certificate and Key to BOSH
 
 <%= vars.product_pks_short %> must authenticate connections to Harbor to pull images from and push
 images to Harbor. Before you can use Harbor with <%= vars.product_pks_short %>, you must configure
@@ -88,7 +90,7 @@ Once you have obtained the Harbor CA Certificate file, perform the following ste
 
 1. Return to the **Installation Dashboard** and click **Apply Changes**. BOSH is redeployed.
 
-## <a id='create-dnat-harbor'></a> Step 3: Create DNAT Rule (NSX-T)
+## <a id='create-dnat-harbor'></a> Create DNAT Rule for Harbor (NSX-T only)
 
 If you integrate Harbor with <%= vars.product_pks_short %> in a NSX-T environment that uses NAT mode, the IP address for Harbor provided by Ops Manager is not publicly inaccessible, and you cannot access the Harbor UI from `https://harbor_host_address:443`. For more information about Nat mode, see [NAT Topology](https://docs.pivotal.io/runtimes/pks/nsxt-topologies.html#topology-nat) in _NSX-T Deployment Topologies for <%= vars.product_pks_short %>_.
 
@@ -114,6 +116,21 @@ If you are using Harbor with <%= vars.product_pks_short %> with NSX-T in NAT mod
 1. Click **Save**.
 
     <img src="images/harbor-dnat.png" alt="NSX-T NAT Rule for Harbor" width="425">
+
+## <a id='wavefront'></a> Monitor Harbor Using Wavefront
+
+If you enabled Wavefront monitoring in the Harbor tile, there are additional steps to take to initiate monitoring with Wavefront.
+
+1. After Wavefront is configured and installed in the Harbor tile, go to the [Wavefront portal](https://longboard.wavefront.com) and login with your username password. 
+    <img src="images/wavefront-01.png" alt="Launch Wavefront" width="425">
+1. Click **Integrations** and install the Linux Host. 
+1. Click the **Dashboard** tab and select **Install Dashboards**.
+    <img src="images/wavefront-02.png" alt="Choose Wavefront Integrations" width="425">
+1. Go to **Dashboards** > **All dashboards** > **Linux Host Dashboards**.
+1. From here you can view the CPU, Memory and Disk usage of the Harbor VM.
+    <img src="images/wavefront-03.png" alt="Wavefront Monitoring" width="425">
+
+For more information about monitoring with Wavefront, refer to the [Wavefront documentation](https://docs.wavefront.com/index.html).
 
 ## <a id='next-steps'></a> Next Steps
 
