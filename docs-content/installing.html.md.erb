@@ -46,16 +46,18 @@ You must have installed <%= vars.product_pks_short %>. For more information, see
 Kubernetes worker nodes can resolve the Harbor FQDN through the local BOSH DNS server. To enable Docker clients external to Kubernetes worker nodes to resolve the Harbor FQDN, you must provide a Harbor FQDN that can be resolved by an external DNS server. When Harbor is successfully deployed, you must update the Harbor external DNS record with the IP address of the Harbor VM.
 1. Under **Static IP Address**, enter the static IP address that you want to use for the Harbor web interface.
 <br><br>
-The IP address must be within the CIDR block range. Create a DNS record that maps the Harbor FQDN to the static IP address, or to the custom load balancer if you are using one. 
-1. To use the default container network settings, select **Keep the default container network settings**.
+Create a DNS record that maps the Harbor FQDN to the static IP address, or to the custom load balancer if you are using one. This is the public IP address of the Harbor server. 
+1. By default Docker assigns each running container a private IP address. To use the default container network settings, select **Keep the default container network settings**.
 1. To customize the container network settings, select **Specify customized container network settings**.
 <br><br>
 If you select **Specify customized container network settings**, you must specify at least one address pool base and size. When a Docker container starts, the Docker daemon (dockerd) selects an IP address from the address pool and allocates it to the container.
 <br><br>
-For example, if you select this option, for the **Address pool1 base** you might enter `172.80.0.0/16`, and for the **Address pool1 size** you might enter `24`. Additional entry pairs are optional.
+Because the smallest network in Docker private network is `a.b.c.d/28`, the smallest CIDR block is `a.b.c.d/26`. There are 10 networks in the Harbor VM. Make sure there are enough subnetworks in the specified CIDR. If there are not enough subnets in the network, the Harbor server fails to start.
+<br><br>
+For example, if you select this option, for the **Address pool1 base** you might enter `172.31.0.0/26`, and for the **Address pool1 size** you might enter `28`. Additional entry pairs are optional.
 1. Click **Save**.
 
-    <img src="images/config-general-settings-custom.png" alt="Configure Custom Settings for Harbor" width="725">
+    <img src="images/config-general-settings-custom-2.png" alt="Configure Custom Settings for Harbor" width="725">
 
 ## <a id='configure_certificate'></a> Configure SSL Certificate and Key
 
