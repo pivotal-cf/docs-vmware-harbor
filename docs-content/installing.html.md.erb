@@ -24,9 +24,8 @@ You must have installed <%= vars.product_pks_short %>. For more information, see
 1. Below the **Import a Product** button, click the **+** next to the VMware Harbor Registry version number to add the tile to your staging area.
 1. Click the **Harbor** tile to begin the configuration process.
 
-    <img src="images/add-harbor-tile-aws.png" alt="Add and Configure Harbor Tile" width="725">
-
-    <p class="note"><strong>Note:</strong> When configuring the Harbor tile, click <strong>Save</strong> before leaving each pane to preserve your changes.</p>
+    ![Add and Configure Harbor Tile](images/add-harbor-tile-aws.png)
+    [View a larger version of this image.](images/add-harbor-tile-aws.png)
 
 ## <a id='configure_az_networks'></a> Assign AZs and Networks
 
@@ -34,7 +33,7 @@ You must have installed <%= vars.product_pks_short %>. For more information, see
 1. In the **Assign AZs and Networks** pane, under **Place singleton jobs in**, select the availability zone (AZ) where you want to run singleton jobs. VMware Harbor is a singleton job and is placed on this network.
 1. Under **balance other jobs in**, select the AZ where you want to balance other jobs. For <%= vars.product_pks_short %>, this is the same AZ as the one that you selected for **Place singleton jobs in**.
 1. Under **Network**, select the network where you want to deploy Harbor. For <%= vars.product_pks_short %>, this is the management network where you deploy the Ops Manager, BOSH Director, and <%= vars.product_pks_short %> virtual machines (VMs).
-1. Click **Save**.
+1. Click **Save** to preserve your changes.
 <img src="images/assign-azs-networks.png" alt="Assign AZs and Networks for Harbor" width="725">
 
 ## <a id='configure_general'></a> Configure General Settings
