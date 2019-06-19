@@ -122,12 +122,19 @@ If you are using Harbor with <%= vars.product_pks_short %> with NSX-T in NAT mod
 If you enabled Wavefront monitoring in the Harbor tile, there are additional steps to take to initiate monitoring with Wavefront.
 
 1. After Wavefront is configured and installed in the Harbor tile, go to your Wavefront portal URL (for example, <https://longboard.wavefront.com>) and login with your user name and password. 
+
     <img src="images/wavefront-01.png" alt="Launch Wavefront" width="425">
+
 1. Click **Integrations** and install the Linux Host. 
+
 1. Click the **Dashboard** tab and select **Install Dashboards**.
+
     <img src="images/wavefront-02.png" alt="Choose Wavefront Integrations" width="425">
+
 1. Go to **Dashboards** > **All dashboards** > **Linux Host Dashboards**.
+
 1. From here you can view the CPU, Memory and Disk usage of the Harbor VM.
+
     <img src="images/wavefront-03.png" alt="Wavefront Monitoring" width="425">
 
 For more information about monitoring with Wavefront, refer to the [Wavefront documentation](https://docs.wavefront.com/index.html).
