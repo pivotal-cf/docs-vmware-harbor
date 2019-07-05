@@ -109,7 +109,7 @@ Known issue in this release:
 
 When upgrading from Harbor v1.6.0 to v1.7.1, the upgrade procedure may fail with the following error message: `1 of 3 pre-start scripts failed. Failed Jobs: harbor.` The workaround is to log in to the Harbor VM with BOSH and check the Docker images. If there are any Docker images found for `vmware/harbor-log`, remove the images before migration. After removing the images, click **Apply Changes** in Ops Manager and retry the upgrade. This issue is addressed in Harbor v1.7.2. 
 
-For guidance on logging in to the Harbor VM using BOSH, see [Managing PKS Deployments with BOSH](https://docs.pivotal.io/runtimes/pks/1-3/manage-deployments-bosh.html).
+For guidance on logging in to the Harbor VM using BOSH, see [Managing PKS Deployments with BOSH](https://docs.pivotal.io/runtimes/pks/manage-deployments-bosh.html).
 
 See the following example commands to check for Docker images in `vmare/harbor-log`:
     
