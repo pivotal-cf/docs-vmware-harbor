@@ -75,6 +75,8 @@ To use a certificate that Ops Manager generates automatically, follow the steps 
     <img src="images/generate-rsa-cert.png" alt="Generate RSA Certificate for Harbor" width="425">
 <br><br>
 
+    <p class="note"><strong>Note:</strong> If you use a wildcard domain name, be sure to truncate it appropriately. For example: "SSL: certificate subject name (*.harbor.pks.corp.local) does not match target host name (harbor.pks.corp.local)." In this case, the proper wildcard name for the cert is "*.pks.corp.local".</p>
+
 ### <a id='custom_cert'></a>Use Custom Certificate
 
 To use a custom signed certificate from a third-party CA, follow the steps below.
