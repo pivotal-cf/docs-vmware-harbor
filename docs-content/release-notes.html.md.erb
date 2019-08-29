@@ -3,6 +3,38 @@ title: Release Notes for VMware Harbor Registry Integration with Enterprise PKS
 owner: Partners
 ---
 
+## <a id='v1.8.2'></a> v1.8.2
+
+**Release Date:** August 29, 2019
+
+VMware Harbor Registry v1.8.2 is a general availability release with several fixes.
+
+Supported upgrade paths:
+
+- From Harbor v1.8.x to Harbor v1.8.2
+- From Harbor v1.7.x to Harbor v1.8.2
+- From Harbor v1.6.x to Harbor v1.8.2
+
+New features:
+
+There are no new features in this release.
+
+Fixed issues:
+
+For information about the issues fixed in this release, see the [Harbor v1.8.2 release notes](https://github.com/goharbor/harbor/releases/tag/v1.8.2) in the GoHarbor GitHub repository.
+
+Known issues:
+
+- After upgrading from v1.6.x, the scheduled setting of "Scan All" is reset to "None" and the administrator will need to update the schedule again.
+- The label filter in replication policies will be lost after upgrade ([#7762](https://github.com/goharbor/harbor/issues/7762)).
+- When the internal redis is down, the health check API may return a 502 Bad Gateway error ([#7691](https://github.com/goharbor/harbor/issues/7691)).
+- The Harbor API does not support pulling or pushing the manifest list from Docker registry. When replicating the manifest list, the image whose architecture is `amd64` and OS is `linux` (if found) or the first one will be replicated ([#6522](https://github.com/goharbor/harbor/issues/6522)).
+
+Support matrix:
+
+- Enterprise PKS v1.4.x, v1.5.x
+- Ops Manager v2.4, v2.5, v2.6 (refer to the Enterprise PKS release notes for specific matching versions)
+
 ## <a id='v1.8.1'></a> v1.8.1
 
 **Release Date:** July 9, 2019
