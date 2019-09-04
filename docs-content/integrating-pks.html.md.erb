@@ -9,7 +9,7 @@ This topic describes how to integrate Harbor Registry with <%= vars.product_pks_
 
 ## <a id='prereqs'></a> Prerequisites
 
-* You must have installed <%= vars.product_pks_short %>. For more information, see [Installing <%= vars.product_pks_short %>](https://docs.pivotal.io/runtimes/pks/installing.html) in the <%= vars.product_pks_short %> documentation.
+* You must have installed <%= vars.product_pks_short %>. For more information, see [Installing <%= vars.product_pks_short %>](https://docs.pivotal.io/pks/installing.html) in the <%= vars.product_pks_short %> documentation.
 * You must have installed Harbor. For more information, see [Installing and Configuring VMware Harbor Registry](./installing.html).
 
 ## <a id='update-dns'></a> Update DNS for Harbor
@@ -92,9 +92,9 @@ Once you have obtained the Harbor CA Certificate file, perform the following ste
 
 ## <a id='create-dnat-harbor'></a> Create DNAT Rule for Harbor (NSX-T only)
 
-If you integrate Harbor with <%= vars.product_pks_short %> in a NSX-T environment that uses NAT mode, the IP address for Harbor provided by Ops Manager is not publicly inaccessible, and you cannot access the Harbor UI from `https://harbor_host_address:443`. For more information about Nat mode, see [NAT Topology](https://docs.pivotal.io/runtimes/pks/nsxt-topologies.html#topology-nat) in _NSX-T Deployment Topologies for <%= vars.product_pks_short %>_.
+If you integrate Harbor with <%= vars.product_pks_short %> in a NSX-T environment that uses NAT mode, the IP address for Harbor provided by Ops Manager is not publicly inaccessible, and you cannot access the Harbor UI from `https://harbor_host_address:443`. For more information about Nat mode, see [NAT Topology](https://docs.pivotal.io/pks/nsxt-topologies.html#topology-nat) in _NSX-T Deployment Topologies for <%= vars.product_pks_short %>_.
 
-To access the Harbor UI, you must create a DNAT rule in the NSX-T Tier-0 router that maps the Harbor IP address to a routable IP address in your virtual network. For more information, see [Create DNAT Rule on T0 Router for Harbor Registry](https://docs.pivotal.io/runtimes/pks/nsxt-prepare-mgmt-plane.html#create-dnat-harbor) in _Creating the <%= vars.product_pks_short %> Management Plane_.
+To access the Harbor UI, you must create a DNAT rule in the NSX-T Tier-0 router that maps the Harbor IP address to a routable IP address in your virtual network. For more information, see [Create DNAT Rule on T0 Router for Harbor Registry](https://docs.pivotal.io/pks/nsxt-prepare-mgmt-plane.html#create-dnat-harbor) in _Creating the <%= vars.product_pks_short %> Management Plane_.
 
 <p class='note'><strong>Note:</strong> The IP address that your FQDN resolves to should be in the range of the NSX-T <code>external-ip-pool</code> (<strong>Inventory > Groups > IP Pools</strong>). If the IP address is not in this range, you must assign an IP address from the CIDR that is outside of the specified range in use for <code>external-ip-pool</code>.</p>
 
