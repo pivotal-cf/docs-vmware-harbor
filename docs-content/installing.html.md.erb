@@ -55,7 +55,7 @@ If you select **Specify customized container network settings**, you must specif
 <br><br>
 Because the smallest network in Docker private network is `a.b.c.d/28`, if you input only one pool, the smallest CIDR block is `a.b.c.d/25`. If input two pools, the smallest CIDR block is `a.b.c.d/26`. 
     <p class="note"><strong>Note:</strong> There are 10 networks in the Harbor VM. Make sure there are enough subnetworks in the specified CIDR. If there are not enough subnets in the network, the Harbor server fails to start.</p>
-For example, if you select this option, for the **Address pool1 base** you might enter `172.31.0.0/26`, and for the **Address pool1 size** you might enter `28`. Additional entry pairs are optional.
+For example, if you select this option, for the **Address pool1 base** you might enter `172.31.0.0/25`, and for the **Address pool1 size** you might enter `28`. Additional entry pairs are optional.
 1. Click **Save**.
 
 ## <a id='configure_certificate'></a> Configure SSL Certificate and Key
