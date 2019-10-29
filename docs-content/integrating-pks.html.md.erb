@@ -33,11 +33,11 @@ By adding the CA certificate that was used to sign the Harbor certificate and ke
 to the BOSH Director security configuration, all Kubernetes clusters deployed by
 <%= vars.product_pks_short %> can automatically trust the Harbor registry.
 
-<p class="note"><strong>Note:</strong> The procedures documented in this topic configure all of your 
-  <%= vars.product_pks_short %> Kubernetes clusters with an SSL CA certificate. 
+<p class="note"><strong>Note:</strong> Follow the procedures in this topic to configure all of your 
+  <%= vars.product_pks_short %> Kubernetes clusters with a Harbor Registry CA certificate. 
   See <a href="https://docs.pivotal.io/pks/1-6/docker-custom-ca-certs.html">
   Configuring PKS Clusters with Private Docker Registry CA Certificates</a> 
-  if you want to apply a certificate to an individual <%= vars.product_pks_short %> cluster.
+  if you want to apply a Docker Registry CA certificate to an individual <%= vars.product_pks_short %> cluster.
 </p>
 
 ### <a id='get-harbor-cert'></a> Obtain the CA Certificate Used to Sign the Harbor Certificate and Key
