@@ -127,12 +127,11 @@ You can optionally configure a global proxy that is used by Harbor and Clair. Yo
 The **Networking** section is new in version 1.9.x. In previous releases, you could only set a proxy for Clair, so those settings were in the **Clair** section. In previous releases, the container network settings were in the **General** section.
 
 1. In the Harbor tile, select **Networking**.
-1. (Optional) In the **HTTP Proxy** field, enter the URL to proxy HTTP traffic to the Clair service. For example: `http://my.proxy.com:3128`.
-1. (Optional) In the **HTTPS Proxy** field, enter the URL to proxy HTTPS traffic to the Clair service.
-1. 
-   For example: `http://my.proxy.com:3128`.
+1. (Optional) In the **HTTP Proxy** and **HTTPS Proxy** fields, enter the URL to proxy traffic to the Harbor and Clair services. 
 
-    <p class="note"><strong>Note:</strong> To use basic authentication with the HTTP/S proxy for Clair, include the user name and password in the proxy host URL, for example: <code>http://user:password@myproxy.internal.domain:8080</code>.</p>
+   For example: `http://my.proxy.com:3128`. You can set both the HTTP and HTTPS proxy options. However only one is used, depending on whether users connect with HTTP or with HTTPS.
+
+    <p class="note"><strong>Note:</strong> To use basic authentication with the HTTP/S proxy, include the user name and password in the proxy host URL, for example: <code>http://user:password@myproxy.internal.domain:8080</code>.</p>
 1. (Optional) In the **No Proxy** field, specify the endpoints that will bypass the proxy host. This field is required if Clair is installed. The required values, `127.0.0.1,localhost,ui,registry`, are populated by default.
 
     <img src="images/networking1.png" alt="Configure proxies for Harbor" width="725">
