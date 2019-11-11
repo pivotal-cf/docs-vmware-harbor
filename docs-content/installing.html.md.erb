@@ -122,7 +122,7 @@ If you are reconfiguring or upgrading Harbor, you cannot change the authenticati
 
 ## <a id='configure_networking'></a> Configure Networking
 
-You can optionally configure a global proxy that is used by all of Harbor,  Clair, and Notary. You can also customize the container network settings. 
+You can optionally configure a global proxy that is used by Harbor and Clair. You can also customize the container network settings. 
 
 The **Networking** section is new in version 1.9.x. In previous releases, you could only set a proxy for Clair, so those settings were in the **Clair** section. In previous releases, the container network settings were in the **General** section.
 
@@ -226,7 +226,7 @@ For a list of the CVE databases that Clair uses, see [Data Sources for the built
 
     <img src="images/clair2.png" alt="Clair configuration for Harbor" width="725">
     
-In previous releases, the **Clair** section included proxy settings, because you could only set a proxy for Clair. In version 1.9.x, you can set a global proxy for use by Harbor, Clair, and Notary. In 1.9.x, the proxy settings for Clair are in the **Networking** section. See [Configure Networking](#configure_networking) for information about how to set proxies for Clair.
+In previous releases, the **Clair** section included proxy settings, because you could only set a proxy for Clair. In version 1.9.x, you can set a global proxy for use by Harbor and Clair. In 1.9.x, the proxy settings for Clair are in the **Networking** section. See [Configure Networking](#configure_networking) for information about how to set proxies for Clair.
 
 ## <a id='configure_notary'></a> Configure Container Signing Using Docker Notary
 
