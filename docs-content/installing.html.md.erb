@@ -33,7 +33,7 @@ These instructions are valid for new installations, reconfigurations of existing
 
 1. In the Harbor tile, select **Assign AZs and Networks**.
 1. In the **Assign AZs and Networks** pane, under **Place singleton jobs in**, select the availability zone (AZ) where you want to run singleton jobs. VMware Harbor is a singleton job and is placed on this network.
-1. Under **balance other jobs in**, select the AZ where you want to balance other jobs. For <%= vars.product_pks_short %>, this is the same AZ as the one that you selected for **Place singleton jobs in**.
+1. Under **Balance other jobs in**, select the AZ where you want to balance other jobs. For <%= vars.product_pks_short %>, this is the same AZ as the one that you selected for **Place singleton jobs in**.
 1. Under **Network**, select the network where you want to deploy Harbor. For <%= vars.product_pks_short %>, this is the management network where you deploy the Ops Manager, BOSH Director, and <%= vars.product_pks_short %> virtual machines (VMs).
 1. Click **Save** to preserve your changes.
 <img src="images/assign-azs-networks.png" alt="Assign AZs and Networks for Harbor" width="725">
@@ -48,9 +48,10 @@ Kubernetes worker nodes can resolve the Harbor FQDN through the local BOSH DNS s
 1. Under **Static IP Address**, enter the static IP address that you want to use for the Harbor web interface.
 <br><br>
 Create a DNS record that maps the Harbor FQDN to the static IP address, or to the custom load balancer if you are using one. This is the public IP address of the Harbor server. 
+1. Optionally modify the **Wait time for Harbor Tile migration complete** from the default of 60 minutes. This option is available in v1.9.x and later. 
 1. Click **Save**.
 
-In previous releases, this page also  includes the container network settings. In 1.9.x, those settings are now in the **Networking** section. See [Configure Networking](#configure_networking) for details.
+In previous releases, this page also includes the container network settings. In 1.9.x, those settings are now in the **Networking** section. See [Configure Networking](#configure_networking) for details. The 
 
 ## <a id='configure_certificate'></a> Configure SSL Certificate and Key
 
@@ -264,7 +265,7 @@ vRealize Log Insight must be installed, licensed, running, and available in your
 1. For the **Enable VMware vRealize Log Insight Integration** option, select **true** to enable vRealize Log Insight integration.
 1. For the **Protocol**, select **TCP** or **UDP**.
 1. For **Address**, enter the address of your vRealize Log Insight instance.
-1. For Port, enter the port on which your vRealize Log Insight instance listens.
+1. For **Port**, enter the port on which your vRealize Log Insight instance listens.
 1. Click **Save**.
 
     <img src="images/harbor-vrli.png" alt="Harbor Logging using vRealize Log Insight integration" width="725">
@@ -334,7 +335,7 @@ To update the stemcell, follow the steps below.
 ## <a id='deploy'></a> Deploy Harbor Registry
 
 1. Return to the Ops Manager **Installation Dashboard**.
-1. Click **Apply Changes** to deploy Harbor.
+1. Click **Review Pending Changes** > **Apply Changes** to deploy Harbor.
 <img src="images/deploy-harbor.png" alt="Deploy Harbor" width="625">
 
 ## <a id='post-deploy'></a> View Harbor VM Information
