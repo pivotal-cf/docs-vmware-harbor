@@ -3,154 +3,55 @@ title: Release Notes for VMware Harbor Registry Integration with Enterprise PKS
 owner: Partners
 ---
 
-## <a id='v1.9.3'></a> v1.9.3
-
-**Release Date:** November 18, 2019
-
-VMware Harbor Registry v1.9.3 is a GA release with new features.
-
-### Supported Upgrade Paths
-
-- From Harbor v1.8.x to Harbor v1.9.3
-- From Harbor v1.7.x to Harbor v1.9.3
-
-### New Features
-
-* **Project Quotas**
-
-   By using quota management, system administrators can set constraints that limit the number of artifacts or the amount of storage resources that a project can use. This helps system administrators to better manage and allocate resources across all projects. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#set-project-quotas)
-
-* **Tag Retention**
-
-   A repository can rapidly accumulate a large number of image tags, many of which might not be required after a given time or once they have been superseded by a subsequent image build. These excess tags can obviously consume large quantities of storage capacity. As a system administrator, you can define rules that govern how many tags of a given repository to retain, or for how long to retain certain tags. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#tag-retention-rules)
-
-* **Webhooks**
-
-   Webhooks allow for the integration of Harbor with other tools to streamline continuous integration and development processes.  Currently, webhooks can be configured for actions including container image push, container image pull, container image delete, helm chart push, helm chart pull, helm chart delete, image scanning completed, CVE discovered [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#webhook-notifications)
-
-* **CVE Whitelists**
-
-   As a system administrator, you can create exception policies of certain whitelisted CVEs to ignore during vulnerability policy checking. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#configure-cve-whitelists)
-
-* **Replication Enhancements**
-
-   This release includes the following improvements to replication:
-   
-   - Adds the ability to replicate resources between Harbor and Google Container Registry, Azure Container Registry, Amazon Elastic Container Registry, Alibaba Cloud Container Registry, Helm Hub.
-   - Supports filtering by Harbor labels
-   - Supports configuring proxies
-[Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#replicating-resources)
-
-* **Additional Features**
-
-   Harbor 1.9 adds numerous other capabilities for both administrators and end-users:
-   
-   - Groups privileges prioritization: when an administrator privilege is granted to a user's group, but a guest privilege is also granted to the user, then the user has admin privileges.
-   - Supports the configuration of an external syslog endpoint and database connection pools.
-   - Security enhancement to make Harbor containers run as a non-root user.
-   - Adds the ability to upload/fetch charts with robot accounts.
-   - Bug Fixes and Improvements in job service: job retry, Redis pool run out, and the rapid growth in the amount of Redis data.
-
-
-### Fixed Issues
-
-For the lists of known and fixed issues in this release, see the [Harbor release notes on Github](https://github.com/goharbor/harbor/releases/tag/v1.9.3).
-
-### Support Matrix
-
-- Enterprise PKS v1.4.x, v1.5.x, v1.6.x
-- Ops Manager v2.4, v2.5, v2.6 (refer to the Enterprise PKS release notes for specific matching versions)
-
-<!--
-
-
-## <a id='v1.8.6'></a> v1.8.6
-
-**Release Date:** November 20, 2019
-
-VMware Harbor Registry v1.8.6 is a minor release with various fixes.
-
-### Supported Upgrade Paths
-
-- From Harbor v1.8.x to Harbor v1.8.6
-- From Harbor v1.7.x to Harbor v1.8.6
-- From Harbor v1.6.x to Harbor v1.8.6
-
-### New Features
-
-There are no new features in this release.
-
-### Fixed Issues
-
-For the lists of known and fixed issues in this release, see the [Harbor release notes on Github](https://github.com/goharbor/harbor/releases/tag/v1.8.6).
-
-### Support Matrix
-
-- Enterprise PKS v1.4.x, v1.5.x
-- Ops Manager v2.4, v2.5, v2.6 (refer to the Enterprise PKS release notes for specific matching versions)
-
--->
-
-----------
-
-
-
 ## <a id='v1.8.5'></a> v1.8.5
 
 **Release Date:** November 5, 2019
 
 VMware Harbor Registry v1.8.5 is a minor release with various fixes.
 
-### Supported Upgrade Paths
+Supported upgrade paths:
 
 - From Harbor v1.8.x to Harbor v1.8.5
 - From Harbor v1.7.x to Harbor v1.8.5
 - From Harbor v1.6.x to Harbor v1.8.5
 
-### New Features
+New features:
 
 There are no new features in this release.
 
-### Fixed Issues
+<!-- Fixed issues:
 
-For the lists of known and fixed issues in this release, see the [Harbor release notes on Github](https://github.com/goharbor/harbor/releases/tag/v1.8.5).
+-->
 
-### Support Matrix
+Support matrix:
 
 - Enterprise PKS v1.4.x, v1.5.x
 - Ops Manager v2.4, v2.5, v2.6 (refer to the Enterprise PKS release notes for specific matching versions)
 
-----------
-                           
 ## <a id='v1.8.4'></a> v1.8.4
 
 **Release Date:** October 15, 2019
 
 VMware Harbor Registry v1.8.4 is a minor release with various fixes.
 
-### Supported Upgrade Paths
+Supported upgrade paths:
 
 - From Harbor v1.8.x to Harbor v1.8.4
 - From Harbor v1.7.x to Harbor v1.8.4
 - From Harbor v1.6.x to Harbor v1.8.4
 
-### New Features
+New features:
 
 There are no new features in this release.
 
-### Fixed Issues
+Fixed issues:
 
 CVE-2019-16919: Enforcing project permissions and scope during robot account creation via the Harbor API. 
 
-### Support Matrix
+Support matrix:
 
 - Enterprise PKS v1.4.x, v1.5.x
 - Ops Manager v2.4, v2.5, v2.6 (refer to the Enterprise PKS release notes for specific matching versions)
-
-
-----------
-
-
 
 ## <a id='v1.8.3'></a> v1.8.3
 
@@ -158,30 +59,25 @@ CVE-2019-16919: Enforcing project permissions and scope during robot account cre
 
 VMware Harbor Registry v1.8.3 is a minor release with various fixes.
 
-### Supported Upgrade Paths
+Supported upgrade paths:
 
 - From Harbor v1.8.x to Harbor v1.8.3
 - From Harbor v1.7.x to Harbor v1.8.3
 - From Harbor v1.6.x to Harbor v1.8.3
 
-### New Features
+New features:
 
 There are no new features in this release.
 
-### Fixed Issues
+Fixed issues:
 
 * [CVE-2019-16097](https://nvd.nist.gov/vuln/detail/CVE-2019-16097): Disallow creating an administrative user during self-registration.  Note: There is a workaround separate from the fix. If you are not able to upgrade immediately, you can [disable self-registration](https://github.com/goharbor/harbor/wiki/Harbor-FAQs#cve-2019-16097). 
 * For the full list of issues fixed in v1.8.3, see the [closed issues](https://github.com/goharbor/harbor/issues?q=is%3Aissue+label%3Atarget%2F1.8.3+is%3Aclosed) at the Harbor repository.
 
-### Support Matrix
+Support matrix:
 
 - Enterprise PKS v1.4.x, v1.5.x
 - Ops Manager v2.4, v2.5, v2.6 (refer to the Enterprise PKS release notes for specific matching versions)
-
-
-----------
-
-
 
 ## <a id='v1.8.2'></a> v1.8.2
 
@@ -189,35 +85,31 @@ There are no new features in this release.
 
 VMware Harbor Registry v1.8.2 is a minor release with several fixes.
 
-### Supported Upgrade Paths
+Supported upgrade paths:
 
 - From Harbor v1.8.x to Harbor v1.8.2
 - From Harbor v1.7.x to Harbor v1.8.2
 - From Harbor v1.6.x to Harbor v1.8.2
 
-### New Features
+New features:
 
 There are no new features in this release.
 
-### Fixed Issues
+Fixed issues:
 
 For information about the issues fixed in this release, see the [Harbor v1.8.2 release notes](https://github.com/goharbor/harbor/releases/tag/v1.8.2) in the GoHarbor GitHub repository.
 
-### Known Issues
+Known issues:
 
 - After upgrade from v1.6.x, the scheduled setting of "Scan All" is reset to "None" and the administrator will need to update the schedule again.
 - The label filter in replication policies will be lost after upgrade ([#7762](https://github.com/goharbor/harbor/issues/7762)).
 - When the internal redis is down, the health check API may return a 502 Bad Gateway error ([#7691](https://github.com/goharbor/harbor/issues/7691)).
 - The Harbor API does not support pulling or pushing the manifest list from Docker registry. When replicating the manifest list, the image whose architecture is `amd64` and OS is `linux` (if found) or the first one will be replicated ([#6522](https://github.com/goharbor/harbor/issues/6522)).
 
-### Support Matrix
+Support matrix:
 
 - Enterprise PKS v1.4.x, v1.5.x
 - Ops Manager v2.4, v2.5, v2.6 (refer to the Enterprise PKS release notes for specific matching versions)
-
-
-----------
-
 
 ## <a id='v1.8.1'></a> v1.8.1
 
@@ -225,12 +117,12 @@ For information about the issues fixed in this release, see the [Harbor v1.8.2 r
 
 VMware Harbor Registry v1.8.1 is a general availability release with several new features and fixes.
 
-### Supported Upgrade Paths
+Supported upgrade paths:
 
 * From Harbor v1.7.x to Harbor v1.8.1
 * From Harbor v1.6.x to Harbor v1.8.1
 
-### New Features
+New features:
 
 * Support for OpenID Connect
 * Robot accounts
@@ -246,7 +138,7 @@ VMware Harbor Registry v1.8.1 is a general availability release with several new
 
 For additional details, refer to the [Harbor v1.8.0 release](https://github.com/goharbor/harbor/releases/tag/v1.8.0) at the Harbor GitHub repository.
 
-### Fixed Issues
+Fixed issues:
 
 * Cron job (template) will be lost after migrating to latest version 1.8.0 from other versions (1.6.x/1.7.x) area/job-services kind/bug target/1.8.1.
 * Pull based replication not support library/hipache in docker hub area/replication target/1.8.1.
@@ -254,7 +146,7 @@ For additional details, refer to the [Harbor v1.8.0 release](https://github.com/
 * Swagger API version of 1.8.0 target/1.8.1.
 * http_auth always onboard configuration doesn't work as expected target/1.8.1.
 
-### Known Issues
+Known issues:
 
 * After upgrade from v1.6.x, the scheduled setting of "Scan All" is reset to "None" and the administrator will need to update the schedule again.
 * The label filter in replication policies will be lost after upgrade ([#7762](https://github.com/goharbor/harbor/issues/7762)).
@@ -262,15 +154,10 @@ For additional details, refer to the [Harbor v1.8.0 release](https://github.com/
 * The Harbor API does not support pulling or pushing the manifest list from Docker registry. When replicating the manifest list, the image whose architecture is `amd64` and OS is `linux` (if found) or the first one will be replicated ([#6522](https://github.com/goharbor/harbor/issues/6522)).
 * Harbor Tile UAA authentication does not support UAA with SAML backend.
 
-### Support Matrix
+Support matrix:
 
 * Enterprise PKS v1.4.x, v1.5.x
 * Ops Manager v2.4, v2.5, v2.6 (refer to the Enterprise PKS release notes for specific matching versions)
-
-
-----------
-
-
 
 ## <a id='v1.7.6'></a> v1.7.6
 
@@ -278,25 +165,20 @@ For additional details, refer to the [Harbor v1.8.0 release](https://github.com/
 
 VMware Harbor Registry v1.7.6 is a minor release.
 
-### Supported Upgrade Paths
+Supported upgrade paths:
 
 * From Harbor v1.7.x to Harbor v1.7.6
 * From Harbor v1.6.x to Harbor v1.7.6
 
-### Fixed Issues
+Fixed issues:
 
 * Disable syslog DNS name resolution.
 * [CVE-2019-16097](https://nvd.nist.gov/vuln/detail/CVE-2019-16097): Disallow creating an administrative user during self-registration.  Note: There is a workaround separate from the fix. If you are not able to upgrade immediately, you can [disable self-registration](https://github.com/goharbor/harbor/wiki/Harbor-FAQs#cve-2019-16097).
 
-### Support Matrix
+Support matrix:
 
 * Supports PKS v1.3.x and 1.4.x
 * Supports Ops Manager v2.3, Ops Manager v2.4, and Ops Manager v2.5
-
-
-----------
-
-
 
 ## <a id='v1.7.5'></a> v1.7.5
 
@@ -304,7 +186,7 @@ VMware Harbor Registry v1.7.6 is a minor release.
 
 VMware Harbor Registry v1.7.5 is a minor release.
 
-### Supported Upgrade Paths
+Supported upgrade paths:
 
 * From Harbor v1.7.4 to Harbor v1.7.5
 * From Harbor v1.7.3 to Harbor v1.7.5
@@ -312,7 +194,7 @@ VMware Harbor Registry v1.7.5 is a minor release.
 * From Harbor v1.6 to Harbor v1.7.5
 * From Harbor v1.5 to Harbor v1.7.5
 
-### Fixed Issues
+Fixed issues:
 
 * Harbor upgrade from 1.7.2 to 1.7.4 failed with error "Failed to update database, error: pq: must be owner of relation schema_migrations"
 * Bumped up Clair to v2.0.8
@@ -320,20 +202,15 @@ VMware Harbor Registry v1.7.5 is a minor release.
 * Removed user-agent check-in notification handler.
 * Fixed the issue global search not working if chartmusuem is not installed.
 
-### Known Issues
+Known issues:
 
 * Cannot enter into the public projects in the global search result page without login (https://github.com/goharbor/harbor/issues/6435).
 * Image label filter should consistent with charts (https://github.com/goharbor/harbor/issues/6447).
 
-### Support Matrix
+Support matrix:
 
 * Supports PKS v1.3.x, 1.4.x
 * Supports Ops Manager v2.3, Ops Manager v2.4
-
-
-----------
-
-
 
 ## <a id='v1.7.4'></a> v1.7.4
 
@@ -341,23 +218,18 @@ VMware Harbor Registry v1.7.5 is a minor release.
 
 VMware Harbor Registry v1.7.4 is a minor release.
 
-### Supported Upgrade Paths
+Supported upgrade paths:
 
 * From Harbor v1.7.3 to Harbor v1.7.4
 * From Harbor v1.7.2 to Harbor v1.7.4
 * From Harbor v1.6 to Harbor v1.7.4
 * From Harbor v1.5 to Harbor v1.7.4
 
-### Fixed Issues
+Fixed issues:
 
 * Not able to increase the disk size of the harbor VM.
 * notary-server and notary-signer cannot start after upgrading to 1.7.4
 * Other Harbor issues listed at the [Harbor repository](https://github.com/goharbor/harbor/issues?q=is%3Aissue+is%3Aclosed+label%3Atarget%2F1.7.4) in GitHub.
-
-
-----------
-
-
 
 ## <a id='v1.7.3'></a> v1.7.3
 
@@ -365,21 +237,16 @@ VMware Harbor Registry v1.7.4 is a minor release.
 
 VMware Harbor Registry v1.7.3 is a minor release.
 
-### Supported Upgrade Paths
+Supported upgrade paths:
 
 * From Harbor v1.7.2 to Harbor v1.7.3
 * From Harbor v1.7.1 to Harbor v1.7.3
 * From Harbor v1.6 to Harbor v1.7.3
 * From Harbor v1.5 to Harbor v1.7.3
 
-### Fixed Issues
+Fixed issues:
 
 * [CVE-2019-5736](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5736): runc container breakout.
-
-
-----------
-
-
 
 ## <a id='v1.7.2'></a> v1.7.2
 
@@ -387,20 +254,15 @@ VMware Harbor Registry v1.7.3 is a minor release.
 
 VMware Harbor Registry v1.7.2 is a minor release.
 
-### Supported Upgrade Paths
+Supported upgrade paths:
 
 * From Harbor v1.6 to Harbor v1.7.2
 * From Harbor v1.5 to Harbor v1.7.2
 
-### Fixed Issues
+Fixed issues:
 
 * The Harbor upgrade from 1.6.0 to 1.7.1 known issue.
 * Ctl start failed issue when NFS storage is configured.
-
-
-----------
-
-
 
 ## <a id='v1.7.1'></a> v1.7.1
 
@@ -410,17 +272,17 @@ VMware Harbor Registry v1.7.2 is a minor release.
 
 VMware Harbor Registry v1.7.1 is a general availability release with several new features and fixes.
 
-### New Features
+New features:
 
 * Support for [Harbor Registry Release-1.7.0](https://github.com/goharbor/harbor/wiki/Release-1.7.0).
 * Bump stemcell version to ubuntu-xenial 170.14.
 
-### Fixed Issues
+Fixed issues:
 
 * You can now change the Harbor `admin` password using the Harbor web interface. You must enter the new password in the **Admin Password to run smoke test** field of the **Credentials** pane in the Harbor tile before reinstalling or upgrading the Harbor tile.
 * The parameter `registry` is added by default and does not have to be added manually to the `no_proxy` field for Clair proxy configuration.
 
-### Known Issues
+Known issues:
 
 When upgrading from Harbor v1.6.0 to v1.7.1, the upgrade procedure may fail with the following error message: `1 of 3 pre-start scripts failed. Failed Jobs: harbor.` The workaround is to log in to the Harbor VM with BOSH and check the Docker images. If there are any Docker images found for `vmware/harbor-log`, remove the images before migration. After removing the images, click **Apply Changes** in Ops Manager and retry the upgrade. This issue is addressed in Harbor v1.7.2. 
 
@@ -439,26 +301,16 @@ See the following example command to remove any Docker images found for `vmware/
 docker rmi IMAGES-ID-OF-VMWARE/HARBOR-LOG
 ```
 
-
-----------
-
-
-
 ## <a id='v1.6.3'></a> v1.6.3
 
 **Release Date:** December 21, 2018
 
 The Harbor 1.6.3 tile is a maintenance release.
 
-### Fixed Issues
+Fixed issues:
 
 * Fixed issue with Clair's inability to scan S3 storage if it does not have the proper CA certificate for the S3 storage URL.
 * Fixed issue with user being unable to sign images using Notary after upgrading to v1.6.
-
-
-----------
-
-
 
 ## <a id='v1.6.0'></a> v1.6.0
 
@@ -466,24 +318,19 @@ The Harbor 1.6.3 tile is a maintenance release.
 
 For more information about new Harbor features, see the [release notes](https://github.com/goharbor/harbor/wiki/Release-1.6.0) for Harbor v1.6.0 in the Harbor GitHub repository.
 
-### New Features
+New features:
 
 * Support for customizing Docker container network address pool in the Harbor tile configuration.
 * Disables Clair update by default in the Harbor tile.
 
-### Fixed Issues
+Fixed issues:
 
 * **Email/UAA Settings** tab in the Harbor UI is reset to defaults after a resurrection event occurs in BOSH.
 * When using S3 storage in Harbor tile to point to an internal S3 object store, Harbor does not trust the issuer.
 
-### Known Issues
+Known issues:
 
 * If you change the Harbor `admin` password using the Harbor web interface, subsequent attempts to use **Apply Changes**in Ops Manager to update the Harbor tile will fail. To avoid this issue, do not change the Harbor password using the Harbor web interface.
-
-
-----------
-
-
 
 ## <a id='v1.5.2'></a> v1.5.2
 
@@ -493,16 +340,11 @@ For more information about new Harbor features, see the [release notes](https://
 
 Minor release to fix issues in v1.5.x.
 
-### Fixed Issues
+Fixed issues:
 
 * Continuous traffic towards security-tracker.debian.org from Clair.
 * Harbor upgrade from v1.4.2 to v1.5.1 failing.
 * Email settings tab in Harbor UI is reset to defaults after a resurrection.
-
-
-----------
-
-
 
 ## <a id='v1.5.1'></a> v1.5.1
 
@@ -512,15 +354,10 @@ Minor release to fix issues in v1.5.x.
 
 General Availability release to be used with PKS v1.1.x and Pivotal Application Service (PAS) v2.1.x.
 
-### New Features
+New features:
 
 * Harbor Tile v1.5.1 includes the Harbor v1.5.1 GA release build.
 * Harbor Tile v1.5.1 is fully compatible with PKS v1.1.0 (but not PKS v1.0.x).
-
-
-----------
-
-
 
 ## <a id='v1.4.2'></a> v1.4.2
 
@@ -530,7 +367,7 @@ General Availability release to be used with PKS v1.1.x and Pivotal Application 
 
 General Availability release to be used with <%= vars.product_pks_short %> v1.x and PAS v2.x.
 
-### New Features
+New features:
 
 * Allow configuring the HTTP proxy for Clair in the Harbor Tile.
 * Allow configuring **v4auth** and **secure** for S3-compatible registry storage in the Harbor Tile.
@@ -538,17 +375,12 @@ General Availability release to be used with <%= vars.product_pks_short %> v1.x 
 * Support upgrade from Harbor Tile v1.4.1 to v1.4.2.
 * Encryption: No changes to encryption with this release.
 
-### Fixed Issues
+Fixed issues:
 
 * Harbor Tile status shows failure after Harbor VM is rebooted manually or by vSphere HA.
 * Harbor service sometimes cannot start after clicking **Apply changes** in Ops Manager.
 * Clair or Notary cannot be turned off in Harbor Tile.
 * <%= vars.product_pks_short %> UAA user with admin rights does not have privilege.
-
-
-----------
-
-
 
 ## <a id='v1.4.1'></a> v1.4.1
 
@@ -556,21 +388,16 @@ General Availability release to be used with <%= vars.product_pks_short %> v1.x 
 
 **Release Date:** February 8, 2018
 
-### Fixed Issues
+Fixed issues:
 
 * [#4244](https://github.com/vmware/harbor/issues/4214) Harbor Tile deployment fails when the network name in BOSH Director contains upper-case characters.
 
-### Known Issues
+Known issues:
 
 * [#4214](https://github.com/vmware/harbor/issues/4214) Deleting multiple tags that point to the same image may return a 500 error.
 * [#4217](https://github.com/vmware/harbor/issues/4217) When using UAA, cannot onboard users with the same email address. Email addresses must be unique.
 * Users may experience unexpected behavior with some versions of the Firefox browser when accessing the Harbor UI. Suggest use of Google Chrome for best results.
 * Harbor uses default internal networks (default Docker IPs) that may overlap with customer production networks and cause issues, such as preventing communication with the registry from outside of the VM. For more information, see [PKS is unable to access the Harbor web interface](https://community.pivotal.io/s/article/PKS-is-unable-to-access-the-Harbor-web-interface) in the Pivotal Support Knowledge Base.
-
-
-----------
-
-
 
 ## <a id='v1.4.0'></a> v1.4.0
 
@@ -578,7 +405,7 @@ General Availability release to be used with <%= vars.product_pks_short %> v1.x 
 
 **Release Date:** February 7, 2018
 
-### New Features
+New features:
 
 * User Account and Authentication (UAA) integration capability with PAS and <%= vars.product_pks_short %>.
 * External S3 storage capability.
@@ -586,16 +413,11 @@ General Availability release to be used with <%= vars.product_pks_short %> v1.x 
 * Support for repository-level description.
 * Batch operation on projects/repositories/users from UI.
 
-### Known Issues
+Known issues:
 
 * [#4214](https://github.com/vmware/harbor/issues/4214) Deleting multiple tags that point to the same image may return a 500 error.
 * [#4217](https://github.com/vmware/harbor/issues/4217) When using UAA, cannot onboard users with the same email address. Email addresses must be unique.
 * Users may experience unexpected behaviour with some versions of the Firefox browser when accessing the Harbor UI. Suggest use of Google Chrome for best results.
-
-
-----------
-
-
 
 ## <a id='v1.3.1'></a> v1.3.1
 
@@ -603,23 +425,18 @@ General Availability release to be used with <%= vars.product_pks_short %> v1.x 
 
 **Release Date:** January 16, 2018
 
-### Fixed Issues
+Fixed issues:
 
 * Fixed: [#3942](https://github.com/vmware/harbor/issues/3942) <%= vars.product_pks_short %>/Harbor: Harbor services cannot start after Harbor VM is rebooted.
 * Fixed: [#3849](https://github.com/vmware/harbor/issues/3849) Failed to stop dockerd service when updating the Harbor tile.
 * Fixed: [#3823](https://github.com/vmware/harbor/issues/3823) Harbor tile should support user-provided certificate signed with other than Ops Manager root CA.
 * Fixed: [#3814](https://github.com/vmware/harbor/issues/3814) Add **Verify LDAP Certificate** option in Harbor Tile UI.
 
-
-----------
-
-
-
 ## <a id='v1.3.0'></a> v1.3.0
 
 **Release Date:** December 21, 2017
 
-### New Features
+New features:
 
 * Initial release of the VMware Harbor Registry.
 * Adds a Harbor tile to Ops Manager.
