@@ -82,6 +82,8 @@ To use a custom signed certificate from a third-party CA, follow the steps below
 1. Copy the contents of your certificate file into the **Certificate PEM** field. Certificates must be in PEM-encoded format. The certificate CN or SAN must match the DNS-resolvable domain name that you used as the hostname for Harbor.
 1. Copy the contents of the corresponding key (PEM) into the **Private Key PEM** field.
 1. Enter the **Certificate Authority (CA)** for the server certificate, which is used to sign the Harbor certificate. If you use a self-signed certificate, copy the corresponding CA here. Leave this field empty if you are using the root CA of Ops Manager.
+
+    If you use a certificate for Enterprise PKS that is not signed by the default Ops Manager CA, and you configure Harbor to use the Enterprise PKS UAA for authentication, Harbor 1.9.x automatically trusts the correct certificate authority for PKS UAA.
 1. Click **Save**.
 
     <img src="images/cert-config.png" alt="Configure SSL certificate and private key for Harbor" width="725">
