@@ -61,6 +61,10 @@ VMware Harbor Registry v1.9.3 is a GA release with new features.
 
 For the full lists of known and fixed issues in this release, see the [Harbor release notes on Github](https://github.com/goharbor/harbor/releases/tag/v1.9.3).
 
+### Known Issues
+
+- When upgrading Harbor from 1.8.x to 1.9.3, the upgrade fails if the Clair `no_proxy` values are not updated in the Harbor tile. To uprgrade Harbor, update the `no_proxy` values as described in the knowledge base article [Harbor upgrade from 1.8.x to 1.9.3 fails with harbor job (76299)](https://kb.vmware.com/s/article/76299).
+
 ### Support Matrix
 
 - Enterprise PKS v1.4.x, v1.5.x, v1.6.x
