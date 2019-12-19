@@ -3,6 +3,66 @@ title: Release Notes for VMware Harbor Registry Integration with Enterprise PKS
 owner: Partners
 ---
 
+## <a id='v1.10.0'></a> v1.10.0
+
+**Release Date:** December 19, 2019
+
+VMware Harbor Registry v1.10.0 is a GA release with new features.
+
+### Supported Upgrade Paths
+
+- From Harbor v1.9.x to Harbor v1.10.0
+- From Harbor v1.8.x to Harbor v1.10.0
+
+### New Features
+
+* **Pluggable Scanners**
+
+   Worked with Aqua Security and Anchore to expand the list of supported 3rd party vulnerability scanners that the Harbor system administrator can configure. Project administrators can use any of the configured scanners in their projects. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#vulnerability-scanning).
+
+* **Tag Immutability**
+
+   Allow Harbor project administrator to configure immutability rules at the project level. Images with certain tags cannot be overwritten by pushing, retagging, deleting, or replicating images with matching tags. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#tag-immutability-rules).
+
+   
+* **Replication Enhancements**
+
+   Adds Gitlab, Quay.io and Jfrog Artifactory to the list of supported replication targets. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#replicating-resources).
+
+* **OIDC Enhancements**:
+
+   Support for OIDC groups. Adds user-defined CLI secrets. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#oidc_auth).
+
+* **Limited Guest Role**. 
+
+   This role has lower permissions than Guest, and has no visibility into logs or the other members of a project. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#rbac).
+
+* **New Webhook**
+
+   Project quota exceeded. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#supported-events).
+
+
+For more information, see the [release notes on Github](https://github.com/goharbor/harbor/releases/tag/v1.10.0)
+
+### Fixed Issues
+
+- Harbor upgrade failed because of the `no_proxy setting`.
+- Harbor fails to install when FQDN is upper case.
+- Set default container network pool to 172.20.0.0/16 to avoid conflicts.
+
+For the full lists of known and fixed issues in this release, see the list of [closed issues in  Github](https://github.com/goharbor/harbor/issues?q=is%3Aissue+label%3Atarget%2F1.10.0+is%3Aclosed).
+
+### Known Issues
+
+Scan status freezes after migration from 1.8 to 1.10 [#9963](https://github.com/goharbor/harbor/issues/9963). For more information, see the [release notes on Github](https://github.com/goharbor/harbor/releases/tag/v1.10.0)
+
+### Support Matrix
+
+- Enterprise PKS v1.4.x, v1.5.x, v1.6.x
+- Ops Manager v2.5, v2.6, v2.7 (refer to the Enterprise PKS release notes for specific matching versions)
+- Stemcell Ubuntu Xenial 456.*
+
+
 ## <a id='v1.9.3'></a> v1.9.3
 
 **Release Date:** November 18, 2019
