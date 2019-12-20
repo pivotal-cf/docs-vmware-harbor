@@ -124,6 +124,7 @@ For the full lists of known and fixed issues in this release, see the [Harbor re
 
 ### Known Issues
 
+- The network 172.23.0.0/16 is reserved for Harbor. Using IP addresses in this network will lead to IP conflicts that prevent communication between Harbor and Harbor clients. This is fixed in version 1.10.0.
 - When upgrading Harbor from 1.8.x to 1.9.3, the upgrade fails if the Clair `no_proxy` values are not updated in the Harbor tile. To uprgrade Harbor, update the `no_proxy` values as described in the knowledge base article [Harbor upgrade from 1.8.x to 1.9.3 fails with harbor job (76299)](https://kb.vmware.com/s/article/76299).
 
 ### Support Matrix
