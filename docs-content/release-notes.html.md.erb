@@ -16,30 +16,30 @@ VMware Harbor Registry v1.10.0 is a GA release with new features.
 
 ### New Features
 
-* **Pluggable Scanners**
+**Pluggable Scanners**
 
-   Worked with Aqua Security and Anchore to expand the list of supported 3rd party vulnerability scanners that the Harbor system administrator can configure. Project administrators can use any of the configured scanners in their projects. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#vulnerability-scanning).
+Worked with Aqua Security and Anchore to expand the list of supported 3rd party vulnerability scanners that the Harbor system administrator can configure. Project administrators can use any of the configured scanners in their projects. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#vulnerability-scanning).
 
-* **Tag Immutability**
+**Tag Immutability**
 
-   Allow Harbor project administrator to configure immutability rules at the project level. Images with certain tags cannot be overwritten by pushing, retagging, deleting, or replicating images with matching tags. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#tag-immutability-rules).
+Allow Harbor project administrator to configure immutability rules at the project level. Images with certain tags cannot be overwritten by pushing, retagging, deleting, or replicating images with matching tags. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#tag-immutability-rules).
 
    
-* **Replication Enhancements**
+**Replication Enhancements**
 
-   Adds Gitlab, Quay.io and Jfrog Artifactory to the list of supported replication targets. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#replicating-resources).
+Adds Gitlab, Quay.io and Jfrog Artifactory to the list of supported replication targets. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#replicating-resources).
 
-* **OIDC Enhancements**:
+**OIDC Enhancements**:
 
-   Support for OIDC groups. Adds user-defined CLI secrets. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#oidc_auth).
+Support for OIDC groups. Adds user-defined CLI secrets. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#oidc_auth).
 
-* **Limited Guest Role**. 
+**Limited Guest Role**. 
 
-   This role has lower permissions than Guest, and has no visibility into logs or the other members of a project. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#rbac).
+This role has lower permissions than Guest, and has no visibility into logs or the other members of a project. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#rbac).
 
-* **New Webhook**
+**New Webhook**
 
-   Project quota exceeded. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#supported-events).
+Project quota exceeded. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#supported-events).
 
 
 For more information, see the [release notes on Github](https://github.com/goharbor/harbor/releases/tag/v1.10.0)
@@ -76,43 +76,43 @@ VMware Harbor Registry v1.9.3 is a GA release with new features.
 
 ### New Features
 
-* **Project Quotas**
+**Project Quotas**
 
-   By using quota management, system administrators can set constraints that limit the number of artifacts or the amount of storage resources that a project can use. This helps system administrators to better manage and allocate resources across all projects. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#set-project-quotas)
+By using quota management, system administrators can set constraints that limit the number of artifacts or the amount of storage resources that a project can use. This helps system administrators to better manage and allocate resources across all projects. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#set-project-quotas)
 
-* **Tag Retention**
+**Tag Retention**
 
-   A repository can rapidly accumulate a large number of image tags, many of which might not be required after a given time or once they have been superseded by a subsequent image build. These excess tags can obviously consume large quantities of storage capacity. As a system administrator, you can define rules that govern how many tags of a given repository to retain, or for how long to retain certain tags. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#tag-retention-rules)
+A repository can rapidly accumulate a large number of image tags, many of which might not be required after a given time or once they have been superseded by a subsequent image build. These excess tags can obviously consume large quantities of storage capacity. As a system administrator, you can define rules that govern how many tags of a given repository to retain, or for how long to retain certain tags. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#tag-retention-rules)
 
-* **Webhooks**
+**Webhooks**
 
-   Webhooks allow for the integration of Harbor with other tools to streamline continuous integration and development processes.  Currently, webhooks can be configured for actions including container image push, container image pull, container image delete, helm chart push, helm chart pull, helm chart delete, image scanning completed, CVE discovered [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#webhook-notifications)
+Webhooks allow for the integration of Harbor with other tools to streamline continuous integration and development processes.  Currently, webhooks can be configured for actions including container image push, container image pull, container image delete, helm chart push, helm chart pull, helm chart delete, image scanning completed, CVE discovered [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#webhook-notifications)
 
-* **CVE Whitelists**
+**CVE Whitelists**
 
-   As a system administrator, you can create exception policies of certain whitelisted CVEs to ignore during vulnerability policy checking. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#configure-cve-whitelists)
+As a system administrator, you can create exception policies of certain whitelisted CVEs to ignore during vulnerability policy checking. [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#configure-cve-whitelists)
 
-* **Replication Enhancements**
+**Replication Enhancements**
 
-   This release includes the following improvements to replication:
+This release includes the following improvements to replication:
    
-   - Adds the ability to replicate resources between Harbor and Google Container Registry, Azure Container Registry, Amazon Elastic Container Registry, Alibaba Cloud Container Registry, Helm Hub.
-   - Supports filtering by Harbor labels
-   - Supports configuring proxies
+- Adds the ability to replicate resources between Harbor and Google Container Registry, Azure Container Registry, Amazon Elastic Container Registry, Alibaba Cloud Container Registry, Helm Hub.
+- Supports filtering by Harbor labels
+- Supports configuring proxies
 [Read more](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#replicating-resources)
 
 * **Additional Features**
 
-   Harbor 1.9 adds numerous other capabilities for both administrators and end-users:
+Harbor 1.9 adds numerous other capabilities for both administrators and end-users:
    
-   - Groups privileges prioritization: when an administrator privilege is granted to a user's group, but a guest privilege is also granted to the user, then the user has admin privileges.
-   - Supports the configuration of an external syslog endpoint and database connection pools.
-   - Security enhancement to make Harbor containers run as a non-root user.
-   - Adds the ability to upload/fetch charts with robot accounts.
-   - Bug Fixes and Improvements in job service: job retry, Redis pool run out, and the rapid growth in the amount of Redis data.
-   - Adds support authenticated by PKS UAA with SAML Identity Provider
-   - Adds VMWare vRealize Log Insight log integration
-   - Allows you to specify HTTP/HTTPS proxy for all Harbor components 
+- Groups privileges prioritization: when an administrator privilege is granted to a user's group, but a guest privilege is also granted to the user, then the user has admin privileges.
+- Supports the configuration of an external syslog endpoint and database connection pools.
+- Security enhancement to make Harbor containers run as a non-root user.
+- Adds the ability to upload/fetch charts with robot accounts.
+- Bug Fixes and Improvements in job service: job retry, Redis pool run out, and the rapid growth in the amount of Redis data.
+- Adds support authenticated by PKS UAA with SAML Identity Provider
+- Adds VMWare vRealize Log Insight log integration
+- Allows you to specify HTTP/HTTPS proxy for all Harbor components 
 
 ### Fixed Issues
 
