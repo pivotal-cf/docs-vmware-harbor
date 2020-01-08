@@ -63,6 +63,41 @@ Scan status freezes after migration from 1.8 to 1.10 [#9963](https://github.com/
 - Stemcell Ubuntu Xenial 456.*
 
 
+----------
+
+
+## <a id='v1.9.4'></a> v1.9.4
+
+**Release Date:** January 08, 2020
+
+VMware Harbor Registry v1.9.4 is a minor release with various fixes.
+
+### Supported Upgrade Paths
+
+- From Harbor v1.9.x to Harbor v1.9.4
+- From Harbor v1.8.x to Harbor v1.9.4
+- From Harbor v1.7.x to Harbor v1.9.4
+
+### New Features
+
+There are no new features in this release.
+
+### Fixed Issues
+
+- The network 172.23.0.0/16 is reserved for Harbor. Using IP addresses in this network will lead to IP conflicts that prevent communication between Harbor and Harbor clients.
+- When upgrading Harbor from 1.8.x to 1.9.3, the upgrade fails if the Clair `no_proxy` values are not updated in the Harbor tile.
+
+For details and the full lists of known and fixed issues in this release, see the [Harbor release notes on  Github](https://github.com/goharbor/harbor/releases/tag/v1.9.4).
+
+### Support Matrix
+
+- Enterprise PKS v1.4.x, v1.5.x, v1.6.x
+- Ops Manager v2.4, v2.5, v2.6, v2.7 (refer to the Enterprise PKS release notes for specific matching versions)
+
+
+----------
+
+
 ## <a id='v1.9.3'></a> v1.9.3
 
 **Release Date:** November 18, 2019
