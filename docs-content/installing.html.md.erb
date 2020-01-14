@@ -45,9 +45,9 @@ These instructions are valid for new installations, reconfigurations of existing
 1. Under **Hostname**, enter the FDQN of a host to access the Harbor administration UI and registry service. The hostname must include a domain and must be able to resolve to the IP address of the Harbor instance VM by an external DNS server.
 <br><br>
 Kubernetes worker nodes can resolve the Harbor FQDN through the local BOSH DNS server. To enable Docker clients external to Kubernetes worker nodes to resolve the Harbor FQDN, you must provide a Harbor FQDN that can be resolved by an external DNS server. When Harbor is successfully deployed, you must update the Harbor external DNS record with the IP address of the Harbor VM.
-1. Under **Static IP Address**, enter the static IP address that you want to use for the Harbor web interface.
+1. **Optionally** Under **Static IP Address**, enter the static IP address that you want to use for the Harbor web interface. This static IP address must be inside the netblock used for the 'Network' above. Create a DNS record that maps the Harbor FQDN to the static IP address.
 <br><br>
-Create a DNS record that maps the Harbor FQDN to the static IP address, or to the custom load balancer if you are using one. This is the public IP address of the Harbor server. 
+If a static IP address is not used, the external IP assigned by BOSH or a custom load balancer will need to direct traffic to the hostname specified above.
 1. Optionally modify the **Wait time for Harbor Tile migration complete** from the default of 60 minutes. This option is available in v1.9.x and later. 
 1. Click **Save**.
 
