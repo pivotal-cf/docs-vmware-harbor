@@ -131,10 +131,10 @@ The **Networking** section is new in version 1.9.x. In previous releases, you co
 
 1. In the Harbor tile, select **Networking**.
 1. (Optional) In the **HTTP Proxy** and **HTTPS Proxy** fields, enter the URL to proxy traffic for Harbor server components, such as Clair, the jobservice, and to access the external network. 
-
+<br><br>
    For example: `http://my.proxy.com:3128`. Set both the HTTP and HTTPS proxy options. Usually HTTPS is used, because most sites use HTTPS.
-
-    <p class="note"><strong>Note:</strong> To use basic authentication with the HTTP/S proxy, include the user name and password in the proxy host URL, for example: <code>http://user:password@myproxy.internal.domain:8080</code>.</p>
+<br>
+    <p class="note"><strong>Note:</strong> To use basic authentication with the HTTP/S proxy, include the user name and password in the proxy host URL, for example: <code>http<span>:</span>//user:password<span>@<span>myproxy.internal.domain:8080</code>.</p>
 1. (Optional) In the **No Proxy** field, specify the endpoints that will bypass the proxy host. The required values, `127.0.0.1,localhost,core,registry`, are populated by default.
 
     <img src="images/networking1.png" alt="Configure proxies for Harbor" width="725">
