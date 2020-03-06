@@ -4,11 +4,11 @@ owner: Partners
 ---
 
 This topic describes how to install and configure VMware Harbor Registry using Pivotal Ops Manager
-for use with <%= vars.product_pks_full %> and Pivotal Application Service (PAS).
+for use with <%= vars.product_pks_full %> and VMware Tanzu Application Service for VMs (TAS for VMs).
 
 For more information about <%= vars.product_pks_short %>, see the [<%= vars.product_pks_full %>](https://docs.pivotal.io/pks/index.html) documentation.
 
-For more information about PAS, see [PAS Concepts](https://docs.pivotal.io/pivotalcf/concepts/index.html) in the Pivotal documentation.
+For more information about TAS for VMs, see [TAS for VMs Concepts](https://docs.pivotal.io/pivotalcf/concepts/index.html) in the Pivotal documentation.
 
 <p class="note"><strong>Note:</strong> This documentation supports the Harbor v1.9.x and 1.10.x releases.</p>
 
@@ -55,7 +55,7 @@ In previous releases, this page also includes the container network settings. In
 
 ## <a id='configure_certificate'></a> Configure SSL Certificate and Key
 
-On the **Certificate** pane, you configure the SSL certificate and private key for Harbor. You can generate the certificate and private key or provide a custom signed certificate and private key. Additionally, you must provide the Certificate Authority (CA) certificate, which is used to sign the Harbor certificate. The domain name used to generate RSA certificate in the Harbor Tile can be different than the domain name used to generate the RSA certificate in the <%= vars.product_pks_tile %> or PAS tile.
+On the **Certificate** pane, you configure the SSL certificate and private key for Harbor. You can generate the certificate and private key or provide a custom signed certificate and private key. Additionally, you must provide the Certificate Authority (CA) certificate, which is used to sign the Harbor certificate. The domain name used to generate RSA certificate in the Harbor Tile can be different than the domain name used to generate the RSA certificate in the <%= vars.product_pks_tile %> or TAS for VMs tile.
 
 If this is an existing instance of Harbor that you are reconfiguring or upgrading, you can change the previous certificate by clicking **Change**. You can then either generate a new RSA certificate or add a new custom certificate, key, and CA. 
 
@@ -120,7 +120,7 @@ If you are reconfiguring or upgrading Harbor, you cannot change the authenticati
    - **Internal** (default): Harbor user credentials are stored in a local database
    - **LDAP**: LDAP authentication
    - **UAA in <%= vars.product_pks_short %>**: User Account and Authentication with <%= vars.product_pks_short %>
-   - **UAA in Pivotal Application Service**: User Account and Authentication with PAS
+   - **UAA in VMware Tanzu Application Service for VMs**: User Account and Authentication with TAS for VMs
 1. Click **Save**.
 
 ## <a id='configure_networking'></a> Configure Networking
@@ -357,7 +357,7 @@ After you install and configure Harbor, you must update the DNS entry for Harbor
 - Update the DNS entry for the Harbor hostname with the IP address of the Harbor VM assigned by BOSH. See [Update DNS for Harbor](./integrating-pks.html#update-dns) in _Integrating VMware Harbor Registry with <%= vars.product_pks_short %>_.
 - Obtain the Harbor CA certificate and provide it to Ops Manager:
   - [<%= vars.product_pks_short %> instructions](./integrating-pks.html#provide-harbor-cert)
-  - [PAS instructions](https://docs.pivotal.io/pivotalcf/opsguide/docker-registry.html#ops-man)
+  - [TAS for VMs instructions](https://docs.pivotal.io/pivotalcf/opsguide/docker-registry.html#ops-man)
 - If you are using Harbor with <%= vars.product_pks_short %> with NSX-T in NAT mode, you must create a DNAT rule to access the Harbor UI. See [Create DNAT Rule (NSX-T)](./integrating-pks.html#create-dnat-harbor) in _Integrating VMware Harbor Registry with <%= vars.product_pks_short %>_.
 - Start Harbor and log in. See [Starting Harbor](./using.html#starting) in _Using VMware Harbor Registry_.
 - Use Harbor. See [Using Harbor](./using.html#using) in _Using VMware Harbor Registry_.

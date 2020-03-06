@@ -21,7 +21,7 @@ Harbor includes the following key features:
 * **Manage role by LDAP group**: Harbor administrators can import an LDAP/AD group to Harbor and assign project roles to it.
 * **Manage Labels**: Harbor provides labels to isolate image resources globally or at the project level.
 * **Manage Helm Charts**: Harbor provides management of Helm charts isolated by projects and controlled by RBAC.
-* **Integrated UAA Authentication**: Harbor can share UAA authentication with Pivotal Application Service (PAS) and <%= vars.product_pks_short %>.
+* **Integrated UAA Authentication**: Harbor can share UAA authentication with VMware Tanzu Application Service for VMs (TAS for VMs) and <%= vars.product_pks_short %>.
 * **Role-Based Access Control**: Users and repositories are organized into projects. Users can have different permissions for the images in different projects.
 * **Policy-Based Image Replication**: Images can be synchronized between multiple registry instances with auto-retry on errors, offering support for load balancing, high availability, multi-datacenter, hybrid, and multi-cloud scenarios.
 * **Vulnerability Scanning**: Harbor uses [Clair](https://github.com/coreos/clair) to scan images regularly and warn users of vulnerabilities.
@@ -61,7 +61,7 @@ The following table provides version and compatibility information for the lates
         <td>v1.4.x, v1.5.x, and v1.6.x</td>
     </tr>
     <tr>
-        <td>Compatible PAS versions</td>
+        <td>Compatible TAS for VMs versions</td>
         <td>v2.5.x, v2.6.x, v2.7.x and v2.8.x</td>
     </tr>
         <tr>
