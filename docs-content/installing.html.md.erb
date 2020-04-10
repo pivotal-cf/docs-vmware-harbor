@@ -260,7 +260,11 @@ Wavefront must be installed, licensed, running, and available in your environmen
 
 You can configure Harbor so that an existing deployment of VMware vRealize Log Insight pulls logs from the Harbor instance.
 
+After enabling the integration with the VMWare vRealize Log Insight, all Harbor application logs will be sent to the vRealize Log Insight server. The local Harbor VM will no longer contain the application logs.
+
 vRealize Log Insight must be installed, licensed, running, and available in your environment before you enable the option. For instructions and additional information, see the [vRealize Log Insight documentation] (https://docs.vmware.com/en/vRealize-Log-Insight/index.html).
+
+To configure vRealize Log Insight integration with Harbor, the vRealize Log Insight server must be accessible on the local network. Access to the vRealize Log Insight server through an HTTP/S proxy server is not supported.
 
 1. Go to www.wavefront.com and sign up. You will receive an API server and a token.
 1. In the Harbor tile, select **Logging**. 
