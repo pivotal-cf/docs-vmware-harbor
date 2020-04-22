@@ -163,6 +163,7 @@ On the **Container Registry Storage** pane you specify the type of file storage 
   - [Remote NFS Server](#nfs)
   - [AWS S3](#aws)
   - [Google Cloud Storage](#gcp)
+  - [Azure Storage](#azure)  
 
     See the sections below for configuration instructions.
 
@@ -207,6 +208,17 @@ If you selected **Google Cloud Storage**, configure the following settings:
 - **Key File**: The service account key for your bucket.
 
     <img src="images/google.png" alt="Google Cloud Storage configuration for Harbor" width="725">
+
+### <a id='azure'></a> Azure Storage Configuration
+
+If you selected **Azure Storage**, configure the following properties (all are required):
+
+- **Account Name**: Name of the Azure Storage Account.
+- **Account Key**: Primary or Secondary Key for the Storage Account.
+- **Container**: Name of the Azure root storage container in which all registry data is stored. The name must comply with the [Azure container name requirements](https://docs.microsoft.com/en-us/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+- **Realm**: Domain name suffix for the Storage Service API endpoint. The default is `core.windows.net`. Examples: The realm for "Azure in China" is `core.chinacloudapi.cn`. The realm for "Azure Government" is `core.usgovcloudapi.net`.
+
+    <img src="images/azure-storage.png" alt="Azure Storage configuration for Harbor" width="725">
 
 ## <a id='configure_clair'></a> Configure Container Vulnerability Scanning Using Clair
 
