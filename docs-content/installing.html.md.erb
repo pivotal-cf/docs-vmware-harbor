@@ -25,9 +25,9 @@ These instructions are valid for new installations, reconfigurations of existing
 1. Click **Import a Product** and upload the Harbor tile.
 1. Below the **Import a Product** button, click the **+** next to the VMware Harbor Registry version number to add the tile to your staging area.
 1. Click the **VMware Harbor Registry** tile to begin the configuration process.
-
-    ![Add and Configure Harbor Tile](images/add-harbor-tile-vsphere.png)
-    [View a larger version of this image.](images/add-harbor-tile-vsphere.png)
+<br><br>
+    <img src="images/add-harbor-tile-vsphere.png" alt="Add and Configure Harbor Tile" width="425">
+<br><br>
 
 ## <a id='configure_az_networks'></a> Assign AZs and Networks
 
@@ -36,12 +36,13 @@ These instructions are valid for new installations, reconfigurations of existing
 1. Under **Balance other jobs in**, select the AZ where you want to balance other jobs. For <%= vars.product_pks_short %>, this is the same AZ as the one that you selected for **Place singleton jobs in**.
 1. Under **Network**, select the network where you want to deploy Harbor. For <%= vars.product_pks_short %>, this is the management network where you deploy the Ops Manager, BOSH Director, and <%= vars.product_pks_short %> virtual machines (VMs).
 1. Click **Save** to preserve your changes.
-<img src="images/assign-azs-networks.png" alt="Assign AZs and Networks for Harbor" width="725">
+<br><br>
+    <img src="images/assign-azs-networks.png" alt="Assign AZs and Networks for Harbor" width="425">
+<br><br>
 
 ## <a id='configure_general'></a> Configure General Settings
 
 1. In the Harbor tile, select **General**.
-<img src="images/config-general-settings-default.png" alt="Configure General Settings for Harbor" width="725">
 1. Under **Hostname**, enter the FDQN of a host to access the Harbor administration UI and registry service. The hostname must include a domain and must be able to resolve to the IP address of the Harbor instance VM by an external DNS server.
 <br><br>
 Kubernetes worker nodes can resolve the Harbor FQDN through the local BOSH DNS server. To enable Docker clients external to Kubernetes worker nodes to resolve the Harbor FQDN, you must provide a Harbor FQDN that can be resolved by an external DNS server. When Harbor is successfully deployed, you must update the Harbor external DNS record with the IP address of the Harbor VM.
@@ -50,8 +51,11 @@ Kubernetes worker nodes can resolve the Harbor FQDN through the local BOSH DNS s
 If a static IP address is not used, the external IP assigned by BOSH or a custom load balancer will need to direct traffic to the hostname specified above.
 1. Optionally modify the **Wait time for Harbor Tile migration complete** from the default of 60 minutes. This option is available in v1.9.x and later. 
 1. Click **Save**.
+<br><br>
+    <img src="images/config-general-settings-default.png" alt="Configure General Settings for Harbor" width="425">
+<br><br>
 
-In previous releases, this page also includes the container network settings. In 1.9.x, those settings are now in the **Networking** section. See [Configure Networking](#configure_networking) for details. The 
+    <p class="note"><strong>Note:</strong> In previous releases, this page also includes the container network settings. In 1.9.x, those settings are now in the **Networking** section. See "Configure Networking" for details.</p>
 
 ## <a id='configure_certificate'></a> Configure SSL Certificate and Key
 
