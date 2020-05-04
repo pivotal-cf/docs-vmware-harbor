@@ -20,7 +20,9 @@ These instructions are valid for new installations, reconfigurations of existing
 
 ## <a id='install'></a> Import Harbor Tile to Ops Manager
 
-1. Download the Harbor tile from [Pivotal Network](https://network.pivotal.io/).
+To initiate the deployment of Harbor, import the tile.
+
+1. Download the Harbor tile from the [VMware Tanzu Network](https://network.pivotal.io/).
 1. Log in to the Ops Manager **Installation Dashboard**.
 1. Click **Import a Product** and upload the Harbor tile.
 1. Below the **Import a Product** button, click the **+** next to the VMware Harbor Registry version number to add the tile to your staging area.
@@ -37,10 +39,14 @@ These instructions are valid for new installations, reconfigurations of existing
 1. Under **Network**, select the network where you want to deploy Harbor. For <%= vars.product_pks_short %>, this is the management network where you deploy the Ops Manager, BOSH Director, and <%= vars.product_pks_short %> virtual machines (VMs).
 1. Click **Save** to preserve your changes.
 <br><br>
-    <img src="images/assign-azs-networks.png" alt="Assign AZs and Networks for Harbor" width="425">
+    <img src="images/assign-azs-networks.png" alt="Assign AZs and Networks for Harbor" width="725">
 <br><br>
 
 ## <a id='configure_general'></a> Configure General Settings
+
+In the **General Settings** pane, you set the hostname and IP address for Harbor. 
+
+    <p class="note"><strong>Note:</strong> In previous releases, this page also includes the container network settings. In 1.9.x, those settings are now in the **Networking** section. See "Configure Networking" for details.</p>
 
 1. In the Harbor tile, select **General**.
 1. Under **Hostname**, enter the FDQN of a host to access the Harbor administration UI and registry service. The hostname must include a domain and must be able to resolve to the IP address of the Harbor instance VM by an external DNS server.
@@ -52,10 +58,8 @@ If a static IP address is not used, the external IP assigned by BOSH or a custom
 1. Optionally modify the **Wait time for Harbor Tile migration complete** from the default of 60 minutes. This option is available in v1.9.x and later. 
 1. Click **Save**.
 <br><br>
-    <img src="images/config-general-settings-default.png" alt="Configure General Settings for Harbor" width="425">
+    <img src="images/config-general-settings-default.png" alt="Configure General Settings for Harbor" width="725">
 <br><br>
-
-    <p class="note"><strong>Note:</strong> In previous releases, this page also includes the container network settings. In 1.9.x, those settings are now in the **Networking** section. See "Configure Networking" for details.</p>
 
 ## <a id='configure_certificate'></a> Configure SSL Certificate and Key
 
@@ -67,16 +71,16 @@ If this is an existing instance of Harbor that you are reconfiguring or upgradin
 
 To use a certificate that Ops Manager generates automatically, follow the steps below.
 
+    <p class="note"><strong>Note:</strong> If you use a wildcard domain name, be sure to truncate it appropriately. For example: "SSL: certificate subject name (*.harbor.pks.corp.local) does not match target host name (harbor.pks.corp.local)." In this case, the proper wildcard name for the cert is "*.pks.corp.local".</p>
+
 1. In the Harbor tile, select **Certificate**.
 1. Click **Generate RSA Certificate**.
 1. Enter the domain for your Harbor instance in the **Generate RSA Certificate** field. This can be a standard FQDN or a wildcard domain. The domain must match the DNS resolvable domain name that you used when you specified the hostname for Harbor.
 1. Click **Generate**.
 1. Click **Save**.
 <br><br>
-    <img src="images/generate-rsa-cert.png" alt="Generate RSA Certificate for Harbor" width="425">
+    <img src="images/generate-rsa-cert.png" alt="Generate RSA Certificate for Harbor" width="725">
 <br><br>
-
-    <p class="note"><strong>Note:</strong> If you use a wildcard domain name, be sure to truncate it appropriately. For example: "SSL: certificate subject name (*.harbor.pks.corp.local) does not match target host name (harbor.pks.corp.local)." In this case, the proper wildcard name for the cert is "*.pks.corp.local".</p>
 
 ### <a id='custom_cert'></a>Use a Custom Certificate
 
@@ -89,8 +93,9 @@ To use a custom signed certificate from a third-party CA, follow the steps below
 
     If you use a certificate for Enterprise PKS that is not signed by the default Ops Manager CA, and you configure Harbor to use the Enterprise PKS UAA for authentication, enter the root certificate of the Enterprise PKS UAA, so that Harbor can trust the correct certificate.
 1. Click **Save**.
-
+<br><br>
     <img src="images/cert-config.png" alt="Configure SSL certificate and private key for Harbor" width="725">
+<br><br>
 
 ## <a id='configure_credentials'></a> Configure Harbor Credentials
 
@@ -102,8 +107,9 @@ If you are configuring an initial installation of Harbor, these credentials are 
 1. Enter the password for the Harbor system administrator account. The default Harbor user name is `admin`. Both the user name and password can be changed after installation using the Harbor web interface. See instructions below.
     <p class="note"><strong>Note:</strong> The password must contain at least 8 characters with 1 lowercase letter, 1 uppercase letter and 1 numeric character. The password cannot start with the pound sign `#`.</p>
 1. Click **Save**.
-
+<br><br>
     <img src="images/harbor-credentials.png" alt="Configure Harbor Credentials" width="725">
+<br><br>
 
 ### <a id='update-creds'></a> Update Harbor Credentials
 
@@ -115,7 +121,7 @@ You cannot change the Harbor administrator password in Ops Manager after you set
 
 ## <a id='configure_authentication'></a> Configure Harbor Authentication Mode
 
-On the **Authentication** pane in Ops Manager you select an authentication mode. You use the Harbor web console to configure detailed settings for the selected authentication mode. For more information, see <a href="https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#managing-authentication">Managing authentication</a> in the Harbor User Guide in GitHub.
+On the **Authentication** pane in Ops Manager you select an authentication mode. You use the Harbor web console to configure detailed settings for the selected authentication mode. For more information, see <a href="https://goharbor.io/docs/1.10/administration/configure-authentication/">Managing authentication</a> in the Harbor User Guide.
 
 If you are reconfiguring or upgrading Harbor, you cannot change the authentication mode that was set during the initial installation.
 
@@ -234,6 +240,8 @@ Harbor provides the ability to install and use Clair for vulnerability scanning 
 
 <p class="note"><strong>Note:</strong> You must change the default <b>Updater interval (Hours)</b> field to ensure that the Clair CVE databases are kept current. See instructions below.</p>
 
+In previous releases, the **Clair** pane included proxy settings, because you could only set a proxy for Clair. In version 1.9.x, you can set a global proxy for use by Harbor and Clair. See [Configure Networking](#configure_networking) for information about how to set proxies for Clair.
+
 1. In the Harbor tile, select **Clair Settings**. 
 1. To enable container image vulnerability scanning, ensure **Install Clair** is selected.
 If you deselect this checkbox, Clair is not installed
@@ -243,14 +251,13 @@ If you deselect this checkbox, Clair is not installed
 For a list of the CVE databases that Clair uses, see [Data Sources for the built-in drivers](https://github.com/coreos/clair/blob/master/Documentation/drivers-and-data-sources.md#data-sources-for-the-built-in-drivers) in the Clair documentation.
 
 1. Click **Save**.
-
+<br><br>
     <img src="images/clair2.png" alt="Clair configuration for Harbor" width="725">
-    
-In previous releases, the **Clair** section included proxy settings, because you could only set a proxy for Clair. In version 1.9.x, you can set a global proxy for use by Harbor and Clair. In 1.9.x, the proxy settings for Clair are in the **Networking** section. See [Configure Networking](#configure_networking) for information about how to set proxies for Clair.
+<br><br>
 
 ## <a id='configure_notary'></a> Configure Container Signing Using Docker Notary
 
-Harbor provides Docker Notary for container signing and trust. Notary is installed by default. For more information about Docker Notary, see [Getting started with Docker Notary](https://docs.docker.com/notary/getting_started/) in the Docker documentation.
+Harbor provides Docker Notary for container signing and trust. Notary is installed by default. For more information about Docker Notary, see [Getting started with Docker Notary](https://docs.docker.com/notary/getting_started/).
 
 1. In the Harbor tile, select **Notary Settings**.
 1. By default, **Install Notary** is selected. Deselect to not install Notary.
@@ -262,6 +269,8 @@ Harbor provides Docker Notary for container signing and trust. Notary is install
 
 Wavefront must be installed, licensed, running, and available in your environment before you enable the option. 
 
+<p class="note"><strong>Note:</strong> To monitor the Harbor VM with Wavefront, you will need to deploy the Wavefront dashboard. See <a href="./integrating-pks.html#wavefront">Monitor Harbor with Wavefront</a> for details.</p>
+
 1. Go to [www.wavefront.com](https://www.wavefront.com/sign-up/) and sign up. You will receive an API server and a token.
 1. In the Harbor tile, select **VM Monitor Settings**. 
 1. For the **Choose monitor for VM** option, select **Enable VM monitor with Wavefront**.
@@ -270,9 +279,8 @@ Wavefront must be installed, licensed, running, and available in your environmen
 	1. **Wavefront Token**: Enter the token to access the Wavefront API server.
 	1. **Hostname** (optional): All metrics sen to the Wavefront API server are categorized to a hostname. Keep this field blank if you want to use the same hostname that was used for the Harbor FQDN.
 1. Click **Save**.
-    <img src="images/harbor-monitoring.png" alt="Harbor Monitoring using Wavefront" width="725">
 
-<p class="note"><strong>Note:</strong> To monitor the Harbor VM with Wavefront, you will need to deploy the Wavefront dashboard. See <a href="./integrating-pks.html#wavefront">Monitor Harbor with Wavefront</a> for details.</p>
+    <img src="images/harbor-monitoring.png" alt="Harbor Monitoring using Wavefront" width="725">
 
 ## <a id='configure_logger'></a> Configure Harbor Logger
 
@@ -331,36 +339,43 @@ To configure the Harbor VM resources, follow the instructions below.
 1. To change the configuration of the `smoke-testing` VM, specify the desired **VM Type**. This is an ephemeral VM deployed and used by BOSH to test the deployment of the Harbor VM. Typically, the default size is sufficient. However, if you change the size of the `harbor-app` VM from the default, you may need to adjust the size of the `smoke-testing` VM accordingly.
 1. For AWS and GCP environments, specify the name of the load balancer that allows external access to the Harbor VM. If you are using an Internet-facing load balancer, select the **Internet Connected** checkbox. If the load balancer is internal, deselect the checkbox.
 1. Click **Save**.
-
+<br><br>
     <img src="images/aws-elb-config.png" alt="Harbor Configuration with ELB" width="725">
+<br><br>
 
 ## <a id='configure_stemcell'></a> Update the Stemcell Version
 
 If the version of the Harbor tile that you are installing requires a more recent stemcell version than is currently deployed in Ops Manager, the Harbor tile displays a "Missing stemcell" error message.
 
-<img src="images/missing-stemcell.png" alt="Missing stemcell for Harbor" width="225">
+<img src="images/missing-stemcell.png" alt="Missing stemcell for Harbor" width="425">
 
 To update the stemcell, follow the steps below.
 
 1. In Ops Manager, return to the **Installation Dashboard**.
 1. Click the Harbor tile.
 1. In the Harbor tile, click the **Missing stemcell** link.
-1. In the **Stemcell Library**. record the name and version of the required stemcell for Harbor.
-<img src="images/required-stemcell.png" alt="Required stemcell for Harbor" width="625">
-1. Log in to [Pivotal Network](https://network.pivotal.io/).
+1. In the **Stemcell Library**, record the name and version of the required stemcell for Harbor.
+<br><br>
+    <img src="images/required-stemcell.png" alt="Required stemcell for Harbor" width="725">
+<br><br>
+1. Log in to the [VMware Tanzu Network](https://network.pivotal.io/).
 1. Search for **Stemcells for PCF (Ubuntu Xenial)**.
 1. Download the required Harbor stemcell for your platform to the Ops Manager host. For example, if you are using vSphere, download the BOSH stemcell for vSphere that matches the version that you recorded in a previous step.
 1. In Ops Manager, return to the **Installation Dashboard**.
 1. On the Harbor tile, click the **Missing stemcell** link.
 1. Click **Import Stemcell**, navigate to the stemcell you downloaded, and click **Open** to import the stemcell.
-<img src="images/import-stemcell.png" alt="Import required stemcell for Harbor" width="625">
 1. When prompted, apply the imported stemcell to the Harbor product.
+<br><br>
+    <img src="images/import-stemcell.png" alt="Import required stemcell for Harbor" width="725">
+<br><br>
 
 ## <a id='deploy'></a> Deploy Harbor Registry
 
 1. Return to the Ops Manager **Installation Dashboard**.
 1. Click **Review Pending Changes** > **Apply Changes** to deploy Harbor.
-<img src="images/deploy-harbor.png" alt="Deploy Harbor" width="625">
+<br><br>
+	<img src="images/deploy-harbor.png" alt="Deploy Harbor" width="725">
+<br><br>
 
 ## <a id='post-deploy'></a> View Harbor VM Information
 
@@ -369,8 +384,9 @@ When the deployment finishes, verify the deployment by checking the Harbor insta
 1. Select the **Status** tab to see the IP address of the Harbor host and status information about the Harbor VM.
 2. Select the **Credentials** tab to see Harbor credentials, including the Harbor administrator account for SSH access to the VM and the Clair database credentials.
 3.  Select the **Logs** tab to collect Harbor log files and generate and download the Harbor log bundle.
-
-	 <img src="images/harbor-ip.png" alt="Get Harbor IP" width="625">
+<br><br>
+	 <img src="images/harbor-ip.png" alt="Get Harbor IP" width="725">
+<br><br>
 
 ## <a id='use'></a> Next Steps
 
