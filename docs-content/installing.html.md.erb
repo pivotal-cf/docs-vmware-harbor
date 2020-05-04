@@ -28,10 +28,12 @@ To initiate the deployment of Harbor, import the tile.
 1. Below the **Import a Product** button, click the **+** next to the VMware Harbor Registry version number to add the tile to your staging area.
 1. Click the **VMware Harbor Registry** tile to begin the configuration process.
 <br><br>
-    <img src="images/add-harbor-tile-vsphere.png" alt="Add and Configure Harbor Tile" width="425">
+    <img src="images/add-harbor-tile-vsphere.png" alt="Add and Configure Harbor Tile" width="725">
 <br><br>
 
 ## <a id='configure_az_networks'></a> Assign AZs and Networks
+
+Begin the installation of the Harbor tile by assigning availability zones (AZs) and networks.
 
 1. In the Harbor tile, select **Assign AZs and Networks**.
 1. In the **Assign AZs and Networks** pane, under **Place singleton jobs in**, select the availability zone (AZ) where you want to run singleton jobs. VMware Harbor is a singleton job and is placed on this network.
@@ -46,7 +48,7 @@ To initiate the deployment of Harbor, import the tile.
 
 In the **General Settings** pane, you set the hostname and IP address for Harbor. 
 
-    <p class="note"><strong>Note:</strong> In previous releases, this page also includes the container network settings. In 1.9.x, those settings are now in the **Networking** section. See "Configure Networking" for details.</p>
+<p class="note"><strong>Note:</strong> In previous releases, this page also includes the container network settings. In 1.9.x, those settings are now in the **Networking** section. See "Configure Networking" for details.</p>
 
 1. In the Harbor tile, select **General**.
 1. Under **Hostname**, enter the FDQN of a host to access the Harbor administration UI and registry service. The hostname must include a domain and must be able to resolve to the IP address of the Harbor instance VM by an external DNS server.
@@ -71,7 +73,7 @@ If this is an existing instance of Harbor that you are reconfiguring or upgradin
 
 To use a certificate that Ops Manager generates automatically, follow the steps below.
 
-    <p class="note"><strong>Note:</strong> If you use a wildcard domain name, be sure to truncate it appropriately. For example: "SSL: certificate subject name (*.harbor.pks.corp.local) does not match target host name (harbor.pks.corp.local)." In this case, the proper wildcard name for the cert is "*.pks.corp.local".</p>
+<p class="note"><strong>Note:</strong> If you use a wildcard domain name, be sure to truncate it appropriately. For example: "SSL: certificate subject name (*.harbor.pks.corp.local) does not match target host name (harbor.pks.corp.local)." In this case, the proper wildcard name for the cert is "*.pks.corp.local".</p>
 
 1. In the Harbor tile, select **Certificate**.
 1. Click **Generate RSA Certificate**.
@@ -79,7 +81,7 @@ To use a certificate that Ops Manager generates automatically, follow the steps 
 1. Click **Generate**.
 1. Click **Save**.
 <br><br>
-    <img src="images/generate-rsa-cert.png" alt="Generate RSA Certificate for Harbor" width="725">
+    <img src="images/generate-rsa-cert.png" alt="Generate RSA Certificate for Harbor" width="425">
 <br><br>
 
 ### <a id='custom_cert'></a>Use a Custom Certificate
@@ -89,9 +91,10 @@ To use a custom signed certificate from a third-party CA, follow the steps below
 1. In the Harbor tile, select **Certificate**.
 1. Copy the contents of your certificate file into the **Certificate PEM** field. Certificates must be in PEM-encoded format. The certificate CN or SAN must match the DNS-resolvable domain name that you used as the hostname for Harbor.
 1. Copy the contents of the corresponding key (PEM) into the **Private Key PEM** field.
-1. Enter the **Certificate Authority (CA)** for the server certificate, which is used to sign the Harbor certificate. If you use a self-signed certificate, copy the corresponding CA here. Leave this field empty if you are using the root CA of Ops Manager.
-
-    If you use a certificate for Enterprise PKS that is not signed by the default Ops Manager CA, and you configure Harbor to use the Enterprise PKS UAA for authentication, enter the root certificate of the Enterprise PKS UAA, so that Harbor can trust the correct certificate.
+1. Enter the **Certificate Authority (CA)** for the server certificate, which is used to sign the Harbor certificate.
+   - If you use a self-signed certificate, copy the corresponding CA here. 
+   - If you are using the root CA of Ops Manager, leave this field empty.
+   - If you use a certificate for Enterprise PKS that is not signed by the default Ops Manager CA, and you configure Harbor to use the Enterprise PKS UAA for authentication, enter the root certificate of the Enterprise PKS UAA, so that Harbor can trust the correct certificate.
 1. Click **Save**.
 <br><br>
     <img src="images/cert-config.png" alt="Configure SSL certificate and private key for Harbor" width="725">
@@ -347,7 +350,7 @@ To configure the Harbor VM resources, follow the instructions below.
 
 If the version of the Harbor tile that you are installing requires a more recent stemcell version than is currently deployed in Ops Manager, the Harbor tile displays a "Missing stemcell" error message.
 
-<img src="images/missing-stemcell.png" alt="Missing stemcell for Harbor" width="425">
+<img src="images/missing-stemcell.png" alt="Missing stemcell for Harbor" width="225">
 
 To update the stemcell, follow the steps below.
 
