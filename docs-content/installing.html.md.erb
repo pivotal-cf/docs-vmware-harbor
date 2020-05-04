@@ -48,7 +48,7 @@ Begin the installation of the Harbor tile by assigning availability zones (AZs) 
 
 In the **General Settings** pane, you set the hostname and IP address for Harbor. 
 
-<p class="note"><strong>Note:</strong> In previous releases, this page also includes the container network settings. In 1.9.x, those settings are now in the **Networking** section. See "Configure Networking" for details.</p>
+<p class="note"><strong>Note:</strong> In previous releases, this pane also included the container network settings. Starting with Harbor v1.9.x, those settings are now in the <strong>Networking</strong> section. See "Configure Networking" for details.</p>
 
 1. In the Harbor tile, select **General**.
 1. Under **Hostname**, enter the FDQN of a host to access the Harbor administration UI and registry service. The hostname must include a domain and must be able to resolve to the IP address of the Harbor instance VM by an external DNS server.
@@ -140,7 +140,7 @@ If you are reconfiguring or upgrading Harbor, you cannot change the authenticati
 
 You can optionally configure a global proxy that is used by Harbor and Clair. You can also customize the container network settings. 
 
-The **Networking** section is new in version 1.9.x. In previous releases, you could only set a proxy for Clair, so those settings were in the **Clair** section. In previous releases, the container network settings were in the **General** section.
+<p class="note"><strong>Note:</strong> The <strong>Networking</strong> section is new starting in Harbor v1.9.x. In previous releases, you could only set a proxy for Clair, so those settings were in the <strong>Clair</strong> section. In previous releases, the container network settings were in the <strong>General</strong> section.</p>
 
 1. In the Harbor tile, select **Networking**.
 1. (Optional) In the **HTTP Proxy** and **HTTPS Proxy** fields, enter the URL to proxy traffic for Harbor server components, such as Clair, the jobservice, and to access the external network. 
@@ -186,8 +186,7 @@ On the **Container Registry Storage** pane you specify the type of file storage 
 
 ### <a id='nfs'></a> Remote NFS Server Configuration
 
-If you choose **Remote NFS Server**, provide the **NFS Server Address** in the form `nfs_server_ip:/path/to/export_directory`.
-For example: `192.0.2.0:/harbor/registry/export`.
+If you choose **Remote NFS Server**, provide the **NFS Server Address** in the form `nfs_server_ip:/path/to/export_directory`, for example: `192.0.2.0:/harbor/registry/export`.
 
 The user/group ID (UID) for the owner of the export directory on the NFS Server must be 10000:10000, where 10000 is the UID used by the Harbor Registry container.
 
