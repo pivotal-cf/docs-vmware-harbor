@@ -3,7 +3,33 @@ title: Release Notes for VMware Harbor Registry Integration with Enterprise PKS
 owner: Partners
 ---
 
-## <a id='v1.10.2'></a> v1.10.2
+## <a id='v1.10.3'></a> v1.10.3
+
+**Release Date:** June 11, 2020
+
+VMware Harbor Registry v1.10.3 is a minor release with bug fixes.
+
+### Supported Upgrade Paths
+
+- From Harbor v1.10.x to Harbor v1.10.3
+- From Harbor v1.9.x to Harbor v1.10.3
+- From Harbor v1.8.x to Harbor v1.10.3
+
+### Fixed Issues
+
+- [`sudo` version 1.8.30 behave change which breaks harbor service after password expired](https://github.com/goharbor/harbor/issues/11633)
+
+Also see the [Harbor OSS release notes](https://github.com/goharbor/harbor/releases/tag/v1.10.3) on Github.
+
+### Support Matrix
+
+- Enterprise PKS v1.6.x, v1.7.x, v1.8.x
+- Ops Manager v2.6, v2.7, v2.8, v2.9 (refer to the Enterprise PKS release notes for specific matching versions)
+- Stemcell Ubuntu Xenial 456.x
+
+----------
+
+## <a id='v1.10.2'></a> v1.10.2 (withdrawn and replaced with v1.10.3)
 
 **Release Date:** April 23, 2020
 
@@ -22,9 +48,14 @@ Adds support for Azure Storage as an optional backend for Harbor container regis
 ### Fixed Issues
 
 - Use unified tagname for Harbor docker image
-- Unable to complete oidc onboarding due to '_xsrf' argument missing in the POST request
+- Unable to complete oidc onboarding due to '\_xsrf' argument missing in the POST request
 
-See also the [Harbor OSS release notes on  Github](https://github.com/goharbor/harbor/releases/tag/v1.10.2).
+Also see the [Harbor OSS release notes](https://github.com/goharbor/harbor/releases/tag/v1.10.2) on Github.
+
+### Known Issue
+
+- [`sudo` version 1.8.30 behave change which breaks harbor service after password expired](https://github.com/goharbor/harbor/issues/11633)
+  - Blocking; fixed in [v1.10.3](#v1.10.3)
 
 ### Support Matrix
 
