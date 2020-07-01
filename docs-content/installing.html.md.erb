@@ -4,7 +4,7 @@ owner: Partners
 ---
 
 This topic describes how to install and configure VMware Harbor Registry using Pivotal Ops Manager
-for use with <%= vars.product_pks_full %> and VMware Tanzu Application Service for VMs (TAS for VMs).
+for use with <%= vars.product_pks_full %> (<%= vars.product_pks_short %>) and VMware Tanzu Application Service for VMs (TAS for VMs).
 
 For more information about <%= vars.product_pks_short %>, see the [<%= vars.product_pks_full %>](https://docs.pivotal.io/pks/index.html) documentation.
 
@@ -73,7 +73,7 @@ If this is an existing instance of Harbor that you are reconfiguring or upgradin
 
 To use a certificate that Ops Manager generates automatically, follow the steps below.
 
-<p class="note"><strong>Note:</strong> If you use a wildcard domain name, be sure to truncate it appropriately. For example: "SSL: certificate subject name (*.harbor.pks.corp.local) does not match target host name (harbor.pks.corp.local)." In this case, the proper wildcard name for the cert is "*.pks.corp.local".</p>
+<p class="note"><strong>Note:</strong> If you use a wildcard domain name, be sure to truncate it appropriately. For example: "SSL: certificate subject name (*.harbor.tkgi.corp.local) does not match target host name (harbor.tkgi.corp.local)." In this case, the proper wildcard name for the cert is "*.tkgi.corp.local".</p>
 
 1. In the Harbor tile, select **Certificate**.
 1. Click **Generate RSA Certificate**.
@@ -94,7 +94,7 @@ To use a custom signed certificate from a third-party CA, follow the steps below
 1. Enter the **Certificate Authority (CA)** for the server certificate, which is used to sign the Harbor certificate.
    - If you use a self-signed certificate, copy the corresponding CA here. 
    - If you are using the root CA of Ops Manager, leave this field empty.
-   - If you use a certificate for Enterprise PKS that is not signed by the default Ops Manager CA, and you configure Harbor to use the Enterprise PKS UAA for authentication, enter the root certificate of the Enterprise PKS UAA, so that Harbor can trust the correct certificate.
+   - If you use a certificate for <%= vars.product_pks_short %> that is not signed by the default Ops Manager CA, and you configure Harbor to use the <%= vars.product_pks_short %> UAA for authentication, enter the root certificate of the <%= vars.product_pks_short %> UAA, so that Harbor can trust the correct certificate.
 1. Click **Save**.
 <br><br>
     <img src="images/cert-config.png" alt="Configure SSL certificate and private key for Harbor" width="725">
