@@ -1,5 +1,5 @@
 ---
-title: Release Notes for VMware Harbor Registry Integration with Enterprise PKS
+title: Release Notes for VMware Harbor Registry Integration with VMware Tanzu Kubernetes Grid Integrated Edition
 owner: Partners
 ---
 
@@ -23,8 +23,8 @@ Also see the [Harbor OSS release notes](https://github.com/goharbor/harbor/relea
 
 ### Support Matrix
 
-- Enterprise PKS v1.6.x, v1.7.x, v1.8.x
-- Ops Manager v2.6, v2.7, v2.8, v2.9 (refer to the Enterprise PKS release notes for specific matching versions)
+- <%= vars.product_pks_full %> (formerly Enterprise PKS) v1.6.x, v1.7.x, v1.8.x
+- Ops Manager v2.6, v2.7, v2.8, v2.9 (refer to the <%= vars.product_pks_full %> release notes for specific matching versions)
 - Stemcell Ubuntu Xenial 456.x
 
 ----------
@@ -721,7 +721,7 @@ General Availability release to be used with PKS v1.1.x and VMware Tanzu Applica
 
 **Release Date:** May 21, 2018
 
-General Availability release to be used with <%= vars.product_pks_short %> v1.x and TAS for VMs v2.x.
+General Availability release to be used with PKS v1.x and TAS for VMs v2.x.
 
 ### New Features
 
@@ -736,7 +736,7 @@ General Availability release to be used with <%= vars.product_pks_short %> v1.x 
 * Harbor Tile status shows failure after Harbor VM is rebooted manually or by vSphere HA.
 * Harbor service sometimes cannot start after clicking **Apply changes** in Ops Manager.
 * Clair or Notary cannot be turned off in Harbor Tile.
-* <%= vars.product_pks_short %> UAA user with admin rights does not have privilege.
+* PKS UAA user with admin rights does not have privilege.
 
 
 ----------
@@ -773,7 +773,7 @@ General Availability release to be used with <%= vars.product_pks_short %> v1.x 
 
 ### New Features
 
-* User Account and Authentication (UAA) integration capability with TAS for VMs and <%= vars.product_pks_short %>.
+* User Account and Authentication (UAA) integration capability with TAS for VMs and PKS.
 * External S3 storage capability.
 * Replication policy rework to support wildcard, scheduled replication.
 * Support for repository-level description.
@@ -798,7 +798,7 @@ General Availability release to be used with <%= vars.product_pks_short %> v1.x 
 
 ### Fixed Issues
 
-* Fixed: [#3942](https://github.com/vmware/harbor/issues/3942) <%= vars.product_pks_short %>/Harbor: Harbor services cannot start after Harbor VM is rebooted.
+* Fixed: [#3942](https://github.com/vmware/harbor/issues/3942) PKS/Harbor: Harbor services cannot start after Harbor VM is rebooted.
 * Fixed: [#3849](https://github.com/vmware/harbor/issues/3849) Failed to stop dockerd service when updating the Harbor tile.
 * Fixed: [#3823](https://github.com/vmware/harbor/issues/3823) Harbor tile should support user-provided certificate signed with other than Ops Manager root CA.
 * Fixed: [#3814](https://github.com/vmware/harbor/issues/3814) Add **Verify LDAP Certificate** option in Harbor Tile UI.
