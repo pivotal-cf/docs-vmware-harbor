@@ -1,9 +1,9 @@
 ---
-title: Integrating VMware Harbor Registry with Enterprise PKS
+title: Integrating VMware Harbor Registry with VMware Tanzu Kubernetes Grid Integrated Edition
 owner: Partners
 ---
 
-This topic describes how to integrate Harbor Registry with <%= vars.product_pks_full %>.
+This topic describes how to integrate Harbor Registry with <%= vars.product_pks_full %> (<%= vars.product_pks_short %>).
 
 <p class="note"><strong>Note:</strong> This documentation supports the Harbor v1.9.x and 1.10.x releases.</p>
 
@@ -36,7 +36,7 @@ to the BOSH Director security configuration, all Kubernetes clusters deployed by
 <p class="note"><strong>Note:</strong> Follow the procedures in this topic to configure all of your 
   <%= vars.product_pks_short %> Kubernetes clusters with the same Harbor Registry CA certificate. 
   If you use <%= vars.product_pks_short %> v1.6 or later, and you want to apply Docker Registry CA certificates to individual <%= vars.product_pks_short %> clusters, or you want to allow different clusters to connect to different Harbor registry instances, see <a href="https://docs.pivotal.io/pks/1-6/docker-custom-ca-certs.html">
-  Configuring PKS Clusters with Private Docker Registry CA Certificates</a>. 
+  Configuring Enterprise PKS Clusters with Private Docker Registry CA Certificates (Beta)</a>. 
 </p>
 
 ### <a id='get-harbor-cert'></a> Obtain the CA Certificate Used to Sign the Harbor Certificate and Key
