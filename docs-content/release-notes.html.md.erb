@@ -3,6 +3,44 @@ title: Release Notes for VMware Harbor Registry Integration with VMware Tanzu Ku
 owner: Partners
 ---
 
+## <a id='v2.0.1'></a> v2.0.1
+
+**Release Date:** July 8, 2020
+
+VMware Harbor Registry v2.0.1 is a GA release with new features.
+
+- OCI compliant cloud native artifact support
+- Enable Trivy to be the default vulnerability scanner which simplifies the configuration of Trivy scanner.
+- Upgrade docker, wavefrontq/proxy and telegraf
+- Enable TLS between Harbor components which makes intra-components traffic more secure.
+- Webhook enhancements including supporting interaction with Slack, selectable event list, multiple endpoints, new events, etc.
+- Enhance the robot account to allow users to set individual expiration time for each robot
+- Refactor the error handling framework for better troubleshooting.
+- View untagged images in UI and include / exclude these from GC and tag retention jobs
+- Selectively delete tags from an image without deleting the image digest or other associated tags
+
+For additional details, refer to the [OSS Harbor 2.0.0 new features](https://github.com/goharbor/harbor/releases/tag/v2.0.0).
+
+### Supported Upgrade Paths
+
+- From Harbor v1.10.x to Harbor v2.0.1
+- From Harbor v1.9.x to Harbor v2.0.1
+
+### Fixed Issues
+
+Refer to the following fixed issues at the at the [Harbor OSS site](https://github.com/goharbor/harbor):
+
+- [OSS Harbor 2.0.0 fixed issues](https://github.com/goharbor/harbor/issues?q=is%3Aissue+label%3Atarget%2F2.0.0+is%3Aclosed) 
+- [OSS Harbor 2.0.1 fixed issues](https://github.com/goharbor/harbor/issues?q=is%3Aissue+label%3Atarget%2F2.0.1+is%3Aclosed)
+
+### Support Matrix
+
+- <%= vars.product_pks_full %> (formerly Enterprise PKS) v1.6.x, v1.7.x, v1.8.x
+- Ops Manager v2.7, v2.8, v2.9 (refer to the <%= vars.product_pks_full %> release notes for specific matching versions)
+- Stemcell Ubuntu Xenial 621.x
+
+----------
+
 ## <a id='v1.10.3'></a> v1.10.3
 
 **Release Date:** June 15, 2020
