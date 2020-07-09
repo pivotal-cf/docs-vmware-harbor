@@ -9,15 +9,20 @@ owner: Partners
 
 VMware Harbor Registry v2.0.1 is a GA release with new features.
 
-- OCI compliant cloud native artifact support
-- Enable Trivy to be the default vulnerability scanner which simplifies the configuration of Trivy scanner.
-- Upgrade docker, wavefrontq/proxy and telegraf
-- Enable TLS between Harbor components which makes intra-components traffic more secure.
-- Webhook enhancements including supporting interaction with Slack, selectable event list, multiple endpoints, new events, etc.
-- Enhance the robot account to allow users to set individual expiration time for each robot
+- Harbor is now an OCI-compliant registry capable of hosting and managing any artifact adherent to the OCI image spec, including Docker Manifest Lists, CNABs, OPAs, Singularity and more
+- Support added for multi-arch Docker images
+- Support added for any structure leveraging OCI index 
+- Support added for Helm Charts through OCI registry; removed reliance on Chartmuseum as the only way to host charts
+- Aqua Trivy replaces Clair as the default vulnerability scanner
+- Add internal TLS mode for all inter-component traffic for better security
+- Webhook enhancements including Slack integration, selective activation of webhook events, configuring multiple target endpoints, as well as new webhook events including artifact deletion, artifact replication, quotas exceeded etc.
+- Allow setting expiration time per robot account
+- Remove project quotas designated by artifact count
 - Refactor the error handling framework for better troubleshooting.
-- View untagged images in UI and include / exclude these from GC and tag retention jobs
-- Selectively delete tags from an image without deleting the image digest or other associated tags
+- View untagged images in UI with ability to include / exclude these from Garbage Collection and tag retention jobs
+- Selectively add and delete tags from an image without deleting the image digest or other associated tags
+- Upgrade Docker, Wavefront/proxy and Telegraf
+- Support added for dark mode to Harbor web console
 
 For additional details, refer to the [OSS Harbor 2.0.0 new features](https://github.com/goharbor/harbor/releases/tag/v2.0.0).
 
@@ -30,8 +35,8 @@ For additional details, refer to the [OSS Harbor 2.0.0 new features](https://git
 
 Refer to the following fixed issues at the at the [Harbor OSS site](https://github.com/goharbor/harbor):
 
-- [OSS Harbor 2.0.0 fixed issues](https://github.com/goharbor/harbor/issues?q=is%3Aissue+label%3Atarget%2F2.0.0+is%3Aclosed) 
 - [OSS Harbor 2.0.1 fixed issues](https://github.com/goharbor/harbor/issues?q=is%3Aissue+label%3Atarget%2F2.0.1+is%3Aclosed)
+- [OSS Harbor 2.0.0 fixed issues](https://github.com/goharbor/harbor/issues?q=is%3Aissue+label%3Atarget%2F2.0.0+is%3Aclosed) 
 
 ### Support Matrix
 
