@@ -7,7 +7,6 @@ VMware Harbor Registry is an enterprise-class registry server that stores and di
 
 <p class="note"><strong>Note:</strong> This documentation supports the Harbor v1.9.x, v1.10.x, and v2.0.x releases.</p>
 
-
 ## <a id="overview"></a> Overview
 
 Harbor extends the open source Docker Distribution by adding the functionalities usually required by an enterprise, such as security, identity, and management. As an enterprise private registry, Harbor offers enhanced performance and security. Deploying a registry alongside the <%= vars.product_pks_short %> environment improves image management efficiency.
@@ -30,70 +29,15 @@ Harbor includes the following key features:
 * **Notary**: Image authenticity can be ensured by using Docker Notary. 
 * **Graphical User Portal**: Users can easily browse, search repositories, and manage projects.
 * **Auditing**: All the operations to the repositories are tracked.
-* **RESTful API**: RESTful APIs for most administrative operations, easy to integrate with external systems. 
+* **RESTful API**: RESTful APIs for most administrative operations, easy to integrate with external systems.
 
+## <a id="releases"></a> Releases
 
-## <a id="snapshot"></a> Version and Compatibility
-
-The following table provides version and compatibility information for the latest release of VMware Harbor Registry.
-
-<table class="nice">
-    <th>Element</th>
-    <th>Details</th>
-    <tr>
-        <td>Tile version(s)</td>
-        <td>v2.0.1</td>
-    </tr>
-    <tr>
-        <td>Release date</td>
-        <td>July 8, 2020</td>
-    </tr>
-    <tr>
-        <td>Software component version(s)</td>
-        <td>v2.0.1</td>
-    </tr>
-    <tr>
-        <td>Compatible Ops Manager versions</td>
-        <td>v2.7.x, v2.8.x, v.2.9.x (refer to the <%= vars.product_pks_short %> release notes for specific matching versions)</td>
-    </tr>
-    <tr>
-        <td>Compatible <%= vars.product_pks_short %> versions</td>
-        <td>v1.6.x, v1.7.x, v1.8.x</td>
-    </tr>
-    <tr>
-        <td>Compatible TAS for VMs versions</td>
-        <td>v2.5.x, v2.6.x, v2.7.x, v2.8.x, v.2.9.x</td>
-    </tr>
-        <tr>
-       <td>BOSH stemcell version</td>
-       <td>Ubuntu Xenial</td>
-    </tr>
-    <tr>
-        <td>IaaS support</td>
-        <td>vSphere, AWS, GCP, Azure</td>
-    </tr>
-    <tr>
-        <td>IPsec support?</td>
-        <td>No</td>
-    </tr>
-</table>
-
-## <a id="reqs"></a> Requirements
-
-There are no special requirements for deploying VMware Harbor Registry.
-
-
-## <a id="limitations"></a> Limitations
-
-* You can configure the authentication source only once. You cannot change between UAA, LDAP, or local authentication after the initial deployment.
-* Email addresses must be unique. Two users cannot have the same email address. 
-* Use the Google Chrome browser for the best results. There are known issues with some Firefox browser versions in this release.
-
+Refer to the [release notes](./release-notes.html) information on Harbor Registry releases, including versions, compatibility, features, requirements, known issues, and limitations.
 
 ## <a id="feedback"></a> Feedback
 
 If you have a feature request, questions, or information about a bug send an email to [Harbor](mailto:harbor@vmware.com).
-
 
 ## <a id="license"></a> License
 
