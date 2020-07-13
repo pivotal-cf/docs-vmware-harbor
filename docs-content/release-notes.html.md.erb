@@ -7,7 +7,43 @@ owner: Partners
 
 **Release Date:** July 8, 2020
 
-VMware Harbor Registry v2.0.1 is a GA release with new features.
+VMware Harbor Registry v2.0.1 is a GA release with several important [new features](#v2.0.1_new) and [fixes](#v2.0.1_fixed).
+
+### <a id="v2.0.1_snapshot"></a> Release Snapshot
+
+The table provides version, compatibility, and upgrade information for this release of VMware Harbor Registry.
+
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Release Headline</td>
+        <td>VMware Harbor Registry Tile v2.0.1</td>
+        <td>July 8, 2020</td>
+    </tr>
+    <tr>
+        <td>Compatible Ops Manager versions</td>
+        <td>v2.7.x, v2.8.x, v.2.9.x (refer to the <%= vars.product_pks_short %> release notes for specific matching versions)</td>
+    </tr>
+    <tr>
+        <td>Compatible <%= vars.product_pks_short %> versions</td>
+        <td>v1.6.x, v1.7.x, v1.8.x</td>
+    </tr>
+    <tr>
+        <td>Compatible TAS for VMs versions</td>
+        <td>v2.5.x, v2.6.x, v2.7.x, v2.8.x, v.2.9.x</td>
+    </tr>
+    <tr>
+       <td>Supported BOSH stemcell versions</td>
+       <td>Stemcell Ubuntu Xenial 621.x</td>
+    </tr>
+	<tr>
+	   <td>Supported Upgrade Paths</td>
+	   <td>From Harbor v1.10.x to Harbor v2.0.1</td>
+	   <td>From Harbor v1.9.x to Harbor v2.0.1</td>
+</table>
+
+### <a id="v2.0.1_new"></a> New Features
 
 - Harbor is now an OCI-compliant registry capable of hosting and managing any artifact adherent to the OCI image spec, including Docker Manifest Lists, CNABs, OPAs, Singularity and more
 - Support added for multi-arch Docker images
@@ -26,23 +62,12 @@ VMware Harbor Registry v2.0.1 is a GA release with new features.
 
 For additional details, refer to the [OSS Harbor 2.0.0 new features](https://github.com/goharbor/harbor/releases/tag/v2.0.0).
 
-### Supported Upgrade Paths
-
-- From Harbor v1.10.x to Harbor v2.0.1
-- From Harbor v1.9.x to Harbor v2.0.1
-
-### Fixed Issues
+### <a id="v2.0.1_fixed"></a> Fixed Issues
 
 Refer to the following fixed issues at the at the [Harbor OSS site](https://github.com/goharbor/harbor):
 
 - [OSS Harbor 2.0.1 fixed issues](https://github.com/goharbor/harbor/issues?q=is%3Aissue+label%3Atarget%2F2.0.1+is%3Aclosed)
 - [OSS Harbor 2.0.0 fixed issues](https://github.com/goharbor/harbor/issues?q=is%3Aissue+label%3Atarget%2F2.0.0+is%3Aclosed) 
-
-### Support Matrix
-
-- <%= vars.product_pks_full %> (formerly Enterprise PKS) v1.6.x, v1.7.x, v1.8.x
-- Ops Manager v2.7, v2.8, v2.9 (refer to the <%= vars.product_pks_full %> release notes for specific matching versions)
-- Stemcell Ubuntu Xenial 621.x
 
 ----------
 
