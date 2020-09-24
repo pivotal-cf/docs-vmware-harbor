@@ -351,7 +351,7 @@ To configure the Harbor VM resources, follow the instructions below.
   - **Persistent Disk Type**: Increase or decrease the storage capacity of the Harbor disk.
   - **VM Type**: Select a VM type with more CPU capacity and RAM depending on your storage requirements.
 1. To change the configuration of the `smoke-testing` VM, specify the desired **VM Type**. This is an ephemeral VM deployed and used by BOSH to test the deployment of the Harbor VM. Typically, the default size is sufficient. However, if you change the size of the `harbor-app` VM from the default, you may need to adjust the size of the `smoke-testing` VM accordingly.
-1. For AWS and GCP environments, specify the name of the load balancer that allows external access to the Harbor VM. If you are using an Internet-facing load balancer, select the **Internet Connected** checkbox. If the load balancer is internal, deselect the checkbox.
+1. For AWS and GCP environments, specify the name of the load balancer that allows external access to the Harbor VM.
 1. Click **Save**.
 <br><br>
     <img src="images/aws-elb-config.png" alt="Harbor Configuration with ELB" width="725">
