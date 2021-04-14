@@ -234,7 +234,7 @@ If you selected **Azure Storage**, configure the following properties (all are r
 
     <img src="images/azure-storage.png" alt="Azure Storage configuration for Harbor" width="725">
 
-## <a id='configure_clair'></a> Configure Image Scanner
+## <a id='configure_scanner'></a> Configure Image Scanner
 
 Harbor provides the ability to install and use an image scanner for assessing the vulnerability of container images. Harbor supports Trivy for container image scanning.
 
@@ -244,7 +244,7 @@ To install Trivy with Harbor, select the option **Install Trivy** and click **Sa
 
 The Trivy image scanner needs internet connectivity to update the CVE database. When updating the Trivy CVE database, you may need to provide your Github authentication token to avoid being throttled. If you are using Harbor in an air-gapped environment, disable CVE database updates by selecting this option.
 
-<p class="note"><strong>Note:</strong> In-product support for the [Clair](https://github.com/coreos/clair) image scanner is deprecated with Harbor tile v2.2.1. To use Clair, you can install it separately outside the Harbor tile VM.</p>
+<p class="note"><strong>Note:</strong> In-product support for the <a href="https://github.com/coreos/clair">Clair</a> image scanner is deprecated with Harbor tile v2.2.1. To use Clair you can install it separately outside the Harbor tile VM.</p>
 
 ## <a id='configure_notary'></a> Configure Container Signing Using Docker Notary
 
