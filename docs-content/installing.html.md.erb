@@ -236,36 +236,15 @@ If you selected **Azure Storage**, configure the following properties (all are r
 
 ## <a id='configure_clair'></a> Configure Image Scanner
 
-Harbor provides the ability to install and use an image scanner for assessing the vulnerability of container images. Harbor supports Trivy and Clair.
+Harbor provides the ability to install and use an image scanner for assessing the vulnerability of container images. Harbor supports Trivy for container image scanning.
 
 Trivy is an open-source project for the static analysis of vulnerabilities in Docker and appc containers. For more information, see the [Trivy](https://github.com/aquasecurity/trivy) repository in GitHub. 
 
-Clair is an open-source project for the static analysis of vulnerabilities in Docker and appc containers. For more information, see the [Clair](https://github.com/coreos/clair) repository in GitHub.
+To install Trivy with Harbor, select the option **Install Trivy** and click **Save**.
 
-To use Trivy, select the option **Install Trivy** and click **Save**.
+The Trivy image scanner needs internet connectivity to update the CVE database. When updating the Trivy CVE database, you may need to provide your Github authentication token to avoid being throttled. If you are using Harbor in an air-gapped environment, disable CVE database updates by selecting this option.
 
-<br><br>
-    <img src="images/image-scanner.png" alt="Trivy Image Scanner" width="725">
-<br><br>
-
-Clair can be configured to update its Common Vulnerabilities and Exposures (CVE) databases from the Internet by setting the **Updater Interval**. In an intranet network environment, configure a proxy to access the Internet.
-
-<p class="note"><strong>Note:</strong> You must change the default <b>Updater interval (Hours)</b> field to ensure that the Clair CVE databases are kept current. See instructions below.</p>
-
-In previous releases, the **Clair** pane included proxy settings, because you could only set a proxy for Clair. In version 1.9.x, you can set a global proxy for use by Harbor and Clair. See [Configure Networking](#configure_networking) for information about how to set proxies for Clair.
-
-1. In the Harbor tile, select **Clair Settings**. 
-1. To enable container image vulnerability scanning, ensure **Install Clair** is selected.
-If you deselect this checkbox, Clair is not installed
-
-1. In the **Updater interval (Hours)** field, specify when Clair will update its CVE databases for the registered sources. When the updater interval expires, Clair will update its CVE databases. The default updater interval is `0`, which means Clair will never update its CVE databases. If you set the updater interval to `24`, Clair updates its CVE databases every 24 hours. 
-<br><br>
-For a list of the CVE databases that Clair uses, see [Data Sources for the built-in drivers](https://github.com/coreos/clair/blob/master/Documentation/drivers-and-data-sources.md#data-sources-for-the-built-in-drivers) in the Clair documentation.
-
-1. Click **Save**.
-<br><br>
-    <img src="images/clair2.png" alt="Clair configuration for Harbor" width="725">
-<br><br>
+<p class="note"><strong>Note:</strong> In-product support for the [Clair](https://github.com/coreos/clair) image scanner is deprecated with Harbor tile v2.2.1. To use Clair, you can install it separately outside the Harbor tile VM.</p>
 
 ## <a id='configure_notary'></a> Configure Container Signing Using Docker Notary
 
