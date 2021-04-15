@@ -236,15 +236,17 @@ If you selected **Azure Storage**, configure the following properties (all are r
 
 ## <a id='configure_scanner'></a> Configure Image Scanner
 
-Harbor provides the ability to install and use an image scanner for assessing the vulnerability of container images. Harbor supports Trivy for container image scanning.
+Harbor gives you the ability to install and use an image scanner for assessing the vulnerability of container images. Harbor supports Trivy for container image scanning.
 
-Trivy is an open-source project for the static analysis of vulnerabilities in Docker and appc containers. For more information, see the [Trivy](https://github.com/aquasecurity/trivy) repository in GitHub. 
+Trivy is an open-source project for the static analysis of vulnerabilities in Docker and appc containers. For more information, see the [Trivy](https://github.com/aquasecurity/trivy) GitHub repository. 
 
 To install Trivy with Harbor, select the option **Install Trivy** and click **Save**.
 
-The Trivy image scanner needs internet connectivity to update the CVE database. When updating the Trivy CVE database, you may need to provide your Github authentication token to avoid being throttled. If you are using Harbor in an air-gapped environment, disable CVE database updates by selecting this option.
+The Trivy image scanner requires internet connectivity to update the CVE database. When updating the Trivy CVE database, you may need to provide a GitHub authentication token to avoid being throttled. If you are using Harbor in an air-gapped environment, disable CVE database updates by selecting the **Skip to update Trivy CVE database** option.
 
-<p class="note"><strong>Note:</strong> In-product support for the <a href="https://github.com/coreos/clair">Clair</a> image scanner is deprecated with Harbor tile v2.2.1. To use Clair you can install it separately outside the Harbor tile VM.</p>
+<p class="note"><strong>Note:</strong> In-product support for the <a href="https://github.com/coreos/clair">Clair</a> image scanner is deprecated with Harbor tile v2.2.1. To use Clair you can install it separately from the Harbor tile VM.</p>
+
+    <img src="images/harbor-trivy.png" alt="Harbor tile with Trivy image scanning" width ="725">
 
 ## <a id='configure_notary'></a> Configure Container Signing Using Docker Notary
 
