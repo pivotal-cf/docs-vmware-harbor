@@ -136,12 +136,10 @@ If you are reconfiguring or upgrading Harbor, you cannot change the authenticati
 
 ## <a id='configure_networking'></a> Configure Networking
 
-You can optionally configure a global proxy that is used by Harbor and Clair. You can also customize the container network settings. 
-
-<p class="note"><strong>Note:</strong> The <strong>Networking</strong> section is new starting in Harbor v1.9.x. In previous releases, you could only set a proxy for Clair, so those settings were in the <strong>Clair</strong> section. In previous releases, the container network settings were in the <strong>General</strong> section.</p>
+You can optionally configure a global proxy that is used by Harbor. You can also customize the container network settings. 
 
 1. In the Harbor tile, select **Networking**.
-1. (Optional) In both the **HTTP Proxy** and **HTTPS Proxy** fields, enter the URL to proxy traffic for Harbor server components, such as Clair, the jobservice, and to access the external network.
+1. (Optional) In both the **HTTP Proxy** and **HTTPS Proxy** fields, enter the URL to proxy traffic for Harbor server components, such as the jobservice, and to access the external network.
 <br><br>
    Set both the HTTP and HTTPS proxy options. Each field should be configured with the same URL.
 <br>   
@@ -220,8 +218,9 @@ If you selected **Google Cloud Storage**, configure the following settings:
 - **Root Directory in the Bucket**: The root directory of your bucket. This field is optional.
 - **Chunk Size**: The default value is `5242880` (5&nbsp;MB).
 - **Key File**: The service account key for your bucket.
-
+<br><br>
     <img src="images/google.png" alt="Google Cloud Storage configuration for Harbor" width="725">
+<br><br>
 
 ### <a id='azure'></a> Azure Storage Configuration
 
@@ -231,8 +230,9 @@ If you selected **Azure Storage**, configure the following properties (all are r
 - **Account Key**: Primary or Secondary Key for the Storage Account.
 - **Container**: Name of the Azure root storage container in which all registry data is stored. The name must comply with the [Azure container name requirements](https://docs.microsoft.com/en-us/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 - **Realm**: Domain name suffix for the Storage Service API endpoint. The default is `core.windows.net`. Examples: The realm for "Azure in China" is `core.chinacloudapi.cn`. The realm for "Azure Government" is `core.usgovcloudapi.net`.
-
+<br><br>
     <img src="images/azure-storage.png" alt="Azure Storage configuration for Harbor" width="725">
+<br><br>
 
 ## <a id='configure_scanner'></a> Configure Image Scanner
 
@@ -245,8 +245,9 @@ To install Trivy with Harbor, select the option **Install Trivy** and click **Sa
 The Trivy image scanner requires internet connectivity to update the CVE database. When updating the Trivy CVE database, you may need to provide a GitHub authentication token to avoid being throttled. If you are using Harbor in an air-gapped environment, disable CVE database updates by selecting the **Skip to update Trivy CVE database** option.
 
 <p class="note"><strong>Note:</strong> In-product support for the <a href="https://github.com/coreos/clair">Clair</a> image scanner is deprecated with Harbor tile v2.2.1. To use Clair you can install it separately from the Harbor tile VM.</p>
-
-    <img src="images/harbor-trivy.png" alt="Harbor tile with Trivy image scanning" width ="725">
+<br><br>
+    <img src="images/harbor-trivy.png" alt="Harbor tile with Trivy image scanning" width="725">
+<br><br>
 
 ## <a id='configure_notary'></a> Configure Container Signing Using Docker Notary
 
@@ -272,8 +273,9 @@ Wavefront must be installed, licensed, running, and available in your environmen
 	1. **Wavefront Token**: Enter the token to access the Wavefront API server.
 	1. **Hostname** (optional): All metrics sen to the Wavefront API server are categorized to a hostname. Keep this field blank if you want to use the same hostname that was used for the Harbor FQDN.
 1. Click **Save**.
-
+<br><br>
     <img src="images/harbor-monitoring.png" alt="Harbor Monitoring using Wavefront" width="725">
+<br><br>
 
 ## <a id='configure_logger'></a> Configure Harbor Logger
 
