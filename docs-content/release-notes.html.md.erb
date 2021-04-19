@@ -43,7 +43,7 @@ The table provides version, compatibility, and upgrade information for this rele
        <td>From Harbor v2.1.x and v2.0.x</td>
 </table>
 
-### <a id="v2.1.0_new"></a> New Features
+### <a id="v2.2.1_new"></a> New Features
 
 The Harbor v2.2.1 release includes the following new features:
 
@@ -73,8 +73,10 @@ Certificate Impact: Since Harbor is compiled by Golang v1.15.6, the certificates
 
 ### <a id="v2.2.1_breaking"></a> Breaking Changes
 
-- API: The /systeminfo API now displays less information when the request is triggered by an unauthenticated user. For details please refer to the following issue comment:
-#9149 (comment)
+- The built-in Clair container image scanner is deprecated in favor of Trivy. If you have enabled Clair, do one of the following before ugprading to Harbor tile v2.2.1:
+    - In the Harbor tile, select the Trivy scanner as the default in "Interrogation Service" or
+    - Install the Clair scanner outside the Harbor tile VM and configure the Clair scanner in "Interrogation Service" as the default scanner. Refer to the Clair documentation. 
+- API: The /systeminfo API now displays less information when the request is triggered by an unauthenticated user. For details please refer to the following issue comment: #9149 (comment)
 - Scan Report: After upgrading to v2.2, all scan reports in the previous version have been deleted due to changes in the vulnerability database scheme. Please rescan the artifacts to obtain the reports.
 
 ### <a id="v2.2.1_fixed"></a> Fixed Issues
