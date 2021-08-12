@@ -47,25 +47,25 @@ The table provides version, compatibility, and upgrade information for this rele
 
 The Harbor v2.3.1 release includes the following new features:
 
-- Declarative Configuration: Enhanced the current configuration by adding environment variables to overwrite the Harbor configuration including auth, backing store, system permissions and more. This enables full audit capabilities and prevents config drift. This addresses #8076
-- IPv6：Support running Harbor in Kubernetes with harbor-helm on IPv6-only infrastructure. (Tested on Kubernetes version 1.21.0 and Calico version 3.18.1 )
-- Components Upgrade
+- Declarative Configuration: Enhanced the current configuration by adding environment variables to overwrite the Harbor configuration including auth, backing store, system permissions and more. This enables full audit capabilities and prevents configuration drift. This addresses [#8076](https://github.com/goharbor/harbor/issues/8076).
+- IPv6：Support running Harbor in Kubernetes with harbor-helm on IPv6-only infrastructure. (Tested on Kubernetes version 1.21.0 with Calico version 3.18.1.)
+- Several components are upgraded, including:
   - Upgrade all Harbor base images from Photon 2.0 to 4.0.
   - Postgresql upgrade to v13.3.
   - Redis upgrade to v6.0.13.
   - Trivy upgrade to v0.17.2
   - Golang upgrade to v1.15.12. 
   - Docker upgrade to v20.10.7
-- Additional Features
+- Additional new features:
   - Performance enhancement for concurrent requests.
   - Observability Metrics Improvement: Support Jobservice metrics.
-  - Swagger API Improvement: The APIs of project scanners & webhooks support both project id and name in their path.
+  - Swagger API Improvement: The APIs of project scanners and webhooks support both project id and name in their path.
   - Replication enhancement to support destination namespace flattening.
-  - Move the legacy APIs to the new programming model
+  - Move the legacy APIs to the new programming model.
 
 ### <a id="v2.3.1_upgrade"></a> Upgrade Considerations
 
-- During upgrade, Harbor will remove the old Postgres data and migrate it to a new destination to compatible new version postgres. Please back up your data before upgrading to v2.3.0.
+- You must back up your data before upgrading to v2.3.1 because, dring upgrade, Harbor will remove the old Postgres data and migrate it to a new destination compatible with a new version of Postgres. 
 
 ### <a id="v2.3.1_deprecations"></a> Feature Deprecations
 
@@ -78,12 +78,11 @@ The Harbor v2.3.1 release includes the following new features:
 
 ### <a id="v2.3.1_fixed"></a> Resolved Issues
 
-- Notary key not found issue after migration. To Fix #14932, v2.3.1 downgrades the Go version of Notary to v1.14. However, the fixing will cause another break change: If a key is created when signing the image in v2.2.0 ~ v2.2.2, a similar key decoding issue like #14932 will happen if you upgrade from v2.2.0 ~ v2.2.2 to v2.3.1. The workaround(https://github.com/goharbor/harbor/wiki/Harbor-FAQs#notary-key-not-found) can handle it.
-•   Add retry for garbage collection when to remove blob & manifest
-•   Fix oidc access token issue
+Listed below are key issues fixed in the Harbor tile v2.3.1. Refer to the full list of [closed issues in Harbor v2.3.0](https://github.com/goharbor/harbor/issues?q=is%3Aissue+label%3Atarget%2F2.3.0+is%3Aclosed) at the Harbor OSS site.
 
-
-Refer to the full list of [closed issues in Harbor v2.1.0](https://github.com/goharbor/harbor/issues?q=is%3Aissue+label%3Atarget%2F2.2.1+is%3Aclosed) at the Harbor OSS site.
+- Fixed the notary key not found issue after migration. To Fix [#14932](https://github.com/goharbor/harbor/issues/14932), v2.3.1 downgrades the Go version of Notary to v1.14. However, the fixing will cause another break change: If a key is created when signing the image in v2.2.0 ~ v2.2.2, a similar key decoding issue like #14932 will happen if you upgrade from v2.2.0 ~ v2.2.2 to v2.3.1. The workaround(https://github.com/goharbor/harbor/wiki/Harbor-FAQs#notary-key-not-found) can handle it.
+- Added retry for garbage collection when to remove blob and manifest.
+- Fixed OIDC access token issue.
 
 ----------
 
