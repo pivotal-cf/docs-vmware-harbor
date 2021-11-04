@@ -3,6 +3,72 @@ title: Release Notes for VMware Harbor Container Registry for VMware Tanzu Kuber
 owner: Partners
 ---
 
+----------
+
+## <a id='v2.4.0'></a> v2.4.0
+
+VMware Harbor Container Registry for TKGI v2.4.0 is a GA release with several important [new features](#v2.4.0_new) and [fixes](#v2.4.0_fixed). In addition, there are [feature deprecations](#v2.4.0_deprecations) to be aware of.
+
+### <a id="v2.4.0_snapshot"></a> Release Snapshot
+
+The table provides version, compatibility, and upgrade information for this release of VMware Harbor Registry.
+
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Release Headline</td>
+        <td>VMware Harbor Container Registry for TKGI v2.4.0</td>
+    </tr>
+    <tr>
+        <td>Release Download</td>
+        <td><a href="https://network.pivotal.io/products/harbor-container-registry/">VMware Tanzu Network</a></td>
+    </tr>
+    <tr>
+        <td>Compatible Ops Manager versions</td>
+        <td>v2.10.x, v2.9.x, v2.8.x (refer to the <%= vars.product_pks_short %> release notes for specific matching versions)</td>
+    </tr>
+    <tr>
+        <td>Compatible <%= vars.product_pks_short %> versions</td>
+        <td>v1.12.x, v1.11.x, v1.10.x</td>
+    </tr>
+    <tr>
+        <td>Compatible TAS for VMs versions</td>
+        <td>v.2.9.x, v2.8.x, v2.7.x, v2.6.x, v2.5.x</td>
+    </tr>
+    <tr>
+       <td>Supported BOSH stemcell versions</td>
+       <td>Stemcell Ubuntu Xenial 621.x</td>
+    </tr>
+    <tr>
+       <td>Supported Upgrade Paths</td>
+       <td>From Harbor v2.3.x, v2.2.x</td>
+</table>
+
+### <a id="v2.4.0_new"></a> New Features
+
+The Harbor Registry Tile v2.4.0 release includes the following new features:
+
+- Distributed tracing: Add tracing capabilities to Harbor for enhanced troubleshooting, identifying performance bottlenecks, etc.
+- Support Harbor instances replication with Robot Account. For more details, see the [Harbor documentation](https://github.com/goharbor/harbor/wiki/How-to-do-replication-with-Robot-Account).
+- Support Stop All and single scan job.
+- Support exclusions and rate limit to Replication Rules.
+- Enable OIDC auth based user deletion, which addresses [#8424](https://github.com/goharbor/harbor/issues/8424).
+- Schedule synchronize from DB to Redis.
+- Golang v1.17.2. Harbor is now built using Golang v1.17.2 as of this release.
+- Bump up Trivy 0.20 which adds support for go.sum scanning.
+
+### <a id="v2.4.0_deprecations"></a> Deprecations
+
+- The legacy robot account is deprecated. It is suggested that you remove all legacy robots and use robot v2 instead.
+- Limit support on Chartmuseum.
+
+### <a id="v2.4.0_fixed"></a> Resolved Issues
+
+Refer to the full list of [closed issues in Harbor v2.4.0](https://github.com/goharbor/harbor/issues?q=is%3Aissue+label%3Atarget%2F2.4.0+is%3Aclosed) at the Harbor OSS site.
+
+----------
+
 ## <a id='v2.3.3'></a> v2.3.3
 
 VMware Harbor Container Registry for TKGI v2.3.3 is a maintenance release with [bug fixes](#v2.3.3_fixed).
