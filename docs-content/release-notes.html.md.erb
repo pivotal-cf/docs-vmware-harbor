@@ -5,6 +5,73 @@ owner: Partners
 
 ----------
 
+## <a id='v2.4.1'></a> v2.4.1
+
+VMware Harbor Container Registry for TKGI v2.4.1 is a maintenance release with [improvements](#v2.4.1_new) and [bug fixes](#v2.4.1_fixed), including a fix to address the Log4j vulnerability.
+
+<p class="note warning"><strong>Warning:</strong> VMware recommends that you take steps to mitigate
+the Apache Log4j vulnerability <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-44228">CVE-2021-44228</a> as soon as possible. 
+For more information, refer to the [Tanzu Kubernetes Grid Integrated Edition Release Notes](https://docs.pivotal.io/tkgi/1-13/release-notes.html).
+</p>
+
+### <a id="v2.4.1_snapshot"></a> Release Snapshot
+
+The table provides version, compatibility, and upgrade information for this release of VMware Harbor Registry.
+
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Release Headline</td>
+        <td>VMware Harbor Container Registry for TKGI v2.4.1</td>
+    </tr>
+    <tr>
+        <td>Release Download</td>
+        <td><a href="https://network.pivotal.io/products/harbor-container-registry/">VMware Tanzu Network</a></td>
+    </tr>
+    <tr>
+        <td>Compatible Ops Manager versions</td>
+        <td>v2.10.x, v2.9.x, v2.8.x (refer to the <%= vars.product_pks_short %> release notes for specific matching versions)</td>
+    </tr>
+    <tr>
+        <td>Compatible <%= vars.product_pks_short %> versions</td>
+        <td>v1.13.x, v1.12.x, v1.11.x, v1.10.x</td>
+    </tr>
+    <tr>
+        <td>Compatible TAS for VMs versions</td>
+        <td>v.2.9.x, v2.8.x, v2.7.x, v2.6.x, v2.5.x</td>
+    </tr>
+    <tr>
+       <td>Supported BOSH stemcell versions</td>
+       <td>Stemcell Ubuntu Xenial 621.x</td>
+    </tr>
+    <tr>
+       <td>Supported Upgrade Paths</td>
+       <td>From Harbor v2.3.x, v2.2.x</td>
+</table>
+
+### <a id="v2.4.1_new"></a> New Features
+
+Harbor tile v2.4.1 includes the following improvements:
+
+- [Added pagination for user groups](https://github.com/goharbor/harbor/pull/15933)
+- [Enabled DB config cache explicitly](https://github.com/goharbor/harbor/pull/16016)
+- [Added scan report v1.1 to default X-Accept-Vulnerabilities](https://github.com/goharbor/harbor/pull/16119)
+- [Added pull update control environment variables](https://github.com/goharbor/harbor/pull/16063)
+
+### <a id="v2.4.1_fixed"></a> Resolved Issues
+
+Harbor tile v2.4.1 includes the bug fixes:
+
+- [Use traditional PKCS#1 format for RSA key](https://github.com/goharbor/harbor/pull/16106)
+- [Resolved the codeql alerts](https://github.com/goharbor/harbor/pull/16127)
+- [Fixed unescaped URL issue](https://github.com/goharbor/harbor/pull/16091)
+- Upgraded Wavefront proxy to 10.12 to patch the [Log4J CVE-2021-44228](https://github.com/advisories/GHSA-jfh8-c2jp-5v3q)
+
+See also the [full list of issues fixed in Harbor tile v2.4.1](https://github.com/goharbor/harbor/issues?q=is%3Aissue+is%3Aclosed+label%3Atarget%2F2.4.1).
+
+----------
+
 ## <a id='v2.4.0'></a> v2.4.0
 
 VMware Harbor Container Registry for TKGI v2.4.0 is a GA release with several important [new features](#v2.4.0_new) and [fixes](#v2.4.0_fixed). In addition, there are [feature deprecations](#v2.4.0_deprecations) to be aware of.
@@ -66,6 +133,66 @@ The Harbor Registry Tile v2.4.0 release includes the following new features:
 ### <a id="v2.4.0_fixed"></a> Resolved Issues
 
 Refer to the full list of [closed issues in Harbor v2.4.0](https://github.com/goharbor/harbor/issues?q=is%3Aissue+label%3Atarget%2F2.4.0+is%3Aclosed) at the Harbor OSS site.
+
+----------
+
+## <a id='v2.3.5'></a> v2.3.5
+
+VMware Harbor Container Registry for TKGI v2.3.5 is a maintenance release with [improvements](#v2.3.5_new) and [bug fixes](#v2.3.5_fixed), including a fix to address the Log4j vulnerability.
+
+<p class="note warning"><strong>Warning:</strong> VMware recommends that you take steps to mitigate
+the Apache Log4j vulnerability <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-44228">CVE-2021-44228</a> as soon as possible. 
+For more information, refer to the [Tanzu Kubernetes Grid Integrated Edition Release Notes](https://docs.pivotal.io/tkgi/1-13/release-notes.html).
+
+### <a id="v2.3.5_snapshot"></a> Release Snapshot
+
+The table provides version, compatibility, and upgrade information for this release of VMware Harbor Registry.
+
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Release Headline</td>
+        <td>VMware Harbor Container Registry for TKGI v2.3.5</td>
+    </tr>
+    <tr>
+        <td>Release Download</td>
+        <td><a href="https://network.pivotal.io/products/harbor-container-registry/">VMware Tanzu Network</a></td>
+    </tr>
+    <tr>
+        <td>Compatible Ops Manager versions</td>
+        <td>v2.10.x, v2.9.x, v2.8.x (refer to the <%= vars.product_pks_short %> release notes for specific matching versions)</td>
+    </tr>
+    <tr>
+        <td>Compatible <%= vars.product_pks_short %> versions</td>
+        <td>v1.13.x, v1.12.x, v1.11.x, v1.10.x</td>
+    </tr>
+    <tr>
+        <td>Compatible TAS for VMs versions</td>
+        <td>v.2.9.x, v2.8.x, v2.7.x, v2.6.x, v2.5.x</td>
+    </tr>
+    <tr>
+       <td>Supported BOSH stemcell versions</td>
+       <td>Stemcell Ubuntu Xenial 621.x</td>
+    </tr>
+    <tr>
+       <td>Supported Upgrade Paths</td>
+       <td>From Harbor v2.3.x, v2.2.x, v2.1.x</td>
+</table>
+
+### <a id="v2.3.5_new"></a> New Features
+
+Harbor tile v2.3.5 includes the following improvements:
+
+- [Add pull update control env](https://github.com/goharbor/harbor/pull/16061)
+- [Enable DB config cache explicitly](https://github.com/goharbor/harbor/pull/16015)
+
+### <a id="v2.3.5_fixed"></a> Resolved Issues
+
+Harbor tile v2.3.5 includes the bug fixes:
+
+- [Use traditional PKCS#1 format for RSA key](https://github.com/goharbor/harbor/pull/16105)
+- Upgraded the Wavefront proxy to 10.12 to patch the [Log4J CVE-2021-44228](https://github.com/advisories/GHSA-jfh8-c2jp-5v3q)
 
 ----------
 
