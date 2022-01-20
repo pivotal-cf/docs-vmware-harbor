@@ -7,7 +7,7 @@ owner: Partners
 
 ## <a id='v2.4.1'></a> v2.4.1
 
-VMware Harbor Container Registry for TKGI v2.4.1 is a maintenance release with [improvements](#v2.4.1_new) and [bug fixes](#v2.4.1_fixed), including a fix to address the Log4j vulnerability.
+VMware Harbor Container Registry for TKGI v2.4.1 is a maintenance release with [improvements](#v2.4.1_new) and [bug fixes](#v2.4.1_fixed), including a fix to address the Log4j vulnerability. See also [known issues](#v2.4.1_known).
 
 <p class="note warning"><strong>Warning:</strong> VMware recommends that you take steps to mitigate
 the Apache Log4j vulnerability <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-44228">CVE-2021-44228</a> as soon as possible. 
@@ -69,11 +69,17 @@ Harbor tile v2.4.1 includes the following bug fixes:
 
 See also the [full list of issues fixed in Harbor tile v2.4.1](https://github.com/goharbor/harbor/issues?q=is%3Aissue+is%3Aclosed+label%3Atarget%2F2.4.1).
 
+### <a id="v2.4.1_known"></a> Known Issues
+
+Harbor tile v2.4.1 has the following known issue:
+
+- [Private projects become inaccessible after upgrading Harbor for TKGI to v2.4.x with LDAP feature enabled](https://community.pivotal.io/s/article/After-upgrading-Harbor-tile-to-v2-4-x-with-LDAP-feature-enabled-private-projects-turn-unaccessible?language=en_US)
+
 ----------
 
 ## <a id='v2.4.0'></a> v2.4.0
 
-VMware Harbor Container Registry for TKGI v2.4.0 is a GA release with several important [new features](#v2.4.0_new) and [fixes](#v2.4.0_fixed). In addition, there are [feature deprecations](#v2.4.0_deprecations) to be aware of.
+VMware Harbor Container Registry for TKGI v2.4.0 is a GA release with several important [new features](#v2.4.0_new) and [fixes](#v2.4.0_fixed). In addition, there are [feature deprecations](#v2.4.0_deprecations) to be aware of. See also [known issues](#v2.4.0_known).
 
 ### <a id="v2.4.0_snapshot"></a> Release Snapshot
 
@@ -132,6 +138,12 @@ The Harbor Registry Tile v2.4.0 release includes the following new features:
 ### <a id="v2.4.0_fixed"></a> Resolved Issues
 
 Refer to the full list of [closed issues in Harbor v2.4.0](https://github.com/goharbor/harbor/issues?q=is%3Aissue+label%3Atarget%2F2.4.0+is%3Aclosed) at the Harbor OSS site.
+
+### <a id="v2.4.0_known"></a> Known Issues
+
+Harbor tile v2.4.0 has the following known issue:
+
+- [Private projects become inaccessible after upgrading Harbor for TKGI to v2.4.x with LDAP feature enabled](https://community.pivotal.io/s/article/After-upgrading-Harbor-tile-to-v2-4-x-with-LDAP-feature-enabled-private-projects-turn-unaccessible?language=en_US)
 
 ----------
 
