@@ -94,7 +94,11 @@ Once you have obtained the Harbor CA Certificate file, perform the following ste
 
     <img src="images/opsmgr-06.png" alt="Save" width="425">
 
-1. Return to the **Installation Dashboard** and click **Apply Changes**. BOSH is redeployed.
+1. Return to the **Installation Dashboard**. 
+
+1. If the TKGI cluster is already provisioned, check the "Upgrade all clusters errand" in the TKGI tile so that each TKGI cluster node will trust the new CA certificate.
+
+1. Click **Apply Changes**. 
 
 ## <a id='create-dnat-harbor'></a> Create DNAT Rule for Harbor (NSX-T only)
 
