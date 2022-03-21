@@ -5,6 +5,66 @@ owner: Partners
 
 ----------
 
+## <a id='v2.4.2'></a> v2.4.2
+
+VMware Harbor Container Registry for TKGI v2.4.2 is a maintenance release with [improvements](#v2.4.2_new) and [bug fixes](#v2.4.2_fixed).
+
+### <a id="v2.4.2_snapshot"></a> Release Snapshot
+
+The table provides version, compatibility, and upgrade information for this release of VMware Harbor Registry.
+
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Release Headline</td>
+        <td>VMware Harbor Container Registry for TKGI v2.4.2</td>
+    </tr>
+    <tr>
+        <td>Release Download</td>
+        <td><a href="https://network.pivotal.io/products/harbor-container-registry/">VMware Tanzu Network</a></td>
+    </tr>
+    <tr>
+        <td>Compatible Ops Manager versions</td>
+        <td>v2.10.x, v2.9.x, v2.8.x (refer to the <%= vars.product_pks_short %> release notes for specific matching versions)</td>
+    </tr>
+    <tr>
+        <td>Compatible <%= vars.product_pks_short %> versions</td>
+        <td>v1.14.x, v1.13.x, v1.12.x</td>
+    </tr>
+    <tr>
+        <td>Compatible TAS for VMs versions</td>
+        <td>(refer to the <a href="https://docs.pivotal.io/application-service/2-12/release-notes/runtime-rn.html">TAS for VMs documentation</a>)</td>
+    </tr>
+    <tr>
+       <td>Supported BOSH stemcell versions</td>
+       <td>Stemcell Ubuntu Xenial 621.x</td>
+    </tr>
+    <tr>
+       <td>Supported Upgrade Paths</td>
+       <td>From Harbor v2.4.x, v2.3.x, v2.2.x</td>
+</table>
+
+### <a id="v2.4.2_new"></a> New Features
+
+Harbor tile v2.4.2 includes the following improvements:
+
+- Add option for Trivy to "Disable identify dependencies online"
+
+### <a id="v2.4.2_fixed"></a> Resolved Issues
+
+Harbor tile v2.4.2 includes the following bug fixes:
+
+- [LDAP user lost user group related privileges after upgrade to 2.4.x](https://github.com/goharbor/harbor/pull/16268)
+- [Add failure-tolerance for garbage collection](https://github.com/goharbor/harbor/pull/16344)
+- [Deprecate old version scan reports of trivy](https://github.com/goharbor/harbor/pull/16262)
+- [Support IP and Agent in trace for failed login](https://github.com/goharbor/harbor/pull/16447)
+- Bump versions to [Golang 1.17.7](https://github.com/goharbor/harbor/pull/16417) and [Trivy v0.24.2](https://github.com/goharbor/harbor/pull/16484)
+
+See also the [full list of issues fixed in Harbor tile v2.4.2](https://github.com/goharbor/harbor/issues?q=is%3Aissue+is%3Aclosed+label%3Atarget%2F2.4.2).
+
+----------
+
 ## <a id='v2.4.1'></a> v2.4.1
 
 VMware Harbor Container Registry for TKGI v2.4.1 is a maintenance release with [improvements](#v2.4.1_new) and [bug fixes](#v2.4.1_fixed), including a fix to address the Log4j vulnerability. See also [known issues](#v2.4.1_known).
