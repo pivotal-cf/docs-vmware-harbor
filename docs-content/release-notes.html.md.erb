@@ -5,6 +5,69 @@ owner: Partners
 
 ----------
 
+## <a id='v2.5.0'></a> v2.5.0
+
+VMware Harbor Container Registry for TKGI v2.5.0 is a GA release with several important [new features](#v2.5.0_new) and [fixes](#v2.5.0_fixed). In addition, there are [breaking changes](#v2.5.0_breaking) to be aware of.
+
+### <a id="v2.5.0_snapshot"></a> Release Snapshot
+
+The table provides version, compatibility, and upgrade information for this release of VMware Harbor Registry.
+
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Release Headline</td>
+        <td>VMware Harbor Container Registry for TKGI v2.5.0</td>
+    </tr>
+    <tr>
+        <td>Release Download</td>
+        <td><a href="https://network.pivotal.io/products/harbor-container-registry/">VMware Tanzu Network</a></td>
+    </tr>
+    <tr>
+        <td>Compatible Ops Manager versions</td>
+        <td>v2.10.x, v2.9.x, v2.8.x (refer to the <%= vars.product_pks_short %> release notes for specific matching versions)</td>
+    </tr>
+    <tr>
+        <td>Compatible <%= vars.product_pks_short %> versions</td>
+        <td>v1.13.x, v1.12.x, v1.11.x</td>
+    </tr>
+    <tr>
+        <td>Compatible TAS for VMs versions</td>
+        <td>v.2.9.x, v2.8.x, v2.7.x, v2.6.x, v2.5.x</td>
+    </tr>
+    <tr>
+       <td>Supported BOSH stemcell versions</td>
+       <td>Stemcell Ubuntu Xenial 621.x</td>
+    </tr>
+    <tr>
+       <td>Supported Upgrade Paths</td>
+       <td>From Harbor v2.4.x, v2.3.x</td>
+</table>
+
+### <a id="v2.5.0_new"></a> New Features
+
+The Harbor Registry Tile v2.5.0 release includes the following new features:
+
+- Adds support for cosign artifact signing and verification.
+- Improves performance for concurrent pull requests.
+- Improves failure tolerance for garbage collection so that the system is able to continue deleting subsequent artifacts if an errors occurs trying to remove a current artifact.
+- Supports skipping artifacts in a proxy cache project during replication.
+- Activates distribution upload purging to remove orphaned files from the upload directories.
+- Updates the verion of Go on which Harbor is built to Golang v1.17.7.
+- Updates the verion of Distribution to v2.8.0 and Trivy to v0.22.0
+
+
+### <a id="v2.5.0_breaking"></a> Breaking Changes
+
+Harbor v2.5+ supports PostgreSQL verions 10 and later for external databases. Before upgrading to Harbor v.2.5+, make sure any external databases used for your Harbor installation are using a supported verion of PostgreSQL.
+
+### <a id="v2.5.0_fixed"></a> Resolved Issues
+
+Refer to the full list of [closed issues in Harbor v2.5.0](https://github.com/goharbor/harbor/issues?q=is%3Aissue+label%3Atarget%2F2.5.0+is%3Aclosed) at the Harbor OSS site.
+
+----------
+
 ## <a id='v2.4.2'></a> v2.4.2
 
 VMware Harbor Container Registry for TKGI v2.4.2 is a maintenance release with [improvements](#v2.4.2_new) and [bug fixes](#v2.4.2_fixed).
