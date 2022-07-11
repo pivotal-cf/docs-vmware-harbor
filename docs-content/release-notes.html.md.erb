@@ -5,6 +5,67 @@ owner: Partners
 
 ----------
 
+## <a id='v2.5.3'></a> v2.5.3
+
+VMware Harbor Container Registry for TKGI v2.5.3 is a maintenance release with [bug fixes](#v2.5.3_fixed).
+
+### <a id="v2.5.3_snapshot"></a> Release Snapshot
+
+The table provides version, compatibility, and upgrade information for this release of VMware Harbor Registry.
+
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Release Headline</td>
+        <td>VMware Harbor Container Registry for TKGI v2.5.3</td>
+    </tr>
+    <tr>
+        <td>Release Download</td>
+        <td><a href="https://network.pivotal.io/products/harbor-container-registry/">VMware Tanzu Network</a></td>
+    </tr>
+    <tr>
+        <td>Compatible Ops Manager versions</td>
+        <td>v2.10.x, v2.9.x, v2.8.x (refer to the <%= vars.product_pks_short %> release notes for specific matching versions)</td>
+    </tr>
+    <tr>
+        <td>Compatible <%= vars.product_pks_short %> versions</td>
+        <td>v1.14.x, v1.13.x, v1.12.x</td>
+    </tr>
+    <tr>
+        <td>Compatible TAS for VMs versions</td>
+        <td>v.2.9.x, v2.8.x, v2.7.x, v2.6.x, v2.5.x</td>
+    </tr>
+    <tr>
+       <td>Supported BOSH stemcell versions</td>
+       <td>Stemcell Ubuntu Xenial 621.x</td>
+    </tr>
+    <tr>
+       <td>Supported Upgrade Paths</td>
+       <td>From Harbor v2.5.x, v2.4.x, v2.3.x</td>
+</table>
+
+### <a id="v2.5.3_fixed"></a> Resolved Issues
+
+The Harbor Registry Tile v2.5.3 release resolves the following issues:
+
+- Fixed permission issue of cosign signature
+- Fixed update the jobservice hook retry concurrency
+- Skipped to refresh execution status when unchanged
+- Added DB index on artifact repository name
+- Unify the process of jobservice execution/task retrieve and update
+- Fixed revise the process of policy update
+- Fixed the update of the retention policy
+- Fixed bump trivy version to v0.29.2 and bump trivy adapter version to v0.30.0
+- Added URL raw query check middleware
+- Fixed update preheat API handler and DAO
+- Fixed scan log mismatch issue
+- Revert skip to refresh execution status when unchanged
+- 2.5 migration jinja correction for upload_purging
+- Fixed repair execution status when it inconsistent
+
+----------
+
 ## <a id='v2.5.1'></a> v2.5.1
 
 VMware Harbor Container Registry for TKGI v2.5.1 is a maintenance release with [enhancements](#v2.5.1_en), [bug fixes](#v2.5.1_fixed), and [other changes](#v2.5.1_other).
