@@ -197,6 +197,67 @@ Refer to the full list of [closed issues in Harbor v2.5.0](https://github.com/go
 
 ----------
 
+## <a id='v2.4.3'></a> v2.4.3
+
+VMware Harbor Container Registry for TKGI v2.4.3 is a maintenance release with [bug fixes](#v2.4.3_fixed).
+
+### <a id="v2.4.3_snapshot"></a> Release Snapshot
+
+The table provides version, compatibility, and upgrade information for this release of VMware Harbor Registry.
+
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Release Headline</td>
+        <td>VMware Harbor Container Registry for TKGI v2.4.3</td>
+    </tr>
+    <tr>
+        <td>Release Download</td>
+        <td><a href="https://network.pivotal.io/products/harbor-container-registry/">VMware Tanzu Network</a></td>
+    </tr>
+    <tr>
+        <td>Compatible Ops Manager versions</td>
+        <td>v2.10.x, v2.9.x, v2.8.x (refer to the <%= vars.product_pks_short %> release notes for specific matching versions)</td>
+    </tr>
+    <tr>
+        <td>Compatible <%= vars.product_pks_short %> versions</td>
+        <td>v1.14.x, v1.13.x, v1.12.x</td>
+    </tr>
+    <tr>
+        <td>Compatible TAS for VMs versions</td>
+        <td>v2.12, v2.11, v2.10, v2.7 (LTS release) (refer to the <a href="https://docs.pivotal.io/application-service/2-12/release-notes/runtime-rn.html">TAS for VMs documentation</a>)</td>
+    </tr>
+    <tr>
+       <td>Supported BOSH stemcell versions</td>
+       <td>Stemcell Ubuntu Xenial 621.x</td>
+    </tr>
+    <tr>
+       <td>Supported Upgrade Paths</td>
+       <td>From Harbor v2.4.x, v2.3.x, v2.2.x</td>
+</table>
+
+### <a id="v2.4.3_new"></a> New Features
+
+Harbor tile v2.4.3 includes the following improvements:
+
+- N/A
+
+### <a id="v2.4.3_fixed"></a> Resolved Issues
+
+Harbor tile v2.4.3 includes the following bug fixes:
+
+- [Fixed validate project metadata public value](https://github.com/goharbor/harbor/pull/16603)
+- [Fixed update of retention policy](https://github.com/goharbor/harbor/pull/17238)
+- [Added check when updating immutable tag](https://github.com/goharbor/harbor/pull/17239)
+- [Fixed scan log mismatch](https://github.com/goharbor/harbor/pull/17241)
+- [Fixed update process of webhook and preheat policy](https://github.com/goharbor/harbor/pull/17243)
+- [Fixed robot account update](https://github.com/goharbor/harbor/pull/17260)
+- [Upgraded trivy version to v0.29.2 and trivyadapter version to v0.30.0](https://github.com/goharbor/harbor/pull/17240)
+- [Upgraded beego to 1.12.11](https://github.com/goharbor/harbor/pull/17281)
+
+----------
+
 ## <a id='v2.4.2'></a> v2.4.2
 
 VMware Harbor Container Registry for TKGI v2.4.2 is a maintenance release with [improvements](#v2.4.2_new) and [bug fixes](#v2.4.2_fixed).
