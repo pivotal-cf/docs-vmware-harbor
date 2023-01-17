@@ -5,6 +5,131 @@ owner: Partners
 
 ----------
 
+## <a id='v2.7.0'></a> v2.7.0
+
+VMware Harbor Container Registry for TKGI v2.0 is a GA release with [new features](#v2.7.0_new), [enhancements](#v2.7.0_enhancements), [fixes](#v2.7.0_fixed) and [deprecations](#v2.7.0_deprecations).
+
+<p class="note warning"><strong>Warning:</strong> Because of certain deprecations (specifically, PostgreSQL v9.6), you can only to upgrade to Harbor Tile v2.7.0 from Harbor Tile versions v2.5.0 to v2.6.2. To upgrade to Harbor Tile v2.7.0 from Harbor Tile v2.4.x or earlier, you must first upgrade to Harbor Tile versions v2.5.0 to v2.6.2, then you can upgrade to Harbor Tile v2.7.0.</a>.</p>
+
+### <a id="v2.7.0_snapshot"></a> Release Snapshot
+
+The table provides version, compatibility, and upgrade information for this release of VMware Harbor Registry.
+
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Release Headline</td>
+        <td>VMware Harbor Container Registry for TKGI v2.7.0</td>
+    </tr>
+    <tr>
+        <td>Release Download</td>
+        <td><a href="https://network.pivotal.io/products/harbor-container-registry/">VMware Tanzu Network</a></td>
+    </tr>
+    <tr>
+        <td>Compatible Ops Manager versions</td>
+        <td>v2.10.x, v2.9.x, v2.8.x (refer to the <%= vars.product_pks_short %> release notes for specific matching versions)</td>
+    </tr>
+    <tr>
+        <td>Compatible <%= vars.product_pks_short %> versions</td>
+        <td>v1.15.x, v1.14.x, v1.13.x</td>
+    </tr>
+    <tr>
+        <td>Compatible TAS for VMs versions</td>
+        <td><a href="https://docs.pivotal.io/application-service/2-13/release-notes/runtime-rn.html">Release Notes</a></td>
+    </tr>
+    <tr>
+       <td>Supported BOSH stemcell versions</td>
+       <td>Stemcell Ubuntu Xenial 621.x</td>
+    </tr>
+    <tr>
+       <td>Supported Upgrade Paths</td>
+       <td>From Harbor v2.6.x, v2.5.x</td>
+</table>
+
+### <a id="v2.7.0_new"></a> New Features
+
+The Harbor Registry Tile v2.7.0 release includes the following new features:
+
+- Adds the job service dashboard to monitor and control the job queues/schedules/workers.
+- Supports copy over chunk when copying image blobs for harbor replication.
+- Adds session timeout inputs.
+- Adds JFrog Artifactory as a Supported Proxy-Cache Registry Source.
+- Sorts group search results by most match order.
+
+### <a id="v2.7.0_enhancements"></a> Enhancements
+
+The Harbor Registry Tile v2.7.0 release includes the following enhancements:
+
+- Fixes UI issues found in testing-day-round-2.
+- Improves input validator for copy-component.
+- Refactors swagger UI.
+- Adds WASM filter for artifacts list.
+- Fixes CSS issue for resource type filter.
+- Changes ldap.Search to LDAP.SearchWithPaging.
+- Refactors artifact-list component.
+- Adds default project when pulling from dockerhub without project name.
+- Fixes ECR authorization token issue.
+- Fixes redirect URL redirect_url when OIDC auth mode is enabled.
+- Updates the way for generating new CLI secret.
+- Improves CSS for tags column.
+- Adds OIDC group filter.
+- Migrates policy API calls to generated service.
+- Updates CVE export UI.
+- Adds parameters for PostgreSQL.
+
+### <a id="v2.7.0_fixed"></a> Resolved Issues
+
+The Harbor Registry Tile v2..0 release includes the following fixes:
+
+- Fixes CVE allowlist projectmeta validation.
+- Fixes null pointer issue for creating replication rule.
+- Fixes OIDC token is not respected in /service/token endpoint.
+- Uses RegisteredClaims instead of deprecated struct StandardClaims.
+- Upgrades Angular dev-tool package.
+- Returns time.Time{} when cron string is empty.
+- Updates image extra attributes author in labels.
+- Fixes copy artifact accessory quota issue.
+- Fixes reduce the high DB CPU usage for tag retention.
+- Fixes replication webhook lost when src namespace different with dest.
+- Corrects _version:2.6.0 in migration yml jinja.
+- Adds error log for create task.
+- Updates to the latest version of angular.
+- Updates portal-base and nginx-base Dockerfile.base.
+- Changes title for Swagger UI.
+- Removes preload for theme CSS files.
+- Corrects i18n key for zh-cn-lang.json.
+- Fixes handle the break change for parsing external sentinel redis URL.
+- Fixes cross account issue.
+- Adds check on the audit log forward and skip audit log database.
+- Drops build postgresql 9.6.
+- Refreshes config every time entering the configuration page.
+- Improves auth check guard service.
+- Fixes message processing issue.
+- Removes validator for username claim input.
+- Bumps TRIVYVERSION to v0.32.1 and TRIVYADAPTERVERSION to v0.30.2.
+- Bumps up helm.sh/helm/v3.
+- Bumps up golang.org/x/text to v0.4.0.
+- Bumps beego by @wy65701436.
+- Bumps up golang to 1.19.4.
+- Adds check when adding project member.
+- Logs completion message when database migrated.
+- Bumps github.com/prometheus/client_golang to v1.13.0.
+- Adds human-friendly message when export CVE job failure.
+- Bumps up golang.org/x/crypto to v0.1.0.
+- Adds triggers and filters check for a target changing under push mode.
+- Adds cli randomly for empty update.
+
+### <a id="v2.7.0_deprecations"></a> Deprecations
+
+- Starts the deprecation of Chartmuseum from v2.6.0 and begin to remove in v2.8.0.
+- Starts the deprecation of Notary(signer&server) from v2.6.0 and begin to remove in v2.8.0.
+- Removes email config page.
+- Removes email configuration.
+- Drops build postgresql 9.6..
+
+----------
+
 ## <a id='v2.6.2'></a> v2.6.2
 
 VMware Harbor Container Registry for TKGI v2.6.2 is a maintainance release with [new features](#v2.6.2_new), [enhancements](#v2.6.2_enhancements) and [bug fixes](#v2.6.2_fixed).
