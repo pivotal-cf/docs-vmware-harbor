@@ -126,7 +126,57 @@ The Harbor Registry Tile v2..0 release includes the following fixes:
 - Starts the deprecation of Notary(signer&server) from v2.6.0 and begin to remove in v2.8.0.
 - Removes email config page.
 - Removes email configuration.
-- Drops build postgresql 9.6..
+- Drops build postgresql 9.6.
+
+----------
+
+## <a id='v2.6.3'></a> v2.6.3
+
+VMware Harbor Container Registry for TKGI v2.6.3 is a maintainance release with [bug fixes](#v2.6.3_fixed).
+
+### <a id="v2.6.2_snapshot"></a> Release Snapshot
+
+The table provides version, compatibility, and upgrade information for this release of VMware Harbor Registry.
+
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Release Headline</td>
+        <td>VMware Harbor Container Registry for TKGI v2.6.3</td>
+    </tr>
+    <tr>
+        <td>Release Download</td>
+        <td><a href="https://network.pivotal.io/products/harbor-container-registry/">VMware Tanzu Network</a></td>
+    </tr>
+    <tr>
+        <td>Compatible Ops Manager versions</td>
+        <td>v3.0, v2.10.x, v2.9.x, v2.8.x (refer to the <%= vars.product_pks_short %> release notes for specific matching versions)</td>
+    </tr>
+    <tr>
+        <td>Compatible <%= vars.product_pks_short %> versions</td>
+        <td>v1.15.x, v1.14.x, v1.13.x</td>
+    </tr>
+    <tr>
+        <td>Compatible TAS for VMs versions</td>
+        <td><a href="https://docs.pivotal.io/application-service/2-13/release-notes/runtime-rn.html">Release Notes</a></td>
+    </tr>
+    <tr>
+       <td>Supported BOSH stemcell versions</td>
+       <td>Stemcell Ubuntu Xenial 621.x</td>
+    </tr>
+    <tr>
+       <td>Supported Upgrade Paths</td>
+       <td>From Harbor v2.6.x, v2.5.x, v2.4.x</td>
+</table>
+
+### <a id="v2.6.2_fixed"></a> Resolved Issues
+
+The Harbor Registry Tile v2.6.3 release includes the following fixes:
+
+- Fixes issue related to RedHat registry proxy cache.
+- Bumps helm/v3/pkg to v3.10.3 on release-2.6.0.
+- Bumps TRIVYADAPTERVERSION to v0.30.6.
 
 ----------
 
