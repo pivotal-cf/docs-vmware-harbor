@@ -32,7 +32,7 @@ The table provides version, compatibility, and upgrade information for this rele
     </tr>
     <tr>
         <td>Compatible <%= vars.product_pks_short %> versions</td>
-        <td>v1.15.x, v1.14.x, v1.13.x</td>
+        <td>v1.16.x, v1.15.x, v1.14.x</td>
     </tr>
     <tr>
         <td>Compatible TAS for VMs versions</td>
@@ -130,11 +130,67 @@ The Harbor Registry Tile v2..0 release includes the following fixes:
 
 ----------
 
+## <a id='v2.6.4'></a> v2.6.4
+
+VMware Harbor Container Registry for TKGI v2.6.4 is a maintainance release with [bug fixes](#v2.6.4_fixed).
+
+### <a id="v2.6.4_snapshot"></a> Release Snapshot
+
+The table provides version, compatibility, and upgrade information for this release of VMware Harbor Registry.
+
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Release Headline</td>
+        <td>VMware Harbor Container Registry for TKGI v2.6.3</td>
+    </tr>
+    <tr>
+        <td>Release Download</td>
+        <td><a href="https://network.pivotal.io/products/harbor-container-registry/">VMware Tanzu Network</a></td>
+    </tr>
+    <tr>
+        <td>Compatible Ops Manager versions</td>
+        <td>v3.0, v2.10.x, v2.9.x, v2.8.x (refer to the <%= vars.product_pks_short %> release notes for specific matching versions)</td>
+    </tr>
+    <tr>
+        <td>Compatible <%= vars.product_pks_short %> versions</td>
+        <td>v1.16.x, v1.15.x, v1.14.x</td>
+    </tr>
+    <tr>
+        <td>Compatible TAS for VMs versions</td>
+        <td><a href="https://docs.pivotal.io/application-service/2-13/release-notes/runtime-rn.html">Release Notes</a></td>
+    </tr>
+    <tr>
+       <td>Supported BOSH stemcell versions</td>
+       <td>Stemcell Ubuntu Xenial 621.x</td>
+    </tr>
+    <tr>
+       <td>Supported Upgrade Paths</td>
+       <td>From Harbor v2.6.x, v2.5.x, v2.4.x</td>
+</table>
+
+### <a id="v2.6.4_fixed"></a> Resolved Issues
+
+The Harbor Registry Tile v2.6.4 release includes the following fixes:
+
+- Removes the scan exports volume.
+- Fixes retention/immutable API issue.
+- Fixes reset user password.
+- Fixes update the replication API handler.
+- Bumps trivyVersion to v0.37.2.
+- Bumps trivyAdapterVersion to v0.30.7.
+- Upgrades golang-runtime to 1.19.4; NOT 1.19.5.
+- Resolves the oidc or ldap group user cannot export cve.
+- Upgrades golang.org/x/net v0.7.0; go mod tidy & go mod vendor.
+
+----------
+
 ## <a id='v2.6.3'></a> v2.6.3
 
 VMware Harbor Container Registry for TKGI v2.6.3 is a maintainance release with [bug fixes](#v2.6.3_fixed).
 
-### <a id="v2.6.2_snapshot"></a> Release Snapshot
+### <a id="v2.6.3_snapshot"></a> Release Snapshot
 
 The table provides version, compatibility, and upgrade information for this release of VMware Harbor Registry.
 
@@ -170,7 +226,7 @@ The table provides version, compatibility, and upgrade information for this rele
        <td>From Harbor v2.6.x, v2.5.x, v2.4.x</td>
 </table>
 
-### <a id="v2.6.2_fixed"></a> Resolved Issues
+### <a id="v2.6.3_fixed"></a> Resolved Issues
 
 The Harbor Registry Tile v2.6.3 release includes the following fixes:
 
