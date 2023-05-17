@@ -5,9 +5,69 @@ owner: Partners
 
 ----------
 
+## <a id='v2.7.2'></a> v2.7.2
+
+VMware Harbor Container Registry for TKGI v2.7.2 is a maintenance release with [bug fixes](#v2.7.2_fixed).
+
+<p class="note warning"><strong>Warning:</strong> Because of certain deprecations (specifically, PostgreSQL v9.6), you can only to upgrade to Harbor Tile v2.7.x from Harbor Tile versions v2.5.0 to v2.6.2. To upgrade to Harbor Tile v2.7.x from Harbor Tile v2.4.x or earlier, you must first upgrade to Harbor Tile versions v2.5.0 to v2.6.2, then you can upgrade to Harbor Tile v2.7.x.</a>.</p>
+
+### <a id="v2.7.2_snapshot"></a> Release Snapshot
+
+The table provides version, compatibility, and upgrade information for this release of VMware Harbor Registry.
+
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Release Headline</td>
+        <td>VMware Harbor Container Registry for TKGI v2.7.2</td>
+    </tr>
+    <tr>
+        <td>Release Download</td>
+        <td><a href="https://network.pivotal.io/products/harbor-container-registry/">VMware Tanzu Network</a></td>
+    </tr>
+    <tr>
+        <td>Compatible Ops Manager versions</td>
+        <td>v3.0, v2.10.x, v2.9.x, v2.8.x (refer to the <%= vars.product_pks_short %> release notes for specific matching versions)</td>
+    </tr>
+    <tr>
+        <td>Compatible <%= vars.product_pks_short %> versions</td>
+        <td>v1.16.x, v1.15.x, v1.14.x</td>
+    </tr>
+    <tr>
+        <td>Compatible TAS for VMs versions</td>
+        <td><a href="https://docs.pivotal.io/application-service/2-13/release-notes/runtime-rn.html">Release Notes</a></td>
+    </tr>
+    <tr>
+       <td>Supported BOSH stemcell versions</td>
+       <td>Stemcell Ubuntu Xenial 621.x</td>
+    </tr>
+    <tr>
+       <td>Supported Upgrade Paths</td>
+       <td>From Harbor v2.7.x, v2.6.x, v2.5.x</td>
+</table>
+
+### <a id="v2.7.2_fixed"></a> Resolved Issues
+
+The Harbor Registry Tile v2.7.2 release includes the following fixes:
+
+- Fixes the invalid jobid for scan data export
+- Escapes the event data for slack webhook payload
+- Fixes copy artifact issue
+- Corrects the retention webhook payload
+- Bumps golang 1.19.8 on release-2.7.0
+- Fixes error bitsize of jobservice reaper scan locks
+- Bumps golang.org/x/net v0.9.0 on release-2.7.0
+- Bumps helm.sh/helm/v3 v3.11.3 on release-2.7.0 
+- Updates TRIVYVERSION=v0.40.0, TRIVYADAPTERVERSION=v0.30.11
+- Allows redis password safe special characters on release-2.7.0
+
+
+----------
+
 ## <a id='v2.7.1'></a> v2.7.1
 
-VMware Harbor Container Registry for TKGI v2.7.1 is a maintenance release with [enhancements](#v2.7.1_enhancements) and [bug fixes](#v2.7.0_fixed).
+VMware Harbor Container Registry for TKGI v2.7.1 is a maintenance release with [enhancements](#v2.7.1_enhancements) and [bug fixes](#v2.7.1_fixed).
 
 <p class="note warning"><strong>Warning:</strong> Because of certain deprecations (specifically, PostgreSQL v9.6), you can only to upgrade to Harbor Tile v2.7.x from Harbor Tile versions v2.5.0 to v2.6.2. To upgrade to Harbor Tile v2.7.x from Harbor Tile v2.4.x or earlier, you must first upgrade to Harbor Tile versions v2.5.0 to v2.6.2, then you can upgrade to Harbor Tile v2.7.x.</a>.</p>
 
