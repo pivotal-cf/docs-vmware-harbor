@@ -45,6 +45,16 @@ The table provides version, compatibility, and upgrade information for this rele
        <td>From Harbor v2.6.x, v2.5.x</td>
 </table>
 
+### <a id="v2.8.0_breaking"></a> Upgrade Warning: Breaking Changes
+
+Chartmuseum is [no longer supported](#v2.8.0_deprecations). Before upgrading to Harbor Tile 2.8.0, you need to check the /data/chart_storage folder. If there is any helm chart tgz file in this folder, you must migrate each file to Harbor with OCI format. 
+
+To do this: 
+
+(1) ssh to the Harbor tile VM.
+(2) Setup docker alias: alias docker='/var/vcap/packages/docker/bin/docker -H unix:///var/vcap/sys/run/docker/dockerd.sock'
+(3) Refer the step 5 in this guide to migrate helm charts to Harbor with OCI format: https://github.com/goharbor/harbor/wiki/Migrate-helm-chart-to-oci-registry-in-Harbor. Note that the <path_to_chart_storage_directory> should be /data/chart_storage, and the <path_to_the_source_harbor_registry_root.ca> should be /var/vcap/jobs/harbor/config/ca.crt.
+
 ### <a id="v2.8.0_new"></a> New Features
 
 The Harbor Registry Tile v2.8.0 release includes the following new features:
@@ -125,16 +135,6 @@ The Harbor Registry Tile v2.8.0 release includes the following fixes:
 ### <a id="v2.8.0_deprecations"></a> Deprecations
 
 - Starting with version v2.8.0, Harbor no longer includes ChartMuseum in either the user interface or the backend.
-
-### <a id="v2.8.0_breaking"></a> Breaking Changes
-
-- Chartmuseum is not supported anymore, before upgrading to Harbor tile 2.8.0,  users need to check the /data/chart_storage folder, if there is any helm chart tgz file under this folder, need to migrate it to Harbor with OCI format. detail steps:
-
-(1) ssh to the Harbor tile VM.
-(2) Setup docker alias: alias docker='/var/vcap/packages/docker/bin/docker -H unix:///var/vcap/sys/run/docker/dockerd.sock'
-(3) Refer the step 5 in this guide to migrate helm charts to Harbor with OCI format: https://github.com/goharbor/harbor/wiki/Migrate-helm-chart-to-oci-registry-in-Harbor.
-the <path_to_chart_storage_directory> should be /data/chart_storage, the <path_to_the_source_harbor_registry_root.ca> should be /var/vcap/jobs/harbor/config/ca.crt
-
 
 ----------
 
