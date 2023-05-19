@@ -5,6 +5,139 @@ owner: Partners
 
 ----------
 
+## <a id='v2.8.0'></a> v2.8.0
+
+VMware Harbor Container Registry for TKGI v2.8.0 is a GA release with [new features](#v2.8.0_new), [enhancements](#v2.8.0_enhancements), [fixes](#v2.8.0_fixed), [deprecations](#v2.8.0_deprecations) and [breaking changes](#v2.8.0_breaking).
+
+### <a id="v2.8.0_snapshot"></a> Release Snapshot
+
+The table provides version, compatibility, and upgrade information for this release of VMware Harbor Registry.
+
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Release Headline</td>
+        <td>VMware Harbor Container Registry for TKGI v2.8.0</td>
+    </tr>
+    <tr>
+        <td>Release Download</td>
+        <td><a href="https://network.pivotal.io/products/harbor-container-registry/">VMware Tanzu Network</a></td>
+    </tr>
+    <tr>
+        <td>Compatible Ops Manager versions</td>
+        <td>v2.10.x, v2.9.x, v2.8.x (refer to the <%= vars.product_pks_short %> release notes for specific matching versions)</td>
+    </tr>
+    <tr>
+        <td>Compatible <%= vars.product_pks_short %> versions</td>
+        <td>v1.16.x, v1.15.x, v1.14.x</td>
+    </tr>
+    <tr>
+        <td>Compatible TAS for VMs versions</td>
+        <td><a href="https://docs.pivotal.io/application-service/2-13/release-notes/runtime-rn.html">Release Notes</a></td>
+    </tr>
+    <tr>
+       <td>Supported BOSH stemcell versions</td>
+       <td>Stemcell Ubuntu Xenial 621.x</td>
+    </tr>
+    <tr>
+       <td>Supported Upgrade Paths</td>
+       <td>From Harbor v2.6.x, v2.5.x</td>
+</table>
+
+### <a id="v2.8.0_breaking"></a> Upgrade Warning: Breaking Changes
+
+Chartmuseum is [no longer supported](#v2.8.0_deprecations). Before upgrading to Harbor Tile 2.8.0, you need to check the /data/chart_storage folder. If there is any helm chart tgz file in this folder, you must migrate each file to Harbor with OCI format. 
+
+To do this: 
+
+(1) ssh to the Harbor tile VM.
+(2) Setup docker alias: alias docker='/var/vcap/packages/docker/bin/docker -H unix:///var/vcap/sys/run/docker/dockerd.sock'
+(3) Refer the step 5 in this guide to migrate helm charts to Harbor with OCI format: https://github.com/goharbor/harbor/wiki/Migrate-helm-chart-to-oci-registry-in-Harbor. Note that the <path_to_chart_storage_directory> should be /data/chart_storage, and the <path_to_the_source_harbor_registry_root.ca> should be /var/vcap/jobs/harbor/config/ca.crt.
+
+### <a id="v2.8.0_new"></a> New Features
+
+The Harbor Registry Tile v2.8.0 release includes the following new features:
+
+- Support OCI distribution specification v1.1.0-rc1
+- Support for sending webhook payloads with CloudEvents format
+- Jobservice dashboard improvement
+- Add option to skip update pull time for scanner
+
+
+### <a id="v2.8.0_enhancements"></a> Enhancements
+
+The Harbor Registry Tile v2.8.0 release includes the following enhancements:
+
+- Update datePicker component 
+- Add i18n support for Clarity components 
+- aws auth use default creds when none are supplied 
+- Translate English to Chinese for primary auth mode tooltip 
+- Display error message by defaul for event panel 
+- Add next scheduled time for tag retention 
+- Sort user and usergroup by most match order 
+- Support vpc and internal network (goharbor#17488) 
+- Improve Portal french translation 
+- Support accessory recursion for artifact list 
+- Make label filter editable for replication rule 
+- Add copy digest button for accessories 
+- Add new app level warning message 
+- Update styles for UI according to the designer's suggestions 
+
+### <a id="v2.8.0_fixed"></a> Resolved Issues
+
+The Harbor Registry Tile v2.8.0 release includes the following fixes:
+
+- Upgrade TRIVYADAPTERVERSION to v0.30.5 
+- Bumps golang.org/x/net to v0.2.0 
+- Controller/robot: use global regexp vars 
+- Fix dragonfly response when p2p preheat 
+- Fix the setting of data slice length for tablewriter 
+- Remove artifact_blob with aritfact deletion 
+- Update the log information in proxy cache 
+- Avoid internal error in the UI when reset a schedule 
+- Fix some UI issues 
+- Remove the redundant data from table artifact_blob 
+- Upgrade trivy version to v0.35.0 and trivy-adapter version to v0.30.3 
+- Don't supress redis error messages to make debugging easier 
+- Fix password+secret limit tooltips 
+- Switch listUsers to searchUsers for adding project member 
+- Bump helm/v3/pkg to v3.10.3 on main 
+- Upgrade Angular and Clarity to the latest version 
+- Bump TRIVYADAPTERVERSION to v0.30.6 
+- Fix a typo in make/photo/Makefile 
+- Remove the scan exports volume 
+- Fix retention/immutable API issue 
+- Bump google-github-actions/auth from 0 to 1 
+- Correct total count for schedule list datagrid 
+- Support searching artifacts by specified tag name 
+- Reset user password 
+- Update the replication API handler 
+- Bump trivyVersion to v0.37.2, trivyAdapterVersion to v0.30.7 
+- Add "next_scheduled_time" 
+- Resolve the oidc or ldap group user cannot export cve 
+- Change queue name for purge audit log and filter the old one 
+- Improve swagger descriptions (without changing security settings) 
+- Add retry times for calling CVE data export execution list API 
+- Update UI for the deprecation of Artifact Hub 
+- Modified to check the expiration time of the allowlist when determining the vulnerability of an artifact 
+- Update robot account to skip NotFoundErr 
+- Feplace subject id with digest 
+- Fix robot account list project 
+- Skip robot account for oidc_cli middleware 
+- Check tag name for OCI spec 
+- Upgrade mockery version 
+- Remove go routine to reloadSetting 
+- Improve webhook UI 
+- Add sql to migrate the old webhook job to new way
+- Update UI packages
+
+### <a id="v2.8.0_deprecations"></a> Deprecations
+
+- Starting with version v2.8.0, Harbor no longer includes ChartMuseum in either the user interface or the backend.
+
+----------
+
 ## <a id='v2.7.2'></a> v2.7.2
 
 VMware Harbor Container Registry for TKGI v2.7.2 is a maintenance release with [bug fixes](#v2.7.2_fixed).
