@@ -38,7 +38,7 @@ The table provides version, compatibility, and upgrade information for this rele
     </tr>
     <tr>
        <td>Supported BOSH stemcell versions</td>
-       <td>Stemcell Ubuntu Xenial 621.x</td>
+       <td>Ubuntu Jammy 1.44 or higher</td>
     </tr>
     <tr>
        <td>Supported Upgrade Paths</td>
@@ -135,6 +135,7 @@ The Harbor Registry Tile v2.8.0 release includes the following fixes:
 ### <a id="v2.8.0_deprecations"></a> Deprecations
 
 - Starting with version v2.8.0, Harbor no longer includes ChartMuseum in either the user interface or the backend.
+- Starting with version v2.6.0, Notary (Signer and Server) is deprecated and will be removed in Harbor v2.9.0. Users should switch to Sigstore Cosign for container signing and verification.
 
 ----------
 
@@ -382,7 +383,7 @@ The Harbor Registry Tile v2.7.0 release includes the following fixes:
 ### <a id="v2.7.0_deprecations"></a> Deprecations
 
 - Starts the deprecation of Chartmuseum from v2.6.0 and begin to remove in v2.8.0.
-- Starts the deprecation of Notary(signer&server) from v2.6.0 and begin to remove in v2.8.0.
+- Starts the deprecation of Notary(signer&server) from v2.6.0 and begin to remove in v2.9.0.
 - Removes email config page.
 - Removes email configuration.
 - Drops build postgresql 9.6.
