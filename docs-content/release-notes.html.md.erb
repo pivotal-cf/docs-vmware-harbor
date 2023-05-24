@@ -51,9 +51,9 @@ Chartmuseum is [no longer supported](#v2.8.0_deprecations). Before upgrading to 
 
 To do this: 
 
-(1) ssh to the Harbor tile VM.
-(2) Setup docker alias: alias docker='/var/vcap/packages/docker/bin/docker -H unix:///var/vcap/sys/run/docker/dockerd.sock'
-(3) Refer the step 5 in this guide to migrate helm charts to Harbor with OCI format: https://github.com/goharbor/harbor/wiki/Migrate-helm-chart-to-oci-registry-in-Harbor. Note that the <path_to_chart_storage_directory> should be /data/chart_storage, and the <path_to_the_source_harbor_registry_root.ca> should be /var/vcap/jobs/harbor/config/ca.crt.
+1. ssh to the Harbor tile VM.
+1. Setup docker alias: alias docker='/var/vcap/packages/docker/bin/docker -H unix:///var/vcap/sys/run/docker/dockerd.sock'
+1. Refer the step 5 in this guide to migrate helm charts to Harbor with OCI format: https://github.com/goharbor/harbor/wiki/Migrate-helm-chart-to-oci-registry-in-Harbor. Note that the <path_to_chart_storage_directory> should be /data/chart_storage, and the <path_to_the_source_harbor_registry_root.ca> should be /var/vcap/jobs/harbor/config/ca.crt.
 
 ### <a id="v2.8.0_new"></a> New Features
 
