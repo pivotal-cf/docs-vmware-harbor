@@ -5,6 +5,71 @@ owner: Partners
 
 ----------
 
+## <a id='v2.8.2'></a> v2.8.2
+
+VMware Harbor Container Registry for TKGI v2.8.2 is a maintenance release with [enhancements](#v2.8.2_enhancements) and [fixes](#v2.8.2_fixed).
+
+### <a id="v2.8.2_snapshot"></a> Release Snapshot
+
+The table provides version, compatibility, and upgrade information for this release of VMware Harbor Registry.
+
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Release Headline</td>
+        <td>VMware Harbor Container Registry for TKGI v2.8.2</td>
+    </tr>
+    <tr>
+        <td>Release Download</td>
+        <td><a href="https://network.pivotal.io/products/harbor-container-registry/">VMware Tanzu Network</a></td>
+    </tr>
+    <tr>
+        <td>Compatible Ops Manager versions</td>
+        <td>v3.0, 2.10</td>
+    </tr>
+    <tr>
+        <td>Compatible <%= vars.product_pks_short %> versions</td>
+        <td>v1.16.x</td>
+    </tr>
+    <tr>
+        <td>Compatible TAS for VMs versions</td>
+        <td><a href="https://docs.pivotal.io/application-service/2-13/release-notes/runtime-rn.html">Release Notes</a></td>
+    </tr>
+    <tr>
+       <td>Supported BOSH stemcell versions</td>
+       <td>Ubuntu Jammy 1.44 or higher</td>
+    </tr>
+    <tr>
+       <td>Supported Upgrade Paths</td>
+       <td>From Harbor v2.8.0, v2.7.x, v2.6.x</td>
+</table>
+
+### <a id="v2.8.2_enhancements"></a> Enhancements
+
+The Harbor Registry Tile v2.8.2 release includes the following enhancements:  
+
+- Use `subtle.ConstantTimeCompare` instead of `compare directly`  
+- Set tag pull time for proxy cache  
+- Return error when proxy cache returns a `too many requests` error (`429`)  
+- Update TRIVYVERSION=v0.42.0 & TRIVYADAPTERVERSION=v0.30.12  
+
+
+
+### <a id="v2.8.2_fixed"></a> Resolved Issues
+
+The Harbor Registry Tile v2.8.2 release includes the following fixes:  
+
+- Fix setup-gcloud fails when building package  
+- Add Retain image last pull time API testcase  
+- Add Retain image last pull time UI testcase  
+- Update e2e engine image  
+- Add Referrers API testcase  
+- Refresh base images on release-2.8.0  
+- Bump Harbor Tile version to v2.8.2  
+
+----------
+
 ## <a id='v2.8.1'></a> v2.8.1
 
 VMware Harbor Container Registry for TKGI v2.8.1 is a maintenance release with [enhancements](#v2.8.1_enhancements) and [fixes](#v2.8.1_fixed).
