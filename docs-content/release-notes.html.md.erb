@@ -5,6 +5,91 @@ owner: Partners
 
 ----------
 
+## <a id='v2.9.0'></a> v2.9.0
+
+VMware Harbor Container Registry for TKGI v2.9.0 is a GA release with [new features](#v2.9.0_new), [enhancements](#v2.9.0_enhancements), [fixes](#v2.9.0_fixed), [deprecations](#v2.9.0_deprecations) and [breaking changes](#v2.9.0_breaking) with upgrade requirements.
+
+### <a id="v2.9.0_snapshot"></a> Release Snapshot
+
+The table provides version, compatibility, and upgrade information for this release of VMware Harbor Registry.
+
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Release Headline</td>
+        <td>VMware Harbor Container Registry for TKGI v2.9.0</td>
+    </tr>
+    <tr>
+        <td>Release Download</td>
+        <td><a href="https://network.pivotal.io/products/harbor-container-registry/">VMware Tanzu Network</a></td>
+    </tr>
+    <tr>
+        <td>Compatible Ops Manager versions</td>
+        <td>v3.0, 2.10</td>
+    </tr>
+    <tr>
+        <td>Compatible <%= vars.product_pks_short %> versions</td>
+        <td>v1.17.x, v1.16.x</td>
+    </tr>
+    <tr>
+        <td>Compatible TAS for VMs versions</td>
+        <td><a href="https://docs.pivotal.io/application-service/2-13/release-notes/runtime-rn.html">Release Notes</a></td>
+    </tr>
+    <tr>
+       <td>Supported BOSH stemcell versions</td>
+       <td>Ubuntu Jammy 1.44 or higher</td>
+    </tr>
+    <tr>
+       <td>Supported Upgrade Paths</td>
+       <td>From Harbor v2.8.x, v2.7.x</td>
+</table>
+
+### <a id="v2.9.0_breaking"></a> Upgrade Warning: Breaking Changes
+
+As of Harbor v2.9.0, only PostgreSQL versions 12 and later are supported for external databases. Before upgrading, you should make sure that your external databases are using a supported version of PostgreSQL.
+
+### <a id="v2.9.0_new"></a> New Features
+
+The Harbor Registry Tile v2.9.0 release includes the following new features:
+
+- Security Hub: Admin users can now access valuable security insights, which include the number of scanned and unscanned artifacts, identification of dangerous artifacts and CVEs, and advanced search capabilities for vulnerabilities using multiple combined conditions.
+- GC Enhancements: Improved visibility with detailed GC execution history and enable parallel deletion for faster GC triggers.
+- Supporting OCI Distribution Spec v1.1.0-rc2
+- Customized banner message: Admins can now set a customized banner message displayed on top of Harbor web pages.
+- Quota Update Provider: Introduced a new mechanism utilizing Redis for optimistic locking during quota updates when pushing images
+
+### <a id="v2.9.0_enhancements"></a> Enhancements
+
+The Harbor Registry Tile v2.9.0 release includes the following enhancements:
+
+- Fix message prompt under the header
+- Improve the performance of list artifacts
+- Improve repo_read_only header on the UI
+- Add a text to explain the time window for GC
+- Add a tooltip for slack notification
+- Add Details column for gc history 
+- Add Podman push command to the UI
+- Add new client Podman to the pull command
+ 
+### <a id="v2.9.0_fixed"></a> Resolved Issues
+
+The Harbor Registry Tile v2.9.0 release includes the following fixes:
+
+- Fix setup-gcloud fails when building package
+- Add Retain image last pull time API test case
+- Add Retain image last pull time UI test case
+- Update e2e engine image
+- Bump up version to v2.8.2
+- Add Referrers API testcase
+
+
+### <a id="v2.9.0_deprecations"></a> Deprecations
+
+- Starting with version v2.9.0, Harbor no longer includes Notary in either the user interface or the backend. Refer to this [page](https://github.com/goharbor/harbor/wiki/Harbor-Deprecates-Notary-v1-Support-in-v2.9.0) for details.
+
+----------
+
 ## <a id='v2.8.4'></a> v2.8.4
 
 VMware Harbor Container Registry for TKGI v2.8.4 is a maintenance release with [fixes](#v2.8.4_fixed).
