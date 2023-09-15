@@ -5,6 +5,61 @@ owner: Partners
 
 ----------
 
+## <a id='v2.8.4'></a> v2.8.4
+
+VMware Harbor Container Registry for TKGI v2.8.4 is a maintenance release with [fixes](#v2.8.4_fixed).
+
+### <a id="v2.8.4_snapshot"></a> Release Snapshot
+
+The table provides version, compatibility, and upgrade information for this release of VMware Harbor Registry.
+
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Release Headline</td>
+        <td>VMware Harbor Container Registry for TKGI v2.8.4</td>
+    </tr>
+    <tr>
+        <td>Release Download</td>
+        <td><a href="https://network.pivotal.io/products/harbor-container-registry/">VMware Tanzu Network</a></td>
+    </tr>
+    <tr>
+        <td>Compatible Ops Manager versions</td>
+        <td>v3.0, 2.10</td>
+    </tr>
+    <tr>
+        <td>Compatible <%= vars.product_pks_short %> versions</td>
+        <td>v1.17.x, v1.16.x</td>
+    </tr>
+    <tr>
+        <td>Compatible TAS for VMs versions</td>
+        <td><a href="https://docs.pivotal.io/application-service/2-13/release-notes/runtime-rn.html">Release Notes</a></td>
+    </tr>
+    <tr>
+       <td>Supported BOSH stemcell versions</td>
+       <td>Ubuntu Jammy 1.44 or higher</td>
+    </tr>
+    <tr>
+       <td>Supported Upgrade Paths</td>
+       <td>From Harbor v2.8.x, v2.7.x, v2.6.x</td>
+</table>
+
+### <a id="v2.8.4_fixed"></a> Resolved Issues
+
+The Harbor Registry Tile v2.8.4 release includes the following fixes:  
+
+- Fix accessory import issue
+- Bump up TRIVYVERSION=v0.44.0 and TRIVYADAPTERVERSION=v0.30.15
+- Convert the string "0" to number 0 
+- Fix replication list projects with pure numberic name
+- Bump go 1.20.7 && install git for p4 base golang image
+- Fix incorrect otel timeout in harbor yaml template
+- Migrate the redis command keys to scan
+- Spport customize cache db for business
+
+----------
+
 ## <a id='v2.8.2'></a> v2.8.2
 
 VMware Harbor Container Registry for TKGI v2.8.2 is a maintenance release with [enhancements](#v2.8.2_enhancements) and [fixes](#v2.8.2_fixed).
