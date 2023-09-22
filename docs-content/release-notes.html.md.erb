@@ -409,6 +409,75 @@ The Harbor Registry Tile v2.8.0 release includes the following fixes:
 
 ----------
 
+## <a id='v2.7.3'></a> v2.7.3
+
+VMware Harbor Container Registry for TKGI v2.7.3 is a maintenance release with [bug fixes](#v2.7.3_fixed).
+
+<p class="note warning"><strong>Warning:</strong> Because of certain deprecations (specifically, PostgreSQL v9.6), you can only to upgrade to Harbor Tile v2.7.x from Harbor Tile versions v2.5.0 to v2.6.2. To upgrade to Harbor Tile v2.7.x from Harbor Tile v2.4.x or earlier, you must first upgrade to Harbor Tile versions v2.5.0 to v2.6.2, then you can upgrade to Harbor Tile v2.7.x.</a>.</p>
+
+### <a id="v2.7.3_snapshot"></a> Release Snapshot
+
+The table provides version, compatibility, and upgrade information for this release of VMware Harbor Registry.
+
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Release Headline</td>
+        <td>VMware Harbor Container Registry for TKGI v2.7.3</td>
+    </tr>
+    <tr>
+        <td>Release Download</td>
+        <td><a href="https://network.pivotal.io/products/harbor-container-registry/">VMware Tanzu Network</a></td>
+    </tr>
+    <tr>
+        <td>Compatible Ops Manager versions</td>
+        <td>v3.0, v2.10.x, v2.9.x, v2.8.x (refer to the <%= vars.product_pks_short %> release notes for specific matching versions)</td>
+    </tr>
+    <tr>
+        <td>Compatible <%= vars.product_pks_short %> versions</td>
+        <td>v1.16.x, v1.15.x, v1.14.x</td>
+    </tr>
+    <tr>
+        <td>Compatible TAS for VMs versions</td>
+        <td><a href="https://docs.pivotal.io/application-service/2-13/release-notes/runtime-rn.html">Release Notes</a></td>
+    </tr>
+    <tr>
+       <td>Supported BOSH stemcell versions</td>
+       <td>Stemcell Ubuntu Xenial 621.x</td>
+    </tr>
+    <tr>
+       <td>Supported Upgrade Paths</td>
+       <td>From Harbor v2.7.x, v2.6.x, v2.5.x</td>
+</table>
+
+### <a id="v2.7.3_fixed"></a> Resolved Issues
+
+The Harbor Registry Tile v2.7.3 release includes the following fixes:
+
+- Improve the performance of list artifacts
+- Bump golang 1.19.9 on release-2.7.0
+- Use subtle.ConstantTimeCompare instead of compare directly
+- Set tag pull time for proxy cache
+- Return error when proxy cache get too many request error(429)
+- Changed logic search projects in gitlab adapter for 2.7.0
+- Add retry on the caller of v2DeleteManifest instead within v2DeleteManifest
+- Bump TRIVYVERSION=v0.43.0 and TRIVYADAPTERVERSION=v0.30.14
+- Fix accessory import issue
+- Bump TRIVYVERSION=v0.44.0 && TRIVYADAPTERVERSION=v0.30.15
+- Convert the string �\ to number 0
+- Fix replication list projects with pure numberic name
+- Bump go1.19.12 on release-2.7.0 base on ph4
+- Migrate the redis command keys to scan
+- Fix incorrect otel timeout in harbor yaml template
+- Support customize cache db for business
+- Remove job status track information from redis after stop the job in the queue
+- Bump goharbor/golang 1.19.13 on release-2.7.0
+- Bump TRIVYVERSION=v0.45.0 && TRIVYADAPTERVERSION=v0.30.16
+
+
+----------
+
 ## <a id='v2.7.2'></a> v2.7.2
 
 VMware Harbor Container Registry for TKGI v2.7.2 is a maintenance release with [bug fixes](#v2.7.2_fixed).
