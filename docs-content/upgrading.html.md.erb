@@ -1,17 +1,15 @@
 ---
-title: Upgrading VMware Harbor Registry
+title: Upgrading the VMware Harbor Registry Tile
 owner: Partners
 ---
 
-This topic describes how to upgrade VMware Harbor Registry tile using Ops Manager.
-
-<p class="note"><strong>Note:</strong> This documentation supports the Harbor v1.9.x and 1.10.x releases.</p>
+This topic describes how to upgrade VMware Harbor Registry Tile using VMware Tanzu Operations Manager.
 
 ## <a id='prereqs'></a> Prerequisites
 
-These instructions assume that Harbor Registry is installed and configured. See [Installing and Configuring Harbor](./installing.html) for more information.
+These instructions assume that the VMware Harbor Registry Tile is installed and configured. See [Installing and Configuring the VMware Harbor Registry Tile](./installing.html) for more information.
 
-## <a id='upgrade'></a> Import the Harbor Tile
+## <a id='upgrade'></a> Import the Harbor Registry Tile to Operations Manager
 
 1. Review the [Harbor Release Notes](./release-notes.html) and verify the supported upgrade path.
 1. Download the Harbor tile from [Pivotal Network](https://network.pivotal.io/).
@@ -27,7 +25,7 @@ These instructions assume that Harbor Registry is installed and configured. See 
 
 ## <a id='stemcell'></a> Import the Required Stemcell (if necessary)
 
-The Harbor tile upgrade may require a new stemcell. If so, complete the following steps to import it.
+The Harbor Registry Tile upgrade may require a new stemcell. If so, complete the following steps to import it.
 
 1. In Ops Manager, return to the **Installation Dashboard**.
 1. In the Harbor tile, click the **Missing stemcell** link.
@@ -43,7 +41,7 @@ The Harbor tile upgrade may require a new stemcell. If so, complete the followin
 	<img src="images/import-stemcell.png" alt="Import required stemcell for Harbor" width="625">
 1. When prompted, apply the imported stemcell to the Harbor product.
 
-## <a id='deploy'></a> Deploy Harbor with Upgrades
+## <a id='deploy'></a> Deploy the Harbor Registry Tile with Upgrades
 
 To complete the Harbor upgrade, deploy the newly added Harbor tile. When an updated version of the Harbor tile is deployed, Ops Manager will create a new VM based on the required stemcell, install the Harbor software on that VM, mount the disk on it and migrate the data to the new VM.
 
