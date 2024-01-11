@@ -1,22 +1,17 @@
 ---
-title: Installing and Configuring VMware Harbor Registry
+title: Installing and Configuring the VMware Harbor Registry Tile
 owner: Partners
 ---
 
-This topic describes how to install and configure VMware Harbor Registry using Ops Manager
-for use with <%= vars.product_pks_full %> (<%= vars.product_pks_short %>) and VMware Tanzu Application Service for VMs (TAS for VMs).
+This topic describes how to install and configure the VMware Harbor Registry Tile for use with your VMware Tanzu Kubernetes deployments.
 
-For more information about <%= vars.product_pks_short %>, see the [<%= vars.product_pks_full %>](https://docs.pivotal.io/tkgi/index.html) documentation.
+These instructions are valid for new installations, reconfigurations of existing installations, and upgrades. If you are upgrading the Harbor Registry Tile, follow the procedure in [Upgrading the VMware Harbor Registry Tile](upgrading.html) before performing these steps.
 
-For more information about TAS for VMs, see [TAS for VMs Concepts](https://docs.pivotal.io/pivotalcf/concepts/index.html) in the Pivotal documentation.
+## <a id='prereqs'></a> Prerequisite: VMware Tanzu Operations Manager
 
-## <a id='prereqs'></a> Prerequisites
+To install, configure, or upgrade the VMware Harbor Registry Tile, you must have the VMware Tanzu Operations Manager installed. Refer to the Operations Manager [documentation](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/index.html) for instructions. Check the VMware Harbor Registry Tile [release notes](https://docs.vmware.com/en/VMware-Harbor-Registry/services/vmware-harbor-registry/GUID-release-notes.html) for supported Operations Manager versions.
 
-To install the Harbor Registry tile, you must have Ops Manager installed. If you are using Harbor with TKGI, see [Deploying Ops Manager with NSX-T for <%= vars.product_pks_short %>](https://docs.pivotal.io/tkgi/1-12/vsphere-nsxt-om-deploy.html). If you are using Harbor with [TAS](https://docs.pivotal.io/application-service/2-12/concepts/overview.html), see [Ops Manager Installation](https://docs.pivotal.io/ops-manager/2-10/install/index.html).
-
-These instructions are valid for new installations, reconfigurations of existing installations, or upgrades. If you are upgrading Harbor, follow the procedure in [Upgrading VMware Harbor Registry](upgrading.html) before performing these steps.
-
-## <a id='install'></a> Import Harbor Tile to Ops Manager
+## <a id='install'></a> Import the VMware Harbor Registry Tile to Ops Manager
 
 To initiate the deployment of Harbor, import the tile.
 
