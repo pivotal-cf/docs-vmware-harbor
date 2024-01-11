@@ -5,6 +5,144 @@ owner: Partners
 
 ----------
 
+## <a id='v2.10.0'></a> v2.10.0
+
+VMware Harbor Registry Tile v2.10.0 is a GA release with [new features](#v2.10.0_new), [enhancements](#v2.10.0_enhancements), and [resolved issues](#v2.10.0_fixed).
+
+### <a id="v2.10.0_snapshot"></a> Release Snapshot
+
+The table provides version, compatibility, and upgrade information for this release of the VMware Harbor Registry Tile.
+
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Release Headline</td>
+        <td>VMware Harbor Container Registry Tile v2.10.0</td>
+    </tr>
+    <tr>
+        <td>Release Download</td>
+        <td><a href="https://network.pivotal.io/products/harbor-container-registry/">VMware Tanzu Network</a></td>
+    </tr>
+    <tr>
+        <td>Compatible Tanzu Operations Manager versions</td>
+        <td>v3.0, 2.10</td>
+    </tr>
+    <tr>
+        <td>Compatible <%= vars.product_pks_short %> versions</td>
+        <td>v1.18.x, v1.17.x, v1.16.x</td>
+    </tr>
+    <tr>
+        <td>Compatible TAS for VMs versions</td>
+        <td><a href="https://docs.pivotal.io/application-service/2-13/release-notes/runtime-rn.html">Release Notes</a></td>
+    </tr>
+    <tr>
+       <td>Supported BOSH stemcell versions</td>
+       <td>Ubuntu Jammy 1.44 or higher</td>
+    </tr>
+    <tr>
+       <td>Supported Upgrade Paths</td>
+       <td>From Harbor Registry Tile v2.9.x, v2.8x</td>
+</table>
+
+### <a id="v2.10.0_new"></a> New Features
+
+The VMware Harbor Registry Tile v2.10.0 release includes the following new features:
+
+- Robot Account Full Access: Delivers a user-friendly tutorial that walks you through the creation of a new robot. With a simple click, you can seamlessly customize permission sets at both system and project levels.
+- Enable support for OCI Distribution Spec v1.1.0-rc3
+- Enable storage sorting in the quota management page
+- Allow customization of the OIDC provider name
+- Enable support for large-size blobs
+- Ensure audit logs comply with GDPR regulations for data privacy
+
+### <a id="v2.10.0_enhancements"></a> Enhancements
+
+The VMware Harbor Registry Tile v2.10.0 release includes the following enhancements:
+
+- Enhance the replication webhook payload by @chlins in #19433
+- Accessibility - change color for WCAG AA by @SphinxKnight in #19472
+- Optimize the trigger retention API by @chlins in #19533
+- Add a placeholder to the cards for the security-hub by @AllForNothing in #19536
+- Optimize the performance of accessory query by @chlins in #19557
+ 
+### <a id="v2.10.0_fixed"></a> Resolved Issues
+
+The VMware Harbor Registry Tile v2.10.0 release resolves the following known issues:
+
+- Add label's description as tooltip
+- Privileges member successfully
+- Add storage_limit check
+- Cron string validation
+- Ignore spaces for vulnerability filters
+- Update zh-tw (Traditional Chinese) locale
+- Fixed incorrect otel timeout in harbor yaml template
+- Update the max length for the filters
+- Filter artifact without CVE from top 5 dangerous artifacts
+- Change log level to reduce the noise logs
+- Wrong artifact scanned count
+- Support customize cache db for business
+- Fix gc dry run issue
+- Add new uri path to ShouldNotReuseRoute array
+- Refine total artifact and scanned artifact 
+- Fix typo for CONFIRM_SECRET
+- Add a tooltip for the page title of security hub
+- Change JOB_ID to Task_ID
+- Fix typo in ROADMAP.md
+- Delete unused code
+- Add field alias for count(*) func
+- Switch to a new chart library
+- Remove job status track information from redis after stop
+- Remove chart-museum related to logic
+- Fix storage.redirect.disable migrate template error
+- Upgrade UI packages
+- Remove duplicated sort fields from order by clause
+- Fix user resource
+- Update default processor for unknwon type config
+- Hide version property if the value is undefined
+- Update french translations
+- Bump golang to 1.20.10
+- Change fixed_version to package_version in query dangerous CVE sql
+- Fix issue 19392
+- Bump up TRIVYVERSION=v0.46.0 && TRIVYADAPTERVERSION=v0.30.17
+- Update the style for operation-component
+- Bump golang.org/x/net to v0.17.0 && go.opentelemetry.io/contrib
+- Use batch to list the job id in the job queue to avoid crash redis
+- Delete tag retention rule and tag immutable rule when deleting project
+- Bump go.opentelemetry.io/contrib/instrumentation/github.com/gorilla/m… 
+- Not allow comma for the user name
+- Bump golang to 1.21.3 
+- Add a tooltip for the replication rule
+- Replace comma in username to avoid casbin issue
+- Update the style for severity
+- Remove vendor folder from harbor code base
+- bump up TRIVYVERSION=v0.46.1 && TRIVYADAPTERVERSION=v0.30.18
+- Skip to validate username when update user profile
+- Update UI package to clear security alerts
+- Delete project member when delete project
+- Add permission api
+- Allow POST method to request service/token in readonly mode
+- 19559 cannot see full label easily
+- Sorting quota
+- Avoid menu closure when filtering labels
+- Correct loop condition for replication tasks
+- Return empty result when no scanner configured
+- Bump golang to 1.21.4
+- Add permission validation for robot creating and updating
+- Add prepare migration script for 2.10
+- Update the permission scope
+- Fix system label resource
+- Bump golang.org/x/time from 0.0.0-20220210224613-90d013bbcef8 to 0.4.0 in /src
+- Fix robot account access issue
+- Update TRIVYVERSION=v0.47.0 && TRIVYADAPTERVERSION=v0.30.19 
+- Bump github.com/coreos/go-oidc/v3 from 3.0.0 to 3.7.0 in /src 
+- Update the name checking for the robot account
+- Prepare migration version
+- Upgrade google.golang.org/grpc
+- Update the style for the robot account ui 
+
+----------
+
 ## <a id='v2.9.1'></a> v2.9.1
 
 VMware Harbor Container Registry Tile v2.9.1 a is a maintenance release with [enhancements](#v2.9.1_enhancements) and [fixes](#v2.9.1_fixed).
@@ -82,7 +220,7 @@ The Harbor Registry Tile v2.9.1 release includes the following fixes:
 
 ## <a id='v2.9.0'></a> v2.9.0
 
-VMware Harbor Container Registry for TKGI v2.9.0 is a GA release with [new features](#v2.9.0_new), [enhancements](#v2.9.0_enhancements), [fixes](#v2.9.0_fixed), [deprecations](#v2.9.0_deprecations) and [breaking changes](#v2.9.0_breaking) with upgrade requirements.
+VMware Harbor Registry Tile v2.9.0 is a GA release with [new features](#v2.9.0_new), [enhancements](#v2.9.0_enhancements), [fixes](#v2.9.0_fixed), [deprecations](#v2.9.0_deprecations) and [breaking changes](#v2.9.0_breaking) with upgrade requirements.
 
 ### <a id="v2.9.0_snapshot"></a> Release Snapshot
 
