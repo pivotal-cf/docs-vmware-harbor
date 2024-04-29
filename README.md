@@ -2,7 +2,7 @@
 
 This repo contains the content for the documentation for VMware Harbor Registry.
 
-The content in this repo publishes to the VMWare Harbor Registry documentation site at https://docs.pivotal.io/vmware-harbor/.
+The content in this repo publishes to the VMWare Harbor Registry documentation site at https://docs.vmware.com/en/VMware-Harbor-Registry/services/vmware-harbor-registry/GUID-index.html.
 
 The subnav for this documentation is located at https://github.com/pivotal-cf/docs-book-pcfservices/blob/master/master_middleman/source/subnavs/vmware-harbor_subnav.erb.
 
@@ -12,7 +12,7 @@ Please help us improve the accuracy and completeness of the VMware Harbor Regist
 
 The easiest way to contribute is to file a pull request through GitHub.
 
-Every topic in the [VMware Harbor Registry documentation](https://docs.pivotal.io/vmware-harbor/) has a corresponding file in this repo. Locate the correct file and make a pull request against it. You can also navigate to the topic and click "View the source for this page in GitHub" at the bottom of the topic.
+Every topic in the [VMware Harbor Registry documentation](https://docs.vmware.com/en/VMware-Harbor-Registry/services/vmware-harbor-registry/GUID-index.html) has a corresponding file in this repo. Locate the correct file and make a pull request against it. You can also navigate to the topic and click "View the source for this page in GitHub" at the bottom of the topic.
 
 ## How To Use Bookbinder To View Your Docs
 
