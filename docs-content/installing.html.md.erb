@@ -15,7 +15,7 @@ To install, configure, or upgrade the VMware Harbor Registry Tile, you must have
 
 To initiate the deployment of Harbor, import the tile.
 
-1. Download the Harbor tile from the [VMware Tanzu Network](https://network.pivotal.io/).
+1. Download the Harbor tile from the [VMware Tanzu Network](https://network.tanzu.vmware.com/).
 1. Log in to the Ops Manager **Installation Dashboard**.
 1. Click **Import a Product** and upload the Harbor tile.
 1. Below the **Import a Product** button, click the **+** next to the VMware Harbor Registry version number to add the tile to your staging area.
@@ -341,14 +341,14 @@ If the version of the Harbor tile that you are installing requires a more recent
 
 To update the stemcell, follow the steps below.
 
-1. In Ops Manager, return to the **Installation Dashboard**.
+1. In Tanzu Operations Manager, return to the **Installation Dashboard**.
 1. Click the Harbor tile.
 1. In the Harbor tile, click the **Missing stemcell** link.
 1. In the **Stemcell Library**, record the name and version of the required stemcell for Harbor.
 <br><br>
     <img src="images/required-stemcell.png" alt="Required stemcell for Harbor" width="725">
 <br><br>
-1. Log in to the [VMware Tanzu Network](https://network.pivotal.io/).
+1. Log in to the [VMware Tanzu Network](https://network.tanzu.vmware.com/).
 1. Search for **Stemcells for PCF (Ubuntu Xenial)**.
 1. Download the required Harbor stemcell for your platform to the Ops Manager host. For example, if you are using vSphere, download the BOSH stemcell for vSphere that matches the version that you recorded in a previous step.
 1. In Ops Manager, return to the **Installation Dashboard**.
@@ -385,7 +385,7 @@ After you install and configure Harbor, you must update the DNS entry for Harbor
 - Update the DNS entry for the Harbor hostname with the IP address of the Harbor VM assigned by BOSH. See [Update DNS for Harbor](./integrating-pks.html#update-dns) in _Integrating VMware Harbor Registry with <%= vars.product_pks_short %>_.
 - Obtain the Harbor CA certificate and provide it to Ops Manager:
   - [<%= vars.product_pks_short %> instructions](./integrating-pks.html#provide-harbor-cert)
-  - [TAS for VMs instructions](https://docs.pivotal.io/pivotalcf/opsguide/docker-registry.html#ops-man)
+  - [TAS for VMs instructions](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/6.0/tas-for-vms/docker-registry.html)
 - If you are using Harbor with <%= vars.product_pks_short %> with NSX-T in NAT mode, you must create a DNAT rule to access the Harbor UI. See [Create DNAT Rule (NSX-T)](./integrating-pks.html#create-dnat-harbor) in _Integrating VMware Harbor Registry with <%= vars.product_pks_short %>_.
 - Start Harbor and log in. See [Starting Harbor](./using.html#starting) in _Using VMware Harbor Registry_.
 - Use Harbor. See [Using Harbor](./using.html#using) in _Using VMware Harbor Registry_.

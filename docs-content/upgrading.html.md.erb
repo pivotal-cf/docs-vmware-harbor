@@ -12,7 +12,7 @@ These instructions assume that the VMware Harbor Registry Tile is installed and 
 ## <a id='upgrade'></a> Import the Harbor Registry Tile to Operations Manager
 
 1. Review the [Harbor Release Notes](./release-notes.html) and verify the supported upgrade path.
-1. Download the Harbor tile from [Pivotal Network](https://network.pivotal.io/).
+1. Download the Harbor tile from [VMware Tanzu Network](https://network.tanzu.vmware.com/).
 1. Log in to the Ops Manager **Installation Dashboard**.
 1. Click **Import a Product** and upload the Harbor tile.
 1. Stage the uploaded Harbor tile for upgrade by clicking the **+** icon next to the VMware Harbor Registry version number in the left panel.
@@ -32,7 +32,7 @@ The Harbor Registry Tile upgrade may require a new stemcell. If so, complete the
 	<img src="images/missing-stemcell.png" alt="Missing stemcell for Harbor" width="625">
 1. In the **Stemcell Library**. record the name and version of the required stemcell for Harbor.
 	<img src="images/required-stemcell.png" alt="Required stemcell for Harbor" width="625">
-1. Log in to [Pivotal Network](https://network.pivotal.io/).
+1. Log in to [VMware Tanzu Network](https://network.tanzu.vmware.com/).
 1. Search for **Stemcells for VMware Tanzu (Ubuntu Xenial)**.
 1. Download the required Harbor stemcell for your platform to the Ops Manager host. For example, if you are using vSphere, download the BOSH stemcell for vSphere that matches the version that you recorded in a previous step.
 1. In Ops Manager, return to the **Installation Dashboard**.

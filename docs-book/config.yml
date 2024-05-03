@@ -8,7 +8,7 @@ repo_link_enabled: true
 pcf_header: &local_pcf
   use_local_header: true
   latest_stable_version: 1.7
-  changelog_href: http://docs.pivotal.io/pivotalcf/pcf-release-notes/
+  changelog_href: https://docs.vmware.com/en/VMware-Harbor-Registry/services/vmware-harbor-registry/GUID-release-notes.html
   local_header_img: /images/cloud_rings.png
   local_header_title: Pivotal Cloud Foundry
 public_host: hello
