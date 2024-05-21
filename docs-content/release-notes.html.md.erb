@@ -196,6 +196,62 @@ The VMware Harbor Registry Tile v2.10.0 release resolves the following known iss
 
 ----------
 
+## <a id='v2.9.4'></a> v2.9.4
+
+VMware Harbor Registry Tile v2.9.4 is a GA release with [fixes](#v2.9.4_fixed).
+
+### <a id="v2.9.4_snapshot"></a> Release Snapshot
+
+The table provides version, compatibility, and upgrade information for this release of VMware Harbor Registry.
+
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Release Headline</td>
+        <td>VMware Harbor Container Registry for TKGI v2.9.4</td>
+    </tr>
+    <tr>
+        <td>Release Download</td>
+        <td><a href="https://network.tanzu.vmware.com/products/harbor-container-registry/">VMware Tanzu Network</a></td>
+    </tr>
+    <tr>
+        <td>Compatible Ops Manager versions</td>
+        <td>v3.0, 2.10</td>
+    </tr>
+    <tr>
+        <td>Compatible <%= vars.product_pks_short %> versions</td>
+        <td>v1.18.x, v1.17.x, v1.16.x</td>
+    </tr>
+    <tr>
+        <td>Compatible TAS for VMs versions</td>
+        <td><a href="https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.13/tas-for-vms/runtime-rn.html">Release Notes</a></td>
+    </tr>
+    <tr>
+       <td>Supported BOSH stemcell versions</td>
+       <td>Ubuntu Jammy 1.44 or higher</td>
+    </tr>
+    <tr>
+       <td>Supported Upgrade Paths</td>
+       <td>From Harbor v2.9.0, v2.8.x, v2.7.x</td>
+</table>
+
+### <a id="v2.9.4_fixed"></a> Resolved Issues
+
+The Harbor Registry Tile v2.9.4 release includes the following fixes:
+
+- Assign metas to key and value
+- Fix panic due to mark retention task error
+- Bump golang to 1.21.8 on release-2.9.0
+- Bump up TRIVYVERSION=v0.50.1 and TRIVYADAPTERVERSION=v0.30.23
+- Fix close file error
+- Allow empty path in redirect_url
+- Add 400 response code for /scan/{report_id}/log
+- Bump golang to 1.21.9 on release-2.9.0
+- Update version of some dependencies
+
+----------
+
 ## <a id='v2.9.0'></a> v2.9.0
 
 VMware Harbor Registry Tile v2.9.0 is a GA release with [new features](#v2.9.0_new), [enhancements](#v2.9.0_enhancements), [fixes](#v2.9.0_fixed), [deprecations](#v2.9.0_deprecations) and [breaking changes](#v2.9.0_breaking) with upgrade requirements.
@@ -281,6 +337,61 @@ The Harbor Registry Tile v2.9.0 release includes the following fixes:
 
 ----------
 
+## <a id='v2.8.6'></a> v2.8.6
+
+VMware Harbor Container Registry for TKGI v2.8.6 is a maintenance release with [fixes](#v2.8.6_fixed).
+
+### <a id="v2.8.6_snapshot"></a> Release Snapshot
+
+The table provides version, compatibility, and upgrade information for this release of VMware Harbor Registry.
+
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Release Headline</td>
+        <td>VMware Harbor Container Registry for TKGI v2.8.6</td>
+    </tr>
+    <tr>
+        <td>Release Download</td>
+        <td><a href="https://network.tanzu.vmware.com/products/harbor-container-registry/">VMware Tanzu Network</a></td>
+    </tr>
+    <tr>
+        <td>Compatible Ops Manager versions</td>
+        <td>v3.0, 2.10</td>
+    </tr>
+    <tr>
+        <td>Compatible <%= vars.product_pks_short %> versions</td>
+        <td>v1.16.x</td>
+    </tr>
+    <tr>
+        <td>Compatible TAS for VMs versions</td>
+        <td><a href="https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.13/tas-for-vms/runtime-rn.html">Release Notes</a></td>
+    </tr>
+    <tr>
+       <td>Supported BOSH stemcell versions</td>
+       <td>Ubuntu Jammy 1.44 or higher</td>
+    </tr>
+    <tr>
+       <td>Supported Upgrade Paths</td>
+       <td>From Harbor v2.8.x, v2.7.x, v2.6.x</td>
+</table>
+
+### <a id="v2.8.6_fixed"></a> Resolved Issues
+
+The Harbor Registry Tile v2.8.6 release includes the following fixes:  
+
+- Assign metas to key and value
+- Fix panic due to mark retention task error
+- Bump up TRIVYVERSION=v0.50.1 and TRIVYADAPTERVERSION=v0.30.23
+- Fix close file error
+- Allow empty path in redirect_url
+- Add 400 response code for /scan/{report_id}/log
+- Bump golang to 1.21.9 on release-2.8.0
+- Update version of some dependencies
+
+----------
+
 ## <a id='v2.8.4'></a> v2.8.4
 
 VMware Harbor Container Registry for TKGI v2.8.4 is a maintenance release with [fixes](#v2.8.4_fixed).
@@ -332,7 +443,7 @@ The Harbor Registry Tile v2.8.4 release includes the following fixes:
 - Bump go 1.20.7 && install git for p4 base golang image
 - Fix incorrect otel timeout in harbor yaml template
 - Migrate the redis command keys to scan
-- Spport customize cache db for business
+- Support customize cache db for business
 
 ----------
 
