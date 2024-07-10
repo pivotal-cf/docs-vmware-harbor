@@ -21,7 +21,7 @@ The table provides version, compatibility, and upgrade information for this rele
     </tr>
     <tr>
         <td>Release Download</td>
-        <td><a href="https://storage.googleapis.com/harbor-ci-pipeline-store/tile-releases/harbor-container-registry-2.11.0-build.2.pivotal">Release download</a></td>
+        <td><a href="https://storage.googleapis.com/harbor-ci-pipeline-store/tile-releases/harbor-container-registry-2.11.0-build.2.pivotal">v2.11.0 download</a></td>
     </tr>
     <tr>
         <td>Compatible Ops Manager versions</td>
@@ -76,6 +76,62 @@ The Harbor Registry Tile v2.11.0 release includes the following known issues:
 
 ----------
 
+## <a id='v2.10.3'></a> v2.10.3
+
+VMware Harbor Registry Tile v2.10.3 is a maintenance release with [fixes](#v2.10.3_fixes) and [known issues](#v2.10.3_issues).
+
+### <a id="v2.10.3_snapshot"></a> Release Snapshot
+
+The table provides version, compatibility, and upgrade information for this release of VMware Harbor Registry Tile.
+
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Release Headline</td>
+        <td>VMware Harbor Registry Tile for TKGI v2.10.3</td>
+    </tr>
+    <tr>
+        <td>Release Download</td>
+        <td><a href="https://storage.googleapis.com/harbor-ci-pipeline-store/tile-releases/harbor-container-registry-2.10.3-build.1.pivotal">v2.10.3 Download</a></td>
+    </tr>
+    <tr>
+        <td>Compatible Ops Manager versions</td>
+        <td>v3.0, v2.10</td>
+    </tr>
+    <tr>
+        <td>Compatible <%= vars.product_pks_short %> versions</td>
+        <td>v1.18.x, v1.17.x, v1.16.x</td>
+    </tr>
+    <tr>
+        <td>Compatible TAS for VMs versions</td>
+        <td><a href="https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.13/tas-for-vms/runtime-rn.html">Release Notes</a></td>
+    </tr>
+    <tr>
+       <td>Supported BOSH stemcell versions</td>
+       <td>Ubuntu Jammy 1.44 or higher</td>
+    </tr>
+    <tr>
+       <td>Supported Upgrade Paths</td>
+       <td>From Harbor Registry Tile v2.10.x, v2.9.x, v2.8.x</td>
+</table>
+
+### <a id="v2.10.3_fixes"></a> Fixes
+
+The Harbor Registry Tile v2.10.3 release includes the following fixes:
+
+- Update doublestar dep
+- Adjust the query by UUID sql so that it can use the idx_task_extra_at…
+- Upgrade golang to 1.22.4 and bump up dep
+
+### <a id="v2.10.3_issues"></a> Known Issues
+
+The Harbor Registry Tile v2.10.3 release includes the following known issues:
+
+- [Known issue #20691](https://github.com/goharbor/harbor/issues/20691) LDAP handshake failure with LDAP server has old TLS_RSA_* cipher suites. Workaround: Add environment variable GODEBUG="tlsrsakex=1" to common/config/core/env file and restart Harbor.
+
+----------
+
 ## <a id='v2.10.2'></a> v2.10.2
 
 VMware Harbor Registry Tile for TKGI v2.10.2 is a maintenance release with [enhancements](#v2.10.2_fixed).
@@ -93,7 +149,7 @@ The table provides version, compatibility, and upgrade information for this rele
     </tr>
     <tr>
         <td>Release Download</td>
-        <td><a href="https://network.tanzu.vmware.com/products/harbor-container-registry/">VMware Tanzu Network</a></td>
+        <td><a href="https://storage.googleapis.com/harbor-ci-pipeline-store/tile-releases/harbor-container-registry-2.10.2-build.1.pivotal">v2.10.2 Download</a></td>
     </tr>
     <tr>
         <td>Compatible Ops Manager versions</td>
@@ -269,7 +325,7 @@ The VMware Harbor Registry Tile v2.10.0 release resolves the following known iss
 
 ## <a id='v2.9.5'></a> v2.9.5
 
-VMware Harbor Registry Tile v2.9.5 is a GA release with [fixes](#v2.9.5_fixes) and [known issues](#v2.9.5_issues).
+VMware Harbor Registry Tile v2.9.5 is a maintenance release with [fixes](#v2.9.5_fixes) and [known issues](#v2.9.5_issues).
 
 ### <a id="v2.9.5_snapshot"></a> Release Snapshot
 
@@ -284,7 +340,7 @@ The table provides version, compatibility, and upgrade information for this rele
     </tr>
     <tr>
         <td>Release Download</td>
-        <td><a href="https://storage.googleapis.com/harbor-ci-pipeline-store/tile-releases/harbor-container-registry-2.9.5-build.1.pivotal"></a></td>
+        <td><a href="https://storage.googleapis.com/harbor-ci-pipeline-store/tile-releases/harbor-container-registry-2.9.5-build.1.pivotal">v2.9.5 Download</a></td>
     </tr>
     <tr>
         <td>Compatible Ops Manager versions</td>
@@ -316,6 +372,8 @@ The Harbor Registry Tile v2.9.5 release includes the following fixes:
 - Upgrade golang to 1.22.4 and bump up dep
 
 ### <a id="v2.9.5_issues"></a> Known Issues
+
+The Harbor Registry Tile v2.9.5 release includes the following known issues:
 
 - [Known issue #20691](https://github.com/goharbor/harbor/issues/20691) LDAP handshake failure with LDAP server has old TLS_RSA_* cipher suites. Workaround: Add environment variable GODEBUG="tlsrsakex=1" to common/config/core/env file and restart Harbor.
 
