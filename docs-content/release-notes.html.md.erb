@@ -72,7 +72,7 @@ The Harbor Registry Tile v2.11.0 release includes the following known issues:
 
 - Harbor supports only one signature for each artifact replicated to the destination Harbor instance that is signed by legacy cosign. If you want to replicate multiple signatures for a subject image, use oci-1.1 mode (cosign v2.2.1+) for signing.
 - There is an issue with SBOM generation in Harbor v2.11.0 when using external Reverse Proxy (HTTP 404).
-- LDAP handshake failure with LDAP server has old TLS_RSA_* cipher suites. Workaround: Add environment variable GODEBUG="tlsrsakex=1" to common/config/core/env file and restart Harbor.
+- [Known issue #20691](https://github.com/goharbor/harbor/issues/20691) LDAP handshake failure with LDAP server has old TLS_RSA_* cipher suites. Workaround: Add environment variable GODEBUG="tlsrsakex=1" to common/config/core/env file and restart Harbor.
 
 ----------
 
@@ -128,7 +128,7 @@ The Harbor Registry Tile v2.10.3 release includes the following fixes:
 
 The Harbor Registry Tile v2.10.3 release includes the following known issues:
 
-- LDAP handshake failure with LDAP server has old TLS_RSA_* cipher suites. Workaround: Add environment variable GODEBUG="tlsrsakex=1" to common/config/core/env file and restart Harbor.
+- [Known issue #20691](https://github.com/goharbor/harbor/issues/20691) LDAP handshake failure with LDAP server has old TLS_RSA_* cipher suites. Workaround: Add environment variable GODEBUG="tlsrsakex=1" to common/config/core/env file and restart Harbor.
 
 ----------
 
@@ -375,7 +375,7 @@ The Harbor Registry Tile v2.9.5 release includes the following fixes:
 
 The Harbor Registry Tile v2.9.5 release includes the following known issues:
 
-- LDAP handshake failure with LDAP server has old TLS_RSA_* cipher suites. Workaround: Add environment variable GODEBUG="tlsrsakex=1" to common/config/core/env file and restart Harbor.
+- [Known issue #20691](https://github.com/goharbor/harbor/issues/20691) LDAP handshake failure with LDAP server has old TLS_RSA_* cipher suites. Workaround: Add environment variable GODEBUG="tlsrsakex=1" to common/config/core/env file and restart Harbor.
 
 ----------
 
