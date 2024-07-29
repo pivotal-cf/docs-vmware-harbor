@@ -1,0 +1,5 @@
+*   [VMware Harbor Registry](/docs-vmware-harbor/index.html)
+*   [Installing and Configuring VMware Harbor Registry](/docs-vmware-harbor/installing.html)
+*   [Upgrading VMware Harbor Registry](/docs-vmware-harbor/upgrading.html)
+*   [Using VMware Harbor Registry](/docs-vmware-harbor/using.html)
+*   [Release Notes](/docs-vmware-harbor/release-notes.html)
